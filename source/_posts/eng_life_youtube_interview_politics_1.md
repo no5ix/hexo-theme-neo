@@ -1,6 +1,6 @@
 ---
 title: We interviewed Trump supporters, got DANGEROUS!
-date: 2023-06-02 22:26:21
+date: 2024-11-14 04:10:06
 tags:
 - English
 categories:
