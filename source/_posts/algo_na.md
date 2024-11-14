@@ -47,7 +47,8 @@ class Solution {
         }
         int leftIndex = 0;
         int rightIndex = numbers.length - 1;
-        while (leftIndex <= rightIndex) {
+        while (leftIndex <= rightIndex) {  // 因为我们定义 target 是在一个在左闭右闭的区间里，也就是[left, right], 所以要使用 <= ，因为left == right是有意义的
+        
             /*
             url: https://stackoverflow.com/questions/27167943/why-leftright-left-2-will-not-overflow
             Q: why left+(right-left)/2 can avoid overflow?
@@ -62,7 +63,7 @@ class Solution {
                 int mid = left + (right - left)/2;
                 you can't overflow in (right - left) because you're subtracting a smaller number from a larger number. That always results in an even smaller number, so it can't possibly go over the maximum. E.g. 80 - 50 = 30.
 
-                LLLLLynx said: Since (right - left) is the distance between left and right, so `left + (right - left)/2` will not be larger than the right. Furthermore, it will not be larger than the maximum integer.
+                WWWWasp said: Since (right - left) is the distance between left and right, so `left + (right - left)/2` will not be larger than the right. Furthermore, it will not be larger than the maximum integer.
             */
             int midIndex = leftIndex + ((rightIndex - leftIndex) >> 1);  // >> 1 等同于 除以 2
             if (numbers[midIndex] == targetNumber) {
