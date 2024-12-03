@@ -2174,7 +2174,7 @@ def _partition(arr, left_index, right_index):
     # partition_index 在还没开始遍历之前时应该指向待遍历元素的最左边的那个元素的前一个位置
     # 在这里这种写法就是 `left_index`
     # 这才符合partition_index的定义:
-    #       partition_indexy指向小于pivot的那些元素的最后一个元素,
+    #       partition_index 指向小于pivot的那些元素的最后一个元素,
     #       即 less_than_pivots_last_elem_index
     # 因为还没找到比pivot小的元素之前, 
     # partition_index是不应该指向任何待遍历的元素的
@@ -2183,6 +2183,7 @@ def _partition(arr, left_index, right_index):
     i = left_index + 1  # 因为pivot_index取left_index了, 则我们从left_index+1开始遍历
     while i <= right_index:
         if arr[i] < pivot:
+            # arr[i] 和 大于pivot的第一个元素 Q 交换(Q 亦即: 小于pivot的那些元素的最后一个元素的后面一个元素, 所以是partition + 1) 
             arr[i], arr[partition_index+1] = arr[partition_index+1], arr[i]
             partition_index += 1
         i += 1

@@ -8,6 +8,11 @@ categories:
 ---
 
 
+# URL
+
+https://www.youtube.com/watch?v=vgsgfy30C5g
+
+
 # English
 
 
@@ -187,10 +192,7 @@ save those beautiful children you're talking  about. But instead, we're all foc
 
 44
 00:03:53,719 --> 00:03:59,358
-distracted by drag queen story. Our really. 
-
-
-## A man who insisted Trump never post a social truth.
+distracted by drag queen story. Our really?
 
 Speaker 1: We need to do away with the false  
 
@@ -212,7 +214,12 @@ but they deserve they. They get to vote. I'm not  saying you don't let them vot
 
 49
 00:04:18,079 --> 00:04:24,039
-make their vote irrelevant by turning out in  such large numbers. Here's another guy that,  
+make their vote irrelevant by turning out in  such large numbers.
+
+
+## A man who insisted Trump never post a social truth.
+
+ Here's another guy that,  
 
 50
 00:04:24,040 --> 00:04:31,160
@@ -714,9 +721,11 @@ I get extremely motivated to vote. Scary stuff.  These people are dangerous. Ve
 00:03:43,159 –> 00:03:49,078
 我们可以进行一些常识性的枪支改革，保护你们谈论的那些美丽孩子的生命，但结果我们都被变装故事会分散了注意力。
 
-## 2
 
 Speaker 1: 我们需要摒弃那种错误的观念，即如果我们只把这些人找来，我们就能说服他们放弃他们的错觉。有些人我们可以，但在大规模的情况下，这不是我们获胜的方式。我们需要通过绕过这些人，让他们在政治上变得无关紧要，这可能不太友好，哦，但他们是有选举权的。我并不是说不让他们投票，我是说我们通过动员大量选民，使他们的选票变得无关紧要。
+
+## 2
+
 这是另一位卢克采访的对象，他展示了特朗普在“真相社交”上关于暂停宪法的帖子。那个人坚称那是假的，认为有人让它看起来像是特朗普发布的，但特朗普绝对不会发这种帖子。卢克给他看了，这再次证明了你给他们看了证据，他们就是不接受。他们说那是假的。
 
 Speaker 4: 如果有人呼吁终止宪法，你会支持吗？

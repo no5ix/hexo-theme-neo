@@ -88,6 +88,65 @@ public class test{
 }
 ```
 
+### 二分查找扩展题 - lc69 - 求平方
+
+- https://leetcode.com/problems/sqrtx/description/
+
+``` java
+class Solution {
+    public int mySqrt(int x) {
+        if (x == 0 || x == 1) {
+            return x;
+        }
+        int left = 1;
+        int right = x;
+        int mid = 0;
+        while (left <= right) {
+            mid = left + (right - left) / 2;
+            if ((long)mid * mid > x) {
+                right = mid - 1;
+            } else if ((long)mid * mid < x) {
+                left = mid + 1;
+            } else {
+                return mid;
+            }
+        }
+        // 为什么返回right而不是left? 因为最后是left 大于了right才退出循环的, 所以要取小的那个, 退出循环的时候right小一些
+        // 比如 [1, 2, 3, 4, 5, 6, 7, 8], 最后一轮循环是 left=3, right=3, 然后此时mid也等于3, 3*3=9 所以 right得减一, right 就等于2 了
+        return right;
+    }
+}
+```
+
+## lc27
+
+- https://programmercarl.com/0027.移除元素.html#算法公开课
+- https://leetcode.com/problems/remove-element/description/
+
+双指针法（快慢指针法）： 通过一个快指针和慢指针在一个for循环下完成两个for循环的工作。
+
+定义快慢指针:    
+- 快指针：寻找新数组的元素 ，新数组就是不含有目标元素的数组
+- 慢指针：指向更新 新数组下标的位置
+
+诀窍: 应该想象成 slowIndex 之前的那些数组格子就是新的数组
+
+``` java
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int slowIndex = 0;
+        int fastIndex = 0;
+        for (;fastIndex < nums.length; fastIndex++) {
+            if (nums[fastIndex] != val) {
+                nums[slowIndex++] = nums[fastIndex];
+            }
+        }
+        return slowIndex;
+    }
+}
+```
+
+
 ## lc977 - 有序数组的平方 - 20240916
 
 - https://programmercarl.com/0977.有序数组的平方.html#算法公开课
@@ -126,10 +185,90 @@ public class test{
 }
 ```
 
+# 链表
+
+## lc206 - 链表反转
+
+- https://programmercarl.com/0206.翻转链表.html#算法公开课
+- https://leetcode.com/problems/reverse-linked-list/description/
+
+- 重要!!!!! 记忆口诀: 举一反(反转)三(3个指针! pre! cur! temp!)
+- 核心要点就是需要保存一个后面可能要用的结点就弄一个指针出来, 比如这个pre
+
+``` java
+// 双指针
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode cur = head;
+        ListNode temp = null;
+        while (cur != null) {
+            temp = cur.next;// 保存下一个节点
+            cur.next = prev;
+            prev = cur;
+            cur = temp;
+        }
+        return prev;
+    }
+}
+```
+
+
+## lc24 - 两两交换链表中的节点
+
+- https://programmercarl.com/0024.两两交换链表中的节点.html
+- https://leetcode.com/problems/swap-nodes-in-pairs/
+
+- 重要!!!!! 记忆口诀(和反转链表很类似): 举一(1个dummyHead指针!)反(反转)三(3个指针! cur! node1! node2!)
+- 核心要点(和反转链表很类似): 就是需要保存一个后面可能要用的结点就弄一个指针出来, 需要两个就弄两个指针, 比如这个node1, node2 !!
+
+``` java
+// 将步骤 2,3 交换顺序，这样不用定义 temp 节点
+public ListNode swapPairs(ListNode head) {
+    ListNode dummy = new ListNode(0, head);
+    ListNode cur = dummy;
+    while (cur.next != null && cur.next.next != null) {
+        ListNode node1 = cur.next;// 第 1 个节点
+        ListNode node2 = cur.next.next;// 第 2 个节点
+        cur.next = node2; // 步骤 1
+        node1.next = node2.next;// 步骤 3
+        node2.next = node1;// 步骤 2
+        cur = cur.next.next;
+    }
+    return dummy.next;
+}
+```
+
 # 字符串
 
-## lc28 - 实现strStr() - 20240923 - KMP
+## lc28 - 实现strStr() - 20240923
 
+### 暴力解法-掌握这个暴力解法即可
+
+``` java
+class Solution {
+    public int strStr(String haystack, String needle) {
+        int hLen = haystack.length();
+        int nLen = needle.length();
+        // 0, 1, 2, 3, 4, 5
+        for (int i = 0; i + nLen <= hLen; ++i) {
+            boolean flag = true;
+            for (int j = 0; j < nLen; ++j) {
+                if (haystack.charAt(i + j) != needle.charAt(j)) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag == true) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+```
+
+### KMP不要求-面试基本不会出的-背代码就没意思了
 
 - https://programmercarl.com/0028.实现strStr.html#算法公开课
 - https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
@@ -178,6 +317,131 @@ class Solution {
             if (s.charAt(j) == s.charAt(i))   // 此时前后缀相等
                 j++;
             next[i] = j;  // 因为 j 既是前缀 的末尾位置, 又是前缀的长度, 所以此处直接在 next 表里存下 j
+        }
+    }
+}
+```
+
+## lc459 - 重复的子字符串-暴力解法-掌握这个暴力解法即可
+
+- https://programmercarl.com/0459.重复的子字符串.html#算法公开课
+- https://leetcode.com/problems/repeated-substring-pattern/
+
+``` java
+// 作者：力扣官方题解
+// 链接：https://leetcode.cn/problems/repeated-substring-pattern/solutions/386481/zhong-fu-de-zi-zi-fu-chuan-by-leetcode-solution/
+class Solution {
+    public boolean repeatedSubstringPattern(String s) {
+        int n = s.length();
+        for (int i = 1; i * 2 <= n; ++i) {  // 这个 i 并不是 字符串的index, 而是子串长度; 并且注意到一个小优化是，因为子串至少需要重复一次，所以子串长度 i 不会大于 n 的一半，
+            if (n % i == 0) {  // s 的长度一定是子串长度的倍数
+                boolean match = true;
+                for (int j = i; j < n; ++j) {
+                    int offset = j % i;  // 子串肯定是 s 的前缀, 这里是拿字符串的子串前缀的index
+                    if (s.charAt(j) != s.charAt(offset)) {
+                        match = false;
+                        break;
+                    }
+                }
+                if (match) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+```
+
+# 栈与队列
+
+## lc347 - Top K Frequent Elements
+
+- https://leetcode.com/problems/top-k-frequent-elements/description/
+- https://programmercarl.com/0347.前K个高频元素.html#其他语言版本
+- Similar problem: https://leetcode.com/problems/kth-largest-element-in-an-array/
+
+We should solve this kind of top-level problem using the “Quick Select” approach (it’s very similar to Quick Sort). Because its time complexity of O(n) is lower, this method is more efficient than the Heap-based approach with a time complexity of O(nlogn).
+
+Referenced this: https://www.bilibili.com/video/BV1Bz4y117Fr/
+
+``` java
+import java.util.Map;
+import java.util.HashMap;
+
+class Solution {
+
+    public static void main(String[] args) {
+        // int[] array = {10, 7, 8, 9, 1, 5};
+        int[] array = {1, 1, 1, 1, 2, 2, 3, 3, 3, 5, 5, 5, 5, 6, 6};
+        int[] res = topKFrequent(array, 2);
+        // int[] array = {1};
+        // int[] res = topKFrequent(array, 1);
+        for (int num : res) {
+            System.out.print(num + " ");
+        }
+    }
+    
+    public static int[] topKFrequent(int[] nums, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        Pair[] pairs = new Pair[map.size()];
+        int index = 0;
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            pairs[index++] = new Pair(entry.getKey(), entry.getValue());
+        }
+        int partitionIndex = 0;
+        int pairLen = pairs.length;
+        int targetIndex = pairLen - k;
+        int low = 0;
+        int high = pairLen - 1;
+        // System.out.println(high);
+        while (true) {
+            partitionIndex = quickSelect(pairs, low, high);
+            if (partitionIndex == targetIndex) {
+                int[] res = new int[k];
+                for (int i = 0; i < k; ++i) {
+                    res[i] = pairs[--pairLen].num;
+                }
+                return res; 
+            } else if (partitionIndex > targetIndex) {
+                high = partitionIndex - 1;
+            } else {
+                low = partitionIndex + 1;
+            }
+        }
+    }
+
+    private static int quickSelect(Pair[] pairs, int low, int high) {
+        // System.out.println(low);
+        // System.out.println(high);
+
+        Pair pivot = pairs[low];
+        int partitionIndex = low;
+
+        for (int i = low + 1; i <= high; ++i) {
+            if (pairs[i].freq < pivot.freq) {
+                Pair temp = pairs[i];
+                pairs[i] = pairs[partitionIndex + 1];
+                pairs[partitionIndex + 1] = temp;
+                partitionIndex++;
+            }
+        }
+
+        pairs[low] = pairs[partitionIndex];
+        pairs[partitionIndex] = pivot;
+
+        return partitionIndex;
+    }
+
+    static class Pair {
+        int num;
+        int freq;
+        Pair(int number, int frequency) {
+            num = number;
+            freq = frequency;
         }
     }
 }
@@ -393,7 +657,7 @@ void backtracking(参数) {
 - https://leetcode.com/problems/combinations/
 - https://programmercarl.com/0077.组合.html#算法公开课
 
-## 没有剪枝的版本
+### 没有剪枝的版本
 
 ![](/img/algo_na/20201123195242899.png)
 
@@ -403,7 +667,32 @@ class Solution {
     // 完全等价的, `ArrayList<ArrayList<Integer>> resultArr = new ArrayList<>();`
     // - 这是Java 7引入的“钻石操作符”的用法。
     // - 使用钻石操作符可以简化泛型类型的实例化，特别是当构造函数右侧的类型已经由变量声明时。
-    // - 它允许编译器自动推断出泛型类型参数，从而使代码更简洁、易读。
+    // - 它允许编译器自动推断出泛型类型参数，从而使代码更简洁、易读。//解法2：基于小顶堆实现
+    public int[] topKFrequent2(int[] nums, int k) {
+        Map<Integer,Integer> map = new HashMap<>(); //key为数组元素值,val为对应出现次数
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        //在优先队列中存储二元组(num, cnt),cnt表示元素值num在数组中的出现次数
+        //出现次数按从队头到队尾的顺序是从小到大排,出现次数最低的在队头(相当于小顶堆)
+        PriorityQueue<int[]> pq = new PriorityQueue<>((pair1, pair2) -> pair1[1] - pair2[1]);
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) { //小顶堆只需要维持k个元素有序
+            if (pq.size() < k) { //小顶堆元素个数小于k个时直接加
+                pq.add(new int[]{entry.getKey(), entry.getValue()});
+            } else {
+                if (entry.getValue() > pq.peek()[1]) { //当前元素出现次数大于小顶堆的根结点(这k个元素中出现次数最少的那个)
+                    pq.poll(); //弹出队头(小顶堆的根结点),即把堆里出现次数最少的那个删除,留下的就是出现次数多的了
+                    pq.add(new int[]{entry.getKey(), entry.getValue()});
+                }
+            }
+        }
+        int[] ans = new int[k];
+        for (int i = k - 1; i >= 0; i--) { //依次弹出小顶堆,先弹出的是堆的根,出现次数少,后面弹出的出现次数多
+            ans[i] = pq.poll()[0];
+        }
+        return ans;
+    }
+}
     ArrayList<ArrayList<Integer>> resultArr = new ArrayList<>();
     LinkedList<Integer> path = new LinkedList<>();
     public ArrayList<ArrayList<Integer>> combine(int n, int k) {
@@ -425,7 +714,7 @@ class Solution {
 }
 ```
 
-## 剪枝的版本
+### 剪枝的版本
 
 ![](/img/algo_na/20210130194335207-20230310134409532.png)
 
