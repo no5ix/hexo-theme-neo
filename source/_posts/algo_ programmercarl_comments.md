@@ -1,5 +1,5 @@
 ---
-title: algo na
+title: Algo 代码随想录 注释
 date: 2024-08-15 00:54:08
 tags:
 - noodle
@@ -7,6 +7,7 @@ tags:
 - LeetCode
 categories:
 - Algo
+password: '0622'
 ---
 
 
@@ -14,6 +15,9 @@ categories:
 
 参考: https://programmercarl.com/
 推荐参考**本博客总结**的 {% post_link algo_newbie %} , 和本文对照着看
+
+
+**. . .**<!-- more -->
 
 
 # 概绍
@@ -30,7 +34,135 @@ categories:
 <https://github.com/no5ix/no5ix.github.io/blob/source/source/code/test_algo_na.java>
 
 
-**. . .**<!-- more -->
+# Java常用接口和实现
+
+## Map
+
+``` java
+Map<Integer, Integer> map = new HashMap<>();
+map.put(1, 2);
+map.put(2, 3);
+map.get(1);
+map.getOrDefault(1, 0);
+map.containsKey(1);
+map.size();
+map.isEmpty();
+for (Map.Entry<Integer, Integer> es: map.entrySet()) {
+    System.out.println(es.getKey());
+    System.out.println(es.getValue());
+}
+map.remove(1);
+System.out.println(map);
+map.clear();
+```
+
+
+## Set
+
+``` java
+Set<Integer> set = new HashSet<>();
+set.add(2);
+set.add(23);
+set.add(231);
+set.remove(231);
+set.size();
+set.isEmpty();
+System.out.println("set.contains(2) : " + set.contains(2));
+System.out.println("set.contains(231) : " + set.contains(231));
+System.out.println(set);
+set.clear();
+```
+
+
+## List
+
+``` java
+List<Integer> list = new ArrayList<>();
+list.add(11);
+list.add(23);
+list.add(31);
+list.size();
+list.remove(0);
+list.get(0);
+list.isEmpty();
+for (int i : list) {
+    System.out.println(i);
+}
+System.out.println("list: " + list);
+list.clear();
+```
+
+
+## Queue
+
+``` java
+Queue<Integer> queue = new ArrayDeque<>();  // 不要用 LinkedList, 很少见
+queue.offer(1);
+queue.offer(2);
+queue.isEmpty();
+for (int i : queue) {
+    System.out.println(i);
+}
+queue.poll();
+System.out.println("queue: " + queue);
+queue.peek();
+queue.poll();
+queue.size();
+queue.clear();
+queue.isEmpty();
+```
+
+
+## Deque
+
+``` java
+Deque<Integer> deque = new ArrayDeque<>();   // 不要用 LinkedList, 很少见
+deque.offerFirst(1);
+deque.offerLast(2);
+deque.offerLast(23);
+for (int i : deque) {
+    System.out.println(i);
+}
+System.out.println(deque);
+deque.pollFirst();
+int resultValue = deque.pollLast();
+int headValue = deque.peekFirst();
+int tailValue = deque.peekLast();
+System.out.println(resultValue);
+System.out.println("deque: " + deque);
+deque.clear();
+deque.size();
+```
+
+
+## Stack
+
+``` java
+Stack<Integer> stack = new Stack<>();
+stack.push(1);
+stack.peek();
+stack.pop();
+stack.isEmpty();
+stack.size();
+stack.clear();
+```
+
+
+## String
+
+``` java
+String string = " testString  ";
+char[] charArray = string.toCharArray();
+System.out.println(charArray);
+System.out.println("string.length(): " + string.length());
+string.charAt(2);
+System.out.println("string.substring(1, 4) :" + string.substring(1, 4));
+String trimedString = string.trim();
+System.out.println("trimedString.substring(1, 4) :" + trimedString.substring(1, 4));
+string.isEmpty();
+System.out.println(string);
+```
+
 
 # 数组
 
@@ -239,6 +371,128 @@ public ListNode swapPairs(ListNode head) {
 }
 ```
 
+
+# 哈希表
+
+## lc15 - 3Sum
+
+- https://programmercarl.com/0015.三数之和.html#算法公开课
+- https://leetcode.com/problems/3sum/
+
+其实这道题目使用哈希法并不十分合适(4sum就没办法了)，因为在去重的操作中有很多细节需要注意，在面试中很难直接写出没有bug的代码。
+接下来我来介绍另一个解法：双指针法(4sum也是这种思路)，这道题目使用双指针法 要比哈希法高效一些，那么来讲解一下具体实现的思路。
+
+``` java
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(nums);
+	    // 找出a + b + c = 0
+        // a = nums[i], b = nums[left], c = nums[right]
+        for (int i = 0; i < nums.length; i++) {
+	    // 排序之后如果第一个元素已经大于零，那么无论如何组合都不可能凑成三元组，直接返回结果就可以了
+            if (nums[i] > 0) { 
+                // return result;  用 return不好, 用break好些, 和4sum用break统一了
+                break;
+            }
+
+            if (i > 0 && nums[i] == nums[i - 1]) {  // 去重a
+                continue;
+            }
+
+            int left = i + 1;
+            int right = nums.length - 1;
+            while (right > left) {
+                int sum = nums[i] + nums[left] + nums[right];
+                if (sum > 0) {
+                    right--;
+                } else if (sum < 0) {
+                    left++;
+                } else {
+                    result.add(Arrays.asList(nums[i], nums[left], nums[right]));
+		    // 去重逻辑应该放在找到一个三元组之后，对b 和 c去重
+                    while (right > left && nums[right] == nums[right - 1]) right--;
+                    while (right > left && nums[left] == nums[left + 1]) left++;
+                    
+                    right--; 
+                    left++;
+                }
+            }
+        }
+        return result;
+    }
+}
+```
+
+
+## lc18 - 4Sum
+
+- https://programmercarl.com/0018.四数之和.html#其他语言版本
+- https://leetcode.com/problems/4sum/description/
+
+``` java
+class Solution {
+    public static List<List<Integer>> fourSum(int[] nums, int target) {
+        Arrays.sort(nums);
+        List<List<Integer>> resultList = new ArrayList<>();
+
+        for (int i = 0; i < nums.length; ++i) {
+            if (nums[i] >= 0 && nums[i] > target) {
+                break;
+            }
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            for (int j = i + 1; j < nums.length; ++j) {
+                if (nums[i] + nums[j] >= 0 && nums[i] + nums[j] > target) {
+                    System.out.println("i:" + i + ", j:" + j);
+                    // return resultList; // return resultList;  // can't return here, considering [-3,-2,-1,0,0,1,2,3] , i = 1, j = 7, would lose [-1, 0, 0, 1]
+                    break;
+                }
+                if (j > i + 1 && nums[j] == nums[j - 1]) {
+                    continue;
+                }
+                int left = j + 1;
+                int right = nums.length - 1;
+                while (left < right) {
+                    long sum = (long) nums[i] + nums[j] + nums[left] + nums[right];
+                    if (sum > target) {
+                        right--;
+                    } else if (sum < target) {
+                        left++;
+                    } else {
+                        resultList.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
+                        while (left < right && nums[left + 1] == nums[left]) {
+                            left++;
+                        }
+                        while (left < right && nums[right - 1] == nums[right]) {
+                            right--;
+                        }
+                        right--;
+                        left++;
+                    }
+                }
+            }
+        }
+        return resultList;
+    }
+
+    public static void main(String[] args) {
+        // int[] testArr = {2, 2, 2, 2, 2};
+        int[] testArr = {-3,-2,-1,0,0,1,2,3};
+        // int[] testArr = {2, 3, 1, 2, 2};
+        // int target = 8;
+        // int[] testArr = {1,0,-1,0,-2,2};
+        int target = 0;
+        List<List<Integer>> result = fourSum(testArr, target);
+        for (List<Integer> arr : result) {
+            System.out.println(arr);
+        }
+    }
+}
+```
+
+
 # 字符串
 
 ## lc28 - 实现strStr() - 20240923
@@ -355,6 +609,45 @@ class Solution {
 
 # 栈与队列
 
+## lc239 - Sliding Window Maximum
+
+- https://programmercarl.com/0239.滑动窗口最大值.html#其他语言版本
+- https://leetcode.com/problems/sliding-window-maximum/
+
+``` java
+//利用双端队列手动实现单调队列
+/**
+ * 用一个单调队列来存储对应的下标，每当窗口滑动的时候，直接取队列的头部指针对应的值放入结果集即可
+ * 单调队列类似 （tail -->） 3 --> 2 --> 1 --> 0 (--> head) (右边为头结点，元素存的是下标)
+ */
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        Deque<Integer> deque = new ArrayDeque<>();
+        int n = nums.length;
+        int[] res = new int[n - k + 1];
+        int j = 0;
+        for (int i = 0; i < n; ++i) {
+            // 根据题意，i为nums下标，是要在[i - k + 1, i] 中选到最大值，只需要保证两点
+            // 1.队列头结点需要在[i - k + 1, i]范围内，不符合则要弹出
+            while (!deque.isEmpty() && deque.peekFirst() < i - k + 1) {
+                deque.pollFirst();
+            }
+            // 2.既然是单调，就要保证每次放进去的数字要比末尾的都大，否则也弹出
+            while (!deque.isEmpty() && nums[i] > nums[deque.peekLast()]) {
+                deque.pollLast();
+            }
+            deque.addLast(i);
+
+            // 因为单调，当i增长到符合第一个k范围的时候，每滑动一步都将队列头节点放入结果就行了
+            if (i >= k - 1 ) {
+                res[j++] = nums[deque.peekFirst()];
+            }
+        }
+        return res;
+    }
+}
+```
+
 ## lc347 - Top K Frequent Elements
 
 - https://leetcode.com/problems/top-k-frequent-elements/description/
@@ -364,6 +657,15 @@ class Solution {
 We should solve this kind of top-level problem using the “Quick Select” approach (it’s very similar to Quick Sort). Because its time complexity of O(n) is lower, this method is more efficient than the Heap-based approach with a time complexity of O(nlogn).
 
 Referenced this: https://www.bilibili.com/video/BV1Bz4y117Fr/
+
+- 时间复杂度：O(N)，其中 N 为数组的长度。
+设处理长度为 N 的数组的时间复杂度为 f(N)。由于处理的过程包括一次遍历和一次子分支的递归，最好情况下，有 f(N)=O(N)+f(N/2)，根据 主定理，能够得到 f(N)=O(N)。
+- 最坏情况下，每次取的中枢数组的元素都位于数组的两端，时间复杂度退化为 O(N)。但由于我们在每次递归的开始会先随机选取中枢元素，故出现最坏情况的概率很低。
+- 平均情况下，时间复杂度为 O(N)。
+- 空间复杂度：O(N)。哈希表的大小为 O(N)，用于排序的数组的大小也为 O(N)，快速排序的空间复杂度最好情况为 O(logN)，最坏情况为 O(N)。
+
+链接：https://leetcode.cn/problems/top-k-frequent-elements/solutions/402568/qian-k-ge-gao-pin-yuan-su-by-leetcode-solution/
+
 
 ``` java
 import java.util.Map;
@@ -378,7 +680,7 @@ class Solution {
         // int[] array = {1};
         // int[] res = topKFrequent(array, 1);
         for (int num : res) {
-            System.out.print(num + " ");
+            System.out.print("num: " + num + " ");
         }
     }
     
@@ -417,6 +719,18 @@ class Solution {
     private static int quickSelect(Pair[] pairs, int low, int high) {
         // System.out.println(low);
         // System.out.println(high);
+
+        // To generate a random number within the range [3, 6], where both 3 and 6 are inclusive, you can modify the logic slightly from the [3, 6) approach:
+        // double randomNumber = 3 + (Math.random() * (6 - 3 + 1));
+        // 1.	Math.random() generates a random number in the range [0.0, 1.0).
+        // 2.	Multiplying it by (6 - 3 + 1) (which is 4) adjusts the range to [0.0, 4.0).
+        // 3.	Adding 3 shifts the range to [3.0, 7.0).
+        // 4.	Since the inclusive range is [3, 6], you’ll need to truncate or floor the result if you’re generating an integer.
+
+        int picked = (int) (Math.random() * (high - low + 1)) + low;
+        Pair tempPair = pairs[low];
+        pairs[low] = pairs[picked];
+        pairs[picked] = tempPair;
 
         Pair pivot = pairs[low];
         int partitionIndex = low;
