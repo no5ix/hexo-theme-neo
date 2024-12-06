@@ -81,9 +81,88 @@ Reference:
 - https://tiny-ski-a98.notion.site/163ef418e93843818e5276c024da726c?v=4c7cecfbf68b48d093c1d78e151b7907&p=4b17a4b744b842f9a9045313aca9ed6c&pm=s
 
 
-## freq137 - lc314 - Medium - Binary Tree vertical order traversal
+## Binary Tree
+
+### lc1650 - Medium - Lowest Common Ancestor of a Binary Tree III - freq76
+
+- Description
+    
+    Given two nodes of a binary tree `p` and `q`, return *their lowest common ancestor (LCA)*.
+    
+    Each node will have a reference to its parent node. The definition for `Node` is below:
+    
+    ``` java
+    class Node {
+        public int val;
+        public Node left;
+        public Node right;
+        public Node parent;
+    }
+    ```
+    
+    According to the [**definition of LCA on Wikipedia**](https://en.wikipedia.org/wiki/Lowest_common_ancestor): "The lowest common ancestor of two nodes p and q in a tree T is the lowest node that has both p and q as descendants (where we allow **a node to be a descendant of itself**)."
+    
+    **Example 1:**
+    ![alt text](/img/algo_meta_top_100/image-1.png)
+    !https://assets.leetcode.com/uploads/2018/12/14/binarytree.png
+    
+    ```
+    Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+    Output: 3
+    Explanation: The LCA of nodes 5 and 1 is 3.
+    
+    ```
+    
+    **Example 2:**
+    ![alt text](/img/algo_meta_top_100/image-2.png)
+    !https://assets.leetcode.com/uploads/2018/12/14/binarytree.png
+    
+    ```
+    Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+    Output: 5
+    Explanation: The LCA of nodes 5 and 4 is 5 since a node can be a descendant of itself according to the LCA definition.
+    
+    ```
+    
+    **Example 3:**
+    
+    ```
+    Input: root = [1,2], p = 1, q = 2
+    Output: 1
+    
+    ```
+    
+    **Constraints:**
+    
+    - The number of nodes in the tree is in the range `[2, 105]`.
+    - `109 <= Node.val <= 109`
+    - All `Node.val` are **unique**.
+    - `p != q`
+    - `p` and `q` exist in the tree.
+
+
+Solution: 
+
+``` java
+// - 其实就变成求两条链表的相交点了, refer to : https://programmercarl.com/面试题02.07.链表相交.html#其他语言版本
+// - Two runners and circle track,  same as leetcode-160: https://leetcode.com/problems/intersection-of-two-linked-lists/description/
+public Node lowestCommonAncestor(Node p, Node q) {
+	Node a = p, b = q;
+	while (a != b) {
+		a = a == null? q : a.parent;
+		b = b == null? p : b.parent;    
+	}
+	return a;
+}
+```
+
+
+### BFS
+
+#### lc314 - Medium - Binary Tree vertical order traversal - freq137
 
 - https://leetcode.com/problems/binary-tree-vertical-order-traversal/description/
+- https://productive-horse-bb0.notion.site/Meta-2021-11-2022-2-3052cadfe0584f8fbda57c86a56663fe?p=46de9980e1d44c41ae81f87e2a9aadc7&pm=s
 - hint: BFS; queue and map with col number
 - complexity: O(n)
 
@@ -106,6 +185,7 @@ Example 3:
 Input: root = [3,9,8,4,0,1,7,null,null,null,2,5]
 Output: [[4],[9,5],[3,0,1],[8,2],[7]]
  
+![alt text](/img/algo_meta_top_100/image.png)
 
 Constraints:
 
@@ -154,46 +234,55 @@ class TreeNode {
 }
 
 class Solution {
-    
+
     public static List<List<Integer>> verticalOrder(TreeNode root) {
+        List<List<Integer>> resultList = new ArrayList<>();
         if (root == null) {
-            return Collections.emptyList();
+            return resultList;
         }
-        
-        int minCol = 0;
-        int maxCol = 0;
-        Queue<TreeNode> qNodes = new LinkedList<>();
-        Queue<Integer> qCols = new LinkedList<>();
-        qNodes.offer(root);
-        qCols.offer(0);
-        
+
         Map<Integer, List<Integer>> colToVals = new HashMap<>();
-        
-        while (!qNodes.isEmpty()) {
-            TreeNode cur = qNodes.poll();
-            int curCol = qCols.poll();
-            
+        Queue<TreeNode> nodeQueue = new ArrayDeque<>();
+        Queue<Integer> colQueue = new ArrayDeque<>();
+        nodeQueue.offer(root);
+        colQueue.offer(0);
+
+        int minColIndex = 0;
+        int maxColIndex = 0;
+        while (!nodeQueue.isEmpty()) {
+            TreeNode tempNode = nodeQueue.poll();
+            int curCol = colQueue.poll();
+
+            if (colToVals.containsKey(curCol)) {
+                List<Integer> curVals = colToVals.get(curCol);
+                curVals.add(tempNode.val);
+            } else {
+                List<Integer> newVals = new ArrayList<>();
+                newVals.add(tempNode.val);
+                colToVals.put(curCol, newVals);
+            }
+
             // update min, max cols and add current value to corresponding column's list
-            minCol = Math.min(minCol, curCol);
-            maxCol = Math.max(maxCol, curCol);
-            colToVals.computeIfAbsent(curCol, k -> new ArrayList<>()).add(cur.val);
-            
+            minColIndex = Math.min(curCol, minColIndex);
+            maxColIndex = Math.max(curCol, maxColIndex);
+
             // add children for level order traversal
-            if (cur.left != null) {
-                qNodes.offer(cur.left);
-                qCols.offer(curCol - 1);
+            if (tempNode.left != null) {
+                nodeQueue.offer(tempNode.left);
+                colQueue.offer(curCol - 1);
             }
-            if (cur.right != null) {
-                qNodes.offer(cur.right);
-                qCols.offer(curCol + 1);
+            if (tempNode.right != null) {
+                nodeQueue.offer(tempNode.right);
+                colQueue.offer(curCol + 1);
             }
         }
+
         // build result
-        List<List<Integer>> res = new ArrayList<>();
-        for (int i = minCol; i <= maxCol; i++) {
-            res.add(colToVals.get(i));
+        for (int i = minColIndex; i <= maxColIndex; i++) {
+            resultList.add(colToVals.get(i));
         }
-        return res;
+
+        return resultList;
     }
 
     public static void main(String[] args) {
@@ -204,6 +293,87 @@ class Solution {
         testTree.right.right = new TreeNode(7);
         List<List<Integer>> result = verticalOrder(testTree);
         System.out.println(result);
+
     }
 }
 ```
+
+
+#### lc199 - Medium - Binary Tree Right Side View - freq49
+
+- https://leetcode.com/problems/binary-tree-right-side-view/description/
+- https://programmercarl.com/0102.二叉树的层序遍历.html#_199-二叉树的右视图
+
+``` java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> resultList = new ArrayList<Integer>();
+        if (root == null ) {
+            return resultList;
+        }
+        Queue<TreeNode> que = new LinkedList<TreeNode>();
+        que.offer(root);
+
+        while (!que.isEmpty()) {
+            int len = que.size();
+            while (len > 0) {  // 注意这个len, 这里一定要使用固定大小 len，不要使用que.size()，因为que.size是不断变化的
+                TreeNode tmpNode = que.poll();
+                if (len == 1) {
+                    // 层序遍历的时候，判断是否遍历到单层的最后面的元素，如果是，就放进result数组中，随后返回result就可以了。
+                    resultList.add(tmpNode.val);
+                }
+
+                if (tmpNode.left != null) { que.offer(tmpNode.left); }
+                if (tmpNode.right != null) { que.offer(tmpNode.right); }
+                len--;
+            }
+        }
+
+        return resultList;
+    }
+}
+```
+
+#### 637
+
+- https://programmercarl.com/0102.二叉树的层序遍历.html#_637-二叉树的层平均值
+- https://leetcode.com/problems/average-of-levels-in-binary-tree/submissions/1471620597/
+
+
+#### lc515(pending)
+
+- https://programmercarl.com/0102.二叉树的层序遍历.html
+
+
+#### lc116(pending)
+
+- https://programmercarl.com/0102.二叉树的层序遍历.html
+
+
+#### lc117(pending)
+
+- https://programmercarl.com/0102.二叉树的层序遍历.html
+
+
+#### lc111(pending)
+
+- https://programmercarl.com/0102.二叉树的层序遍历.html
+
+
+
+

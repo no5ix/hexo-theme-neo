@@ -77,26 +77,28 @@ set.clear();
 ## List
 
 ``` java
-List<Integer> list = new ArrayList<>();
-list.add(11);
-list.add(23);
-list.add(31);
-list.size();
-list.remove(0);
-list.get(0);
-list.isEmpty();
-for (int i : list) {
-    System.out.println(i);
-}
-System.out.println("list: " + list);
-list.clear();
+        List<Integer> list = new ArrayList<>();
+        list.add(11);
+        list.add(23);
+        list.add(31);
+        list.add(377);
+        list.size();
+        list.remove(0);
+        list.get(0);
+        list.isEmpty();
+        for (int i : list) {
+            System.out.println(i);
+        }
+        list.set(2, 33);
+        System.out.println("list: " + list);
+        list.clear();
 ```
 
 
 ## Queue
 
 ``` java
-Queue<Integer> queue = new ArrayDeque<>();  // 不要用 LinkedList, 很少见
+Queue<Integer> queue = new ArrayDeque<>();  // 不要用 LinkedList, ArrayDeque用circular buffer实现的, 是最高效的: https://stackoverflow.com/questions/6129805/what-is-the-fastest-java-collection-with-the-basic-functionality-of-a-queue
 queue.offer(1);
 queue.offer(2);
 queue.isEmpty();
@@ -116,7 +118,7 @@ queue.isEmpty();
 ## Deque
 
 ``` java
-Deque<Integer> deque = new ArrayDeque<>();   // 不要用 LinkedList, 很少见
+Deque<Integer> deque = new ArrayDeque<>();  // 不要用 LinkedList, ArrayDeque用circular buffer实现的, 是最高效的: https://stackoverflow.com/questions/6129805/what-is-the-fastest-java-collection-with-the-basic-functionality-of-a-queue
 deque.offerFirst(1);
 deque.offerLast(2);
 deque.offerLast(23);
@@ -733,7 +735,7 @@ class Solution {
         pairs[picked] = tempPair;
 
         Pair pivot = pairs[low];
-        int partitionIndex = low;
+        int partitionIndex = low;  // 参考 algo_newbie.md ##普通快排 里的代码, 及其动画演示
 
         for (int i = low + 1; i <= high; ++i) {
             if (pairs[i].freq < pivot.freq) {
