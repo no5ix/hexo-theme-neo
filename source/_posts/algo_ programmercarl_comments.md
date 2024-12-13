@@ -36,6 +36,74 @@ password: '0622'
 
 # Java常用接口和实现
 
+## 排序
+
+普通递增排序:
+
+``` java
+        // Arrays.sort 用于对数组进行排序（primitive 或 Object 类型）。
+        int[] nums = {3, 1, 4, 1, 5};
+        Arrays.sort(nums); // 对数组排序
+
+        // Collections.sort 用于对 List 集合进行排序（如 ArrayList、LinkedList 等）。
+        List<Integer> list = Arrays.asList(3, 1, 4, 1, 5);
+        Collections.sort(list); // 对 List 排序
+```
+
+举例说明自定义数字排序规则 (这个排序逻辑首先按列 col 排序，如果列相同，则按行 row 排序，再根据节点的值进行排序。排序优先级依次是：列、行、值): 
+
+``` java
+        // : List to store nodes with their column, row, and value
+        List<int[]> nodes = new ArrayList<>();
+        // nodes.add(new int[]{col, row, val});
+        nodes.add(new int[]{1, 2, 3});
+        nodes.add(new int[]{1, 3, 4});
+        nodes.add(new int[]{2, 2, 4});
+
+        // Sort nodes by column, row, and value
+        // 解释：
+        //     •	Collections.sort() 是 Java 中用于排序 List 的方法。它接受两个参数，第一个是需要排序的 List（在这里是 nodes），第二个是排序规则（通过 Comparator 来定义）。
+        //     •	这是一个 lambda 表达式，它实现了 Comparator<int[]> 接口。tuple1 和 tuple2 是 nodes 中的元素（即 int[] 类型的数组）。tuple1 和 tuple2 是用来比较的两个元素。
+        Collections.sort(nodes, (tuple1, tuple2) -> {
+            // 排序规则:
+            //     1.	首先比较 tuple1[0] 和 tuple2[0]：
+            //          如果它们不相等（即列 col 不相同），则按列进行排序。
+            //     2.	如果列相同，则比较 tuple1[1] 和 tuple2[1]：
+            //          如果列相同，再按照行 row 进行排序。
+            //     3.	如果列和行都相同，则比较 tuple1[2] 和 tuple2[2]：
+            //          最后，如果列和行都相同，则按照节点的值进行排序。
+
+            if (tuple1[0] != tuple2[0]) {
+                // 这里的 tuple1[0] - tuple2[0] 是用来确定排序的方向。如果 tuple1[0] 小于 tuple2[0]，结果为负数，意味着 tuple1 排在 tuple2 前面；如果大于，结果为正数，tuple1 排在后面；如果相等，则继续比较后续条件。
+                return tuple1[0] - tuple2[0];
+            } else if (tuple1[1] != tuple2[1]) {
+                return tuple1[1] - tuple2[1];
+            } else {
+                return tuple1[2] - tuple2[2];
+            }
+        });
+```
+
+举例说明自定义字幕排序规则 (比如有个 List<String> 的list, 如何按照首字母的来排序): 
+
+``` java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>(Arrays.asList("apple", "banana", "cherry", "date", "grape"));
+
+        // 按照首字母排序
+        // •	s1.charAt(0) 和 s2.charAt(0) 获取字符串的首字母。
+        // •	Character.compare 是 Java 提供的方法，用于比较两个字符的大小。
+        Collections.sort(list, (s1, s2) -> Character.compare(s1.charAt(0), s2.charAt(0)));
+
+        System.out.println(list); // 输出: [apple, banana, cherry, date, grape]
+    }
+}
+```
+
+
 ## Map
 
 ``` java
@@ -47,7 +115,20 @@ password: '0622'
         map.containsKey(1);
         map.size();
         map.isEmpty();
+        // 如果你需要同时遍历键和值，通常会使用 Map.Entry 或 entrySet() 方法。
         for (Map.Entry<Integer, Integer> es: map.entrySet()) {
+            System.out.println(es.getKey());
+            System.out.println(es.getValue());
+        }
+        // •	keySet(): 返回 Map 中所有键的 Set 视图。
+        for (int k : map.keySet()) {
+            System.out.println(k);
+        }
+        // •	values(): 返回 Map 中所有值的 Collection 视图。
+        for (int v : map.values()) {
+            System.out.println(v);
+        }
+        for (Map.Entry<Integer, Integer> es : map.entrySet()) {
             System.out.println(es.getKey());
             System.out.println(es.getValue());
         }

@@ -1,5 +1,5 @@
 ---
-title: Algo Meta Top 100
+title: Only Prime - Algo Meta Top 100
 date: 2024-12-04 22:55:08
 tags:
 - noodle
@@ -9,6 +9,12 @@ categories:
 - Algo
 password: '0622'
 ---
+
+
+# Reference
+
+- https://productive-horse-bb0.notion.site/Meta-2021-11-2022-2-3052cadfe0584f8fbda57c86a56663fe?p=46de9980e1d44c41ae81f87e2a9aadc7&pm=s
+- https://www.notion.so/1557653f2b3080d69303d3eae198d88c?v=1557653f2b3081d7b483000c06e42acf
 
 
 # 找工小队群里公司面经
@@ -94,7 +100,6 @@ password: '0622'
 27. LeetCode contest platform
 
 
-
 ## bq
 
 1. conflict with others, xfn conflict
@@ -108,16 +113,9 @@ password: '0622'
 9. 多个task同时进行的时候怎么协调
 
 
-# Meta Tag Algorithm Problems Top 100
+# Binary Tree
 
-Reference:    
-- https://productive-horse-bb0.notion.site/Meta-2021-11-2022-2-3052cadfe0584f8fbda57c86a56663fe?p=46de9980e1d44c41ae81f87e2a9aadc7&pm=s
-- https://www.notion.so/1557653f2b3080d69303d3eae198d88c?v=1557653f2b3081d7b483000c06e42acf
-
-
-## Binary Tree
-
-### lc1650 - Medium - Lowest Common Ancestor of a Binary Tree III - freq76 - rank7
+## lc1650 - Lowest Common Ancestor of a Binary Tree III
 
 Description: 
     
@@ -190,24 +188,29 @@ public Node lowestCommonAncestor(Node p, Node q) {
 }
 ```
 
-### DFS
 
-#### lc263 - Medium - Lowest Common Ancestor of a Binary Tree - freq63 - rank14
+
+
+
+
+## DFS
+
+### lc263 - Lowest Common Ancestor of a Binary Tree
 
 - https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/
 - https://programmercarl.com/0236.二叉树的最近公共祖先.html#算法公开课
 
 
-#### lc129 - Medium - Sum Root to Leaf Numbers - freq34 - rank29
+### lc129 - Sum Root to Leaf Numbers
 
 - https://leetcode.com/problems/sum-root-to-leaf-numbers/
 - https://programmercarl.com/0257.二叉树的所有路径.html#其他语言版本
 
 
 
-### BFS
+## BFS
 
-#### lc314 - Medium - Binary Tree vertical order traversal - freq137
+### lc314 - Binary Tree vertical order traversal
 
 - https://leetcode.com/problems/binary-tree-vertical-order-traversal/description/
 - https://productive-horse-bb0.notion.site/Meta-2021-11-2022-2-3052cadfe0584f8fbda57c86a56663fe?p=46de9980e1d44c41ae81f87e2a9aadc7&pm=s
@@ -241,7 +244,7 @@ The number of nodes in the tree is in the range [0, 100].
 -100 <= Node.val <= 100
 
 
-Solution: 
+Solution1: 
 
 ``` java
 // - BFS level order traversal, time O(N), space O(N)
@@ -346,8 +349,66 @@ class Solution {
 }
 ```
 
+Solution2:
 
-#### lc199 - Medium - Binary Tree Right Side View - freq49
+``` java
+
+class Solution {
+
+    private int minVerticalColIndex = 0;
+    private int maxVerticalColIndex = 0;
+
+    public List<List<Integer>> verticalTraversal(TreeNode root) {
+        // use dfs to solve this problem
+        List<List<Integer>> resultList = new ArrayList<>();
+        if (root == null) {
+            return resultList;
+        }
+
+        Map<Integer, List<Integer>> colToVals = new HashMap<>();
+        
+        dfs(root, 0, colToVals);
+        
+        // System.out.println("colToVals = ");
+        // System.out.println(colToVals);
+
+        for (int i = this.minVerticalColIndex; i <= this.maxVerticalColIndex; i++) {
+            resultList.add(colToVals.get(i));
+        }
+        // System.out.println("resultList = ");
+        // System.out.println(resultList);
+        return resultList;
+    }
+
+    private void dfs(TreeNode node, int curCol, Map<Integer, List<Integer>> colToVals) {
+        if (node == null) {
+            return;
+        }
+
+        if (curCol < this.minVerticalColIndex) {
+            this.minVerticalColIndex = curCol;
+        }
+        if (curCol > this.maxVerticalColIndex) {
+            this.maxVerticalColIndex = curCol;
+        }
+
+        if (colToVals.containsKey(curCol)) {
+            List<Integer> curVals = colToVals.get(curCol);
+            curVals.add(node.val);
+        } else {
+            List<Integer> newVals = new ArrayList<>();
+            newVals.add(node.val);
+            colToVals.put(curCol, newVals);
+        }
+
+        dfs(node.left, curCol - 1, colToVals);
+        dfs(node.right, curCol + 1, colToVals);
+    }
+}
+```
+
+
+### lc199 - Binary Tree Right Side View
 
 - https://leetcode.com/problems/binary-tree-right-side-view/description/
 - https://programmercarl.com/0102.二叉树的层序遍历.html#_199-二叉树的右视图
@@ -398,17 +459,129 @@ class Solution {
 ```
 
 
-#### lc543 - diameter-of-binary-tree
+### lc543 - diameter-of-binary-tree
 
 - https://leetcode.com/problems/diameter-of-binary-tree/description/
 - solution: https://leetcode.cn/problems/diameter-of-binary-tree/solutions/139683/er-cha-shu-de-zhi-jing-by-leetcode-solution/
 
 
-### BST
+## BST
 
-#### lc938 - range-sum-of-bst 
+### lc938 - range-sum-of-bst 
 
 - https://leetcode.com/problems/range-sum-of-bst/description/
 
 
+### lc426 - Convert Binary Search Tree to Sorted Doubly Linked List
 
+- comments: true
+- difficulty: Medium
+- tags:
+    - Stack
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Linked List
+    - Binary Tree
+    - Doubly-Linked List
+
+<!-- description:start -->
+
+<p>Convert a <strong>Binary Search Tree</strong> to a sorted <strong>Circular Doubly-Linked List</strong> in place.</p>
+
+<p>You can think of the left and right pointers as synonymous to the predecessor and successor pointers in a doubly-linked list. For a circular doubly linked list, the predecessor of the first element is the last element, and the successor of the last element is the first element.</p>
+
+<p>We want to do the transformation <strong>in place</strong>. After the transformation, the left pointer of the tree node should point to its predecessor, and the right pointer should point to its successor. You should return the pointer to the smallest element of the linked list.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+![alt text](/img/algo_meta_top_100/image-3.png)
+
+![alt text](/img/algo_meta_top_100/image-4.png)
+<pre>
+<strong>Input:</strong> root = [4,2,5,1,3]
+
+
+<strong>Output:</strong> [1,2,3,4,5]
+
+<strong>Explanation:</strong> The figure below shows the transformed BST. The solid line indicates the successor relationship, while the dashed line means the predecessor relationship.
+
+
+</pre>
+
+![alt text](/img/algo_meta_top_100/image-5.png)
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> root = [2,1,3]
+<strong>Output:</strong> [1,2,3]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[0, 2000]</code>.</li>
+	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
+	<li>All the values of the tree are <strong>unique</strong>.</li>
+</ul>
+
+Solution: 
+
+```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node left;
+    public Node right;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val,Node _left,Node _right) {
+        val = _val;
+        left = _left;
+        right = _right;
+    }
+};
+*/
+
+class Solution {
+    private Node prev;
+    private Node head;
+
+    public Node treeToDoublyList(Node root) {
+        if (root == null) {
+            return null;
+        }
+        prev = null;
+        head = null;
+        dfs(root);
+        prev.right = head;
+        head.left = prev;
+        return head;
+    }
+
+    private void dfs(Node root) {
+        // Since an in-order traversal of a binary search tree gives us a sorted array,
+        if (root == null) {
+            return;
+        }
+        dfs(root.left);
+        if (prev != null) {
+            prev.right = root;
+            root.left = prev;
+        } else {
+            head = root;
+        }
+        prev = root;
+        dfs(root.right);
+    }
+}
+```
