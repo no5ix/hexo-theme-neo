@@ -11,7 +11,41 @@ password: '0622'
 ---
 
 
-# 面经1
+# 找工小队群里公司面经
+
+- hong:
+    - 华人Wevision旗下小创业公司
+        1. 第一轮就一个算法题：岛屿大小，然后聊了点项目和简历
+        2. 第二轮两个算法题：LC621，LC127
+        3. 第三轮一个算法一个SD：LC934，短链服务
+        4. 第四轮两个SD: 设计一个数据平台，设计一个消息通知系统
+- nao: 
+    - DoorDash: 
+        - DoorDash问的leetcode 124的变种 是他家高频面经, doordash的sd也是他家高频面经 设计一个评论系统, 其实不难 你提前做一做, 研究透了就行
+        - algo: 124, 
+        - sd: 设计一个评论系统
+    - databricks: 
+        - databricks都是面经 题目比较复杂 这里说不清, databricks就是纯面经题库 很容易押到题, databricks的问题就是你押中原题了 也不一定能做得好 因为太难了
+    - Walmart:
+        - algo: next permutation(题号30几, 经典题), 
+    - Amazon:
+        - bq: 亚麻bq大全, 答案要自己准备小故事, 16条军规 低职级的一般只考里面的10条, 4轮面试 每轮问两个不同的lp, 10选8, leadership principles, 就是军规, 其他公司的bq一般就是看你是不是个能一起工作的正常人, 亚麻是直接决定有没有offer
+        - algo: 
+            - 都是原题, 亚麻coding很简单 主要是bq重要, 
+            - 店面问了一个trie
+            - 两轮coding
+                1. 一个是简单bfs(类似岛的数量number of islands, 经典中的经典了)
+                2. 写一个能O1 add remove getrandom的set
+    - okx:
+        - 我还面了okx coinbase之后的炒币app第二名, payment组
+        - algo: 一轮是lc49 一轮是lc362
+        - sd: sd是设计一个notification system
+    - Google:
+        - algo: 
+            - 除了google没人考dp, dp会几个经典的就行了(背包，股票，偷房子, 很多变形), dp难的是给竞赛生的, 
+
+
+# Meta面经1
 
 补充内容 (2024-09-11 09:55 +08:00):    
 今天面完了5轮onsite，3 coding + bq+ sd，下面是面试前我自己整理的地理面经（3月到现在），onsite和电面的题目全在里面。如果时间不多，1～2个月内就面试，你看这一个帖子差不多就够了
@@ -78,67 +112,67 @@ password: '0622'
 
 Reference:    
 - https://productive-horse-bb0.notion.site/Meta-2021-11-2022-2-3052cadfe0584f8fbda57c86a56663fe?p=46de9980e1d44c41ae81f87e2a9aadc7&pm=s
-- https://tiny-ski-a98.notion.site/163ef418e93843818e5276c024da726c?v=4c7cecfbf68b48d093c1d78e151b7907&p=4b17a4b744b842f9a9045313aca9ed6c&pm=s
+- https://www.notion.so/1557653f2b3080d69303d3eae198d88c?v=1557653f2b3081d7b483000c06e42acf
 
 
 ## Binary Tree
 
-### lc1650 - Medium - Lowest Common Ancestor of a Binary Tree III - freq76
+### lc1650 - Medium - Lowest Common Ancestor of a Binary Tree III - freq76 - rank7
 
-- Description
+Description: 
     
-    Given two nodes of a binary tree `p` and `q`, return *their lowest common ancestor (LCA)*.
-    
-    Each node will have a reference to its parent node. The definition for `Node` is below:
-    
-    ``` java
-    class Node {
-        public int val;
-        public Node left;
-        public Node right;
-        public Node parent;
-    }
-    ```
-    
-    According to the [**definition of LCA on Wikipedia**](https://en.wikipedia.org/wiki/Lowest_common_ancestor): "The lowest common ancestor of two nodes p and q in a tree T is the lowest node that has both p and q as descendants (where we allow **a node to be a descendant of itself**)."
-    
-    **Example 1:**
-    ![alt text](/img/algo_meta_top_100/image-1.png)
-    !https://assets.leetcode.com/uploads/2018/12/14/binarytree.png
-    
-    ```
-    Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
-    Output: 3
-    Explanation: The LCA of nodes 5 and 1 is 3.
-    
-    ```
-    
-    **Example 2:**
-    ![alt text](/img/algo_meta_top_100/image-2.png)
-    !https://assets.leetcode.com/uploads/2018/12/14/binarytree.png
-    
-    ```
-    Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
-    Output: 5
-    Explanation: The LCA of nodes 5 and 4 is 5 since a node can be a descendant of itself according to the LCA definition.
-    
-    ```
-    
-    **Example 3:**
-    
-    ```
-    Input: root = [1,2], p = 1, q = 2
-    Output: 1
-    
-    ```
-    
-    **Constraints:**
-    
-    - The number of nodes in the tree is in the range `[2, 105]`.
-    - `109 <= Node.val <= 109`
-    - All `Node.val` are **unique**.
-    - `p != q`
-    - `p` and `q` exist in the tree.
+Given two nodes of a binary tree `p` and `q`, return *their lowest common ancestor (LCA)*.
+
+Each node will have a reference to its parent node. The definition for `Node` is below:
+
+``` java
+class Node {
+    public int val;
+    public Node left;
+    public Node right;
+    public Node parent;
+}
+```
+
+According to the [**definition of LCA on Wikipedia**](https://en.wikipedia.org/wiki/Lowest_common_ancestor): "The lowest common ancestor of two nodes p and q in a tree T is the lowest node that has both p and q as descendants (where we allow **a node to be a descendant of itself**)."
+
+**Example 1:**
+![alt text](/img/algo_meta_top_100/image-1.png)
+!https://assets.leetcode.com/uploads/2018/12/14/binarytree.png
+
+```
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+Output: 3
+Explanation: The LCA of nodes 5 and 1 is 3.
+
+```
+
+**Example 2:**
+![alt text](/img/algo_meta_top_100/image-2.png)
+!https://assets.leetcode.com/uploads/2018/12/14/binarytree.png
+
+```
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+Output: 5
+Explanation: The LCA of nodes 5 and 4 is 5 since a node can be a descendant of itself according to the LCA definition.
+
+```
+
+**Example 3:**
+
+```
+Input: root = [1,2], p = 1, q = 2
+Output: 1
+
+```
+
+**Constraints:**
+
+- The number of nodes in the tree is in the range `[2, 105]`.
+- `109 <= Node.val <= 109`
+- All `Node.val` are **unique**.
+- `p != q`
+- `p` and `q` exist in the tree.
 
 
 Solution: 
@@ -155,6 +189,20 @@ public Node lowestCommonAncestor(Node p, Node q) {
 	return a;
 }
 ```
+
+### DFS
+
+#### lc263 - Medium - Lowest Common Ancestor of a Binary Tree - freq63 - rank14
+
+- https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/
+- https://programmercarl.com/0236.二叉树的最近公共祖先.html#算法公开课
+
+
+#### lc129 - Medium - Sum Root to Leaf Numbers - freq34 - rank29
+
+- https://leetcode.com/problems/sum-root-to-leaf-numbers/
+- https://programmercarl.com/0257.二叉树的所有路径.html#其他语言版本
+
 
 
 ### BFS
@@ -349,31 +397,18 @@ class Solution {
 }
 ```
 
-#### 637
 
-- https://programmercarl.com/0102.二叉树的层序遍历.html#_637-二叉树的层平均值
-- https://leetcode.com/problems/average-of-levels-in-binary-tree/submissions/1471620597/
+#### lc543 - diameter-of-binary-tree
 
-
-#### lc515(pending)
-
-- https://programmercarl.com/0102.二叉树的层序遍历.html
+- https://leetcode.com/problems/diameter-of-binary-tree/description/
+- solution: https://leetcode.cn/problems/diameter-of-binary-tree/solutions/139683/er-cha-shu-de-zhi-jing-by-leetcode-solution/
 
 
-#### lc116(pending)
+### BST
 
-- https://programmercarl.com/0102.二叉树的层序遍历.html
+#### lc938 - range-sum-of-bst 
 
-
-#### lc117(pending)
-
-- https://programmercarl.com/0102.二叉树的层序遍历.html
-
-
-#### lc111(pending)
-
-- https://programmercarl.com/0102.二叉树的层序遍历.html
-
+- https://leetcode.com/problems/range-sum-of-bst/description/
 
 
 

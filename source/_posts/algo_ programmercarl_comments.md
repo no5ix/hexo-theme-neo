@@ -39,38 +39,38 @@ password: '0622'
 ## Map
 
 ``` java
-Map<Integer, Integer> map = new HashMap<>();
-map.put(1, 2);
-map.put(2, 3);
-map.get(1);
-map.getOrDefault(1, 0);
-map.containsKey(1);
-map.size();
-map.isEmpty();
-for (Map.Entry<Integer, Integer> es: map.entrySet()) {
-    System.out.println(es.getKey());
-    System.out.println(es.getValue());
-}
-map.remove(1);
-System.out.println(map);
-map.clear();
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(1, 2);
+        map.put(2, 3);
+        map.get(1);
+        map.getOrDefault(1, 0);
+        map.containsKey(1);
+        map.size();
+        map.isEmpty();
+        for (Map.Entry<Integer, Integer> es: map.entrySet()) {
+            System.out.println(es.getKey());
+            System.out.println(es.getValue());
+        }
+        map.remove(1);
+        System.out.println(map);
+        map.clear();
 ```
 
 
 ## Set
 
 ``` java
-Set<Integer> set = new HashSet<>();
-set.add(2);
-set.add(23);
-set.add(231);
-set.remove(231);
-set.size();
-set.isEmpty();
-System.out.println("set.contains(2) : " + set.contains(2));
-System.out.println("set.contains(231) : " + set.contains(231));
-System.out.println(set);
-set.clear();
+        Set<Integer> set = new HashSet<>();
+        set.add(2);
+        set.add(23);
+        set.add(231);
+        set.remove(231);
+        set.size();
+        set.isEmpty();
+        System.out.println("set.contains(2) : " + set.contains(2));
+        System.out.println("set.contains(231) : " + set.contains(231));
+        System.out.println(set);
+        set.clear();
 ```
 
 
@@ -98,71 +98,72 @@ set.clear();
 ## Queue
 
 ``` java
-Queue<Integer> queue = new ArrayDeque<>();  // 不要用 LinkedList, ArrayDeque用circular buffer实现的, 是最高效的: https://stackoverflow.com/questions/6129805/what-is-the-fastest-java-collection-with-the-basic-functionality-of-a-queue
-queue.offer(1);
-queue.offer(2);
-queue.isEmpty();
-for (int i : queue) {
-    System.out.println(i);
-}
-queue.poll();
-System.out.println("queue: " + queue);
-queue.peek();
-queue.poll();
-queue.size();
-queue.clear();
-queue.isEmpty();
+        Queue<Integer> queue = new ArrayDeque<>();  // 不要用 LinkedList(除非你要往队列里插入null, 因为ArrayDeque不准插入null, 但是LinkedList可以), ArrayDeque用circular buffer实现的, 是最高效的: https://stackoverflow.com/questions/6129805/what-is-the-fastest-java-collection-with-the-basic-functionality-of-a-queue
+        deque.offerFirst(1);
+        queue.offer(1);
+        queue.offer(2);
+        queue.isEmpty();
+        for (int i : queue) {
+            System.out.println(i);
+        }
+        queue.poll();
+        System.out.println("queue: " + queue);
+        queue.peek();
+        queue.poll();
+        queue.size();
+        queue.clear();
+        queue.isEmpty();
 ```
 
 
 ## Deque
 
 ``` java
-Deque<Integer> deque = new ArrayDeque<>();  // 不要用 LinkedList, ArrayDeque用circular buffer实现的, 是最高效的: https://stackoverflow.com/questions/6129805/what-is-the-fastest-java-collection-with-the-basic-functionality-of-a-queue
-deque.offerFirst(1);
-deque.offerLast(2);
-deque.offerLast(23);
-for (int i : deque) {
-    System.out.println(i);
-}
-System.out.println(deque);
-deque.pollFirst();
-int resultValue = deque.pollLast();
-int headValue = deque.peekFirst();
-int tailValue = deque.peekLast();
-System.out.println(resultValue);
-System.out.println("deque: " + deque);
-deque.clear();
-deque.size();
+        Deque<Integer> deque = new ArrayDeque<>();  // 不要用 LinkedList(除非你要往队列里插入null, 因为ArrayDeque不准插入null, 但是LinkedList可以), ArrayDeque用circular buffer实现的, 是最高效的: https://stackoverflow.com/questions/6129805/what-is-the-fastest-java-collection-with-the-basic-functionality-of-a-queue
+        deque.offerFirst(1);
+        deque.offerLast(2);
+        deque.offerLast(23);
+        for (int i : deque) {
+            System.out.println(i);
+        }
+        System.out.println(deque);
+        deque.pollFirst();
+        int resultValue = deque.pollLast();
+        int headValue = deque.peekFirst();
+        int tailValue = deque.peekLast();
+        System.out.println(resultValue);
+        System.out.println("deque: " + deque);
+        deque.clear();
+        deque.size();
 ```
 
 
 ## Stack
 
 ``` java
-Stack<Integer> stack = new Stack<>();
-stack.push(1);
-stack.peek();
-stack.pop();
-stack.isEmpty();
-stack.size();
-stack.clear();
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.peek();
+        stack.pop();
+        stack.isEmpty();
+        stack.size();
+        stack.clear();
 ```
 
 
 ## String
 
 ``` java
-String string = " testString  ";
-char[] charArray = string.toCharArray();
-System.out.println(charArray);
-System.out.println("string.length(): " + string.length());
-string.charAt(2);
-System.out.println("string.substring(1, 4) :" + string.substring(1, 4));
-String trimedString = string.trim();
-System.out.println("trimedString.substring(1, 4) :" + trimedString.substring(1, 4));
-string.isEmpty();
-System.out.println(string);
+        String string = " testString  ";
+        char[] charArray = string.toCharArray();
+        System.out.println(charArray);
+        System.out.println("string.length(): " + string.length());
+        string.charAt(2);
+        System.out.println("string.substring(1, 4) :" + string.substring(1, 4));
+        String trimedString = string.trim();
+        System.out.println("trimedString.substring(1, 4) :" + trimedString.substring(1, 4));
+        string.isEmpty();
+        System.out.println(string);
 ```
 
 
@@ -775,7 +776,7 @@ class Solution {
 - 如果要搜索**其中一条**符合条件的路径，那么递归一定需要返回值，因为遇到符合条件的路径了就要及时返回。（这种情况符合: https://programmercarl.com/0112.路径总和.html#算法公开课）
 
 
-## 前序
+## 前序(迭代法重要, 普通二叉树常用)
      
 ![](/img/algo_na/二叉树前序遍历（迭代法）.gif)
 
@@ -789,10 +790,11 @@ class Solution {
         List<Integer> result = new ArrayList<>();
         if (root == null) { return result; }
         Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
+        stack.push(root);  // 和中序不同: 循环外就第一次 push了root
         while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
             result.add(node.val);
+            // 为什么要先加入 右孩子，再加入左孩子呢？ 因为这样出栈的时候才是中左右的顺序。
             if (node.right != null) { stack.push(node.right); }
             if (node.left != null) { stack.push(node.left); }
         }
@@ -801,7 +803,7 @@ class Solution {
 }
 ```
 
-## 中序
+## 中序(迭代法重要, 二叉搜索树BST常用, 因为BST中序遍历出来是个有序的递增数组)
 
 ![](/img/algo_na/二叉树中序遍历（迭代法）.gif)
 
@@ -819,9 +821,9 @@ class Solution {
         }
         Stack<TreeNode> stack = new Stack<>();
         TreeNode cur = root;
-        while (cur != null || !stack.isEmpty()) {
+        while (cur != null || !stack.isEmpty()) {  // 和前序迭代法不同: 这里多判断了cur不等于null
             if (cur != null) {
-                stack.push(cur);
+                stack.push(cur);  // 和前序迭代法不同: 循环内才第一次 push了root
                 cur = cur.left;  // 左
             } else {
                 cur = stack.pop();
@@ -834,12 +836,14 @@ class Solution {
 }
 ```
 
-## 后序
+
+## 后序(迭代法不重要, 很少用到, 会前序按照以下方法就会写后序) 
 
 1. 先序遍历是`中左右`
 2. 调整代码左右循序
 3. 变成`中右左` -> 反转result数组 -> `左右中`
 4. 后序遍历是`左右中`
+
 
 ## 层序
 
@@ -854,7 +858,7 @@ class Solution {
             return resultList;
         }
         Queue<TreeNode> que = new LinkedList<TreeNode>();
-        que.offer(root);
+        que.offer(root);  // 循环外就第一次 push了root
 
         while (!que.isEmpty()) {
             List<Integer> itemList = new ArrayList<Integer>();
@@ -878,9 +882,9 @@ class Solution {
 
 ## 高度
 
-- 二叉树节点的高度：指从`该节点`到叶子节点的最长简单路径边的条数或者节点数（取决于高度从0开始还是从1开始）
-- 二叉树节点的深度：指从`根节点`到该节点的最长简单路径边的条数或者节点数（取决于深度从0开始还是从1开始）
-- 而根节点的高度就是二叉树的最大深度
+- 二叉树节点的高度：指从`该节点`到`叶子节点`的`最长`简单路径边的条数或者节点数
+- 二叉树节点的深度：指从`根节点`到`该节点`的`最长`简单路径边的条数或者节点数
+- 根节点的高度就是二叉树的最大深度
 
 ## 深度
 
@@ -890,8 +894,15 @@ class Solution {
 
 ### 最大深度
 
+- https://programmercarl.com/0104.二叉树的最大深度.html
+- https://leetcode.com/problems/maximum-depth-of-binary-tree/
+
 使用迭代法的话，**使用层序遍历是最为合适的**，因为最大的深度就是二叉树的层数，和层序遍历的方式极其吻合。
 在二叉树中，一层一层的来遍历二叉树，记录一下遍历的层数就是二叉树的深度，
+
+#### 迭代法
+
+层序遍历:
 
 ``` java
 class Solution {
@@ -917,13 +928,69 @@ class Solution {
 }
 ```
 
-### 最小深度
+#### 递归法1-回溯
 
-最小深度: 是从根节点到最近叶子节点的最短路径上的节点数量。
+掌握后可以解树的最小深度, lc111: https://leetcode.com/problems/minimum-depth-of-binary-tree/description/)
+
+``` java
+class Solution {
+  /**
+   * 递归法(求深度法)
+   */
+    //定义最大深度
+    int maxNum = 0;
+
+    public int maxDepth(TreeNode root) {
+        ans(root, 0);
+        return maxNum;
+    }
+    
+    //递归求解最大深度
+    void ans(TreeNode tr, int depth){
+        if(tr == null) return;
+        // 递归开始，深度增加
+        depth++;
+        maxNum = maxNum < depth ? depth : maxNum;
+        ans(tr.left, depth);
+        ans(tr.right, depth);
+        // 递归结束，深度减少
+        depth--;
+    }
+}
+```
+
+#### 递归法2
+
+后序遍历, 掌握后可以解 树的最大直径 lc543: https://leetcode.com/problems/diameter-of-binary-tree/description/):
 
 ``` java
 class Solution {
     public int maxDepth(TreeNode root) {
+        if (root == null) {
+            return 0; // 访问到空节点了，返回0
+        }
+        int leftDepth = maxDepth(root.left);
+        int rightDepth = maxDepth(root.right);
+        return Math.max(leftDepth, rightDepth) + 1;
+    }
+}
+```
+
+
+### 最小深度
+
+- https://programmercarl.com/0111.二叉树的最小深度.html#算法公开课
+- https://leetcode.com/problems/minimum-depth-of-binary-tree/description/
+
+最小深度: 是从根节点到最近叶子节点的最短路径上的节点数量。
+
+#### 迭代法
+
+层序遍历:
+
+``` java
+class Solution {
+    public int minDepth(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -949,6 +1016,48 @@ class Solution {
 }
 ```
 
+#### 递归法-回溯
+
+``` java
+class Solution {
+    /**
+     * 递归法（思路来自二叉树最大深度的递归法）
+     * 该题求最小深度，最小深度为根节点到叶子节点的深度，所以在迭代到每个叶子节点时更新最小值。
+     */
+    int depth = 0;
+    // 定义最小深度，初始化最大值
+    int minDepth = Integer.MAX_VALUE;
+    public int minDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        dep(root);
+        return minDepth;
+    }
+    void dep(TreeNode root){
+        if(root == null) return ;
+        // 递归开始，深度增加
+        depth++;
+        // 该位置表示递归到叶子节点了，需要更新最小深度minDepth
+        if(root.left == null && root.right == null)
+            minDepth = Math.min(minDepth , depth);
+        dep(root.left);
+        dep(root.right);
+        // 递归结束，深度减小
+        depth--;
+    }
+}
+```
+
+
+## 二叉搜索树
+
+- 二叉搜索树的中序遍历是个递增有序数组, 利用好这一点非常方便解题
+- 二叉搜索树的迭代遍历很好写, 大多数时候用不到递归方式来解题
+- 空二叉树是二叉搜索树
+
+
+
 # 回溯
 
 ## 模板
@@ -967,6 +1076,9 @@ void backtracking(参数) {
     }
 }
 ```
+
+
+
 
 ## 组合
 
