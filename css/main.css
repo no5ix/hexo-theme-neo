@@ -485,8 +485,8 @@ pre,
   margin: 20px 0;
   padding: 0;
   font-size: 13px;
-  color: #4d4d4c;
-  background: #f7f7f7;
+  color: #fff;
+  background: #2d2d2d;
   line-height: 1.6;
 }
 pre,
@@ -503,7 +503,7 @@ code {
 }
 pre code {
   padding: 0;
-  color: #4d4d4c;
+  color: #fff;
   background: none;
   text-shadow: none;
 }
@@ -526,7 +526,7 @@ pre code {
 }
 .highlight figcaption {
   font-size: 1em;
-  color: #4d4d4c;
+  color: #fff;
   line-height: 1em;
   margin-bottom: 1em;
 }
@@ -540,23 +540,23 @@ pre code {
 }
 .highlight figcaption a {
   float: right;
-  color: #4d4d4c;
+  color: #fff;
 }
 .highlight figcaption a:hover {
-  border-bottom-color: #4d4d4c;
+  border-bottom-color: #fff;
 }
 .highlight .gutter pre {
   padding-left: 10px;
   padding-right: 10px;
-  color: #869194;
+  color: #999;
   text-align: right;
-  background-color: #eff2f3;
+  background-color: #1b1b1b;
 }
 .highlight .code pre {
   width: 100%;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: #f7f7f7;
+  background-color: #2d2d2d;
 }
 .highlight .line {
   height: 20px;
@@ -574,16 +574,16 @@ pre code {
   border: none;
 }
 pre .deletion {
-  background: #fdd;
+  background: #008000;
 }
 pre .addition {
-  background: #dfd;
+  background: #800000;
 }
 pre .meta {
-  color: #800080;
+  color: #c9c;
 }
 pre .comment {
-  color: #a9a9a9;
+  color: #999;
 }
 pre .variable,
 pre .attribute,
@@ -597,7 +597,7 @@ pre .html .doctype,
 pre .css .id,
 pre .css .class,
 pre .css .pseudo {
-  color: #c82829;
+  color: #f2777a;
 }
 pre .number,
 pre .preprocessor,
@@ -606,7 +606,7 @@ pre .literal,
 pre .params,
 pre .constant,
 pre .command {
-  color: #800080;
+  color: #c9c;
 }
 pre .ruby .class .title,
 pre .css .rules .attribute,
@@ -619,11 +619,11 @@ pre .xml .cdata,
 pre .special,
 pre .number,
 pre .formula {
-  color: #718c00;
+  color: #9c9;
 }
 pre .title,
 pre .css .hexcolor {
-  color: #ffa500;
+  color: #f99157;
 }
 pre .function,
 pre .python .decorator,
@@ -633,11 +633,11 @@ pre .ruby .title .keyword,
 pre .perl .sub,
 pre .javascript .title,
 pre .coffeescript .title {
-  color: #00f;
+  color: #69c;
 }
 pre .keyword,
 pre .javascript .function {
-  color: #00f;
+  color: #69c;
 }
 .full-image.full-image.full-image {
   border: none;
@@ -2032,7 +2032,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffdaeb;
+  background: #95c4ac;
 }
 .links-of-blogroll {
   font-size: 13px;
