@@ -5,7 +5,6 @@ tags:
 - GabrielGambetta
 categories:
 - GS
-# top: 1
 ---
 
 

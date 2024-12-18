@@ -5,7 +5,6 @@ tags:
 - KCP
 categories:
 - NP
-top: 1
 ---
 
 
