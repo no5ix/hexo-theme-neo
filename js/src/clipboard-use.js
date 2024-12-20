@@ -53,7 +53,10 @@
 
 		   	// 点击了之后则复制按钮显示 "√", 800毫秒后恢复原样
 			if(result) {
-				$(this).text('cp!');
+				// $(this).text('√');
+				// $(this).text('✓');
+				// $(this).text('✅');
+				$(this).text('✔');
 				setTimeout(function () {
 					var $b = $wrap.find('.btn-copy')
 					$b.text('');
