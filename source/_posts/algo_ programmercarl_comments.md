@@ -13,8 +13,8 @@ password: '0622'
 
 # 算法白话总结
 
-参考: https://programmercarl.com/
-推荐参考**本博客总结**的 {% post_link algo_newbie %} , 和本文对照着看
+- 参考: https://programmercarl.com/
+- 推荐参考**本博客总结**的 {% post_link algo_newbie %} , 和本文对照着看
 
 
 **. . .**<!-- more -->
@@ -35,6 +35,32 @@ password: '0622'
 
 
 # Java常用接口和实现
+
+## 值传递
+
+- 记住：Java 中只有值传递！只是对于对象类型，值是对象的引用地址，这使得我们可以修改对象的内容，但不能改变对象的引用本身。
+- 	•	基本数据类型： 方法接收变量的值，修改不会影响原始变量。
+-	•	对象类型：
+    - 方法接收的是对象引用的副本，可以通过引用修改对象内容。
+	- 方法不能改变引用本身的指向。
+
+
+```java
+//	解释：在 changeReference 方法中，person 被赋值为一个新的对象，但这只是改变了方法内的 person 引用，并不影响 main 方法中 p 的引用。
+public class ReferenceReassignment {
+    public static void main(String[] args) {
+        Person p = new Person();
+        p.name = "Alice";
+        changeReference(p);
+        System.out.println("Name after method call: " + p.name); // 输出 "Alice"
+    }
+
+    public static void changeReference(Person person) {
+        person = new Person(); // 新建一个对象
+        person.name = "Bob";  // 修改新对象的属性
+    }
+}
+```
 
 ## 排序
 
@@ -119,17 +145,13 @@ public class Main {
             System.out.println(es.getKey());
             System.out.println(es.getValue());
         }
-        // •	keySet(): 返回 Map 中所有键的 Set 视图。
+        // keySet(): 返回 Map 中所有键的 Set 视图。
         for (int k : map.keySet()) {
             System.out.println(k);
         }
-        // •	values(): 返回 Map 中所有值的 Collection 视图。
+        // values(): 返回 Map 中所有值的 Collection 视图, 为啥不是valueSet, 因为value不是唯一的, 不是set
         for (int v : map.values()) {
             System.out.println(v);
-        }
-        for (Map.Entry<Integer, Integer> es : map.entrySet()) {
-            System.out.println(es.getKey());
-            System.out.println(es.getValue());
         }
         map.remove(1);
         System.out.println(map);
@@ -163,7 +185,7 @@ public class Main {
         list.add(31);
         list.add(377);
         list.size();
-        list.remove(0);
+        list.remove(0);  // 0 is index
         list.get(0);
         list.isEmpty();
         for (int i : list) {

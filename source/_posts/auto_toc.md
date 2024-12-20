@@ -21,9 +21,7 @@ Generate TOC(table of contents) for any website. 可以为任何网站生成TOC�
 
 Switch black/white themes automatically according to your compupter's light/dark mode. 会根据你的电脑的黑夜白天模式自动切换黑白主题.
 
-![light](https://raw.githubusercontent.com/no5ix/auto-toc/main/auto_toc_demo_light.png)
-
-![dark](https://raw.githubusercontent.com/no5ix/auto-toc/main/auto_toc_demo_dark.png)
+![](https://raw.githubusercontent.com/no5ix/auto-toc/refs/heads/main/auto_toc_demo_image.jpg)
 
 
 # Features
