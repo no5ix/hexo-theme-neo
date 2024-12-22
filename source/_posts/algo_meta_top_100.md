@@ -7,7 +7,6 @@ tags:
 - LeetCode
 categories:
 - Algo
-password: '0622'
 ---
 
 
@@ -18,49 +17,6 @@ password: '0622'
 
 
 **. . .**<!-- more -->
-
-
-# 找工小队群里公司面经
-
-- hong:
-    - 华人Wevision旗下小创业公司
-        - algo: 岛屿大小, LC621，LC127, LC934
-        1. 第一轮就一个算法题：岛屿大小，然后聊了点项目和简历
-        2. 第二轮两个算法题：LC621，LC127
-        3. 第三轮一个算法一个SD：LC934，短链服务
-        4. 第四轮两个SD: 设计一个数据平台，设计一个消息通知系统
-- nao: 
-    - DoorDash: 
-        - DoorDash问的leetcode 124的变种 是他家高频面经, doordash的sd也是他家高频面经 设计一个评论系统, 其实不难 你提前做一做, 研究透了就行
-        - algo: 124, 
-        - sd: 设计一个评论系统
-    - databricks: 
-        - databricks都是面经 题目比较复杂 这里说不清, databricks就是纯面经题库 很容易押到题, databricks的问题就是你押中原题了 也不一定能做得好 因为太难了
-    - Walmart:
-        - algo: 
-            - next permutation(题号lc31, 经典题), 
-            - lc68,
-            - 写一个二叉搜索树, 能实现加节点和删除节点
-            - 另一个给出每张图片需要处理的起始天和终点天[start, end],和每张图片处理一天需要的花费，n张图片，每天处理的总花费如果超过x，总花费就视为x，求处理所有图片的最少花费 不是lc原题 是hackerrank上的题目
-        - 第一轮: lc68，先是一个简单版的 然后才是68本体，没写完本体 也给过了, 第一轮还问了一些k8s的八股 完全不会 也给过了
-        - 第二轮: 问了一些微服务的八股(问的咋实现无状态？以及一些分布式基础理论对吧, 幂等idempotency, redis没问) 然后是写一个二叉搜索树, 能实现加节点和删除节点
-        - 第三轮: 是lc31 和另一个给出每张图片需要处理的起始天和终点天[start, end],和每张图片处理一天需要的花费，n张图片，每天处理的总花费如果超过x，总花费就视为x，求处理所有图片的最少花费 不是lc原题 是hackerrank上的题目 第二题没写完 也过了
-        - 最后一轮: 就是跟老板聊天 比较随意
-    - Amazon:
-        - bq: 亚麻bq大全, 答案要自己准备小故事, 16条军规 低职级的一般只考里面的10条, 4轮面试 每轮问两个不同的lp, 10选8, leadership principles, 就是军规, 其他公司的bq一般就是看你是不是个能一起工作的正常人, 亚麻是直接决定有没有offer
-        - algo: 
-            - 都是原题, 亚麻coding很简单 主要是bq重要, 
-            - 店面问了一个trie
-            - 两轮coding
-                1. 一个是简单bfs(类似岛的数量number of islands, 经典中的经典了)
-                2. 写一个能O1 add remove getrandom的set
-    - okx:
-        - 我还面了okx coinbase之后的炒币app第二名, payment组
-        - algo: 一轮是lc49, 一轮是lc362
-        - sd: sd是设计一个notification system
-    - Google:
-        - algo: 
-            - 除了google没人考dp, dp会几个经典的就行了(背包，股票，偷房子, 很多变形), dp难的是给竞赛生的, 
 
 
 # Meta面经1
