@@ -11,7 +11,7 @@ password: '0622'
 ---
 
 
-# Reference
+# References
 
 - https://productive-horse-bb0.notion.site/Meta-2021-11-2022-2-3052cadfe0584f8fbda57c86a56663fe?p=46de9980e1d44c41ae81f87e2a9aadc7&pm=s
 - https://www.notion.so/1557653f2b3080d69303d3eae198d88c?v=1557653f2b3081d7b483000c06e42acf
@@ -125,6 +125,199 @@ password: '0622'
 9. 多个task同时进行的时候怎么协调
 
 
+# Misc
+
+
+## lc339 - Nested List Weight Sum
+
+- difficulty: Medium
+- tags:
+    * Depth-First Search
+    * Breadth-First Search
+* https://leetcode.com/problems/nested-list-weight-sum
+* https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0339.Nested%20List%20Weight%20Sum/README_EN.md
+
+You are given a nested list of integers nestedList. Each element is either an integer or a list whose elements may also be integers or other lists.
+
+The depth of an integer is the number of lists that it is inside of. For example, the nested list `[1,[2,2],[[3],2],1]` has each integer's value set to its depth.
+
+Return the sum of each integer in nestedList multiplied by its depth.
+
+Example 1:
+![alt text](/img/algo_meta_top_100/image-7.png)
+
+    Input: nestedList = [[1,1],2,[1,1]]
+    Output: 10
+    Explanation: Four 1's at depth 2, one 2 at depth 1. 1*2 + 1*2 + 2*1 + 1*2 + 1*2 = 10.
+
+
+Example 2:
+![alt text](/img/algo_meta_top_100/image-8.png)
+
+    Input: nestedList = [1,[4,[6]]]
+    Output: 27
+    Explanation: One 1 at depth 1, one 4 at depth 2, and one 6 at depth 3. 1*1 + 4*2 + 6*3 = 27.
+
+Example 3:
+
+    Input: nestedList = [0]
+    Output: 0
+ 
+Constraints:
+
+- 1 <= nestedList.length <= 50
+- The values of the integers in the nested list is in the range [-100, 100].
+- The maximum depth of any integer is less than or equal to 50.
+
+Solutions:
+
+```java
+/**
+ * // This is the interface that allows for creating nested lists.
+ * // You should not implement it, or speculate about its implementation
+ * public interface NestedInteger {
+ *     // Constructor initializes an empty nested list.
+ *     public NestedInteger();
+ *
+ *     // Constructor initializes a single integer.
+ *     public NestedInteger(int value);
+ *
+ *     // @return true if this NestedInteger holds a single integer, rather than a nested list.
+ *     public boolean isInteger();
+ *
+ *     // @return the single integer that this NestedInteger holds, if it holds a single integer
+ *     // Return null if this NestedInteger holds a nested list
+ *     public Integer getInteger();
+ *
+ *     // Set this NestedInteger to hold a single integer.
+ *     public void setInteger(int value);
+ *
+ *     // Set this NestedInteger to hold a nested list and adds a nested integer to it.
+ *     public void add(NestedInteger ni);
+ *
+ *     // @return the nested list that this NestedInteger holds, if it holds a nested list
+ *     // Return empty list if this NestedInteger holds a single integer
+ *     public List<NestedInteger> getList();
+ * }
+ */
+class Solution {
+    public int depthSum(List<NestedInteger> nestedList) {
+        return dfs(nestedList, 1);
+    }
+
+    private int dfs(List<NestedInteger> nestedList, int depth) {
+        int depthSum = 0;
+        for (NestedInteger item : nestedList) {
+            if (item.isInteger()) {
+                depthSum += item.getInteger() * depth;
+            } else {
+                depthSum += dfs(item.getList(), depth + 1);
+            }
+        }
+        return depthSum;
+    }
+}
+```
+
+
+# String
+
+
+## lc408 - Valid Word Abbreviation
+
+- difficulty: Easy
+- tags:
+    * Two Pointers
+    * String
+- https://leetcode.com/problems/valid-word-abbreviation
+- https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0408.Valid%20Word%20Abbreviation/README_EN.md
+
+A string can be abbreviated by replacing any number of non-adjacent, non-empty substrings with their lengths. The lengths should not have leading zeros.
+
+For example, a string such as "substitution" could be abbreviated as (but not limited to):
+
+- "s10n" ("s ubstitutio n")
+- "sub4u4" ("sub stit u tion")
+- "12" ("substitution")
+- "su3i1u2on" ("su bst i t u ti on")
+- "substitution" (no substrings replaced)
+
+The following are not valid abbreviations:
+
+- "s55n" ("s ubsti tutio n", the replaced substrings are adjacent)
+- "s010n" (has leading zeros)
+- "s0ubstitution" (replaces an empty substring)
+
+Given a string word and an abbreviation abbr, return whether the string matches the given abbreviation.
+
+A substring is a contiguous non-empty sequence of characters within a string.
+
+Example 1:
+
+    Input: word = "internationalization", abbr = "i12iz4n"
+    Output: true
+    Explanation: The word "internationalization" can be abbreviated as "i12iz4n" ("i nternational iz atio n").
+
+Example 2:
+
+    Input: word = "apple", abbr = "a2e"
+    Output: false
+    Explanation: The word "apple" cannot be abbreviated as "a2e".
+ 
+
+Constraints:
+
+- 1 <= word.length <= 20
+- word consists of only lowercase English letters.
+- 1 <= abbr.length <= 10
+- abbr consists of lowercase English letters and digits.
+- All the integers in abbr will fit in a 32-bit integer.
+
+
+Solution 1: 
+
+We can directly simulate character matching and replacement.
+
+Assume the lengths of the string `word` and the string `abbr` are `m` and `n` respectively. We use two pointers `i` and `j` to point to the initial positions of the string `word` and the string `abbr` respectively, and use an integer variable `x` to record the current matched number in `abbr`.
+
+Loop to match each character of the string `word` and the string `abbr`:
+
+If the character `abbr[j]` pointed by the pointer `j` is a number, if `abbr[j]` is `'0'` and `x` is `0`, it means that the number in `abbr` has leading zeros, so it is not a valid abbreviation, return `false`; otherwise, update `x` to `x * 10 + abbr[j] - '0'`.
+
+If the character `abbr[j]` pointed by the pointer `j` is not a number, then we move the pointer `i` forward by `x` positions at this time, and then reset `x` to `0`. If `i greater than or equal to m` or `word[i] is not equal to abbr[j]` at this time, it means that the two strings cannot match, return `false`; otherwise, move the pointer `i` forward by `1` position.
+
+Then we move the pointer `j` forward by `1` position, repeat the above process, until `i` exceeds the length of the string `word` or `j` exceeds the length of the string `abbr`.
+
+Finally, if `i + x` equals `m` and `j` equals `n`, it means that the string `word` can be abbreviated as the string `abbr`, return `true`; otherwise return `false`.
+
+The time complexity is `O(m + n)`, where `m` and `n` are the lengths of the string `word` and the string `abbr` respectively. The space complexity is `O(1)`.
+
+```java
+class Solution {
+    public boolean validWordAbbreviation(String word, String abbr) {
+        int m = word.length(), n = abbr.length();
+        int i = 0, j = 0, x = 0;
+        for (; i < m && j < n; ++j) {
+            char c = abbr.charAt(j);
+            if (Character.isDigit(c)) {
+                if (c == '0' && x == 0) {
+                    return false;
+                }
+                x = x * 10 + (c - '0');
+            } else {
+                i += x;
+                x = 0;
+                if (i >= m || word.charAt(i) != c) {
+                    return false;
+                }
+                ++i;
+            }
+        }
+        return i + x == m && j == n;
+    }
+}
+```
+
 # Binary Tree
 
 ## lc1650 - Lowest Common Ancestor of a Binary Tree III
@@ -197,10 +390,6 @@ public Node lowestCommonAncestor(Node p, Node q) {
 	return a;
 }
 ```
-
-
-
-
 
 
 ## DFS
@@ -484,7 +673,6 @@ class Solution {
 
 ### lc426 - Convert Binary Search Tree to Sorted Doubly Linked List
 
-- comments: true
 - difficulty: Medium
 - tags:
     - Stack

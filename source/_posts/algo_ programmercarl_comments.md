@@ -36,13 +36,36 @@ password: '0622'
 
 # Java常用接口和实现
 
+## Convert a number to a string and vice versa
+
+```java
+int num = 123;
+String str = String.valueOf(num);  // better
+String str = num + ""; // worse, this method is simple but not efficient.
+
+String str = "123";
+int num = Integer.valueOf(str); // Returns an Integer object but can be unboxed to int
+```
+
+
+## 随机数
+
+To generate a random number within the range `[3, 6]`, where both 3 and 6 are inclusive, you can modify the logic slightly from the `[3, 6)` approach: `double randomNumber = 3 + (Math.random() * (6 - 3 + 1));`
+
+1. `Math.random()` generates a random number in the range `[0.0, 1.0)`.
+2. Multiplying it by `(6 - 3 + 1)` (which is 4) adjusts the range to `[0.0, 4.0)`.
+3. Adding 3 shifts the range to `[3.0, 7.0)`.
+4. Since the inclusive range is `[3, 6]`, you’ll need to truncate or floor the result if you’re generating an integer: `int picked = (int) ((high - low + 1) * Math.random()) + low;`
+5. remember that `int picked = (int) (high - low + 1) * Math.random() + low;` is not correct, because it will cause the error "incompatible types: possible lossy conversion from double to int", you should always convert the multiplication result `((high - low + 1) * Math.random())` to an Integer but not `(high - low + 1)` only
+
+
 ## 值传递
 
 - 记住：Java 中只有值传递！只是对于对象类型，值是对象的引用地址，这使得我们可以修改对象的内容，但不能改变对象的引用本身。
-- 	•	基本数据类型： 方法接收变量的值，修改不会影响原始变量。
--	•	对象类型：
+- 基本数据类型： 方法接收变量的值，修改不会影响原始变量。
+- 对象类型：
     - 方法接收的是对象引用的副本，可以通过引用修改对象内容。
-	- 方法不能改变引用本身的指向。
+    - 方法不能改变引用本身的指向。
 
 
 ```java
@@ -253,19 +276,34 @@ public class Main {
 ```
 
 
-## String
+## String and Character
 
 ``` java
-        String string = " testString  ";
-        char[] charArray = string.toCharArray();
+        // Character API
+        boolean realDigit = Character.isDigit('8');
+        boolean fakeDigit = Character.isDigit('u');
+
+        // String API
+        String str = " testString  ";
+        char[] charArray = str.toCharArray();
         System.out.println(charArray);
-        System.out.println("string.length(): " + string.length());
-        string.charAt(2);
-        System.out.println("string.substring(1, 4) :" + string.substring(1, 4));
-        String trimedString = string.trim();
+        System.out.println("str.length(): " + str.length());
+        str.charAt(2);
+        System.out.println("str.substring(1, 4) :" + str.substring(1, 4));
+        String trimedString = str.trim();
         System.out.println("trimedString.substring(1, 4) :" + trimedString.substring(1, 4));
-        string.isEmpty();
-        System.out.println(string);
+        str.isEmpty();
+        System.out.println(str);
+
+        // StringBuilder API
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            if (i % 2 == 0) {
+                sb.append(str.charAt(i));
+            }
+        }
+        String newStr = sb.toString();
+        System.out.println(newStr);
 ```
 
 
