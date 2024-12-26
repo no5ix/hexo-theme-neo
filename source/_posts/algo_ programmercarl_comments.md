@@ -24,7 +24,7 @@ password: '0622'
 
 - hong:
     - 华人Wevision旗下小创业公司
-        - algo: 岛屿大小, LC621，LC127, LC934
+        - algo: 岛屿大小LC695, LC621，LC127, LC934
         1. 第一轮就一个算法题：岛屿大小，然后聊了点项目和简历
         2. 第二轮两个算法题：LC621，LC127
         3. 第三轮一个算法一个SD：LC934，短链服务
@@ -99,7 +99,7 @@ To generate a random number within the range `[3, 6]`, where both 3 and 6 are in
 2. Multiplying it by `(6 - 3 + 1)` (which is 4) adjusts the range to `[0.0, 4.0)`.
 3. Adding 3 shifts the range to `[3.0, 7.0)`.
 4. Since the inclusive range is `[3, 6]`, you’ll need to truncate or floor the result if you’re generating an integer: `int picked = (int) ((high - low + 1) * Math.random()) + low;`
-5. remember that `int picked = (int) (high - low + 1) * Math.random() + low;` is not correct, because it will cause the error "incompatible types: possible lossy conversion from double to int", you should always convert the multiplication result `((high - low + 1) * Math.random())` to an Integer but not `(high - low + 1)` only
+5. Notice: remember that `int picked = (int) (high - low + 1) * Math.random() + low;` is not correct, because it will cause the error "incompatible types: possible lossy conversion from double to int", you should always convert the multiplication result `((high - low + 1) * Math.random())` to an Integer but not `(high - low + 1)` only
 
 
 ## 值传递
@@ -142,8 +142,11 @@ public class ReferenceReassignment {
         Collections.sort(list); // 对 List 排序
 ```
 
-举例说明自定义数字排序规则 (这个排序逻辑首先按列 col 排序，如果列相同，则按行 row 排序，再根据节点的值进行排序。排序优先级依次是：列、行、值): 
+举例说明自定义数字排序规则, 使用 Comparator: 
+- Collections.sort
+- Arrays.sort
 
+以下例子的这个排序逻辑首先按列 col 排序，如果列相同，则按行 row 排序，再根据节点的值进行排序。排序优先级依次是：列、行、值
 ``` java
         // : List to store nodes with their column, row, and value
         List<int[]> nodes = new ArrayList<>();
@@ -175,7 +178,7 @@ public class ReferenceReassignment {
         });
 ```
 
-举例说明自定义字幕排序规则 (比如有个 List<String> 的list, 如何按照首字母的来排序): 
+举例说明自定义字母排序规则 (比如有个 List<String> 的list, 如何按照首字母的来排序): 
 
 ``` java
 import java.util.*;
@@ -185,9 +188,13 @@ public class Main {
         List<String> list = new ArrayList<>(Arrays.asList("apple", "banana", "cherry", "date", "grape"));
 
         // 按照首字母排序
-        // •	s1.charAt(0) 和 s2.charAt(0) 获取字符串的首字母。
-        // •	Character.compare 是 Java 提供的方法，用于比较两个字符的大小。
-        Collections.sort(list, (s1, s2) -> Character.compare(s1.charAt(0), s2.charAt(0)));
+        // • [推荐]	s1.charAt(0) 和 s2.charAt(0) 获取字符串的首字母。
+        Collections.sort(list, (s1, s2) -> {  // 推荐这个方法
+            return s1.charAt(0) - s2.charAt(0);
+        });
+
+        // • [不推荐]	Character.compare 是 Java 提供的方法，用于比较两个字符的大小。
+        Collections.sort(list, (s1, s2) -> Character.compare(s1.charAt(0), s2.charAt(0))); // 不推荐, 因为Character.compare不好记
 
         System.out.println(list); // 输出: [apple, banana, cherry, date, grape]
     }
@@ -239,6 +246,11 @@ public class Main {
         System.out.println("set.contains(231) : " + set.contains(231));
         System.out.println(set);
         set.clear();
+
+        // 从 Set<String> 转换为 String[]
+        Set<String> set = new HashSet<>(Arrays.asList("A", "B", "C"));
+        String[] array = set.toArray(new String[0]);
+        System.out.println(Arrays.toString(array));
 ```
 
 
@@ -260,6 +272,43 @@ public class Main {
         list.set(2, 33);
         System.out.println("list: " + list);
         list.clear();
+
+        //// 打印原生数组得
+        int[] ss = new int[2];
+        ss[0] = 2;
+        ss[1] = 1;
+
+        int[][] ssi = new int[2][2];
+        ssi[0][0] = 1;
+        ssi[0][1] = 2;
+        
+        System.out.println(Arrays.toString(ss));  // 一维数组
+        System.out.println(Arrays.deepToString(ssi));  // 多维数组
+
+        //// slice operation
+        int[] points = {1, 2, 3, 4, 5};
+        int[] result = Arrays.copyOfRange(points, 0, 3); // result = {1, 2, 3}
+
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> subList = list.subList(1, 4); // 切片：从索引 1 到 4（不包括 4）
+        System.out.println(subList); // 输出：[2, 3, 4]
+    
+        ///////////////////////
+        ///  只要类实现了 Collection 接口，都支持 toArray() 方法。这包括：
+        //     •	List
+        //     •	Set
+        //     •	Queue
+        //     •	Deque
+        //     •	其他直接实现 Collection 的类
+        // 对于特定类型数组，推荐使用 toArray(T[] a) 方法，避免不必要的类型转换问题。
+        // List 转换为原生数组, 推荐使用这种方法，因为它直接返回指定类型的数组，避免类型转换问题。
+        List<String> list2 = Arrays.asList("A", "B", "C");
+        String[] array = list2.toArray(new String[0]); // 将集合中的元素存储到传入的数组`new String[0]`中，如果这个传入的数组容量不足(当前为0, 当然也可以写3就刚好够或者写2就不够, JVM 会自动分配合适大小的数组)，则会创建一个新数组。当然也可以直接传入合适的size (new String[list2.size()]);)
+        System.out.println(Arrays.toString(array));
+        String[] array2 = list2.toArray(new String[list2.size()]);  // 当然也可以直接传入合适的size
+
+        List<int[]> merged = new ArrayList<int[]>();
+        merged.toArray(new int[0][0]);
 ```
 
 
@@ -322,9 +371,20 @@ public class Main {
 ## String and Character
 
 ``` java
+        // Why use equals()?
+        // because == checks if the two objects are the same instance, whereas equals() compares the actual content of the strings.
+        String testStr = "aa";
+        if (testStr.equals("bb")) {
+            System.out.println("testStr is equal to 'bb'");
+        }
+
         // Character API
         boolean realDigit = Character.isDigit('8');
         boolean fakeDigit = Character.isDigit('u');
+        char testDigit = '9';
+        boolean res = Character.isLetterOrDigit(testDigit);
+        res = Character.toUpperCase(testDigit);
+        res = Character.toLowerCase(testDigit);
 
         // String API
         String str = " testString  ";
@@ -351,6 +411,16 @@ public class Main {
 
 
 # 数组
+
+## 诀窍
+
+没有思路的时候思考以下方法:  
+- 先排个序
+- 二分法
+- 前缀和
+- 双指针
+- 滑动窗口
+
 
 ## lc704 - 二分查找 - 20240814
 
@@ -436,7 +506,7 @@ class Solution {
 }
 ```
 
-## lc27
+## lc27 - Remove Element
 
 - https://programmercarl.com/0027.移除元素.html#算法公开课
 - https://leetcode.com/problems/remove-element/description/

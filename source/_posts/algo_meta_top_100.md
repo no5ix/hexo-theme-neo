@@ -81,7 +81,156 @@ categories:
 9. 多个task同时进行的时候怎么协调
 
 
+# HashMap
+
+## lc1570 - Dot Product of Two Sparse Vectors
+
+- difficulty: Medium
+- tags:
+    * Design
+    * Array
+    * Hash Table
+    * Two Pointers
+* https://leetcode.com/problems/dot-product-of-two-sparse-vectors)
+
+Given two sparse vectors, compute their dot product.
+
+Implement class SparseVector:
+
+`SparseVector(nums)` Initializes the object with the vector `nums`
+`dotProduct(vec) `Compute the dot product between the instance of SparseVector and `vec`
+A sparse vector is a vector that has mostly zero values, you should store the sparse vector efficiently and compute the dot product between two SparseVector.
+
+`Follow up`: What if only one of the vectors is sparse?
+
+Example 1:
+
+    Input: nums1 = [1,0,0,2,3], nums2 = [0,3,0,4,0]
+    Output: 8
+    Explanation: v1 = SparseVector(nums1) , v2 = SparseVector(nums2)
+    v1.dotProduct(v2) = 1*0 + 0*3 + 0*0 + 2*4 + 3*0 = 8
+
+Example 2:
+
+    Input: nums1 = [0,1,0,0,0], nums2 = [0,0,0,0,2]
+    Output: 0
+    Explanation: v1 = SparseVector(nums1) , v2 = SparseVector(nums2)
+    v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
+
+Example 3:
+
+    Input: nums1 = [0,1,0,0,2,0,0], nums2 = [1,0,0,0,3,0,4]
+    Output: 6
+ 
+Constraints:
+
+- n == nums1.length == nums2.length
+- 1 <= n <= 10^5
+- 0 <= nums1[i], nums2[i] <= 100
+
+Solutions: 
+
+```java
+class SparseVector {
+    public Map<Integer, Integer> d = new HashMap<>(128);
+
+    SparseVector(int[] nums) {
+        for (int i = 0; i < nums.length; ++i) {
+            // A sparse vector is a vector that has mostly zero values, you should store the sparse vector efficiently and compute the dot product between two SparseVector.
+            if (nums[i] != 0) {
+                d.put(i, nums[i]);
+            }
+        }
+    }
+
+    // Return the dotProduct of two sparse vectors
+    public int dotProduct(SparseVector vec) {
+        var a = d;
+        var b = vec.d;
+        if (b.size() < a.size()) {
+            var t = a;
+            a = b;
+            b = t;
+        }
+        int ans = 0;
+        for (var e : a.entrySet()) {
+            int i = e.getKey(), v = e.getValue();
+            ans += v * b.getOrDefault(i, 0);
+        }
+        return ans;
+    }
+}
+
+// Your SparseVector object will be instantiated and called as such:
+// SparseVector v1 = new SparseVector(nums1);
+// SparseVector v2 = new SparseVector(nums2);
+// int ans = v1.dotProduct(v2);
+```
+
+
+
+
 # Misc
+
+
+## lc1762 - Buildings With an Ocean View
+
+- difficulty: Medium
+- tags:
+    * Stack
+    * Array
+    * Monotonic Stack
+* https://leetcode.com/problems/buildings-with-an-ocean-view
+
+There are `n` buildings in a line. You are given an integer array `heights` of size `n` that represents the heights of the buildings in the line.
+
+The ocean is to the right of the buildings. A building has an ocean view if the building can see the ocean without obstructions. Formally, a building has an ocean view if all the buildings to its right have a smaller height.
+
+Return a list of indices (`0-indexed`) of buildings that have an ocean view, sorted in increasing order.
+
+Example 1:
+
+    Input: heights = [4,2,3,1]
+    Output: [0,2,3]
+    Explanation: Building 1 (0-indexed) does not have an ocean view because building 2 is taller.
+
+Example 2:
+
+    Input: heights = [4,3,2,1]
+    Output: [0,1,2,3]
+    Explanation: All the buildings have an ocean view.
+
+Example 3:
+
+    Input: heights = [1,3,2,4]
+    Output: [3]
+    Explanation: Only building 3 has an ocean view.
+ 
+Constraints:
+
+- 1 <= heights.length <= 105
+- 1 <= heights[i] <= 109
+
+Solutions:
+
+```java
+class Solution {
+    public int[] findBuildings(int[] heights) {
+        int n = heights.length;
+        List<Integer> ans = new ArrayList<>();
+        int mx = 0;
+        for (int i = heights.length - 1; i >= 0; --i) {
+            if (heights[i] > mx) {
+                ans.add(i);
+                mx = heights[i];
+            }
+        }
+        Collections.reverse(ans);
+        // return ans.stream().mapToInt(Integer::intValue).toArray();
+        return ans.toArray(new int[0]);
+    }
+}
+```
 
 
 ## lc339 - Nested List Weight Sum
