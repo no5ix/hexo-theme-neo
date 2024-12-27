@@ -81,165 +81,7 @@ categories:
 9. 多个task同时进行的时候怎么协调
 
 
-# HashMap
-
-## lc1570-Dot Product of Two Sparse Vectors
-
-- difficulty: Medium
-- tags:
-    * Design
-    * Array
-    * Hash Table
-    * Two Pointers
-* https://leetcode.com/problems/dot-product-of-two-sparse-vectors)
-
-Given two sparse vectors, compute their dot product.
-
-Implement class SparseVector:
-
-`SparseVector(nums)` Initializes the object with the vector `nums`
-`dotProduct(vec) `Compute the dot product between the instance of SparseVector and `vec`
-A sparse vector is a vector that has mostly zero values, you should store the sparse vector efficiently and compute the dot product between two SparseVector.
-
-`Follow up`: What if only one of the vectors is sparse?
-
-Example 1:
-
-    Input: nums1 = [1,0,0,2,3], nums2 = [0,3,0,4,0]
-    Output: 8
-    Explanation: v1 = SparseVector(nums1) , v2 = SparseVector(nums2)
-    v1.dotProduct(v2) = 1*0 + 0*3 + 0*0 + 2*4 + 3*0 = 8
-
-Example 2:
-
-    Input: nums1 = [0,1,0,0,0], nums2 = [0,0,0,0,2]
-    Output: 0
-    Explanation: v1 = SparseVector(nums1) , v2 = SparseVector(nums2)
-    v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
-
-Example 3:
-
-    Input: nums1 = [0,1,0,0,2,0,0], nums2 = [1,0,0,0,3,0,4]
-    Output: 6
- 
-Constraints:
-
-- n == nums1.length == nums2.length
-- 1 <= n <= 10^5
-- 0 <= nums1[i], nums2[i] <= 100
-
-Solutions: 
-
-```java
-class SparseVector {
-    public Map<Integer, Integer> d = new HashMap<>(128);
-
-    SparseVector(int[] nums) {
-        for (int i = 0; i < nums.length; ++i) {
-            // A sparse vector is a vector that has mostly zero values, you should store the sparse vector efficiently and compute the dot product between two SparseVector.
-            if (nums[i] != 0) {
-                d.put(i, nums[i]);
-            }
-        }
-    }
-
-    // Return the dotProduct of two sparse vectors
-    public int dotProduct(SparseVector vec) {
-        var a = d;
-        var b = vec.d;
-        if (b.size() < a.size()) {
-            var t = a;
-            a = b;
-            b = t;
-        }
-        int ans = 0;
-        for (var e : a.entrySet()) {
-            int i = e.getKey(), v = e.getValue();
-            ans += v * b.getOrDefault(i, 0);
-        }
-        return ans;
-    }
-}
-
-// Your SparseVector object will be instantiated and called as such:
-// SparseVector v1 = new SparseVector(nums1);
-// SparseVector v2 = new SparseVector(nums2);
-// int ans = v1.dotProduct(v2);
-```
-
-
-
-
 # Misc
-
-## lc346-Moving Average from Data Stream
-
-- difficulty: Easy
-- tags:
-    * Design
-    * Queue
-    * Array
-    * Data Stream
-* https://leetcode.com/problems/moving-average-from-data-stream
-
-
-Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.
-
-Implement the `MovingAverage` class:
-
-`MovingAverage(int size)` Initializes the object with the `size` of the window size.
-`double next(int val)` Returns the moving average of the last `size` values of the stream.
- 
-Example 1:
-
-    Input:
-    ["MovingAverage", "next", "next", "next", "next"]
-    [[3], [1], [10], [3], [5]]
-
-    Output:
-    [null, 1.0, 5.5, 4.66667, 6.0]
-
-    Explanation:
-    MovingAverage movingAverage = new MovingAverage(3);
-    movingAverage.next(1); // return 1.0 = 1 / 1
-    movingAverage.next(10); // return 5.5 = (1 + 10) / 2
-    movingAverage.next(3); // return 4.66667 = (1 + 10 + 3) / 3
-    movingAverage.next(5); // return 6.0 = (10 + 3 + 5) / 3
-
-Constraints:
-
-- 1 <= size <= 1000
-- -105 <= val <= 105
-- At most 104 calls will be made to next.
-
-Solution:
-
-```java
-class MovingAverage {
-    private Deque<Integer> q = new ArrayDeque<>();
-    private int n;
-    private int s;
-
-    public MovingAverage(int size) {
-        n = size;
-    }
-
-    public double next(int val) {
-        if (q.size() == n) {
-            s -= q.pollFirst();
-        }
-        q.offer(val);
-        s += val;
-        return s * 1.0 / q.size();
-    }
-}
-/**
- * Your MovingAverage object will be instantiated and called as such:
- * MovingAverage obj = new MovingAverage(size);
- * double param_1 = obj.next(val);
- */
-```
-
 
 
 ## lc1762-Buildings With an Ocean View
@@ -392,6 +234,165 @@ class Solution {
     }
 }
 ```
+
+
+# HashMap
+
+## lc1570-Dot Product of Two Sparse Vectors
+
+- difficulty: Medium
+- tags:
+    * Design
+    * Array
+    * Hash Table
+    * Two Pointers
+* https://leetcode.com/problems/dot-product-of-two-sparse-vectors)
+
+Given two sparse vectors, compute their dot product.
+
+Implement class SparseVector:
+
+`SparseVector(nums)` Initializes the object with the vector `nums`
+`dotProduct(vec) `Compute the dot product between the instance of SparseVector and `vec`
+A sparse vector is a vector that has mostly zero values, you should store the sparse vector efficiently and compute the dot product between two SparseVector.
+
+`Follow up`: What if only one of the vectors is sparse?
+
+Example 1:
+
+    Input: nums1 = [1,0,0,2,3], nums2 = [0,3,0,4,0]
+    Output: 8
+    Explanation: v1 = SparseVector(nums1) , v2 = SparseVector(nums2)
+    v1.dotProduct(v2) = 1*0 + 0*3 + 0*0 + 2*4 + 3*0 = 8
+
+Example 2:
+
+    Input: nums1 = [0,1,0,0,0], nums2 = [0,0,0,0,2]
+    Output: 0
+    Explanation: v1 = SparseVector(nums1) , v2 = SparseVector(nums2)
+    v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
+
+Example 3:
+
+    Input: nums1 = [0,1,0,0,2,0,0], nums2 = [1,0,0,0,3,0,4]
+    Output: 6
+ 
+Constraints:
+
+- n == nums1.length == nums2.length
+- 1 <= n <= 10^5
+- 0 <= nums1[i], nums2[i] <= 100
+
+Solutions: 
+
+```java
+class SparseVector {
+    public Map<Integer, Integer> d = new HashMap<>(128);
+
+    SparseVector(int[] nums) {
+        for (int i = 0; i < nums.length; ++i) {
+            // A sparse vector is a vector that has mostly zero values, you should store the sparse vector efficiently and compute the dot product between two SparseVector.
+            if (nums[i] != 0) {
+                d.put(i, nums[i]);
+            }
+        }
+    }
+
+    // Return the dotProduct of two sparse vectors
+    public int dotProduct(SparseVector vec) {
+        var a = d;
+        var b = vec.d;
+        if (b.size() < a.size()) {
+            var t = a;
+            a = b;
+            b = t;
+        }
+        int ans = 0;
+        for (var e : a.entrySet()) {
+            int i = e.getKey(), v = e.getValue();
+            ans += v * b.getOrDefault(i, 0);
+        }
+        return ans;
+    }
+}
+
+// Your SparseVector object will be instantiated and called as such:
+// SparseVector v1 = new SparseVector(nums1);
+// SparseVector v2 = new SparseVector(nums2);
+// int ans = v1.dotProduct(v2);
+```
+
+# Queue
+
+
+## lc346-Moving Average from Data Stream
+
+- difficulty: Easy
+- tags:
+    * Design
+    * Queue
+    * Array
+    * Data Stream
+* https://leetcode.com/problems/moving-average-from-data-stream
+
+
+Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.
+
+Implement the `MovingAverage` class:
+
+`MovingAverage(int size)` Initializes the object with the `size` of the window size.
+`double next(int val)` Returns the moving average of the last `size` values of the stream.
+ 
+Example 1:
+
+    Input:
+    ["MovingAverage", "next", "next", "next", "next"]
+    [[3], [1], [10], [3], [5]]
+
+    Output:
+    [null, 1.0, 5.5, 4.66667, 6.0]
+
+    Explanation:
+    MovingAverage movingAverage = new MovingAverage(3);
+    movingAverage.next(1); // return 1.0 = 1 / 1
+    movingAverage.next(10); // return 5.5 = (1 + 10) / 2
+    movingAverage.next(3); // return 4.66667 = (1 + 10 + 3) / 3
+    movingAverage.next(5); // return 6.0 = (10 + 3 + 5) / 3
+
+Constraints:
+
+- 1 <= size <= 1000
+- -105 <= val <= 105
+- At most 104 calls will be made to next.
+
+Solution:
+
+```java
+class MovingAverage {
+    private Deque<Integer> q = new ArrayDeque<>();
+    private int n;
+    private int s;
+
+    public MovingAverage(int size) {
+        n = size;
+    }
+
+    public double next(int val) {
+        if (q.size() == n) {
+            s -= q.pollFirst();
+        }
+        q.offer(val);
+        s += val;
+        return s * 1.0 / q.size();
+    }
+}
+/**
+ * Your MovingAverage object will be instantiated and called as such:
+ * MovingAverage obj = new MovingAverage(size);
+ * double param_1 = obj.next(val);
+ */
+```
+
 
 
 # String
