@@ -83,7 +83,7 @@ categories:
 
 # HashMap
 
-## lc1570 - Dot Product of Two Sparse Vectors
+## lc1570-Dot Product of Two Sparse Vectors
 
 - difficulty: Medium
 - tags:
@@ -172,8 +172,77 @@ class SparseVector {
 
 # Misc
 
+## lc346-Moving Average from Data Stream
 
-## lc1762 - Buildings With an Ocean View
+- difficulty: Easy
+- tags:
+    * Design
+    * Queue
+    * Array
+    * Data Stream
+* https://leetcode.com/problems/moving-average-from-data-stream
+
+
+Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.
+
+Implement the `MovingAverage` class:
+
+`MovingAverage(int size)` Initializes the object with the `size` of the window size.
+`double next(int val)` Returns the moving average of the last `size` values of the stream.
+ 
+Example 1:
+
+    Input:
+    ["MovingAverage", "next", "next", "next", "next"]
+    [[3], [1], [10], [3], [5]]
+
+    Output:
+    [null, 1.0, 5.5, 4.66667, 6.0]
+
+    Explanation:
+    MovingAverage movingAverage = new MovingAverage(3);
+    movingAverage.next(1); // return 1.0 = 1 / 1
+    movingAverage.next(10); // return 5.5 = (1 + 10) / 2
+    movingAverage.next(3); // return 4.66667 = (1 + 10 + 3) / 3
+    movingAverage.next(5); // return 6.0 = (10 + 3 + 5) / 3
+
+Constraints:
+
+- 1 <= size <= 1000
+- -105 <= val <= 105
+- At most 104 calls will be made to next.
+
+Solution:
+
+```java
+class MovingAverage {
+    private Deque<Integer> q = new ArrayDeque<>();
+    private int n;
+    private int s;
+
+    public MovingAverage(int size) {
+        n = size;
+    }
+
+    public double next(int val) {
+        if (q.size() == n) {
+            s -= q.pollFirst();
+        }
+        q.offer(val);
+        s += val;
+        return s * 1.0 / q.size();
+    }
+}
+/**
+ * Your MovingAverage object will be instantiated and called as such:
+ * MovingAverage obj = new MovingAverage(size);
+ * double param_1 = obj.next(val);
+ */
+```
+
+
+
+## lc1762-Buildings With an Ocean View
 
 - difficulty: Medium
 - tags:
@@ -233,7 +302,7 @@ class Solution {
 ```
 
 
-## lc339 - Nested List Weight Sum
+## lc339-Nested List Weight Sum
 
 - difficulty: Medium
 - tags:
@@ -328,7 +397,7 @@ class Solution {
 # String
 
 
-## lc408 - Valid Word Abbreviation
+## lc408-Valid Word Abbreviation
 
 - difficulty: Easy
 - tags:
@@ -425,7 +494,7 @@ class Solution {
 
 # Binary Tree
 
-## lc1650 - Lowest Common Ancestor of a Binary Tree III
+## lc1650-Lowest Common Ancestor of a Binary Tree III
 
 Description: 
     
@@ -499,13 +568,13 @@ public Node lowestCommonAncestor(Node p, Node q) {
 
 ## DFS
 
-### lc263 - Lowest Common Ancestor of a Binary Tree
+### lc263-Lowest Common Ancestor of a Binary Tree
 
 - https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/
 - https://programmercarl.com/0236.二叉树的最近公共祖先.html#算法公开课
 
 
-### lc129 - Sum Root to Leaf Numbers
+### lc129-Sum Root to Leaf Numbers
 
 - https://leetcode.com/problems/sum-root-to-leaf-numbers/
 - https://programmercarl.com/0257.二叉树的所有路径.html#其他语言版本
@@ -514,7 +583,7 @@ public Node lowestCommonAncestor(Node p, Node q) {
 
 ## BFS
 
-### lc314 - Binary Tree vertical order traversal
+### lc314-Binary Tree vertical order traversal
 
 - https://leetcode.com/problems/binary-tree-vertical-order-traversal/description/
 - https://productive-horse-bb0.notion.site/Meta-2021-11-2022-2-3052cadfe0584f8fbda57c86a56663fe?p=46de9980e1d44c41ae81f87e2a9aadc7&pm=s
@@ -712,7 +781,7 @@ class Solution {
 ```
 
 
-### lc199 - Binary Tree Right Side View
+### lc199-Binary Tree Right Side View
 
 - https://leetcode.com/problems/binary-tree-right-side-view/description/
 - https://programmercarl.com/0102.二叉树的层序遍历.html#_199-二叉树的右视图
@@ -763,7 +832,7 @@ class Solution {
 ```
 
 
-### lc543 - diameter-of-binary-tree
+### lc543-diameter-of-binary-tree
 
 - https://leetcode.com/problems/diameter-of-binary-tree/description/
 - solution: https://leetcode.cn/problems/diameter-of-binary-tree/solutions/139683/er-cha-shu-de-zhi-jing-by-leetcode-solution/
@@ -771,12 +840,12 @@ class Solution {
 
 ## BST
 
-### lc938 - range-sum-of-bst 
+### lc938-range-sum-of-bst 
 
 - https://leetcode.com/problems/range-sum-of-bst/description/
 
 
-### lc426 - Convert Binary Search Tree to Sorted Doubly Linked List
+### lc426-Convert Binary Search Tree to Sorted Doubly Linked List
 
 - difficulty: Medium
 - tags:
@@ -890,7 +959,7 @@ class Solution {
 ```
 
 
-### lc270 - Closest Binary Search Tree Value
+### lc270-Closest Binary Search Tree Value
 
 - difficulty: Easy
 - tags:
