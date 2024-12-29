@@ -387,6 +387,9 @@ public class Main {
         res = Character.toLowerCase(testDigit);
 
         // String API
+        char[] charArr = {'a', 'b', 'c'};
+        String char2String = new String(charArr);
+
         String str = " testString  ";
         char[] charArray = str.toCharArray();
         for (char c : str.toCharArray()) {
@@ -401,13 +404,26 @@ public class Main {
         str.isEmpty();
         System.out.println(str);
 
-        // StringBuilder API
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < str.length(); i++) {
-            if (i % 2 == 0) {
-                sb.append(str.charAt(i));
-            }
-        }
+        // StringBuffer / StringBuilder API:
+        // StringBuffer / StringBuilder 的 append 方法被重载了，可以接受多种类型的参数，包括 int、long、float、double、char 等。注意事项：
+        // 	•	StringBuilder 是非线程安全的，但性能比 StringBuffer 更高，适用于单线程环境。
+        // 	•	如果需要线程安全的操作，应使用 StringBuffer。
+        StringBuilder sb = new StringBuilder("Hello");
+        // Append
+        sb.append(" World").append(123);
+        System.out.println(sb); // Hello World123
+        // Insert
+        sb.insert(5, ",");
+        System.out.println(sb); // Hello, World123
+        // Delete
+        sb.delete(5, 6);
+        System.out.println(sb); // Hello World123
+        // Replace
+        sb.replace(6, 11, "Java");
+        System.out.println(sb); // Hello Java123
+        // Reverse
+        sb.reverse();
+        System.out.println(sb); // 321avaJ olleH
         String newStr = sb.toString();
         System.out.println(newStr);
 ```
@@ -418,14 +434,16 @@ public class Main {
 ## 诀窍
 
 没有思路的时候思考以下方法:  
+
 - 先排个序
 - 二分法
 - 前缀和
 - 双指针
 - 滑动窗口
+- 倒序遍历
 
 
-## lc704 - 二分查找 - 20240814
+## lc704-二分查找-20240814
 
 - https://programmercarl.com/0704.二分查找.html#二分法第一种写法
 - https://leetcode.com/problems/binary-search/
@@ -479,7 +497,7 @@ public class test{
 }
 ```
 
-### 二分查找扩展题 - lc69 - 求平方
+### 二分查找扩展题-lc69-求平方
 
 - https://leetcode.com/problems/sqrtx/description/
 
@@ -509,7 +527,10 @@ class Solution {
 }
 ```
 
-## lc27 - Remove Element
+
+## 双指针
+
+### lc27-Remove Element
 
 - https://programmercarl.com/0027.移除元素.html#算法公开课
 - https://leetcode.com/problems/remove-element/description/
@@ -538,7 +559,7 @@ class Solution {
 ```
 
 
-## lc977 - 有序数组的平方 - 20240916
+### lc977-有序数组的平方
 
 - https://programmercarl.com/0977.有序数组的平方.html#算法公开课
 - https://leetcode.com/problems/squares-of-a-sorted-array/description/
@@ -576,64 +597,8 @@ public class test{
 }
 ```
 
-# 链表
 
-## lc206 - 链表反转
-
-- https://programmercarl.com/0206.翻转链表.html#算法公开课
-- https://leetcode.com/problems/reverse-linked-list/description/
-
-- 重要!!!!! 记忆口诀: 举一反(反转)三(3个指针! pre! cur! temp!)
-- 核心要点就是需要保存一个后面可能要用的结点就弄一个指针出来, 比如这个pre
-
-``` java
-// 双指针
-class Solution {
-    public ListNode reverseList(ListNode head) {
-        ListNode prev = null;
-        ListNode cur = head;
-        ListNode temp = null;
-        while (cur != null) {
-            temp = cur.next;// 保存下一个节点
-            cur.next = prev;
-            prev = cur;
-            cur = temp;
-        }
-        return prev;
-    }
-}
-```
-
-
-## lc24 - 两两交换链表中的节点
-
-- https://programmercarl.com/0024.两两交换链表中的节点.html
-- https://leetcode.com/problems/swap-nodes-in-pairs/
-
-- 重要!!!!! 记忆口诀(和反转链表很类似): 举一(1个dummyHead指针!)反(反转)三(3个指针! cur! node1! node2!)
-- 核心要点(和反转链表很类似): 就是需要保存一个后面可能要用的结点就弄一个指针出来, 需要两个就弄两个指针, 比如这个node1, node2 !!
-
-``` java
-// 将步骤 2,3 交换顺序，这样不用定义 temp 节点
-public ListNode swapPairs(ListNode head) {
-    ListNode dummy = new ListNode(0, head);
-    ListNode cur = dummy;
-    while (cur.next != null && cur.next.next != null) {
-        ListNode node1 = cur.next;// 第 1 个节点
-        ListNode node2 = cur.next.next;// 第 2 个节点
-        cur.next = node2; // 步骤 1
-        node1.next = node2.next;// 步骤 3
-        node2.next = node1;// 步骤 2
-        cur = cur.next.next;
-    }
-    return dummy.next;
-}
-```
-
-
-# 哈希表
-
-## lc15 - 3Sum
+### lc15-3Sum
 
 - https://programmercarl.com/0015.三数之和.html#算法公开课
 - https://leetcode.com/problems/3sum/
@@ -684,7 +649,7 @@ class Solution {
 ```
 
 
-## lc18 - 4Sum
+### lc18-4Sum
 
 - https://programmercarl.com/0018.四数之和.html#其他语言版本
 - https://leetcode.com/problems/4sum/description/
@@ -748,6 +713,130 @@ class Solution {
             System.out.println(arr);
         }
     }
+}
+```
+
+## 滑动窗口模板与生动理论
+
+滑动窗口的模板，能解决大多数的滑动窗口问题：
+```python
+def findSubArray(nums):
+    N = len(nums) # 数组/字符串长度
+    left, right = 0, 0 # 双指针，表示当前遍历的区间[left, right]，闭区间
+    sums = 0 # 用于统计 子数组/子区间 是否有效，根据题目可能会改成求和/计数
+    res = 0 # 保存最大的满足题目要求的 子数组/子串 长度
+    while right < N: # 当右边的指针没有搜索到 数组/字符串 的结尾
+        sums += nums[right] # 增加当前右边指针的数字/字符的求和/计数
+        while 区间[left, right]不符合题意: # 此时需要一直移动左指针，直至找到一个符合题意的区间
+            sums -= nums[left] # 移动左指针前需要从counter中减少left位置字符的求和/计数
+            left += 1 # 真正的移动左指针，注意不能跟上面一行代码写反
+        # 到 while 结束时，我们找到了一个符合题意要求的 子数组/子串
+        res = max(res, right - left + 1) # 需要更新结果
+        right += 1 # 移动右指针，去探索新的区间
+    return res
+```
+
+《挑战程序设计竞赛》这本书中把滑动窗口叫做「虫取法」，我觉得非常生动形象。因为滑动窗口的两个指针移动的过程和虫子爬动的过程非常像：前脚不动，把后脚移动过来；后脚不动，把前脚向前移动。
+
+滑动窗口中用到了左右两个指针，它们移动的思路是：以右指针作为驱动，拖着左指针向前走。右指针每次只移动一步，而左指针在内部 while 循环中每次可能移动多步。右指针是主动前移，探索未知的新区域；左指针是被迫移动，负责寻找满足题意的区间。
+
+
+### lc1004-Max Consecutive Ones III
+
+- https://leetcode.cn/problems/max-consecutive-ones-iii/solutions/609055/fen-xiang-hua-dong-chuang-kou-mo-ban-mia-f76z/
+- https://leetcode.com/problems/max-consecutive-ones-iii/
+
+
+```java
+class Solution {
+    public int longestOnes(int[] A, int K) {
+        int left = 0;
+        int right = 0;
+        int zeroCount = 0;
+        int result = 0;
+        while (right < A.length) {
+            if (A[right] == 0) {
+                zeroCount++;
+            }
+            while (zeroCount > K) {
+                if (A[left] == 0) {
+                    zeroCount--;
+                }
+                left++;
+            }
+            result = Math.max(result, right - left + 1);
+            right++;
+        }
+        return result;
+    }
+}
+```
+
+
+# 链表
+
+## 诀窍
+
+- 单链表弄个虚拟头结点, 可以很省事
+- 双链表弄个虚拟头结点和虚拟尾结点, 刚开始就让虚拟头尾相连, 可以很省事, 参见[LRU](https://leetcode.com/problems/lru-cache/description/)里的那个, 如下: 
+
+```java
+        this.head = new DLinkedNode();  // dummy
+        this.tail = new DLinkedNode();  // dummy
+        head.next = tail;
+        tail.pre = head;
+```
+
+
+## lc206 - 链表反转
+
+- https://programmercarl.com/0206.翻转链表.html#算法公开课
+- https://leetcode.com/problems/reverse-linked-list/description/
+
+- 重要!!!!! 记忆口诀: 举一反(反转)三(3个指针! pre! cur! temp!)
+- 核心要点就是需要保存一个后面可能要用的结点就弄一个指针出来, 比如这个pre
+
+``` java
+// 双指针
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode cur = head;
+        ListNode temp = null;
+        while (cur != null) {
+            temp = cur.next;// 保存下一个节点
+            cur.next = prev;
+            prev = cur;
+            cur = temp;
+        }
+        return prev;
+    }
+}
+```
+
+
+## lc24 - 两两交换链表中的节点
+
+- https://programmercarl.com/0024.两两交换链表中的节点.html
+- https://leetcode.com/problems/swap-nodes-in-pairs/
+
+- 重要!!!!! 记忆口诀(和反转链表很类似): 举一(1个dummyHead指针!)反(反转)三(3个指针! cur! node1! node2!)
+- 核心要点(和反转链表很类似): 就是需要保存一个后面可能要用的结点就弄一个指针出来, 需要两个就弄两个指针, 比如这个node1, node2 !!
+
+``` java
+// 将步骤 2,3 交换顺序，这样不用定义 temp 节点
+public ListNode swapPairs(ListNode head) {
+    ListNode dummy = new ListNode(0, head);
+    ListNode cur = dummy;
+    while (cur.next != null && cur.next.next != null) {
+        ListNode node1 = cur.next;// 第 1 个节点
+        ListNode node2 = cur.next.next;// 第 2 个节点
+        cur.next = node2; // 步骤 1
+        node1.next = node2.next;// 步骤 3
+        node2.next = node1;// 步骤 2
+        cur = cur.next.next;
+    }
+    return dummy.next;
 }
 ```
 
@@ -867,6 +956,15 @@ class Solution {
 ```
 
 # 栈与队列
+
+## 诀窍
+
+- 当遇到这类问题就要用栈了: 
+    - 栈在系统中的路径问题, 如: 简化路径 `cd a/b/c/../../`
+    - 括号匹配问题, 如: 给定一个只包括` '('，')'，'{'，'}'，'['，']' `的字符串，判断字符串是否有效。
+    - 字符串去重问题, 如: lc1047. 删除字符串中的所有相邻重复项
+- 队列反而是在树的层序遍历里用的较多
+
 
 ## lc239 - Sliding Window Maximum
 
@@ -1025,7 +1123,7 @@ class Solution {
 
 ## 二叉树递归解法的写法窍门
     
-再来看返回值，递归函数什么时候需要返回值？什么时候不需要返回值？这里总结如下三点：
+递归函数什么时候需要返回值？什么时候不需要返回值？这里总结如下三点：
 
 - 如果需要搜索**整棵**二叉树且不用处理递归返回值，递归函数就不要返回值。（这种情况就是本文下半部分介绍的113.路径总和ii, https://programmercarl.com/0112.路径总和.html#相关题目推荐）
 - 如果需要搜索**整棵**二叉树且需要处理递归返回值，递归函数就需要返回值。 （这种情况我们在236. 二叉树的最近公共祖先, https://programmercarl.com/0236.二叉树的最近公共祖先.html#算法公开课）
@@ -1365,13 +1463,17 @@ class Solution {
 - 空二叉树是二叉搜索树
 
 
-
 # 回溯
 
 ## 模板
 
-``` cpp
-void backtracking(参数) {
+- https://programmercarl.com/回溯算法理论基础.html#理论基础
+- 起名: 在回溯算法中，我的习惯是函数起名字为backtrack，这个起名大家随意。
+- 返回值: 回溯算法中函数返回值一般为void。
+- 参数: 因为回溯算法需要的参数可不像二叉树递归的时候那么容易一次性确定下来，所以一般是先写逻辑，然后需要什么参数，就填什么参数。
+
+```java
+void backtrack(参数) {
     if (终止条件) {
         存放结果;
         return;
@@ -1384,8 +1486,6 @@ void backtracking(参数) {
     }
 }
 ```
-
-
 
 
 ## 组合
