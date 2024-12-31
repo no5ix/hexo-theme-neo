@@ -1090,49 +1090,34 @@ class Solution {
     - Linked List
     - Binary Tree
     - Doubly-Linked List
+- https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0426.Convert%20Binary%20Search%20Tree%20to%20Sorted%20Doubly%20Linked%20List/README_EN.md
+- https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list
 
-<!-- description:start -->
+Convert a Binary Search Tree to a sorted Circular Doubly-Linked List in place.
 
-<p>Convert a <strong>Binary Search Tree</strong> to a sorted <strong>Circular Doubly-Linked List</strong> in place.</p>
+You can think of the left and right pointers as synonymous to the predecessor and successor pointers in a doubly-linked list. For a circular doubly linked list, the predecessor of the first element is the last element, and the successor of the last element is the first element.
 
-<p>You can think of the left and right pointers as synonymous to the predecessor and successor pointers in a doubly-linked list. For a circular doubly linked list, the predecessor of the first element is the last element, and the successor of the last element is the first element.</p>
+We want to do the transformation in place. After the transformation, the left pointer of the tree node should point to its predecessor, and the right pointer should point to its successor. You should return the pointer to the smallest element of the linked list.
 
-<p>We want to do the transformation <strong>in place</strong>. After the transformation, the left pointer of the tree node should point to its predecessor, and the right pointer should point to its successor. You should return the pointer to the smallest element of the linked list.</p>
+Example 1:
 
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+- ![alt text](/img/algo_meta_top_100/image-3.png)
+- ![alt text](/img/algo_meta_top_100/image-4.png)
+- Input: root = [4,2,5,1,3]
+- Output: [1,2,3,4,5]
+- Explanation: The figure below shows the transformed BST. The solid line indicates the successor relationship, while the dashed line means the predecessor relationship.
+- ![alt text](/img/algo_meta_top_100/image-5.png)
 
-![alt text](/img/algo_meta_top_100/image-3.png)
+Example 2:
 
-![alt text](/img/algo_meta_top_100/image-4.png)
-<pre>
-<strong>Input:</strong> root = [4,2,5,1,3]
+- Input: root = [2,1,3]
+- Output: [1,2,3]
 
+Constraints:
 
-<strong>Output:</strong> [1,2,3,4,5]
-
-<strong>Explanation:</strong> The figure below shows the transformed BST. The solid line indicates the successor relationship, while the dashed line means the predecessor relationship.
-
-
-</pre>
-
-![alt text](/img/algo_meta_top_100/image-5.png)
-
-<p><strong class="example">Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> root = [2,1,3]
-<strong>Output:</strong> [1,2,3]
-</pre>
-
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
-
-<ul>
-	<li>The number of nodes in the tree is in the range <code>[0, 2000]</code>.</li>
-	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
-	<li>All the values of the tree are <strong>unique</strong>.</li>
-</ul>
+- The number of nodes in the tree is in the range [0, 2000].
+- -1000 <= Node.val <= 1000
+- All the values of the tree are unique.
 
 Solution: 
 
@@ -1157,7 +1142,6 @@ class Node {
     }
 };
 */
-
 class Solution {
     private Node prev;
     private Node head;
@@ -1203,44 +1187,34 @@ class Solution {
     - Binary Search
     - Binary Tree
 - https://leetcode.com/problems/closest-binary-search-tree-value
+- https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0270.Closest%20Binary%20Search%20Tree%20Value/README_EN.md
 
+Given the root of a binary search tree and a target value, return the value in the BST that is closest to the target. If there are multiple answers, print the smallest.
 
-<p>Given the <code>root</code> of a binary search tree and a <code>target</code> value, return <em>the value in the BST that is closest to the</em> <code>target</code>. If there are multiple answers, print the smallest.</p>
+Example 1:
 
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+- ![alt text](/img/algo_meta_top_100/image-6.png)
+- Input: root = [4,2,5,1,3], target = 3.714286
+- Output: 4
 
-![alt text](/img/algo_meta_top_100/image-6.png)
+Example 2:
 
-<pre>
-<strong>Input:</strong> root = [4,2,5,1,3], target = 3.714286
-<strong>Output:</strong> 4
-</pre>
+- Input: root = [1], target = 4.428571
+- Output: 1
 
-<p><strong class="example">Example 2:</strong></p>
+Constraints:
 
-<pre>
-<strong>Input:</strong> root = [1], target = 4.428571
-<strong>Output:</strong> 1
-</pre>
+- The number of nodes in the tree is in the range [1, 104].
+- 0 <= Node.val <= 109
+- -109 <= target <= 109
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
-
-<ul>
-	<li>The number of nodes in the tree is in the range <code>[1, 10<sup>4</sup>]</code>.</li>
-	<li><code>0 &lt;= Node.val &lt;= 10<sup>9</sup></code></li>
-	<li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
-</ul>
-
-
-#### Solution 1: Recursion
+Solution 1: Recursion
 
 We define a recursive function `dfs(node)`, which starts from the current node `node` and finds the node closest to the target value `target`. We can update the answer by comparing the absolute difference between the current node's value and the target value. If the target value is less than the current node's value, we recursively search the left subtree; otherwise, we recursively search the right subtree.
 
 The time complexity is `O(n)`, and the space complexity is `O(n)`. Where `n` is the number of nodes in the binary search tree.
 
-```java
+```java Recursion
 class Solution {
     private int ans;
     private double target;
@@ -1267,13 +1241,13 @@ class Solution {
 }
 ```
 
-#### Solution 2: Iteration
+Solution 2: Iteration
 
 We can rewrite the recursive function in an iterative form, using a loop to simulate the recursive process. We start from the root node and check whether the absolute difference between the current node's value and the target value is less than the current minimum difference. If it is, we update the answer. Then, based on the size relationship between the target value and the current node's value, we decide to move to the left subtree or the right subtree. The loop ends when we traverse to a null node.
 
-The time complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree. The space complexity is $O(1)$.
+The time complexity is `O(n)`, where `n` is the number of nodes in the binary search tree. The space complexity is `O(1)`.
 
-```java
+```java Iteration
 class Solution {
     public int closestValue(TreeNode root, double target) {
         int ans = root.val;
