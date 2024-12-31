@@ -92,6 +92,7 @@ categories:
     * Array
     * Monotonic Stack
 * https://leetcode.com/problems/buildings-with-an-ocean-view
+* https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0249.Group%20Shifted%20Strings/README_EN.md
 
 There are `n` buildings in a line. You are given an integer array `heights` of size `n` that represents the heights of the buildings in the line.
 
@@ -236,7 +237,162 @@ class Solution {
 ```
 
 
+# LinkedList
+
+## lc708-Insert into a Sorted Circular Linked List
+
+- difficulty: Medium
+- tags:
+    * Linked List
+- https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list
+- https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0708.Insert%20into%20a%20Sorted%20Circular%20Linked%20List/README_EN.md
+
+Given a Circular Linked List node, which is sorted in non-descending order, write a function to insert a value `insertVal` into the list such that it remains a sorted circular list. The given node can be a reference to any single node in the list and may not necessarily be the smallest value in the circular list.
+
+If there are multiple suitable places for insertion, you may choose any place to insert the new value. After the insertion, the circular list should remain sorted.
+
+If the list is empty (i.e., the given node is `null`), you should create a new single circular list and return the reference to that single node. Otherwise, you should return the originally given node.
+
+Example 1:
+- ![alt text](/img/algo_meta_top_100/image-9.png) 
+- Input: head = `[3,4,1]`, insertVal = 2
+- Output: `[3,4,1,2]`
+- Explanation: In the figure above, there is a sorted circular list of three elements. You are given a reference to the node with value 3, and we need to insert 2 into the list. The new node should be inserted between node 1 and node 3. After the insertion, the list should look like this, and we should still return node 3.
+- ![alt text](/img/algo_meta_top_100/image-10.png)
+
+Example 2:
+- Input: head = `[]`, insertVal = 1
+- Output: `[1]`
+- Explanation: The list is empty (given head is null). We create a new single circular list and return the reference to that single node.
+
+Example 3:
+- Input: head = `[1]`, insertVal = 0
+- Output: `[1,0]`
+ 
+Constraints:
+
+- The number of nodes in the list is in the range `[0, 5 * 104]`.
+- `-106 <= Node.val, insertVal <= 106`
+
+Solutions
+
+```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node next;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, Node _next) {
+        val = _val;
+        next = _next;
+    }
+};
+*/
+class Solution {
+    public Node insert(Node head, int insertVal) {
+        Node node = new Node(insertVal);
+        if (head == null) {
+            node.next = node;
+            return node;
+        }
+        Node prev = head, curr = head.next;
+        while (curr != head) {
+            if (prev.val <= insertVal && insertVal <= curr.val) {
+                  break;  // 插入值在 current 和 current.next 之间
+            }
+            if (prev.val > curr.val) {  // pre是最大值, curr是最小值, 因为是从小到大遍历, prev > curr说明遍历到头了
+                if (insertVal >= prev.val || insertVal <= curr.val) {
+                    break;  // 插入值大于最大值或小于最小值的情况
+                }
+            }
+            prev = curr;
+            curr = curr.next;
+        }
+        prev.next = node;
+        node.next = curr;
+        return head;
+    }
+}
+```
+
+
+
+
 # HashMap
+
+## lc249-Group Shifted Strings
+
+- difficulty: Medium
+- tags:
+    * Array
+    * Hash Table
+    * String
+- https://leetcode.com/problems/group-shifted-strings
+
+Perform the following shift operations on a string:
+
+Right shift: Replace every letter with the successive letter of the English alphabet, where `'z'` is replaced by `'a'`. For example, `"abc"` can be right-shifted to `"bcd"` or `"xyz"` can be right-shifted to `"yza"`.
+Left shift: Replace every letter with the preceding letter of the English alphabet, where `'a'` is replaced by `'z'`. For example, `"bcd"` can be left-shifted to `"abc"` or `"yza"` can be left-shifted to `"xyz"`.
+We can keep shifting the string in both directions to form an endless shifting sequence.
+
+For example, shift `"abc"` to form the sequence: ... <-> `"abc"` <-> `"bcd"` <-> ... <-> `"xyz"` <-> `"yza"` <-> .... <-> `"zab"` <-> `"abc"` <-> ...
+You are given an array of strings `strings`, group together all `strings[i]` that belong to the same shifting sequence. You may return the answer in any order.
+
+Example 1:
+
+    Input: strings = ["abc","bcd","acef","xyz","az","ba","a","z"]
+    Output: [["acef"],["a","z"],["abc","bcd","xyz"],["az","ba"]]
+    Explanation: "az" can be left-shifted to "ba"
+
+Example 2:
+
+    Input: strings = ["a"]
+    Output: [["a"]]
+
+Constraints:
+
+- 1 <= strings.length <= 200
+- 1 <= strings[i].length <= 50
+- strings[i] consists of lowercase English letters.
+
+Solutions:  
+
+We use a hash table `g` to store each string after shifting and with the first character as '`a`'. That is, `g[t]` represents the set of all strings that become `t` after shifting.
+
+We iterate through each string. For each string, we calculate its shifted string `t`, and then add it to `g[t]`.
+
+Finally, we take out all the values in `g`, which is the answer.
+
+The time complexity is `O(L)` and the space complexity is `O(L)`, where `L` is the sum of the lengths of all strings.
+
+```java
+class Solution {
+    public List<List<String>> groupStrings(String[] strings) {
+        Map<String, List<String>> g = new HashMap<>();
+        for (var s : strings) {
+            char[] t = s.toCharArray();
+            int diff = t[0] - 'a';
+            for (int i = 0; i < t.length; ++i) {
+                t[i] = (char) (t[i] - diff);
+                if (t[i] < 'a') {
+                    t[i] += 26;
+                }
+            }
+            g.computeIfAbsent(new String(t), k -> new ArrayList<>()).add(s);
+        }
+        return new ArrayList<>(g.values());
+    }
+}
+```
+
+
 
 ## lc1570-Dot Product of Two Sparse Vectors
 
@@ -584,8 +740,9 @@ public Node lowestCommonAncestor(Node p, Node q) {
 
 ## BFS
 
-### lc314-Binary Tree vertical order traversal
+### lc314-lc987-Binary Tree vertical order traversal
 
+- Medium
 - https://leetcode.com/problems/binary-tree-vertical-order-traversal/description/
 - https://productive-horse-bb0.notion.site/Meta-2021-11-2022-2-3052cadfe0584f8fbda57c86a56663fe?p=46de9980e1d44c41ae81f87e2a9aadc7&pm=s
 - hint: BFS; queue and map with col number
@@ -617,8 +774,76 @@ Constraints:
 The number of nodes in the tree is in the range [0, 100].
 -100 <= Node.val <= 100
 
+Solution1: (最优解, 而且最好理解, 还方便对于同行同列的值排序, 参见[LC987](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/description/))
 
-Solution1: 
+```java
+class Solution {
+    public static List<List<Integer>> verticalTraversal(TreeNode root) {
+        List<List<Integer>> resultList = new ArrayList<>();
+        if (root == null) {
+            return resultList;
+        }
+
+        List<int[]> nodes = new ArrayList<>();
+        int row = 0;
+        Queue<TreeNode> nodeQueue = new ArrayDeque<>();
+        Queue<Integer> colQueue = new ArrayDeque<>();
+
+        nodeQueue.offer(root);
+        colQueue.offer(0);
+
+        while (!nodeQueue.isEmpty()) {
+            int len = nodeQueue.size();
+            row++;
+            while (len > 0) {
+                TreeNode tempNode = nodeQueue.poll();
+                int curCol = colQueue.poll();
+                nodes.add(new int[]{curCol, row, tempNode.val});  // 注意是先col再row再value, 不是先row再col
+                // add children for level order traversal
+                if (tempNode.left != null) {
+                    nodeQueue.offer(tempNode.left);
+                    colQueue.offer(curCol - 1);
+                }
+                if (tempNode.right != null) {
+                    nodeQueue.offer(tempNode.right);
+                    colQueue.offer(curCol + 1);
+                }
+                len--;
+            }
+        }
+
+        // 如果要对于同行同列的值排序, 就取消下面这几行代码的注释
+        // Sort nodes by column, row, and value
+        // Collections.sort(nodes, (tuple1, tuple2) -> {
+        //     if (tuple1[0] != tuple2[0]) {
+        //         return tuple1[0] - tuple2[0];
+        //     } else if (tuple1[1] != tuple2[1]) {
+        //         return tuple1[1] - tuple2[1];
+        //     } else {
+        //         return tuple1[2] - tuple2[2];
+        //     }
+        // });
+
+
+        int lastCol = Integer.MIN_VALUE;
+        for (int[] node : nodes) {
+            // System.out.println(Arrays.toString(node));
+            int nodeCol = node[0];
+            int nodeVal = node[2];
+            if (nodeCol != lastCol) {
+                List<Integer> newArray = new ArrayList<>();
+                resultList.add(newArray);
+                lastCol = nodeCol;
+            }
+            resultList.get(resultList.size() - 1).add(nodeVal);
+        }
+
+        return resultList;
+    }
+}
+```
+
+Solution2: (这个解法还适合用来解"top/bottom view of binary tree", 但是无法处理LC987的'对同行同列的值排序'这种情况, 因为 colToVals 这个 map只存了col信息, 无法排序)
 
 ``` java
 // - BFS level order traversal, time O(N), space O(N)
@@ -675,30 +900,34 @@ class Solution {
         int minColIndex = 0;
         int maxColIndex = 0;
         while (!nodeQueue.isEmpty()) {
-            TreeNode tempNode = nodeQueue.poll();
-            int curCol = colQueue.poll();
+            int len = nodeQueue.size();
+            while (len > 0) {
+                TreeNode tempNode = nodeQueue.poll();
+                int curCol = colQueue.poll();
 
-            if (colToVals.containsKey(curCol)) {
-                List<Integer> curVals = colToVals.get(curCol);
-                curVals.add(tempNode.val);
-            } else {
-                List<Integer> newVals = new ArrayList<>();
-                newVals.add(tempNode.val);
-                colToVals.put(curCol, newVals);
-            }
+                if (colToVals.containsKey(curCol)) {
+                    List<Integer> curVals = colToVals.get(curCol);
+                    curVals.add(tempNode.val);
+                } else {
+                    List<Integer> newVals = new ArrayList<>();
+                    newVals.add(tempNode.val);
+                    colToVals.put(curCol, newVals);
+                }
 
-            // update min, max cols and add current value to corresponding column's list
-            minColIndex = Math.min(curCol, minColIndex);
-            maxColIndex = Math.max(curCol, maxColIndex);
+                // update min, max cols and add current value to corresponding column's list
+                minColIndex = Math.min(curCol, minColIndex);
+                maxColIndex = Math.max(curCol, maxColIndex);
 
-            // add children for level order traversal
-            if (tempNode.left != null) {
-                nodeQueue.offer(tempNode.left);
-                colQueue.offer(curCol - 1);
-            }
-            if (tempNode.right != null) {
-                nodeQueue.offer(tempNode.right);
-                colQueue.offer(curCol + 1);
+                // add children for level order traversal
+                if (tempNode.left != null) {
+                    nodeQueue.offer(tempNode.left);
+                    colQueue.offer(curCol - 1);
+                }
+                if (tempNode.right != null) {
+                    nodeQueue.offer(tempNode.right);
+                    colQueue.offer(curCol + 1);
+                }
+                len--;
             }
         }
 
@@ -723,63 +952,67 @@ class Solution {
 }
 ```
 
-Solution2:
 
-``` java
-
+Solution 3: (不推荐, 但是一种思路)
+```java
 class Solution {
-
-    private int minVerticalColIndex = 0;
-    private int maxVerticalColIndex = 0;
-
     public List<List<Integer>> verticalTraversal(TreeNode root) {
-        // use dfs to solve this problem
-        List<List<Integer>> resultList = new ArrayList<>();
-        if (root == null) {
-            return resultList;
-        }
-
-        Map<Integer, List<Integer>> colToVals = new HashMap<>();
+        // List to store nodes with their column, row, and value
+        List<int[]> nodes = new ArrayList<>();
         
-        dfs(root, 0, colToVals);
+        // Perform DFS traversal
+        dfs(root, 0, 0, nodes);
         
-        // System.out.println("colToVals = ");
-        // System.out.println(colToVals);
-
-        for (int i = this.minVerticalColIndex; i <= this.maxVerticalColIndex; i++) {
-            resultList.add(colToVals.get(i));
+        // 如果要对于同行同列的值排序, 就取消下面这几行代码的注释
+        // // Sort nodes by column, row, and value
+        // // 1. 
+        // Collections.sort(nodes, (tuple1, tuple2) -> {
+        // // 2. 
+        // // Collections.sort(nodes, new Comparator<int[]>() {
+        //     // public int compare(int[] tuple1, int[] tuple2) {
+        // // 3. 
+        // // Collections.sort(nodes, (int[] tuple1, int[] tuple2) -> {
+        //     if (tuple1[0] != tuple2[0]) {
+        //         return tuple1[0] - tuple2[0];
+        //     } else if (tuple1[1] != tuple2[1]) {
+        //         return tuple1[1] - tuple2[1];
+        //     } else {
+        //         return tuple1[2] - tuple2[2];
+        //     }
+        // });
+        
+        // List to store the final result (list of lists for each column)
+        List<List<Integer>> ans = new ArrayList<>();
+        
+        // Variable to track the last column seen
+        int lastcol = Integer.MIN_VALUE;
+        
+        // Iterate over sorted nodes and group by column
+        for (int[] tuple : nodes) {
+            int col = tuple[0], row = tuple[1], value = tuple[2];
+            if (col != lastcol) {
+                lastcol = col;
+                ans.add(new ArrayList<>());
+            }
+            ans.get(ans.size() - 1).add(value);
         }
-        // System.out.println("resultList = ");
-        // System.out.println(resultList);
-        return resultList;
+        
+        return ans;
     }
 
-    private void dfs(TreeNode node, int curCol, Map<Integer, List<Integer>> colToVals) {
+    // DFS method to traverse the tree and collect nodes with (col, row, value)
+    public void dfs(TreeNode node, int row, int col, List<int[]> nodes) {
         if (node == null) {
             return;
         }
-
-        if (curCol < this.minVerticalColIndex) {
-            this.minVerticalColIndex = curCol;
-        }
-        if (curCol > this.maxVerticalColIndex) {
-            this.maxVerticalColIndex = curCol;
-        }
-
-        if (colToVals.containsKey(curCol)) {
-            List<Integer> curVals = colToVals.get(curCol);
-            curVals.add(node.val);
-        } else {
-            List<Integer> newVals = new ArrayList<>();
-            newVals.add(node.val);
-            colToVals.put(curCol, newVals);
-        }
-
-        dfs(node.left, curCol - 1, colToVals);
-        dfs(node.right, curCol + 1, colToVals);
+        
+        nodes.add(new int[]{col, row, node.val});
+        dfs(node.left, row + 1, col - 1, nodes);
+        dfs(node.right, row + 1, col + 1, nodes);
     }
 }
 ```
+
 
 
 ### lc199-Binary Tree Right Side View
@@ -1005,7 +1238,7 @@ class Solution {
 
 We define a recursive function `dfs(node)`, which starts from the current node `node` and finds the node closest to the target value `target`. We can update the answer by comparing the absolute difference between the current node's value and the target value. If the target value is less than the current node's value, we recursively search the left subtree; otherwise, we recursively search the right subtree.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary search tree.
+The time complexity is `O(n)`, and the space complexity is `O(n)`. Where `n` is the number of nodes in the binary search tree.
 
 ```java
 class Solution {

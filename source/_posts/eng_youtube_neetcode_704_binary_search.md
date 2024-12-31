@@ -3,6 +3,7 @@ title: yt neetcode lc704 binary search
 date: 2024-10-21 02:34:21
 tags:
 - English
+- Youtube
 - Algo
 - Subtitle
 categories:

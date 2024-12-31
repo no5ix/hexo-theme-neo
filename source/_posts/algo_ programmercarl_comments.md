@@ -1,5 +1,5 @@
 ---
-title: Algo 代码随想录 注释
+title: 代码随想录注解
 date: 2024-08-15 00:54:08
 tags:
 - noodle
@@ -398,9 +398,9 @@ public class Main {
         System.out.println(charArray);
         System.out.println("str.length(): " + str.length());
         str.charAt(2);
-        System.out.println("str.substring(1, 4) :" + str.substring(1, 4));
+        System.out.println("str.substring(1, 4) :" + str.substring(1, 4));  // output:tes, 因为substring不包含最后一个4索引的char
         String trimedString = str.trim();
-        System.out.println("trimedString.substring(1, 4) :" + trimedString.substring(1, 4));
+        System.out.println("trimedString.substring(1, 4) :" + trimedString.substring(1, 4));  // output:est
         str.isEmpty();
         System.out.println(str);
 
@@ -426,6 +426,165 @@ public class Main {
         System.out.println(sb); // 321avaJ olleH
         String newStr = sb.toString();
         System.out.println(newStr);
+```
+
+
+# Quick Select
+
+## 模板与诀窍
+
+- 适合解决 Top K 问题, 因为最快
+- 快速选择平均情况下，时间复杂度为 O(N)。
+- 空间复杂度：O(N)。哈希表的大小为 O(N)，用于排序的数组的大小也为 O(N)，快速排序的空间复杂度最好情况为 O(logN)，最坏情况为 O(N)。
+
+```java QuickSelect模板
+    public int[] topK(int[] nums, int k) {
+        int partitionIndex = 0;
+        int targetIndex = nums.length - k;
+        int left = 0;
+        int right = pairLen - 1;
+        while (true) {
+            partitionIndex = quickSelect(nums, left, right);
+            if (partitionIndex == targetIndex) {
+                return res; 
+            } else if (partitionIndex > targetIndex) {
+                right = partitionIndex - 1;
+            } else {
+                left = partitionIndex + 1;
+            }
+        }
+    }
+
+    private int quickSelect(int[] nums, int left, int right) {
+        int randIndex = (int) (Math.random() * (right - left + 1)) + left;
+        swap(randIndex, left)
+
+        Pair pivot = nums[left];
+        int partitionIndex = left;  // 参考 algo_newbie.md ##普通快排 里的代码, 及其动画演示
+
+        for (int i = left + 1; i <= right; ++i) {
+            if (nums[i] < pivot) {
+                swap(partitionIndex + 1, i)
+                partitionIndex++;
+            }
+        }
+        swap(left, partitionIndex);
+        return partitionIndex;
+    }
+```
+
+
+## lc347 - Top K Frequent Elements
+
+- https://leetcode.com/problems/top-k-frequent-elements/description/
+- https://programmercarl.com/0347.前K个高频元素.html#其他语言版本
+- Similar problem: https://leetcode.com/problems/kth-largest-element-in-an-array/
+
+We should solve this kind of top-level problem using the “Quick Select” approach (it’s very similar to Quick Sort). Because its time complexity of O(n) is lower, this method is more efficient than the Heap-based approach with a time complexity of O(nlogn).
+
+Referenced this: https://www.bilibili.com/video/BV1Bz4y117Fr/
+
+- 时间复杂度：O(N)，其中 N 为数组的长度。
+设处理长度为 N 的数组的时间复杂度为 f(N)。由于处理的过程包括一次遍历和一次子分支的递归，最好情况下，有 f(N)=O(N)+f(N/2)，根据 主定理，能够得到 f(N)=O(N)。
+- 最坏情况下，每次取的中枢数组的元素都位于数组的两端，时间复杂度退化为 O(N)。但由于我们在每次递归的开始会先随机选取中枢元素，故出现最坏情况的概率很低。
+- 平均情况下，时间复杂度为 O(N)。
+- 空间复杂度：O(N)。哈希表的大小为 O(N)，用于排序的数组的大小也为 O(N)，快速排序的空间复杂度最好情况为 O(logN)，最坏情况为 O(N)。
+
+链接：https://leetcode.cn/problems/top-k-frequent-elements/solutions/402568/qian-k-ge-gao-pin-yuan-su-by-leetcode-solution/
+
+
+``` java
+import java.util.Map;
+import java.util.HashMap;
+
+class Solution {
+
+    public static void main(String[] args) {
+        // int[] array = {10, 7, 8, 9, 1, 5};
+        int[] array = {1, 1, 1, 1, 2, 2, 3, 3, 3, 5, 5, 5, 5, 6, 6};
+        int[] res = topKFrequent(array, 2);
+        // int[] array = {1};
+        // int[] res = topKFrequent(array, 1);
+        for (int num : res) {
+            System.out.print("num: " + num + " ");
+        }
+    }
+    
+    public static int[] topKFrequent(int[] nums, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        Pair[] pairs = new Pair[map.size()];
+        int index = 0;
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            pairs[index++] = new Pair(entry.getKey(), entry.getValue());
+        }
+        int partitionIndex = 0;
+        int pairLen = pairs.length;
+        int targetIndex = pairLen - k;
+        int low = 0;
+        int high = pairLen - 1;
+        // System.out.println(high);
+        while (true) {
+            partitionIndex = quickSelect(pairs, low, high);
+            if (partitionIndex == targetIndex) {
+                int[] res = new int[k];
+                for (int i = 0; i < k; ++i) {
+                    res[i] = pairs[--pairLen].num;
+                }
+                return res; 
+            } else if (partitionIndex > targetIndex) {
+                high = partitionIndex - 1;
+            } else {
+                low = partitionIndex + 1;
+            }
+        }
+    }
+
+    private static int quickSelect(Pair[] pairs, int low, int high) {
+        // System.out.println(low);
+        // System.out.println(high);
+
+        // To generate a random number within the range [3, 6], where both 3 and 6 are inclusive, you can modify the logic slightly from the [3, 6) approach:
+        // double randomNumber = 3 + (Math.random() * (6 - 3 + 1));
+        // 1.	Math.random() generates a random number in the range [0.0, 1.0).
+        // 2.	Multiplying it by (6 - 3 + 1) (which is 4) adjusts the range to [0.0, 4.0).
+        // 3.	Adding 3 shifts the range to [3.0, 7.0).
+        // 4.	Since the inclusive range is [3, 6], you’ll need to truncate or floor the result if you’re generating an integer.
+
+        int picked = (int) (Math.random() * (high - low + 1)) + low;
+        Pair tempPair = pairs[low];
+        pairs[low] = pairs[picked];
+        pairs[picked] = tempPair;
+
+        Pair pivot = pairs[low];
+        int partitionIndex = low;  // 参考 algo_newbie.md ##普通快排 里的代码, 及其动画演示
+
+        for (int i = low + 1; i <= high; ++i) {
+            if (pairs[i].freq < pivot.freq) {
+                Pair temp = pairs[i];
+                pairs[i] = pairs[partitionIndex + 1];
+                pairs[partitionIndex + 1] = temp;
+                partitionIndex++;
+            }
+        }
+
+        pairs[low] = pairs[partitionIndex];
+        pairs[partitionIndex] = pivot;
+
+        return partitionIndex;
+    }
+
+    static class Pair {
+        int num;
+        int freq;
+        Pair(int number, int frequency) {
+            num = number;
+            freq = frequency;
+        }
+    }
+}
 ```
 
 
@@ -716,10 +875,16 @@ class Solution {
 }
 ```
 
+
 ## 滑动窗口模板与生动理论
 
+- https://leetcode.cn/problems/max-consecutive-ones-iii/solutions/609055/fen-xiang-hua-dong-chuang-kou-mo-ban-mia-f76z/
+- 《挑战程序设计竞赛》这本书中把滑动窗口叫做「虫取法」，我觉得非常生动形象。因为滑动窗口的两个指针移动的过程和虫子爬动的过程非常像：前脚不动，把后脚移动过来；后脚不动，把前脚向前移动。
+- 滑动窗口中用到了左右两个指针，它们移动的思路是：以右指针作为驱动，拖着左指针向前走。右指针每次只移动一步，而左指针在内部 while 循环中每次可能移动多步。右指针是主动前移，探索未知的新区域；左指针是被迫移动，负责寻找满足题意的区间。
+
 滑动窗口的模板，能解决大多数的滑动窗口问题：
-```python
+
+```python 滑动窗口的模板
 def findSubArray(nums):
     N = len(nums) # 数组/字符串长度
     left, right = 0, 0 # 双指针，表示当前遍历的区间[left, right]，闭区间
@@ -735,10 +900,6 @@ def findSubArray(nums):
         right += 1 # 移动右指针，去探索新的区间
     return res
 ```
-
-《挑战程序设计竞赛》这本书中把滑动窗口叫做「虫取法」，我觉得非常生动形象。因为滑动窗口的两个指针移动的过程和虫子爬动的过程非常像：前脚不动，把后脚移动过来；后脚不动，把前脚向前移动。
-
-滑动窗口中用到了左右两个指针，它们移动的思路是：以右指针作为驱动，拖着左指针向前走。右指针每次只移动一步，而左指针在内部 while 循环中每次可能移动多步。右指针是主动前移，探索未知的新区域；左指针是被迫移动，负责寻找满足题意的区间。
 
 
 ### lc1004-Max Consecutive Ones III
@@ -1005,123 +1166,11 @@ class Solution {
 }
 ```
 
-## lc347 - Top K Frequent Elements
-
-- https://leetcode.com/problems/top-k-frequent-elements/description/
-- https://programmercarl.com/0347.前K个高频元素.html#其他语言版本
-- Similar problem: https://leetcode.com/problems/kth-largest-element-in-an-array/
-
-We should solve this kind of top-level problem using the “Quick Select” approach (it’s very similar to Quick Sort). Because its time complexity of O(n) is lower, this method is more efficient than the Heap-based approach with a time complexity of O(nlogn).
-
-Referenced this: https://www.bilibili.com/video/BV1Bz4y117Fr/
-
-- 时间复杂度：O(N)，其中 N 为数组的长度。
-设处理长度为 N 的数组的时间复杂度为 f(N)。由于处理的过程包括一次遍历和一次子分支的递归，最好情况下，有 f(N)=O(N)+f(N/2)，根据 主定理，能够得到 f(N)=O(N)。
-- 最坏情况下，每次取的中枢数组的元素都位于数组的两端，时间复杂度退化为 O(N)。但由于我们在每次递归的开始会先随机选取中枢元素，故出现最坏情况的概率很低。
-- 平均情况下，时间复杂度为 O(N)。
-- 空间复杂度：O(N)。哈希表的大小为 O(N)，用于排序的数组的大小也为 O(N)，快速排序的空间复杂度最好情况为 O(logN)，最坏情况为 O(N)。
-
-链接：https://leetcode.cn/problems/top-k-frequent-elements/solutions/402568/qian-k-ge-gao-pin-yuan-su-by-leetcode-solution/
-
-
-``` java
-import java.util.Map;
-import java.util.HashMap;
-
-class Solution {
-
-    public static void main(String[] args) {
-        // int[] array = {10, 7, 8, 9, 1, 5};
-        int[] array = {1, 1, 1, 1, 2, 2, 3, 3, 3, 5, 5, 5, 5, 6, 6};
-        int[] res = topKFrequent(array, 2);
-        // int[] array = {1};
-        // int[] res = topKFrequent(array, 1);
-        for (int num : res) {
-            System.out.print("num: " + num + " ");
-        }
-    }
-    
-    public static int[] topKFrequent(int[] nums, int k) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int num : nums) {
-            map.put(num, map.getOrDefault(num, 0) + 1);
-        }
-        Pair[] pairs = new Pair[map.size()];
-        int index = 0;
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            pairs[index++] = new Pair(entry.getKey(), entry.getValue());
-        }
-        int partitionIndex = 0;
-        int pairLen = pairs.length;
-        int targetIndex = pairLen - k;
-        int low = 0;
-        int high = pairLen - 1;
-        // System.out.println(high);
-        while (true) {
-            partitionIndex = quickSelect(pairs, low, high);
-            if (partitionIndex == targetIndex) {
-                int[] res = new int[k];
-                for (int i = 0; i < k; ++i) {
-                    res[i] = pairs[--pairLen].num;
-                }
-                return res; 
-            } else if (partitionIndex > targetIndex) {
-                high = partitionIndex - 1;
-            } else {
-                low = partitionIndex + 1;
-            }
-        }
-    }
-
-    private static int quickSelect(Pair[] pairs, int low, int high) {
-        // System.out.println(low);
-        // System.out.println(high);
-
-        // To generate a random number within the range [3, 6], where both 3 and 6 are inclusive, you can modify the logic slightly from the [3, 6) approach:
-        // double randomNumber = 3 + (Math.random() * (6 - 3 + 1));
-        // 1.	Math.random() generates a random number in the range [0.0, 1.0).
-        // 2.	Multiplying it by (6 - 3 + 1) (which is 4) adjusts the range to [0.0, 4.0).
-        // 3.	Adding 3 shifts the range to [3.0, 7.0).
-        // 4.	Since the inclusive range is [3, 6], you’ll need to truncate or floor the result if you’re generating an integer.
-
-        int picked = (int) (Math.random() * (high - low + 1)) + low;
-        Pair tempPair = pairs[low];
-        pairs[low] = pairs[picked];
-        pairs[picked] = tempPair;
-
-        Pair pivot = pairs[low];
-        int partitionIndex = low;  // 参考 algo_newbie.md ##普通快排 里的代码, 及其动画演示
-
-        for (int i = low + 1; i <= high; ++i) {
-            if (pairs[i].freq < pivot.freq) {
-                Pair temp = pairs[i];
-                pairs[i] = pairs[partitionIndex + 1];
-                pairs[partitionIndex + 1] = temp;
-                partitionIndex++;
-            }
-        }
-
-        pairs[low] = pairs[partitionIndex];
-        pairs[partitionIndex] = pivot;
-
-        return partitionIndex;
-    }
-
-    static class Pair {
-        int num;
-        int freq;
-        Pair(int number, int frequency) {
-            num = number;
-            freq = frequency;
-        }
-    }
-}
-```
 
 
 # 二叉树
 
-## 二叉树递归解法的写法窍门
+## 二叉树递归写法诀窍
     
 递归函数什么时候需要返回值？什么时候不需要返回值？这里总结如下三点：
 
@@ -1130,13 +1179,13 @@ class Solution {
 - 如果要搜索**其中一条**符合条件的路径，那么递归一定需要返回值，因为遇到符合条件的路径了就要及时返回。（这种情况符合: https://programmercarl.com/0112.路径总和.html#算法公开课）
 
 
-## 前序(迭代法重要, 普通二叉树常用)
+## 前序(迭代法重要)
      
 ![](/img/algo_na/二叉树前序遍历（迭代法）.gif)
 
-前序遍历是中左右，每次先处理的是中间节点，那么先将根节点放入栈中，然后将右孩子加入栈，再加入左孩子。
-
-为什么要先加入 右孩子，再加入左孩子呢？ 因为这样出栈的时候才是中左右的顺序。
+- 普通二叉树常用
+- 前序遍历是中左右，每次先处理的是中间节点，那么先将根节点放入栈中，然后将右孩子加入栈，再加入左孩子。
+- 为什么要先加入 右孩子，再加入左孩子呢？ 因为这样出栈的时候才是中左右的顺序。
 
 ``` java
 class Solution {
@@ -1157,13 +1206,14 @@ class Solution {
 }
 ```
 
-## 中序(迭代法重要, 二叉搜索树BST常用, 因为BST中序遍历出来是个有序的递增数组)
+## 中序(迭代法重要)
+
 
 ![](/img/algo_na/二叉树中序遍历（迭代法）.gif)
 
-中序遍历是左中右，先访问的是二叉树顶部的节点，然后一层一层向下访问，直到到达树左面的最底部，再开始处理节点（也就是在把节点的数值放进result数组中），这就造成了处理顺序和访问顺序是不一致的。
-
-那么在使用迭代法写中序遍历，就需要借用指针的遍历来帮助访问节点，栈则用来处理节点上的元素。
+- 二叉搜索树BST常用, 因为BST中序遍历出来是个有序的递增数组)
+- 中序遍历是左中右，先访问的是二叉树顶部的节点，然后一层一层向下访问，直到到达树左面的最底部，再开始处理节点（也就是在把节点的数值放进result数组中），这就造成了处理顺序和访问顺序是不一致的。
+- 那么在使用迭代法写中序遍历，就需要借用指针的遍历来帮助访问节点，栈则用来处理节点上的元素。
 
 
 ``` java
@@ -1191,7 +1241,9 @@ class Solution {
 ```
 
 
-## 后序(迭代法不重要, 很少用到, 会前序按照以下方法就会写后序) 
+## 后序(迭代法不重要)
+
+后序迭代法很少用到, 会前序按照以下方法就会写后序: 
 
 1. 先序遍历是`中左右`
 2. 调整代码左右循序
@@ -1199,7 +1251,7 @@ class Solution {
 4. 后序遍历是`左右中`
 
 
-## 层序
+## 层序(重要)
 
 ![](/img/algo_na/binary_tree_level_order.gif)
 
@@ -1213,11 +1265,11 @@ class Solution {
         }
         Queue<TreeNode> que = new LinkedList<TreeNode>();
         que.offer(root);  // 循环外就第一次 push了root
-
+        int depth = 0;  // 深度, 非常实用
         while (!que.isEmpty()) {
             List<Integer> itemList = new ArrayList<Integer>();
             int len = que.size();  // 注意这个len, 这里一定要使用固定大小 len，不要使用que.size()，因为que.size是不断变化的
-
+            depth++;
             while (len > 0) {
                 TreeNode tmpNode = que.poll();
                 itemList.add(tmpNode.val);
@@ -1456,7 +1508,7 @@ class Solution {
 ```
 
 
-## 二叉搜索树
+## 二叉搜索树-诀窍
 
 - 二叉搜索树的中序遍历是个递增有序数组, 利用好这一点非常方便解题
 - 二叉搜索树的迭代遍历很好写, 大多数时候用不到递归方式来解题
@@ -1606,3 +1658,53 @@ class Solution {
     }
 }
 ```
+
+
+# 图论
+
+## 诀窍
+
+- dfs一般用来解决 `求所有可达路径` 问题
+    - 代码框架很类似回溯的代码框架, 因为回溯其实就是在做dfs
+        ```cpp 图论dfs框架
+            void dfs(参数) {
+                if (终止条件) {
+                    存放结果;
+                    return;
+                }
+
+                for (选择：本节点所连接的其他节点) {
+                    处理节点;
+                    dfs(图，选择的节点); // 递归
+                    回溯，撤销处理结果
+                }
+            }
+        ```
+- bfs一般用来解决 `求最短路径` 问题
+    - 只要BFS只要搜到终点一定是一条最短路径, 因为是一层一层一圈一圈来搜的, 搜到的就一定是最短的
+    - 代码框架很类似二叉树的bfs, 如下: 
+        ```cpp 图论bfs框架
+            int dir[4][2] = {0, 1, 1, 0, -1, 0, 0, -1}; // 表示四个方向
+            // grid 是地图，也就是一个二维数组
+            // visited标记访问过的节点，不要重复访问
+            // x,y 表示开始搜索节点的下标
+            void bfs(vector<vector<char>>& grid, vector<vector<bool>>& visited, int x, int y) {
+                queue<pair<int, int>> que; // 定义队列
+                que.push({x, y}); // 起始节点加入队列
+                visited[x][y] = true; // 只要加入队列，立刻标记为访问过的节点
+                while(!que.empty()) { // 开始遍历队列里的元素
+                    pair<int ,int> cur = que.front(); que.pop(); // 从队列取元素
+                    int curx = cur.first;
+                    int cury = cur.second; // 当前节点坐标
+                    for (int i = 0; i < 4; i++) { // 开始想当前节点的四个方向左右上下去遍历
+                        int nextx = curx + dir[i][0];
+                        int nexty = cury + dir[i][1]; // 获取周边四个方向的坐标
+                        if (nextx < 0 || nextx >= grid.size() || nexty < 0 || nexty >= grid[0].size()) continue;  // 坐标越界了，直接跳过
+                        if (!visited[nextx][nexty]) { // 如果节点没被访问过
+                            que.push({nextx, nexty});  // 队列添加该节点为下一轮要遍历的节点
+                            visited[nextx][nexty] = true; // 只要加入队列立刻标记，避免重复访问
+                        }
+                    }
+                }
+            }
+        ```

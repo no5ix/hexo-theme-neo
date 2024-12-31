@@ -3,6 +3,8 @@ title: We interviewed Trump supporters, got DANGEROUS!
 date: 2024-11-14 04:10:06
 tags:
 - English
+- Youtube
+- Subtitle
 categories:
 - English
 ---
