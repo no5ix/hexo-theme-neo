@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -98,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="位置10:38 字幕内容15400:11:26,35 –&amp;gt; 00:11:29,32Coming through. Move. Move!借过，让开让开… 15500:11:33,89 –&amp;gt; 00:11:37,29Excuse me! I was kind of using thatmachine（/məˈʃiːn/）.抱歉，我用这台洗衣机 15600:11:37,56 –&amp;gt; 00">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.481Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="老友记瑞秋洗衣S01E05">
 <meta name="twitter:description" content="位置10:38 字幕内容15400:11:26,35 –&amp;gt; 00:11:29,32Coming through. Move. Move!借过，让开让开… 15500:11:33,89 –&amp;gt; 00:11:37,29Excuse me! I was kind of using thatmachine（/məˈʃiːn/）.抱歉，我用这台洗衣机 15600:11:37,56 –&amp;gt; 00">
@@ -787,7 +791,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -99,7 +103,7 @@
 <meta property="og:description" content="KBEngine概绍根据之前的博文 游戏服务端常用架构 属于第三代服务端框架，可能类似于图10。（这个理解不确定）Kbengine引擎应该是对图10中的Gate服务器和NODE和OBJ进行了细分。在功能上大体划分为与位置有关（在Kbengine中称为Cellapp）和与位置无关（在Kbengine中称为Baseapp）。类似于下面的示图架构。  KBE安装介绍 官方是有自动化的安装py脚本的, 不">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/img/kbe_installation_tutorial/kbe_introduction.png">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.496Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kbe之1分钟完成安装">
 <meta name="twitter:description" content="KBEngine概绍根据之前的博文 游戏服务端常用架构 属于第三代服务端框架，可能类似于图10。（这个理解不确定）Kbengine引擎应该是对图10中的Gate服务器和NODE和OBJ进行了细分。在功能上大体划分为与位置有关（在Kbengine中称为Cellapp）和与位置无关（在Kbengine中称为Baseapp）。类似于下面的示图架构。  KBE安装介绍 官方是有自动化的安装py脚本的, 不">
@@ -744,7 +748,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

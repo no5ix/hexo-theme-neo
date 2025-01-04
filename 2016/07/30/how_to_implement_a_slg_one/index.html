@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -99,7 +103,7 @@
 <meta property="og:description" content="LoginServer(Gate)当完成渠道SDK回调验证之后,验证完玩家信息,用了Nginx的负载均衡给每位玩家分配一台不繁忙的游戏服务器,在Redis中存了一份玩家在线有效时间key,这个key也可以用来完成封号操作 MainServer因为弱交互/短连接的关系,大多数情况玩家和玩家之间不需要实时面对面PK，打一下对方的离线数据，计算下排行榜，排行榜是实时计算的,存在Redis里, 做了分页处">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/2016/07/30/how_to_implement_a_slg_one/slg1.png">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.495Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.395Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速完成一个简易SLG游戏思路一">
 <meta name="twitter:description" content="LoginServer(Gate)当完成渠道SDK回调验证之后,验证完玩家信息,用了Nginx的负载均衡给每位玩家分配一台不繁忙的游戏服务器,在Redis中存了一份玩家在线有效时间key,这个key也可以用来完成封号操作 MainServer因为弱交互/短连接的关系,大多数情况玩家和玩家之间不需要实时面对面PK，打一下对方的离线数据，计算下排行榜，排行榜是实时计算的,存在Redis里, 做了分页处">
@@ -706,7 +710,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

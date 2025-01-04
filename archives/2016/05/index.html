@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -393,9 +397,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2016/05/22/php_cgi/" itemprop="url">
+            <a class="post-title-link" href="/2016/05/22/how_to_make_blog_like_this/" itemprop="url">
               
-                <span itemprop="name">php与cgi</span>
+                <span itemprop="name">也想做一个这样的博客吗?</span>
               
             </a>
         
@@ -428,9 +432,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2016/05/22/how_to_make_blog_like_this/" itemprop="url">
+            <a class="post-title-link" href="/2016/05/22/php_cgi/" itemprop="url">
               
-                <span itemprop="name">也想做一个这样的博客吗?</span>
+                <span itemprop="name">php与cgi</span>
               
             </a>
         
@@ -640,7 +644,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

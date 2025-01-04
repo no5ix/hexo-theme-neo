@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -107,7 +111,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/cache_db_consistency/cache_db_consistency_6.png">
 <meta property="og:image" content="https://hulinhong.com/img/cache_db_consistency/cache_db_consistency_7.png">
 <meta property="og:image" content="https://hulinhong.com/img/cache_db_consistency/cache_db_consistency_8.png">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.467Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cache和DB一致性">
 <meta name="twitter:description" content="Cache Aside Pattern什么是 “Cache Aside Pattern”？答：旁路缓存方案的经验实践，这个实践又分读实践，写实践。 对于读请求先读 cache，再读 db如果，cache hit，则直接返回数据如果，cache miss，则访问 db，并将数据 set 回缓存  （1）先从 cache 中尝试 get 数据，结果 miss 了（2）再从 db 中读取数据，从库，读写">
@@ -739,7 +743,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

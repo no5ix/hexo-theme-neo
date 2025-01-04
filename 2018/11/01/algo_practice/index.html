@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -99,7 +103,7 @@
 <meta property="og:description" content="算法白话总结推荐参考本博客总结的 algo_newbie 本文完整参考代码https://github.com/no5ix/no5ix.github.io/blob/source/source/code/test_algo_practice.py 实战练习 pending_fini 比狗线程排列题 刷完剑指offer 回溯法递归强化 二叉树递归强化  lc4题-两个排序数组找中位数, 困难  一个">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/img/algo_practice/lc41_1.png">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.464Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法企业真题实战练习">
 <meta name="twitter:description" content="算法白话总结推荐参考本博客总结的 algo_newbie 本文完整参考代码https://github.com/no5ix/no5ix.github.io/blob/source/source/code/test_algo_practice.py 实战练习 pending_fini 比狗线程排列题 刷完剑指offer 回溯法递归强化 二叉树递归强化  lc4题-两个排序数组找中位数, 困难  一个">
@@ -770,7 +774,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

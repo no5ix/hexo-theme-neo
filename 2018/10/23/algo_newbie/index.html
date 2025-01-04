@@ -15,20 +15,24 @@
 <script>
     (function(){
         if('0622'){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== '0622'){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== '0622'){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -180,7 +184,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/algo_newbie/slide_window/lc76_4.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/algo_newbie/two_pointer/n_sum_1.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/algo_newbie/misc/randint_generator_1.png">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.464Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="algo_newbie">
 <meta name="twitter:description" content="实战练习推荐参考本博客总结的 算法企业真题实战练习 本文完整参考代码https://github.com/no5ix/no5ix.github.io/blob/source/source/code/test_algo_newbie.py . . .">
@@ -2136,7 +2140,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

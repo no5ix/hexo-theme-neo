@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -98,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="Linux定时器实现原理时间轮定时器-低分辨率实现Linux 2.6.16之前，内核只支持低精度时钟，内核定时器的工作方式：    系统启动后，会读取时钟源设备(RTC,HPET，PIT…)，初始化当前系统时间。 内核会根据HZ(系统定时器频率，节拍率)参数值，设置时钟事件设备，启动tick(节拍)中断。HZ表示1秒种产生多少个时钟硬件中断，tick就表示连续两个中断的间隔时间。 设置时钟事件设备">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.507Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器开发自我修养专栏-Linux高低精度定时器实现原理">
 <meta name="twitter:description" content="Linux定时器实现原理时间轮定时器-低分辨率实现Linux 2.6.16之前，内核只支持低精度时钟，内核定时器的工作方式：    系统启动后，会读取时钟源设备(RTC,HPET，PIT…)，初始化当前系统时间。 内核会根据HZ(系统定时器频率，节拍率)参数值，设置时钟事件设备，启动tick(节拍)中断。HZ表示1秒种产生多少个时钟硬件中断，tick就表示连续两个中断的间隔时间。 设置时钟事件设备">
@@ -738,7 +742,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

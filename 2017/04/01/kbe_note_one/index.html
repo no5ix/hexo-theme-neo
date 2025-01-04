@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -98,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="main看起来似乎所有的组件都有一个这样的宏(KBENGINE_MAIN)来包裹main函数123456intKBENGINE_MAIN(intargc, char* argv[])&amp;#123;	ENGINE_COMPONENT_INFO&amp;amp;info = g_kbeSrvConfig.getXXX();	returnkbeMainT&amp;lt;XXX&amp;gt;(argc, argv, YYY, i">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.496Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kbe服务端笔记(一)">
 <meta name="twitter:description" content="main看起来似乎所有的组件都有一个这样的宏(KBENGINE_MAIN)来包裹main函数123456intKBENGINE_MAIN(intargc, char* argv[])&amp;#123;	ENGINE_COMPONENT_INFO&amp;amp;info = g_kbeSrvConfig.getXXX();	returnkbeMainT&amp;lt;XXX&amp;gt;(argc, argv, YYY, i">
@@ -700,7 +704,7 @@ Resmgr的初始化（配置）工作主要由initialize接口完成，代码如�
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

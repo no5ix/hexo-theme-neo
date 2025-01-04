@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -98,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="kcpp  轻量级的kcp会话实现-kcppkcpp真正实现了只需要包含一个头文件再随意写几行代码就可以用上kcp, 而无需烦心如何组织代码来适配kcp  只需包含 kcpp.h 这一个头文件即可 只需调用 KcpSession::Send 和 KcpSession::Recv 和 KcpSession::Update 即可完成UDP的链接状态管理、会话控制、 RUDP协议调度  Features">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.497Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个轻量级的kcp会话实现">
 <meta name="twitter:description" content="kcpp  轻量级的kcp会话实现-kcppkcpp真正实现了只需要包含一个头文件再随意写几行代码就可以用上kcp, 而无需烦心如何组织代码来适配kcp  只需包含 kcpp.h 这一个头文件即可 只需调用 KcpSession::Send 和 KcpSession::Recv 和 KcpSession::Update 即可完成UDP的链接状态管理、会话控制、 RUDP协议调度  Features">
@@ -722,7 +726,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

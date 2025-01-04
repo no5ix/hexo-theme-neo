@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -323,9 +327,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2015/06/22/epoll扼要总结/" itemprop="url">
+            <a class="post-title-link" href="/2015/06/22/socket可读可写条件与非阻塞connect或accept浅析/" itemprop="url">
               
-                <span itemprop="name">epoll扼要总结</span>
+                <span itemprop="name">socket可读可写条件与非阻塞connect或accept浅析</span>
               
             </a>
         
@@ -358,9 +362,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2015/06/22/socket可读可写条件与非阻塞connect或accept浅析/" itemprop="url">
+            <a class="post-title-link" href="/2015/06/22/epoll扼要总结/" itemprop="url">
               
-                <span itemprop="name">socket可读可写条件与非阻塞connect或accept浅析</span>
+                <span itemprop="name">epoll扼要总结</span>
               
             </a>
         
@@ -535,7 +539,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

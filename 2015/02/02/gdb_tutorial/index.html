@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -98,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="GDB 操作提示在编译可执行文件时需要给 gcc 加上 “-g” 选项，这样它才会为生成的可执行文件加入额外的调试信息。不要使用编译器的优化选项，比如： “-O”，”-O2”。因为编译器会为了优化而改变程序流程，那样不利于调试。在 GDB 中执行 shell 命令可以使用：shell commandGDB 命令可以使用 TAB 键来补全。按两次 TAB 键可以看到所有可能的匹配。GDB 命令缩写：">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.491Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GDB基础教程">
 <meta name="twitter:description" content="GDB 操作提示在编译可执行文件时需要给 gcc 加上 “-g” 选项，这样它才会为生成的可执行文件加入额外的调试信息。不要使用编译器的优化选项，比如： “-O”，”-O2”。因为编译器会为了优化而改变程序流程，那样不利于调试。在 GDB 中执行 shell 命令可以使用：shell commandGDB 命令可以使用 TAB 键来补全。按两次 TAB 键可以看到所有可能的匹配。GDB 命令缩写：">
@@ -772,7 +776,7 @@ disable 1-5            //禁止第1到第5个断点
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -104,7 +108,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/fpm2-04.png">
 <meta property="og:image" content="https://hulinhong.com/img/fpm2-05.png">
 <meta property="og:image" content="https://hulinhong.com/img/fpm2-06.png">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.519Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多人快节奏游戏二之客户端预测与服务器修正">
 <meta name="twitter:description" content="原文出处 Fast-Paced Multiplayer (Part II): Client-Side Prediction and Server Reconciliation   Introduction In the first article of this series, we explored a client-server model with an authoritative serv">
@@ -702,7 +706,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

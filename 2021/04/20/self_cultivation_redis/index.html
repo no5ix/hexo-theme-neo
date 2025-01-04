@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -103,7 +107,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/redis/lru_cache_algo.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/cache_db_consistency/cache_db_consistency_9.png">
 <meta property="og:image" content="https://hulinhong.com/img/cache_db_consistency/cache_db_consistency_1.png">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.508Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器开发自我修养专栏-Redis实现原理">
 <meta name="twitter:description" content="Redisredis 数据结构有哪些？分别怎么实现的？ String:  全是整数的时候用整数编码int 当有字符串的时候用简单动态字符串sds编码   HashTable:  元素比较少或者元素比较短的时候用压缩表ziplist(key1|val1|key2|val2|…这样存储),  其他时候就用字典ht   Set:  元素全是整数的时候用整数集合编码(一种特殊的编码, 会使用各种规则来利用">
@@ -982,7 +986,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

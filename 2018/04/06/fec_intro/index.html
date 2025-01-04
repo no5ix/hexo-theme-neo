@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -101,7 +105,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/fec_intro/fec_intro_1.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/fec_intro/fec_intro_2.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/fec_intro/fec_intro_3.jpg">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.491Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fec intro">
 <meta name="twitter:description" content="名词解释FEC：Forward Error Correction，前向纠错 FEC 是一种通过在网络传输中增加数据包的冗余信息，使得接收端能够在网络发生丢包后利用这些冗余信息直接恢复出丢失的数据包的一种方法。 FEC 的基础理论：异或异或的规则 两个值不相等则为 1，相等则为 0； 12340 ^ 0 = 01 ^ 1 = 00 ^ 1 = 11 ^ 0 = 1 注：按位异或 ^，则是把两个数转换">
@@ -754,7 +758,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

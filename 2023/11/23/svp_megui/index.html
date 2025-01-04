@@ -15,20 +15,24 @@
 <script>
     (function(){
         if('0622'){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== '0622'){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== '0622'){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -122,7 +126,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/svp_megui/image-14.png">
 <meta property="og:image" content="https://hulinhong.com/img/svp_megui/image-15.png">
 <meta property="og:image" content="https://hulinhong.com/img/svp_megui/image-16.png">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.511Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVP">
 <meta name="twitter:description" content="相关下载在 阿里云盘-software-win-svp_bilibili教程版本.7z 实时补帧看视频 本文由 简悦 SimpRead 转码， 原文地址 www.bilibili.com  SVP4 相比于 SVP3.1 来说界面更加友好，且简洁易用。但对于视频制作来说个人感觉 3.1 版本更简单。本文将介绍 SVP4 的安装使用和制作 60 帧视频教程。如果你愿意使用这个方法，那就请细心得看下去">
@@ -833,7 +837,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

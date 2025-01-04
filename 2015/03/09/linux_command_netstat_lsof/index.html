@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -98,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="netstat netstat命令用来打印Linux中网络系统的状态信息，可让你得知整个Linux系统的网络情况。   -a或–all：显示所有连线中的Socket； -A&amp;lt;网络类型&amp;gt;或–&amp;lt;网络类型&amp;gt;：列出该网络类型连线中的相关地址； -c或–continuous：持续列出网络状态； -C或–cache：显示路由器配置的快取信息； -e或–extend：显示网络其他相关信息">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.497Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.397Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常用运维命令(netstat和lsof)笔记整理(二)">
 <meta name="twitter:description" content="netstat netstat命令用来打印Linux中网络系统的状态信息，可让你得知整个Linux系统的网络情况。   -a或–all：显示所有连线中的Socket； -A&amp;lt;网络类型&amp;gt;或–&amp;lt;网络类型&amp;gt;：列出该网络类型连线中的相关地址； -c或–continuous：持续列出网络状态； -C或–cache：显示路由器配置的快取信息； -e或–extend：显示网络其他相关信息">
@@ -762,7 +766,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

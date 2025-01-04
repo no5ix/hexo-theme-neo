@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -98,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="linux支持的哪些操作是具有原子特性的？知道这些东西是理解和设计无锁化编程算法的基础。 下面的东西整理自网络。先感谢大家的分享！ 原子操作的api函数gcc从4.1.2以后提供了 __sync_* 系列的下面几类的内嵌函数，提供用于针对数字或布尔型变量的原子操作。 n++类这组返回更新前的值 type __sync_fetch_and_add (type *ptr, type value, ..">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.497Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.397Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GCC的原子操作函数">
 <meta name="twitter:description" content="linux支持的哪些操作是具有原子特性的？知道这些东西是理解和设计无锁化编程算法的基础。 下面的东西整理自网络。先感谢大家的分享！ 原子操作的api函数gcc从4.1.2以后提供了 __sync_* 系列的下面几类的内嵌函数，提供用于针对数字或布尔型变量的原子操作。 n++类这组返回更新前的值 type __sync_fetch_and_add (type *ptr, type value, ..">
@@ -769,7 +773,7 @@ write1(dev.register_control,GO);
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

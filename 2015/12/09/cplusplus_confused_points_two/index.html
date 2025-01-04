@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -98,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="位操作运算符的问题二进制的100 的第0位是 01(第2位)  0(第1位)  0(第0位)，所以把一个数的第三位进行清零、置位(把某个bit置为1)、取反的操作如下：123456789101112131415161718192021#include &amp;lt;stdio.h&amp;gt;#define Bit3 (0X01&amp;lt;&amp;lt;3)/*对一个数的第三位进行清零、置位、取反*/int main(">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.468Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++很基础的易混淆点二">
 <meta name="twitter:description" content="位操作运算符的问题二进制的100 的第0位是 01(第2位)  0(第1位)  0(第0位)，所以把一个数的第三位进行清零、置位(把某个bit置为1)、取反的操作如下：123456789101112131415161718192021#include &amp;lt;stdio.h&amp;gt;#define Bit3 (0X01&amp;lt;&amp;lt;3)/*对一个数的第三位进行清零、置位、取反*/int main(">
@@ -701,7 +705,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

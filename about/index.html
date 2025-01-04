@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -97,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="为何此博客乱码或排版混乱或过渡动画卡顿?因为本博客没有对 IE6 / 老Edge / UC 做深度适配. 如果您在PC端使用的是 360浏览器 / 搜狗浏览器, 请在地址栏切换成其极速模式(切换成Chromium内核)来浏览此博客可以得到最佳效果. 可以的话, 请使用 新Edge(Chromium内核版本, 推荐) / Chrome(推荐) / Firefox / Safari 打开本博客.  交">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.523Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="About">
 <meta name="twitter:description" content="为何此博客乱码或排版混乱或过渡动画卡顿?因为本博客没有对 IE6 / 老Edge / UC 做深度适配. 如果您在PC端使用的是 360浏览器 / 搜狗浏览器, 请在地址栏切换成其极速模式(切换成Chromium内核)来浏览此博客可以得到最佳效果. 可以的话, 请使用 新Edge(Chromium内核版本, 推荐) / Chrome(推荐) / Firefox / Safari 打开本博客.  交">
@@ -519,7 +523,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

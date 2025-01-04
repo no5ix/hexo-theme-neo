@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -98,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="一晃2年过去了, 记得曾经看过 boost.asio, 现在 asio 已经可以完全脱离 boost 了,不过它项目里的一些例子还是依赖 boost 的, 比如他 src 文件夹里的 tests 里的 除了 unit , 其他的大多数还是老的例子,都是直接包含boost的一些头文件, 也就是依赖boost的 编译注意事项官网说支持c++11的编译器会自动检测, 然后走asio的standalone">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.465Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="asio none boost 浅踩坑">
 <meta name="twitter:description" content="一晃2年过去了, 记得曾经看过 boost.asio, 现在 asio 已经可以完全脱离 boost 了,不过它项目里的一些例子还是依赖 boost 的, 比如他 src 文件夹里的 tests 里的 除了 unit , 其他的大多数还是老的例子,都是直接包含boost的一些头文件, 也就是依赖boost的 编译注意事项官网说支持c++11的编译器会自动检测, 然后走asio的standalone">
@@ -712,7 +716,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

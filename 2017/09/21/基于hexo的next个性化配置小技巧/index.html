@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -148,7 +152,7 @@
 <meta property="og:image" content="http://ohggtqwxx.bkt.clouddn.com/15006365382590.jpg">
 <meta property="og:image" content="http://ohggtqwxx.bkt.clouddn.com/15006388832427.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fhrqw92685j31dk0q4grl.jpg">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.518Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于hexo的next个性化配置小技巧">
 <meta name="twitter:description" content="原文出处  1. 在右上角或者左上角实现fork me on github实现效果图具体实现方法点击这里挑选自己喜欢的样式，并复制代码。 例如，我是复制如下代码：然后粘贴刚才复制的代码到themes/next/layout/_layout.swig文件中(放在&amp;lt;div class=&amp;quot;headband&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;的下面)，并把href改为你的githu">
@@ -749,7 +753,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

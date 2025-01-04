@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -106,7 +110,7 @@
 <meta property="og:image" content="http://gameweb-img.qq.com/gad/20160826/image002.1472207636.gif">
 <meta property="og:image" content="http://gameweb-img.qq.com/gad/20160826/image003.1472207636.jpg">
 <meta property="og:image" content="http://gameweb-img.qq.com/gad/20160826/image004.1472207636.jpg">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.458Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Source引擎多人游戏网络设计">
 <meta name="twitter:description" content="原文原文出处 原文标题 : Source Multiplayer Networking  Multiplayer games based on the Source Engine use a Client-Server networking architecture. Usually a server is a dedicated host that runs the game and is au">
@@ -721,7 +725,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

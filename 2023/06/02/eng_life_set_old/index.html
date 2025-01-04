@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -98,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="起床 Hey, honey, it’s time to wake up and get out of bed.  中文=嘿, 亲爱的, 该醒醒并起床啦.   Do I have to get up now?  中文=我一定要现在起床吗?   You’d better get up, or you’ll be late.  中文=你最好现在起床, 不然你就会迟到嘞.   What are you t">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.481Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常英语集deprecated">
 <meta name="twitter:description" content="起床 Hey, honey, it’s time to wake up and get out of bed.  中文=嘿, 亲爱的, 该醒醒并起床啦.   Do I have to get up now?  中文=我一定要现在起床吗?   You’d better get up, or you’ll be late.  中文=你最好现在起床, 不然你就会迟到嘞.   What are you t">
@@ -955,7 +959,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

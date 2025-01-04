@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -97,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="问题:在内存管理中，“内零头”和“外零头”个指的是什么？在固定式分区分配、可变式分区分配、页式虚拟存储系统、段式虚拟存储系统中，各会存在何种零头？为什么？ 解答： 在存储管理中， 内零头是指分配给作业的存储空间中未被利用的部分， 外零头是指系统中无法利用的小存储块。    在固定式分区分配中，为将一个用户作业装入内存，内存分配程序从系统分区表中找出一个能满足作业要求的空闲分区分配给作业，由于一个作">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.518Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="内零头和外零头">
 <meta name="twitter:description" content="问题:在内存管理中，“内零头”和“外零头”个指的是什么？在固定式分区分配、可变式分区分配、页式虚拟存储系统、段式虚拟存储系统中，各会存在何种零头？为什么？ 解答： 在存储管理中， 内零头是指分配给作业的存储空间中未被利用的部分， 外零头是指系统中无法利用的小存储块。    在固定式分区分配中，为将一个用户作业装入内存，内存分配程序从系统分区表中找出一个能满足作业要求的空闲分区分配给作业，由于一个作">
@@ -732,7 +736,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

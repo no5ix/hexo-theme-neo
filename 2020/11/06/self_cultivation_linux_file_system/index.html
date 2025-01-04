@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -100,7 +104,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/linux/linux_sys_dir.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/linux/hard_link_soft_link.jpg">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.507Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器开发自我修养专栏-Linux文件系统">
 <meta name="twitter:description" content="Linux文件系统详细的可以查看本博客的这篇文章哈文件描述符FD与Inodefd数目大小的限制可以改变, 参考 文件描述符限制 系统目录结构 Linux 系统目录结构 登录系统后，在当前命令窗口下输入命令：  ls / 你会看到如下图所示: 树状目录结构： 以下是对这些目录的解释： /bin： bin 是 Binaries (二进制文件) 的缩写, 这个目录存放着最经常使用的命令。   以下是对这">
@@ -828,7 +832,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

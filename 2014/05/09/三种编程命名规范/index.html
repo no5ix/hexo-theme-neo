@@ -15,20 +15,24 @@
 <script>
     (function(){
         if(''){
-          // alert('此文章并不公开, 输入文章密码方可阅读');
-          var password = prompt('此文章并不公开, 输入文章密码方可阅读');
-          if (password !== ''){
-            if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
-            {
-              alert('Error!');
-            }
-            if (history.length > 1)
-            {
-              history.back();
-            }
-            else
-            {
-              window.location.href = "about:blank";
+          const hostname = window.location.hostname;
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+            // console.log("The website is not running on localhost.");
+            // alert('此文章并不公开, 输入文章密码方可阅读');
+            var password = prompt('此文章并不公开, 输入文章密码方可阅读');
+            if (password !== ''){
+              if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
+              {
+                alert('Error!');
+              }
+              if (history.length > 1)
+              {
+                history.back();
+              }
+              else
+              {
+                window.location.href = "about:blank";
+              }
             }
           }
         }
@@ -98,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="匈牙利命名法：开头字母用变量类型的缩写，其余部分用变量的英文或英文的缩写，要求单词第一个字母大写。 ex:int iMyAge; “i”是int类型的缩写；char cMyName[10]; “c”是char类型的缩写；float fManHeight; “f”是float类型的缩写； 其他：前缀类型 a b by c cb cr cx,cy dw fn h i l lp m_ n np p s">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2024-12-31T13:09:20.518Z">
+<meta property="og:updated_time" content="2025-01-04T10:56:37.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="三种编程命名规范">
 <meta name="twitter:description" content="匈牙利命名法：开头字母用变量类型的缩写，其余部分用变量的英文或英文的缩写，要求单词第一个字母大写。 ex:int iMyAge; “i”是int类型的缩写；char cMyName[10]; “c”是char类型的缩写；float fManHeight; “f”是float类型的缩写； 其他：前缀类型 a b by c cb cr cx,cy dw fn h i l lp m_ n np p s">
@@ -712,7 +716,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
