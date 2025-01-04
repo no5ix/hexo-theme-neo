@@ -93,6 +93,19 @@ int num = Integer.valueOf(str); // Returns an Integer object but can be unboxed 
 
 ## 随机数
 
+方法1: (推荐)
+
+- nextInt() 返回的是任意整数，范围包括负数和正数。
+- nextInt(bound) 返回一个随机整数，范围是从 0 到 bound（不包括 bound）。
+
+如果你想生成一个 1 到 100 之间的随机整数（包括1和100），可以这样写：
+```java
+Random random = new Random();
+int randomNumber = random.nextInt(100) + 1; // 加1，使得范围变为 [1, 100]
+System.out.println(randomNumber);
+```
+
+方法2: (不推荐)
 To generate a random number within the range `[3, 6]`, where both 3 and 6 are inclusive, you can modify the logic slightly from the `[3, 6)` approach: `double randomNumber = 3 + (Math.random() * (6 - 3 + 1));`
 
 1. `Math.random()` generates a random number in the range `[0.0, 1.0)`.
@@ -594,13 +607,163 @@ class Solution {
 
 没有思路的时候思考以下方法:  
 
-- 先排个序
-- 二分法
-- 前缀和
+- 口诀: "前排倒"
+    - 先排个序
+    - 前缀和(前缀和 在涉及计算区间和的问题时非常有用！)
+    - 倒序遍历
+- 二分法(注意: int mid = left + (right - left) / 2;)
 - 双指针
 - 滑动窗口
-- 倒序遍历
 
+
+## 前缀和理论基础
+
+- https://juejin.cn/post/7005057884555837476
+- 前缀和理论基础: https://programmercarl.com/kamacoder/0058.区间和.html#思路
+
+
+![alt text](/img/algo_ programmercarl_comments/image.png>)
+
+`p[5] - p[1]` 就是 红色部分的区间和。
+
+而 p 数组是我们之前就计算好的累加和，所以后面每次求区间和的之后 我们只需要 `O(1)` 的操作。
+
+特别注意： 在使用前缀和求解的时候，要特别注意 求解区间。
+
+如上图，如果我们要求 区间下标 [2, 5] 的区间和，那么应该是 `p[5] - p[1]`，而不是 `p[5] - p[2]`。
+
+「前缀和」 是从 nums 数组中的第  0 位置开始累加，到第 iii 位置的累加结果，我们常把这个结果保存到数组 preSum 中，记为  preSum[i]。
+
+​
+下面以 `[1, 12, -5, -6, 50, 3]` 为例，讲解一下如何求 preSum 前缀和的另一种写法(在很多题里非常有用, 比如[这题](https://leetcode.com/problems/continuous-subarray-sum/description/)):
+
+![alt text](/img/algo_ programmercarl_comments/image-1.png>)
+
+在前面计算「前缀和」的代码中，计算公式为 preSum[i] = preSum[i - 1] + nums[i] ，为了防止当 i = 0 的时候数组越界，所以加了个 if (i == 0) 的判断，即 i == 0 时让 preSum[i] = nums[i]。
+​
+在其他常见的写法中，为了省去这个 if 判断，我们常常把「前缀和」数组 preSum 的长度定义为 原数组的长度 + 1。preSum 的第 0 个位置，相当于一个占位符，置为 0。
+那么就可以把 preSum 的公式统一为 preSum[i] = preSum[i - 1] + nums[i - 1]，此时的 preSum[i] 表示 nums 中 iii 元素左边所有元素之和（不包含当前元素 iii）。
+
+
+## lc528-前缀和+二分
+
+- 前缀和理论基础: https://programmercarl.com/kamacoder/0058.区间和.html#思路
+- https://leetcode.com/problems/random-pick-with-weight/
+- https://leetcode.cn/problems/random-pick-with-weight/solutions/966335/cer-fen-xiang-jie-by-xiaohu9527-nsns/
+
+
+lc528 Description: 
+
+You are given a 0-indexed array of positive integers w where `w[i]` describes the weight of the ith index.
+
+You need to implement the function pickIndex(), which randomly picks an index in the range `[0, w.length - 1]` (inclusive) and returns it. The probability of picking an index i is `w[i]` / sum(w).
+
+For example, if w = `[1, 3]`, the probability of picking index 0 is `1 / (1 + 3) = 0.25 (i.e., 25%)`, and the probability of picking index 1 is `3 / (1 + 3) = 0.75 (i.e., 75%)`.
+
+Example 1:
+
+- Input
+    - `["Solution","pickIndex"]`
+    - `[[[1]],[]]`
+- Output : `[null,0]`
+- Explanation: 
+    Solution solution = new Solution([1]);
+    solution.pickIndex(); // return 0. The only option is to return 0 since there is only one element in w.
+
+Example 2:
+
+- Input:
+    - `["Solution","pickIndex","pickIndex","pickIndex","pickIndex","pickIndex"]`
+    - `[[[1,3]],[],[],[],[],[]]`
+- Output: `[null,1,1,1,1,0]`
+- Explanation:
+    Solution solution = new Solution([1, 3]);
+    solution.pickIndex(); // return 1. It is returning the second element (index = 1) that has a probability of 3/4.
+    solution.pickIndex(); // return 1
+    solution.pickIndex(); // return 1
+    solution.pickIndex(); // return 1
+    solution.pickIndex(); // return 0. It is returning the first element (index = 0) that has a probability of 1/4.
+
+    Since this is a randomization problem, multiple answers are allowed.
+    All of the following outputs can be considered correct:
+    [null,1,1,1,1,0]
+    [null,1,1,1,1,1]
+    [null,1,1,1,0,0]
+    [null,1,1,1,0,1]
+    [null,1,0,1,0,0]
+    ......
+    and so on.
+ 
+Constraints:
+
+- 1 <= w.length <= 104
+- 1 <= w[i] <= 105
+- pickIndex will be called at most 104 times.
+
+
+```java
+class Solution {
+    int[] wSum;
+
+    public Solution(int[] w) {
+        for (int i = 1; i < w.length; ++i) {
+            w[i] += w[i - 1];
+        }
+        this.wSum = w;
+    }
+    
+    public int pickIndex() {
+        return this.binarySearch();
+    }
+
+    private int binarySearch() {
+        int left = 0;
+        int right = this.wSum.length - 1;
+
+        int randNum = (int) (Math.random() * this.wSum[this.wSum.length - 1]) + 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (wSum[mid] == randNum) {
+                return mid;
+            } else if (wSum[mid] < randNum) {
+                left = mid + 1;
+            } else if (wSum[mid] > randNum) {
+                right = mid - 1;
+            }
+        }
+        // Why return left??
+        
+        // Example Walkthrough
+
+        // Input: w = [1, 3, 6]
+
+        // Cumulative weights (wSum): [1, 4, 10]
+        // Suppose randNum = 5.
+        //     1.	Initial pointers: left = 0, right = 2.
+        //     2.	First iteration:
+        //     •	mid = 1 ((0 + 2) / 2).
+        //     •	wSum[mid] = 4, which is less than randNum.
+        //     •	Adjust left to mid + 1 → left = 2.
+        //     3.	Second iteration:
+        //     •	mid = 2.
+        //     •	wSum[mid] = 10, which is greater than randNum.
+        //     •	Adjust right to mid - 1 → right = 1.
+        //     4.	Exit loop: left = 2, right = 1.
+
+        // Result:
+        //     •	left = 2, which is the correct index (wSum[2] = 10 covers randNum = 5).
+        //     •	right = 1 would be incorrect because randNum is not in the range of wSum[1].
+        return left;
+    }
+}
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution obj = new Solution(w);
+ * int param_1 = obj.pickIndex();
+ */
+```
 
 ## lc704-二分查找-20240814
 
@@ -1517,8 +1680,9 @@ class Solution {
 
 # 回溯
 
-## 模板
+## 诀窍与模板
 
+- 回溯本质是dfs, 所以回溯的模板和图论的dfs模板极为类似
 - https://programmercarl.com/回溯算法理论基础.html#理论基础
 - 起名: 在回溯算法中，我的习惯是函数起名字为backtrack，这个起名大家随意。
 - 返回值: 回溯算法中函数返回值一般为void。

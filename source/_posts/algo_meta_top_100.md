@@ -84,67 +84,6 @@ categories:
 # Misc
 
 
-## lc1762-Buildings With an Ocean View
-
-- difficulty: Medium
-- tags:
-    * Stack
-    * Array
-    * Monotonic Stack
-* https://leetcode.com/problems/buildings-with-an-ocean-view
-* https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0249.Group%20Shifted%20Strings/README_EN.md
-
-There are `n` buildings in a line. You are given an integer array `heights` of size `n` that represents the heights of the buildings in the line.
-
-The ocean is to the right of the buildings. A building has an ocean view if the building can see the ocean without obstructions. Formally, a building has an ocean view if all the buildings to its right have a smaller height.
-
-Return a list of indices (`0-indexed`) of buildings that have an ocean view, sorted in increasing order.
-
-Example 1:
-
-    Input: heights = [4,2,3,1]
-    Output: [0,2,3]
-    Explanation: Building 1 (0-indexed) does not have an ocean view because building 2 is taller.
-
-Example 2:
-
-    Input: heights = [4,3,2,1]
-    Output: [0,1,2,3]
-    Explanation: All the buildings have an ocean view.
-
-Example 3:
-
-    Input: heights = [1,3,2,4]
-    Output: [3]
-    Explanation: Only building 3 has an ocean view.
- 
-Constraints:
-
-- 1 <= heights.length <= 105
-- 1 <= heights[i] <= 109
-
-Solutions:
-
-```java
-class Solution {
-    public int[] findBuildings(int[] heights) {
-        int n = heights.length;
-        List<Integer> ans = new ArrayList<>();
-        int mx = 0;
-        for (int i = heights.length - 1; i >= 0; --i) {
-            if (heights[i] > mx) {
-                ans.add(i);
-                mx = heights[i];
-            }
-        }
-        Collections.reverse(ans);
-        // return ans.stream().mapToInt(Integer::intValue).toArray();
-        return ans.toArray(new int[0]);
-    }
-}
-```
-
-
 ## lc339-Nested List Weight Sum
 
 - difficulty: Medium
@@ -232,6 +171,136 @@ class Solution {
             }
         }
         return depthSum;
+    }
+}
+```
+
+
+# Array
+
+
+## lc1762-Buildings With an Ocean View
+
+- difficulty: Medium
+- tags:
+    * Stack
+    * Array
+    * Monotonic Stack
+* https://leetcode.com/problems/buildings-with-an-ocean-view
+* https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0249.Group%20Shifted%20Strings/README_EN.md
+
+There are `n` buildings in a line. You are given an integer array `heights` of size `n` that represents the heights of the buildings in the line.
+
+The ocean is to the right of the buildings. A building has an ocean view if the building can see the ocean without obstructions. Formally, a building has an ocean view if all the buildings to its right have a smaller height.
+
+Return a list of indices (`0-indexed`) of buildings that have an ocean view, sorted in increasing order.
+
+Example 1:
+
+    Input: heights = [4,2,3,1]
+    Output: [0,2,3]
+    Explanation: Building 1 (0-indexed) does not have an ocean view because building 2 is taller.
+
+Example 2:
+
+    Input: heights = [4,3,2,1]
+    Output: [0,1,2,3]
+    Explanation: All the buildings have an ocean view.
+
+Example 3:
+
+    Input: heights = [1,3,2,4]
+    Output: [3]
+    Explanation: Only building 3 has an ocean view.
+ 
+Constraints:
+
+- 1 <= heights.length <= 105
+- 1 <= heights[i] <= 109
+
+Solutions:
+
+```java
+class Solution {
+    public int[] findBuildings(int[] heights) {
+        int n = heights.length;
+        List<Integer> ans = new ArrayList<>();
+        int mx = 0;
+        for (int i = heights.length - 1; i >= 0; --i) {
+            if (heights[i] > mx) {
+                ans.add(i);
+                mx = heights[i];
+            }
+        }
+        Collections.reverse(ans);
+        // return ans.stream().mapToInt(Integer::intValue).toArray();
+        return ans.toArray(new int[0]);
+    }
+}
+```
+
+
+## lc163-Missing Ranges 
+
+- difficulty: Easy
+- tags:
+    * Array
+* https://leetcode.com/problems/missing-ranges
+- https://github.com/doocs/leetcode/blob/main/solution/0100-0199/0163.Missing%20Ranges/README_EN.md
+
+You are given an inclusive range `[lower, upper]` and a sorted unique integer array `nums`, where all elements are within the inclusive range.
+
+A number `x` is considered missing if `x` is in the range `[lower, upper]` and `x` is not in `nums`.
+
+Return the shortest sorted list of ranges that exactly covers all the missing numbers. That is, no element of `nums` is included in any of the ranges, and each missing number is covered by one of the ranges.
+
+Example 1:
+
+- Input: nums = `[0,1,3,50,75]`, lower = 0, upper = 99
+- Output: `[[2,2],[4,49],[51,74],[76,99]]`
+- Explanation: The ranges are:
+`[2,2]`
+`[4,49]`
+`[51,74]`
+`[76,99]`
+
+Example 2:
+
+- Input: nums = `[-1]`, lower = -1, upper = -1
+- Output: `[]`
+- Explanation: There are no missing ranges since there are no missing numbers.
+ 
+Constraints:
+
+- -109 <= lower <= upper <= 109
+- 0 <= nums.length <= 100
+- lower <= `nums[i]` <= upper
+- All the values of nums are unique.
+
+We can simulate the problem directly according to the requirements.
+
+The time complexity is `O(n)`, where `n` is the length of the array `nums`. Ignoring the space consumption of the answer, the space complexity is `O(1)`.
+
+```java
+class Solution {
+    public List<List<Integer>> findMissingRanges(int[] nums, int lower, int upper) {
+        int n = nums.length;
+        if (n == 0) {
+            return List.of(List.of(lower, upper));
+        }
+        List<List<Integer>> ans = new ArrayList<>();
+        if (nums[0] > lower) {
+            ans.add(List.of(lower, nums[0] - 1));
+        }
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] - nums[i - 1] > 1) {
+                ans.add(List.of(nums[i - 1] + 1, nums[i] - 1));
+            }
+        }
+        if (nums[n - 1] < upper) {
+            ans.add(List.of(nums[n - 1] + 1, upper));
+        }
+        return ans;
     }
 }
 ```
@@ -326,6 +395,72 @@ class Solution {
 
 
 # HashMap
+
+## lc266-Palindrome Permutation
+
+- difficulty: Easy
+- tags:
+    * Bit Manipulation
+    * Hash Table
+    * String
+* https://leetcode.com/problems/palindrome-permutation
+
+Given a string `s`, return `true` if a permutation of the string could form a palindrome and `false` otherwise.
+
+Example 1:
+
+- Input: s = "code"
+- Output: false
+
+Example 2:
+
+- Input: s = "aab"
+- Output: true
+
+Example 3:
+
+- Input: s = "carerac"
+- Output: true
+ 
+Constraints:
+
+- 1 <= s.length <= 5000
+- s consists of only lowercase English letters.
+
+Solutions:
+
+If a string is a palindrome, at most one character can appear an odd number of times, while all other characters must appear an even number of times. Therefore, we only need to count the occurrences of each character and then check if this condition is satisfied.
+
+Time complexity is `O(n)`, and space complexity is `O(|\Sigma|)`. Here, `n` is the length of the string, and `|\Sigma|` is the size of the character set. In this problem, the character set consists of lowercase letters, so `|\Sigma|=26`.
+
+```java
+class Solution {
+    public boolean canPermutePalindrome(String s) {
+        HashMap<Character, Integer> countMap = new HashMap<>();
+        
+        // Count frequency of each character
+        for (char c : s.toCharArray()) {
+            countMap.put(c, countMap.getOrDefault(c, 0) + 1);
+        }
+        
+        // Check how many characters have an odd frequency
+        int oddCount = 0;
+        for (int count : countMap.values()) {
+            if (count % 2 != 0) {
+                oddCount++;
+            }
+            // If more than one character has an odd count, return false
+            if (oddCount > 1) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}
+```
+
+
 
 ## lc249-Group Shifted Strings
 
@@ -724,17 +859,6 @@ public Node lowestCommonAncestor(Node p, Node q) {
 
 
 ## DFS
-
-### lc263-Lowest Common Ancestor of a Binary Tree
-
-- https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/
-- https://programmercarl.com/0236.二叉树的最近公共祖先.html#算法公开课
-
-
-### lc129-Sum Root to Leaf Numbers
-
-- https://leetcode.com/problems/sum-root-to-leaf-numbers/
-- https://programmercarl.com/0257.二叉树的所有路径.html#其他语言版本
 
 
 
