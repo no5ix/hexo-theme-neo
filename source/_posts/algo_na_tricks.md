@@ -1,5 +1,5 @@
 ---
-title: 代码随想录注解
+title: NA Algo Tricks
 date: 2024-08-15 00:54:08
 tags:
 - noodle
@@ -145,7 +145,7 @@ public class ReferenceReassignment {
 
 普通递增排序:
 
-``` java
+```java
         // Arrays.sort 用于对数组进行排序（primitive 或 Object 类型）。
         int[] nums = {3, 1, 4, 1, 5};
         Arrays.sort(nums); // 对数组排序
@@ -160,7 +160,7 @@ public class ReferenceReassignment {
 - Arrays.sort
 
 以下例子的这个排序逻辑首先按列 col 排序，如果列相同，则按行 row 排序，再根据节点的值进行排序。排序优先级依次是：列、行、值
-``` java
+```java
         // : List to store nodes with their column, row, and value
         List<int[]> nodes = new ArrayList<>();
         // nodes.add(new int[]{col, row, val});
@@ -193,7 +193,7 @@ public class ReferenceReassignment {
 
 举例说明自定义字母排序规则 (比如有个 List<String> 的list, 如何按照首字母的来排序): 
 
-``` java
+```java
 import java.util.*;
 
 public class Main {
@@ -217,7 +217,7 @@ public class Main {
 
 ## Map
 
-``` java
+```java
         Map<Integer, Integer> map = new HashMap<>();
         map.put(1, 2);
         map.put(2, 3);
@@ -247,7 +247,7 @@ public class Main {
 
 ## Set
 
-``` java
+```java
         Set<Integer> set = new HashSet<>();
         set.add(2);
         set.add(23);
@@ -269,7 +269,7 @@ public class Main {
 
 ## List
 
-``` java
+```java
         List<Integer> list = new ArrayList<>();
         list.add(11);
         list.add(23);
@@ -327,7 +327,7 @@ public class Main {
 
 ## Queue
 
-``` java
+```java
         Queue<Integer> queue = new ArrayDeque<>();  // 不要用 LinkedList(除非你要往队列里插入null, 因为ArrayDeque不准插入null, 但是LinkedList可以), ArrayDeque用circular buffer实现的, 是最高效的: https://stackoverflow.com/questions/6129805/what-is-the-fastest-java-collection-with-the-basic-functionality-of-a-queue
         deque.offerFirst(1);
         queue.offer(1);
@@ -348,7 +348,7 @@ public class Main {
 
 ## Deque
 
-``` java
+```java
         Deque<Integer> deque = new ArrayDeque<>();  // 不要用 LinkedList(除非你要往队列里插入null, 因为ArrayDeque不准插入null, 但是LinkedList可以), ArrayDeque用circular buffer实现的, 是最高效的: https://stackoverflow.com/questions/6129805/what-is-the-fastest-java-collection-with-the-basic-functionality-of-a-queue
         deque.offerFirst(1);
         deque.offerLast(2);
@@ -370,7 +370,7 @@ public class Main {
 
 ## Stack
 
-``` java
+```java
         Stack<Integer> stack = new Stack<>();
         stack.push(1);
         stack.peek();
@@ -383,7 +383,7 @@ public class Main {
 
 ## String and Character
 
-``` java
+```java
         // Why use equals()?
         // because == checks if the two objects are the same instance, whereas equals() compares the actual content of the strings.
         String testStr = "aa";
@@ -449,6 +449,7 @@ public class Main {
 - 适合解决 Top K 问题, 因为最快
 - 快速选择平均情况下，时间复杂度为 O(N)。
 - 空间复杂度：O(N)。哈希表的大小为 O(N)，用于排序的数组的大小也为 O(N)，快速排序的空间复杂度最好情况为 O(logN)，最坏情况为 O(N)。
+- 参考 algo_newbie.md ##普通快排 里的代码, 及其动画演示, 帮助理解
 
 ```java QuickSelect模板
     public int[] topK(int[] nums, int k) {
@@ -506,7 +507,7 @@ Referenced this: https://www.bilibili.com/video/BV1Bz4y117Fr/
 链接：https://leetcode.cn/problems/top-k-frequent-elements/solutions/402568/qian-k-ge-gao-pin-yuan-su-by-leetcode-solution/
 
 
-``` java
+```java
 import java.util.Map;
 import java.util.HashMap;
 
@@ -616,11 +617,116 @@ class Solution {
 - 滑动窗口
 
 
-## 前缀和理论基础
+## 二分法诀窍与易错点
+
+- 为什么要`int mid = left + (right - left) / 2` ? 答案见下方代码
+- 是 `while (leftIndex <= rightIndex)` 还是 `while (leftIndex < rightIndex)` ? 答案见下方代码
+- 二分查找, 当在数组中找不到对应的值, 循环完毕后的left和right的含义是什么?
+    - 如果目标值不在数组中，循环结束时满足条件：right < left，循环结束后的 left 和 right 的含义如下:
+    - left 的含义
+        - left 指向插入目标值的位置（满足排序要求）。
+        - left 是第一个大于目标值的位置（在数组中的索引）。
+        - 如果目标值比数组中所有元素都大，left 将等于数组的长度，即指向超出数组范围的位置。
+    - right 的含义
+        - right 是目标值的前一个可能位置（如果目标值存在的话）。
+        - right 是最后一个小于目标值的位置（在数组中的索引）。
+        - 如果目标值比数组中所有元素都小，right 将等于 -1，即在数组范围之外。
+    - 情况 1：目标值在数组范围内，但不存在
+        - 数组为 [1, 3, 5, 7, 9]，目标值为 6。
+            - •	最终状态：
+            - •	left = 3（第一个大于 6 的索引，值为 7）。
+            - •	right = 2（最后一个小于 6 的索引，值为 5）。
+    - 情况 2：目标值比数组中所有元素小
+        - 数组为 [3, 5, 7, 9]，目标值为 2。
+            - •	最终状态：
+            - •	left = 0（第一个大于 2 的索引，值为 3）。
+            - •	right = -1（数组范围之外）。
+    - 情况 3：目标值比数组中所有元素大
+        - 数组为 [3, 5, 7, 9]，目标值为 10。
+            - •	最终状态：
+            - •	left = 4（数组长度，超出范围）。
+            - •	right = 3（最后一个索引，值为 9）。
+- https://programmercarl.com/0704.二分查找.html#二分法第一种写法
+- https://leetcode.com/problems/binary-search/
+
+```java
+class Solution {
+    public int search(int[] numbers, int targetNumber) {
+        if (targetNumber < numbers[0] || targetNumber > numbers[numbers.length - 1]) {
+            return -1;
+        }
+        int leftIndex = 0;
+        int rightIndex = numbers.length - 1;
+        while (leftIndex <= rightIndex) {  // 因为我们定义 target 是在一个在左闭右闭的区间里，也就是[left, right], 所以要使用 <= ，因为left == right是有意义的
+        
+            /*
+            url: https://stackoverflow.com/questions/27167943/why-leftright-left-2-will-not-overflow
+            Q: why left+(right-left)/2 can avoid overflow?
+            A: 
+                Suppose (to make the example easier) the maximum integer is 100, left = 50, and right = 80. If you use the naive formula:
+
+                int mid = (left + right)/2;
+                the addition will result in 130, which overflows.
+
+                If you instead do:
+
+                int mid = left + (right - left)/2;
+                you can't overflow in (right - left) because you're subtracting a smaller number from a larger number. That always results in an even smaller number, so it can't possibly go over the maximum. E.g. 80 - 50 = 30.
+
+                WWWWasp said: Since (right - left) is the distance between left and right, so `left + (right - left)/2` will not be larger than the right. Furthermore, it will not be larger than the maximum integer.
+            */
+            int midIndex = leftIndex + ((rightIndex - leftIndex) >> 1);  // >> 1 等同于 除以 2
+            if (numbers[midIndex] == targetNumber) {
+                return midIndex;
+            } else if (numbers[midIndex] < targetNumber) {
+                leftIndex = midIndex + 1;
+            } else {
+                rightIndex = midIndex - 1;
+            }
+        }
+        return -1;
+    }
+}
+```
+
+
+### 二分查找扩展题-lc69-求平方
+
+- https://leetcode.com/problems/sqrtx/description/
+
+```java
+class Solution {
+    public int mySqrt(int x) {
+        if (x == 0 || x == 1) {
+            return x;
+        }
+        int left = 1;
+        int right = x;
+        int mid = 0;
+        while (left <= right) {
+            mid = left + (right - left) / 2;
+            if ((long)mid * mid > x) {
+                right = mid - 1;
+            } else if ((long)mid * mid < x) {
+                left = mid + 1;
+            } else {
+                return mid;
+            }
+        }
+        // 为什么返回right而不是left? 因为最后是left 大于了right才退出循环的, 所以要取小的那个, 退出循环的时候right小一些
+        // 比如 x = 8, 此时 left=1, right=8, 则 [1, 2, 3, 4, 5, 6, 7, 8], 最后一轮循环是 left=3, right=3, 然后此时mid也等于3, 3*3=9 所以 right得减一, right 就等于2 了
+        return right;
+    }
+}
+```
+
+
+## 前缀和诀窍
 
 - https://juejin.cn/post/7005057884555837476
 - 前缀和理论基础: https://programmercarl.com/kamacoder/0058.区间和.html#思路
 
+前缀和特别适合解决**区间类**的问题
 
 ![alt text](/img/algo_ programmercarl_comments/image.png>)
 
@@ -645,12 +751,11 @@ class Solution {
 那么就可以把 preSum 的公式统一为 preSum[i] = preSum[i - 1] + nums[i - 1]，此时的 preSum[i] 表示 nums 中 iii 元素左边所有元素之和（不包含当前元素 iii）。
 
 
-## lc528-前缀和+二分
+### lc528-前缀和+二分
 
 - 前缀和理论基础: https://programmercarl.com/kamacoder/0058.区间和.html#思路
 - https://leetcode.com/problems/random-pick-with-weight/
 - https://leetcode.cn/problems/random-pick-with-weight/solutions/966335/cer-fen-xiang-jie-by-xiaohu9527-nsns/
-
 
 lc528 Description: 
 
@@ -700,10 +805,10 @@ Constraints:
 - 1 <= w[i] <= 105
 - pickIndex will be called at most 104 times.
 
-
 ```java
 class Solution {
     int[] wSum;
+    Random random = new Random();
 
     public Solution(int[] w) {
         for (int i = 1; i < w.length; ++i) {
@@ -719,9 +824,7 @@ class Solution {
     private int binarySearch() {
         int left = 0;
         int right = this.wSum.length - 1;
-
-        int randNum = (int) (Math.random() * this.wSum[this.wSum.length - 1]) + 1;
-
+        int randNum = random.nextInt(this.wSum[this.wSum.length - 1]) + 1; 
         while (left <= right) {
             int mid = left + (right - left) / 2;
             if (wSum[mid] == randNum) {
@@ -732,12 +835,9 @@ class Solution {
                 right = mid - 1;
             }
         }
-        // Why return left??
-        
+        // Why return left??  @see ## 二分法诀窍与易错点
         // Example Walkthrough
-
         // Input: w = [1, 3, 6]
-
         // Cumulative weights (wSum): [1, 4, 10]
         // Suppose randNum = 5.
         //     1.	Initial pointers: left = 0, right = 2.
@@ -750,7 +850,6 @@ class Solution {
         //     •	wSum[mid] = 10, which is greater than randNum.
         //     •	Adjust right to mid - 1 → right = 1.
         //     4.	Exit loop: left = 2, right = 1.
-
         // Result:
         //     •	left = 2, which is the correct index (wSum[2] = 10 covers randNum = 5).
         //     •	right = 1 would be incorrect because randNum is not in the range of wSum[1].
@@ -763,90 +862,6 @@ class Solution {
  * Solution obj = new Solution(w);
  * int param_1 = obj.pickIndex();
  */
-```
-
-## lc704-二分查找-20240814
-
-- https://programmercarl.com/0704.二分查找.html#二分法第一种写法
-- https://leetcode.com/problems/binary-search/
-
-``` java
-class Solution {
-    public int search(int[] numbers, int targetNumber) {
-        if (targetNumber < numbers[0] || targetNumber > numbers[numbers.length - 1]) {
-            return -1;
-        }
-        int leftIndex = 0;
-        int rightIndex = numbers.length - 1;
-        while (leftIndex <= rightIndex) {  // 因为我们定义 target 是在一个在左闭右闭的区间里，也就是[left, right], 所以要使用 <= ，因为left == right是有意义的
-        
-            /*
-            url: https://stackoverflow.com/questions/27167943/why-leftright-left-2-will-not-overflow
-            Q: why left+(right-left)/2 can avoid overflow?
-            A: 
-                Suppose (to make the example easier) the maximum integer is 100, left = 50, and right = 80. If you use the naive formula:
-
-                int mid = (left + right)/2;
-                the addition will result in 130, which overflows.
-
-                If you instead do:
-
-                int mid = left + (right - left)/2;
-                you can't overflow in (right - left) because you're subtracting a smaller number from a larger number. That always results in an even smaller number, so it can't possibly go over the maximum. E.g. 80 - 50 = 30.
-
-                WWWWasp said: Since (right - left) is the distance between left and right, so `left + (right - left)/2` will not be larger than the right. Furthermore, it will not be larger than the maximum integer.
-            */
-            int midIndex = leftIndex + ((rightIndex - leftIndex) >> 1);  // >> 1 等同于 除以 2
-            if (numbers[midIndex] == targetNumber) {
-                return midIndex;
-            } else if (numbers[midIndex] < targetNumber) {
-                leftIndex = midIndex + 1;
-            } else {
-                rightIndex = midIndex - 1;
-            }
-        }
-        return -1;
-    }
-}
-
-public class test{
-    public static void main(String[] args){
-        Solution solution = new Solution();
-        int[] myList = {1, 2, 3, 5, 6, 7, 8, 9, 11};
-        int ret = solution.search(myList, 7);
-        System.out.println(ret);
-    }
-}
-```
-
-### 二分查找扩展题-lc69-求平方
-
-- https://leetcode.com/problems/sqrtx/description/
-
-``` java
-class Solution {
-    public int mySqrt(int x) {
-        if (x == 0 || x == 1) {
-            return x;
-        }
-        int left = 1;
-        int right = x;
-        int mid = 0;
-        while (left <= right) {
-            mid = left + (right - left) / 2;
-            if ((long)mid * mid > x) {
-                right = mid - 1;
-            } else if ((long)mid * mid < x) {
-                left = mid + 1;
-            } else {
-                return mid;
-            }
-        }
-        // 为什么返回right而不是left? 因为最后是left 大于了right才退出循环的, 所以要取小的那个, 退出循环的时候right小一些
-        // 比如 [1, 2, 3, 4, 5, 6, 7, 8], 最后一轮循环是 left=3, right=3, 然后此时mid也等于3, 3*3=9 所以 right得减一, right 就等于2 了
-        return right;
-    }
-}
 ```
 
 
@@ -865,7 +880,7 @@ class Solution {
 
 诀窍: 应该想象成 slowIndex 之前的那些数组格子就是新的数组
 
-``` java
+```java
 class Solution {
     public int removeElement(int[] nums, int val) {
         int slowIndex = 0;
@@ -886,7 +901,7 @@ class Solution {
 - https://programmercarl.com/0977.有序数组的平方.html#算法公开课
 - https://leetcode.com/problems/squares-of-a-sorted-array/description/
 
-``` java
+```java
 class Solution {  // lc977
     public int[] sortedSquares(int[] nums) {
         int[] resultArray = new int[nums.length];
@@ -928,7 +943,7 @@ public class test{
 其实这道题目使用哈希法并不十分合适(4sum就没办法了)，因为在去重的操作中有很多细节需要注意，在面试中很难直接写出没有bug的代码。
 接下来我来介绍另一个解法：双指针法(4sum也是这种思路)，这道题目使用双指针法 要比哈希法高效一些，那么来讲解一下具体实现的思路。
 
-``` java
+```java
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
@@ -976,7 +991,7 @@ class Solution {
 - https://programmercarl.com/0018.四数之和.html#其他语言版本
 - https://leetcode.com/problems/4sum/description/
 
-``` java
+```java
 class Solution {
     public static List<List<Integer>> fourSum(int[] nums, int target) {
         Arrays.sort(nums);
@@ -1120,7 +1135,7 @@ class Solution {
 - 重要!!!!! 记忆口诀: 举一反(反转)三(3个指针! pre! cur! temp!)
 - 核心要点就是需要保存一个后面可能要用的结点就弄一个指针出来, 比如这个pre
 
-``` java
+```java
 // 双指针
 class Solution {
     public ListNode reverseList(ListNode head) {
@@ -1147,7 +1162,7 @@ class Solution {
 - 重要!!!!! 记忆口诀(和反转链表很类似): 举一(1个dummyHead指针!)反(反转)三(3个指针! cur! node1! node2!)
 - 核心要点(和反转链表很类似): 就是需要保存一个后面可能要用的结点就弄一个指针出来, 需要两个就弄两个指针, 比如这个node1, node2 !!
 
-``` java
+```java
 // 将步骤 2,3 交换顺序，这样不用定义 temp 节点
 public ListNode swapPairs(ListNode head) {
     ListNode dummy = new ListNode(0, head);
@@ -1171,7 +1186,7 @@ public ListNode swapPairs(ListNode head) {
 
 ### 暴力解法-掌握这个暴力解法即可
 
-``` java
+```java
 class Solution {
     public int strStr(String haystack, String needle) {
         int hLen = haystack.length();
@@ -1213,7 +1228,7 @@ class Solution {
 
 最后就在文本串中找到了和模式串匹配的子串了。
 
-``` java
+```java
 class Solution {
     //前缀表（不减一）Java实现
     public int strStr(String haystack, String needle) {
@@ -1253,7 +1268,7 @@ class Solution {
 - https://programmercarl.com/0459.重复的子字符串.html#算法公开课
 - https://leetcode.com/problems/repeated-substring-pattern/
 
-``` java
+```java
 // 作者：力扣官方题解
 // 链接：https://leetcode.cn/problems/repeated-substring-pattern/solutions/386481/zhong-fu-de-zi-zi-fu-chuan-by-leetcode-solution/
 class Solution {
@@ -1295,7 +1310,7 @@ class Solution {
 - https://programmercarl.com/0239.滑动窗口最大值.html#其他语言版本
 - https://leetcode.com/problems/sliding-window-maximum/
 
-``` java
+```java
 //利用双端队列手动实现单调队列
 /**
  * 用一个单调队列来存储对应的下标，每当窗口滑动的时候，直接取队列的头部指针对应的值放入结果集即可
@@ -1333,13 +1348,57 @@ class Solution {
 
 # 二叉树
 
-## 二叉树递归写法诀窍
-    
-递归函数什么时候需要返回值？什么时候不需要返回值？这里总结如下三点：
+## 诀窍
 
-- 如果需要搜索**整棵**二叉树且不用处理递归返回值，递归函数就不要返回值。（这种情况就是本文下半部分介绍的113.路径总和ii, https://programmercarl.com/0112.路径总和.html#相关题目推荐）
-- 如果需要搜索**整棵**二叉树且需要处理递归返回值，递归函数就需要返回值。 （这种情况我们在236. 二叉树的最近公共祖先, https://programmercarl.com/0236.二叉树的最近公共祖先.html#算法公开课）
-- 如果要搜索**其中一条**符合条件的路径，那么递归一定需要返回值，因为遇到符合条件的路径了就要及时返回。（这种情况符合: https://programmercarl.com/0112.路径总和.html#算法公开课）
+- 一共只有三种题目: 
+    - 直接通过 dfs/bfs 可以计算的类型
+    - 路径类
+    - 最小祖先类
+- 二叉树最重要的是层序遍历的模板, 可以解决 `70%` 的二叉树题目
+- 路径题和公共祖先题和深度高度的题一般才会用到 `递归`, 其他大多数时候都可以层序遍历 / 前中序遍历的`迭代法`解决
+- 二叉树递归写法诀窍, 递归函数什么时候需要返回值？什么时候不需要返回值？这里总结如下三点：
+    - 如果需要搜索**整棵**二叉树且不用处理递归返回值，递归函数就不要返回值。（这种情况就是本文下半部分介绍的113.路径总和ii, https://programmercarl.com/0112.路径总和.html#相关题目推荐）
+    - 如果需要搜索**整棵**二叉树且需要处理递归返回值，递归函数就需要返回值。 （这种情况我们在236. 二叉树的最近公共祖先, https://programmercarl.com/0236.二叉树的最近公共祖先.html#算法公开课）
+    - 如果要搜索**其中一条**符合条件的路径，那么递归一定需要返回值，因为遇到符合条件的路径了就要及时返回。（这种情况符合: https://programmercarl.com/0112.路径总和.html#算法公开课）
+
+
+## 层序(相当重要)
+
+![](/img/algo_na/binary_tree_level_order.gif)
+
+- 注意 `while (len > 0) {  }` 这个代码块里的就是同一层的结点处理
+- 掌握了这个模板, 可以解决 70% 的二叉树题目
+
+```java
+class Solution {
+    // // 注意返回值是List<List<Integer>>不是单List<Integer>, 因为层序遍历一个二叉树。就是从左到右一层一层的去遍历二叉树, 每一层都是一个 List<Integer>, 所以每一层加起来组成一个大的 List<List<Integer>>
+    public List<List<Integer>> levelOrder(TreeNode root) {  
+        List<List<Integer>> resultList = new ArrayList<List<Integer>>();
+        if (root == null ) {
+            return resultList;
+        }
+        Queue<TreeNode> que = new LinkedList<TreeNode>();
+        que.offer(root);  // 循环外就第一次 push了root
+        int depth = 0;  // 深度, 非常实用
+        while (!que.isEmpty()) {
+            List<Integer> itemList = new ArrayList<Integer>();
+            int len = que.size();  // 注意这个len, 这里一定要使用固定大小 len，不要使用que.size()，因为que.size是不断变化的
+            depth++;
+            while (len > 0) {  // 这个代码块里的就是同一层的结点处理
+                TreeNode tmpNode = que.poll();
+                itemList.add(tmpNode.val);
+
+                if (tmpNode.left != null) { que.offer(tmpNode.left); }
+                if (tmpNode.right != null) { que.offer(tmpNode.right); }
+                len--;
+            }
+            resultList.add(itemList);
+        }
+
+        return resultList;
+    }
+}
+```
 
 
 ## 前序(迭代法重要)
@@ -1349,8 +1408,9 @@ class Solution {
 - 普通二叉树常用
 - 前序遍历是中左右，每次先处理的是中间节点，那么先将根节点放入栈中，然后将右孩子加入栈，再加入左孩子。
 - 为什么要先加入 右孩子，再加入左孩子呢？ 因为这样出栈的时候才是中左右的顺序。
+- 掌握了之后可以求 `路径` 问题
 
-``` java
+```java
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
@@ -1374,12 +1434,11 @@ class Solution {
 
 ![](/img/algo_na/二叉树中序遍历（迭代法）.gif)
 
-- 二叉搜索树BST常用, 因为BST中序遍历出来是个有序的递增数组)
+- 二叉搜索树BST常用, 因为 BST 的 中序遍历 出来是个有序的递增数组)
 - 中序遍历是左中右，先访问的是二叉树顶部的节点，然后一层一层向下访问，直到到达树左面的最底部，再开始处理节点（也就是在把节点的数值放进result数组中），这就造成了处理顺序和访问顺序是不一致的。
 - 那么在使用迭代法写中序遍历，就需要借用指针的遍历来帮助访问节点，栈则用来处理节点上的元素。
 
-
-``` java
+```java
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
@@ -1406,98 +1465,56 @@ class Solution {
 
 ## 后序(迭代法不重要)
 
-后序迭代法很少用到, 会前序按照以下方法就会写后序: 
-
-1. 先序遍历是`中左右`
-2. 调整代码左右循序
-3. 变成`中右左` -> 反转result数组 -> `左右中`
-4. 后序遍历是`左右中`
-
-
-## 层序(重要)
-
-![](/img/algo_na/binary_tree_level_order.gif)
-
-``` java
-class Solution {
-    // // 注意返回值是List<List<Integer>>不是单List<Integer>, 因为层序遍历一个二叉树。就是从左到右一层一层的去遍历二叉树, 每一层都是一个 List<Integer>, 所以每一层加起来组成一个大的 List<List<Integer>>
-    public List<List<Integer>> levelOrder(TreeNode root) {  
-        List<List<Integer>> resultList = new ArrayList<List<Integer>>();
-        if (root == null ) {
-            return resultList;
-        }
-        Queue<TreeNode> que = new LinkedList<TreeNode>();
-        que.offer(root);  // 循环外就第一次 push了root
-        int depth = 0;  // 深度, 非常实用
-        while (!que.isEmpty()) {
-            List<Integer> itemList = new ArrayList<Integer>();
-            int len = que.size();  // 注意这个len, 这里一定要使用固定大小 len，不要使用que.size()，因为que.size是不断变化的
-            depth++;
-            while (len > 0) {
-                TreeNode tmpNode = que.poll();
-                itemList.add(tmpNode.val);
-
-                if (tmpNode.left != null) { que.offer(tmpNode.left); }
-                if (tmpNode.right != null) { que.offer(tmpNode.right); }
-                len--;
-            }
-            resultList.add(itemList);
-        }
-
-        return resultList;
-    }
-}
-```
+- 后序`迭代法`很少用到, 会前序按照以下方法就会写后序: 
+    1. 先序遍历是`中左右`
+    2. 调整代码左右循序
+    3. 变成`中右左` -> 反转result数组 -> `左右中`
+    4. 后序遍历是`左右中`
+- 后序遍历的`递归法`用得着, 那种需要从树底下往上走来统计信息的就用得到, 如 `公共祖先` 这种题就需要后序遍历递归法
 
 
-## 路径
+## 路径(重要)
 
+- https://programmercarl.com/0257.二叉树的所有路径.html#思路
 - https://leetcode.com/problems/binary-tree-paths/
 - 学会后可以解"求根到叶子节点数字之和": https://leetcode.com/problems/sum-root-to-leaf-numbers/
+- https://leetcode.com/problems/path-sum/description/
 
-给定一个二叉树，返回所有从根节点到叶子节点的路径。
+https://leetcode.com/problems/path-sum-ii/description/
+
+Given the root of a binary tree and an integer targetSum, return all root-to-leaf paths where the sum of the node values in the path equals targetSum. Each path should be returned as a list of the node values, not node references.
+
+A root-to-leaf path is a path starting from the root and ending at any leaf node. A leaf is a node with no children.
+
+- 要求从根节点到叶子的路径，所以需要**前序遍历**，这样才方便让父节点指向孩子节点，找到对应的路径。
+- 注意其中的回溯, 特别是 count 的回溯注释, 方便深刻的理解回溯
 
 ```java
 class Solution {
-    /**
-     * 递归法
-     */
-    public List<String> binaryTreePaths(TreeNode root) {
-        List<String> res = new ArrayList<>();// 存最终的结果
-        if (root == null) {
-            return res;
-        }
-        List<Integer> paths = new ArrayList<>();// 作为结果中的路径
-        traversal(root, paths, res);
-        return res;
+    List<List<Integer>> result;
+    LinkedList<Integer> path;
+
+    public List<List<Integer>> pathSum (TreeNode root,int targetSum) {
+        result = new LinkedList<>();
+        path = new LinkedList<>();
+        travesal(root, targetSum);
+        return result;
     }
 
-    private void traversal(TreeNode root, List<Integer> paths, List<String> res) {
-        paths.add(root.val);// 前序遍历，中
-        // 遇到叶子结点
-        if (root.left == null && root.right == null) {
-            // 输出
-            StringBuilder sb = new StringBuilder();// StringBuilder用来拼接字符串，速度更快
-            for (int i = 0; i < paths.size() - 1; i++) {
-                sb.append(paths.get(i)).append("->");
-            }
-            sb.append(paths.get(paths.size() - 1));// 记录最后一个节点
-            res.add(sb.toString());// 收集一个路径
-            return;
+    private void travesal(TreeNode root,  int count) { // 这个版本最好, 最容易想得到, 符合直觉
+        if (root == null) return;
+        path.offer(root.val);
+        count -= root.val;
+        if (root.left == null && root.right == null && count == 0) {
+            result.add(new LinkedList<>(path));
         }
-        // 递归和回溯是同时进行，所以要放在同一个花括号里
-        if (root.left != null) { // 左
-            traversal(root.left, paths, res);
-            paths.remove(paths.size() - 1);// 回溯
-        }
-        if (root.right != null) { // 右
-            traversal(root.right, paths, res);
-            paths.remove(paths.size() - 1);// 回溯
-        }
+        travesal(root.left, count);
+        travesal(root.right, count);
+        path.removeLast(); // 回溯
+        count += root.val;  // 按道理说, 这一行不能注释, 这里返回上一层递归是应该要回溯的, 但是因为 count 只是个int, 不是全局变量, 不会影响上一层的 count, 所以这一行其实可以注释
     }
 }
 ```
-
 
 
 ## 高度
@@ -1513,6 +1530,7 @@ class Solution {
 - 二叉树的深度: 根节点到最远叶子节点的最长路径上的节点数。
 - 叶子节点: 是指没有子节点的节点。
 
+
 ### 最大深度
 
 - https://programmercarl.com/0104.二叉树的最大深度.html
@@ -1521,11 +1539,12 @@ class Solution {
 使用迭代法的话，**使用层序遍历是最为合适的**，因为最大的深度就是二叉树的层数，和层序遍历的方式极其吻合。
 在二叉树中，一层一层的来遍历二叉树，记录一下遍历的层数就是二叉树的深度，
 
+
 #### 迭代法
 
 层序遍历:
 
-``` java
+```java
 class Solution {
     public int maxDepth(TreeNode root) {
         if (root == null) {
@@ -1549,24 +1568,22 @@ class Solution {
 }
 ```
 
-#### 递归法1-回溯
+#### 递归法1-回溯(重要)
 
-掌握后可以解树的最小深度, lc111: https://leetcode.com/problems/minimum-depth-of-binary-tree/description/)
+- 掌握后可以解树的最小深度, lc111: https://leetcode.com/problems/minimum-depth-of-binary-tree/description/
+- 这个递归法中的 `depth`的计算写法 对于很多用到深度信息的二叉树的递归解都很有帮助, 算是个模板套路
 
-``` java
+```java
 class Solution {
-  /**
-   * 递归法(求深度法)
-   */
-    //定义最大深度
-    int maxNum = 0;
+    
+    int maxNum = 0; // 定义最大深度 
 
     public int maxDepth(TreeNode root) {
         ans(root, 0);
         return maxNum;
     }
     
-    //递归求解最大深度
+    // 递归解法1: 
     void ans(TreeNode tr, int depth){
         if(tr == null) return;
         // 递归开始，深度增加
@@ -1574,8 +1591,16 @@ class Solution {
         maxNum = maxNum < depth ? depth : maxNum;
         ans(tr.left, depth);
         ans(tr.right, depth);
-        // 递归结束，深度减少
+        // 递归结束, 得回溯，深度减少
         depth--;
+    }
+    
+    //递归解法2: 
+    void ans(TreeNode tr, int depth){
+        if(tr == null) return;
+        maxNum = maxNum < depth + 1 ? depth + 1 : maxNum;
+        ans(tr.left, depth + 1);  // 隐含了回溯, 因为depth实际上自身没有变, 这里并不是
+        ans(tr.right, depth + 1);
     }
 }
 ```
@@ -1584,7 +1609,7 @@ class Solution {
 
 后序遍历, 掌握后可以解 树的最大直径 lc543: https://leetcode.com/problems/diameter-of-binary-tree/description/):
 
-``` java
+```java
 class Solution {
     public int maxDepth(TreeNode root) {
         if (root == null) {
@@ -1592,7 +1617,7 @@ class Solution {
         }
         int leftDepth = maxDepth(root.left);
         int rightDepth = maxDepth(root.right);
-        return Math.max(leftDepth, rightDepth) + 1;
+        return Math.max(leftDepth, rightDepth) + 1;  // 这个 +1 的 1 是指当前层自己本身这个结点
     }
 }
 ```
@@ -1609,7 +1634,7 @@ class Solution {
 
 层序遍历:
 
-``` java
+```java
 class Solution {
     public int minDepth(TreeNode root) {
         if (root == null) {
@@ -1639,7 +1664,7 @@ class Solution {
 
 #### 递归法-回溯
 
-``` java
+```java
 class Solution {
     /**
      * 递归法（思路来自二叉树最大深度的递归法）
@@ -1648,6 +1673,7 @@ class Solution {
     int depth = 0;
     // 定义最小深度，初始化最大值
     int minDepth = Integer.MAX_VALUE;
+
     public int minDepth(TreeNode root) {
         if (root == null) {
             return 0;
@@ -1655,11 +1681,12 @@ class Solution {
         dep(root);
         return minDepth;
     }
+
     void dep(TreeNode root){
         if(root == null) return ;
         // 递归开始，深度增加
         depth++;
-        // 该位置表示递归到叶子节点了，需要更新最小深度minDepth
+        // 该位置表示递归到叶子节点了，需要更新最小深度minDepth.( 最小深度是从根节点到最近叶子节点的最短路径上的节点数量。注意是叶子节点。什么是叶子节点，左右孩子都为空的节点才是叶子节点！)
         if(root.left == null && root.right == null)
             minDepth = Math.min(minDepth , depth);
         dep(root.left);
@@ -1671,7 +1698,40 @@ class Solution {
 ```
 
 
-## 二叉搜索树-诀窍
+## 最近公共祖先(重要)
+
+- https://programmercarl.com/0236.二叉树的最近公共祖先.html#算法公开课
+- 自底向上查找就好了，这样就可以找到公共祖先了。那么二叉树如何可以自底向上查找呢？回溯啊，二叉树回溯的过程就是从低到上。`后序遍历`（左右中）就是天然的回溯过程，可以根据左右子树的返回值，来处理中节点的逻辑。
+- 如何判断一个节点是节点q和节点p的公共祖先呢? 判断逻辑是 如果递归遍历遇到q，就将q返回，遇到p 就将p返回，那么如果 左右子树的返回值都不为空，说明此时的中节点，一定是q 和p 的最近祖先。
+
+```java
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) { 
+            return null;  // 递归结束条件: found nothing
+        }
+        if (root == p || root == q) {
+            return root;  // // 递归结束条件 found p or q
+        }
+        // post order traverse
+        TreeNode leftResult = lowestCommonAncestor(root.left, p, q);  // search left subtree
+        TreeNode rightResult = lowestCommonAncestor(root.right, p, q);  // search right subtree
+         
+        if (leftResult != null && rightResult != null) {
+            return root; // Found both p and q in the left subtree and the right subtree.
+        } else if (leftResult != null && rightResult == null) {
+            return leftResult; // Found p or q int the right subtree
+        } else if (leftResult == null && rightResult != null) {
+            return rightResult; 
+        } else {
+            return null;  // found nothing in left subtree and right subtree
+        }
+    }
+}
+```
+
+
+## 二叉搜索树-诀窍(重要)
 
 - 二叉搜索树的中序遍历是个递增有序数组, 利用好这一点非常方便解题
 - 二叉搜索树的迭代遍历很好写, 大多数时候用不到递归方式来解题
@@ -1713,7 +1773,7 @@ void backtrack(参数) {
 
 ![](/img/algo_na/20201123195242899.png)
 
-``` java
+```java
 class Solution {
     // ArrayList<ArrayList<Integer>> resultArr = new ArrayList<>();和    ArrayList<ArrayList<Integer>> resultArr = new ArrayList<ArrayList<Integer>>();有啥区别? 
     // 完全等价的, `ArrayList<ArrayList<Integer>> resultArr = new ArrayList<>();`
