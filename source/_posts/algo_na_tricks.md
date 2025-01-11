@@ -98,15 +98,21 @@ int num = Integer.valueOf(str); // Returns an Integer object but can be unboxed 
 - nextInt() 返回的是任意整数，范围包括负数和正数。
 - nextInt(bound) 返回一个随机整数，范围是从 0 到 bound（不包括 bound）。
 
-如果你想生成一个 1 到 100 之间的随机整数（包括1和100），可以这样写：
 ```java
+// 如果你想生成一个 1 到 100 之间的随机整数（包括1和100），可以这样写：
 Random random = new Random();
 int randomNumber = random.nextInt(100) + 1; // 加1，使得范围变为 [1, 100]
 System.out.println(randomNumber);
+
+// Define the range [5, 10]
+int min = 5;
+int max = 10;
+// Generate random number in the range [5, 10]
+int randomNumber2 = random.nextInt((max - min) + 1) + min;
 ```
 
 方法2: (不推荐)
-To generate a random number within the range `[3, 6]`, where both 3 and 6 are inclusive, you can modify the logic slightly from the `[3, 6)` approach: `double randomNumber = 3 + (Math.random() * (6 - 3 + 1));`
+> To generate a random number within the range `[3, 6]`, where both 3 and 6 are inclusive, you can modify the logic slightly from the `[3, 6)` approach: `double randomNumber = 3 + (Math.random() * (6 - 3 + 1));`
 
 1. `Math.random()` generates a random number in the range `[0.0, 1.0)`.
 2. Multiplying it by `(6 - 3 + 1)` (which is 4) adjusts the range to `[0.0, 4.0)`.
@@ -368,7 +374,9 @@ public class Main {
 ```
 
 
-## Stack
+## Stack(一般不用因为有性能问题)
+
+在 Java 中，如果我们希望避免使用 `Stack` 类以减少同步带来的性能问题，可以使用其他不包含同步的集合类实现栈（stack）的功能，例如 `Deque`（双端队列）。`Deque` 接口的实现类如 `ArrayDeque` 都是很好的选择。
 
 ```java
         Stack<Integer> stack = new Stack<>();
@@ -608,10 +616,10 @@ class Solution {
 
 没有思路的时候思考以下方法:  
 
-- 口诀: "前排倒"
-    - 先排个序
-    - 前缀和(前缀和 在涉及计算区间和的问题时非常有用！)
-    - 倒序遍历
+- 口诀: "前二双排滑倒"
+- 先排个序
+- 前缀和(前缀和 在涉及计算区间和的问题时非常有用！)
+- 倒序遍历
 - 二分法(注意: int mid = left + (right - left) / 2;)
 - 双指针
 - 滑动窗口
@@ -619,17 +627,17 @@ class Solution {
 
 ## 二分法诀窍与易错点
 
-- 为什么要`int mid = left + (right - left) / 2` ? 答案见下方代码
-- 是 `while (leftIndex <= rightIndex)` 还是 `while (leftIndex < rightIndex)` ? 答案见下方代码
+- 为什么要`int mid = left + (right - left) / 2` ? 答案见下方代码中的注释
+- 是 `while (leftIndex <= rightIndex)` 还是 `while (leftIndex < rightIndex)` ? 答案见下方代码注释或者[这里](https://leetcode.cn/problems/binary-search/solutions/8337/er-fen-cha-zhao-xiang-jie-by-labuladong/) 的讲解
 - 二分查找, 当在数组中找不到对应的值, 循环完毕后的left和right的含义是什么?
     - 如果目标值不在数组中，循环结束时满足条件：right < left，循环结束后的 left 和 right 的含义如下:
-    - left 的含义
+    - left 的含义: 
         - left 指向插入目标值的位置（满足排序要求）。
-        - left 是第一个大于目标值的位置（在数组中的索引）。
+        - **left 是第一个大于目标值的位置（在数组中的索引）**。
         - 如果目标值比数组中所有元素都大，left 将等于数组的长度，即指向超出数组范围的位置。
-    - right 的含义
+    - right 的含义:
         - right 是目标值的前一个可能位置（如果目标值存在的话）。
-        - right 是最后一个小于目标值的位置（在数组中的索引）。
+        - **right 是最后一个小于目标值的位置（在数组中的索引）**。
         - 如果目标值比数组中所有元素都小，right 将等于 -1，即在数组范围之外。
     - 情况 1：目标值在数组范围内，但不存在
         - 数组为 [1, 3, 5, 7, 9]，目标值为 6。
@@ -646,6 +654,8 @@ class Solution {
             - •	最终状态：
             - •	left = 4（数组长度，超出范围）。
             - •	right = 3（最后一个索引，值为 9）。
+- 比如说给你有序数组 `nums = [1,2,2,2,3]`, target 为 2，如果我想得到 target 的左侧边界，即索引 1，或者我想得到 target 的右侧边界，即索引 3, 怎么做呢? 
+    - 见下方代码的`left_bound`和`right_bound`, 详细讲解请参考: https://leetcode.cn/problems/binary-search/solutions/8337/er-fen-cha-zhao-xiang-jie-by-labuladong/
 - https://programmercarl.com/0704.二分查找.html#二分法第一种写法
 - https://leetcode.com/problems/binary-search/
 
@@ -658,7 +668,6 @@ class Solution {
         int leftIndex = 0;
         int rightIndex = numbers.length - 1;
         while (leftIndex <= rightIndex) {  // 因为我们定义 target 是在一个在左闭右闭的区间里，也就是[left, right], 所以要使用 <= ，因为left == right是有意义的
-        
             /*
             url: https://stackoverflow.com/questions/27167943/why-leftright-left-2-will-not-overflow
             Q: why left+(right-left)/2 can avoid overflow?
@@ -685,6 +694,48 @@ class Solution {
             }
         }
         return -1;
+    }
+
+    // 比如说给你有序数组 `nums = [1,2,2,2,3]`, target 为 2，但是如果我想得到 target 的左侧边界，即索引 1
+    // 怎么做呢?
+    int left_bound(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else if (nums[mid] > target) {
+                right = mid - 1;
+            } else if (nums[mid] == target) {
+                // 别返回，缩小右侧边界
+                right = mid - 1;
+            }
+        }
+        // 最后要检查 left 越界的情况
+        if (left >= nums.length || nums[left] != target)
+            return -1;
+        return left;
+    }
+
+    // 比如说给你有序数组 `nums = [1,2,2,2,3]`, target 为 2，我想得到 target 的右侧边界，即索引 3, 
+    // 怎么做呢?
+    int right_bound(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else if (nums[mid] > target) {
+                right = mid - 1;
+            } else if (nums[mid] == target) {
+                // 别返回，缩小左侧边界
+                left = mid + 1;
+            }
+        }
+        // 最后要检查 right 越界的情况
+        if (right < 0 || nums[right] != target)
+            return -1;
+        return right;
     }
 }
 ```
@@ -745,10 +796,20 @@ class Solution {
 
 ![alt text](/img/algo_ programmercarl_comments/image-1.png>)
 
-在前面计算「前缀和」的代码中，计算公式为 preSum[i] = preSum[i - 1] + nums[i] ，为了防止当 i = 0 的时候数组越界，所以加了个 if (i == 0) 的判断，即 i == 0 时让 preSum[i] = nums[i]。
+在前面计算「前缀和」的代码中，计算公式为 `preSum[i] = preSum[i - 1] + nums[i]` ，为了防止当 i = 0 的时候数组越界，所以加了个 `if (i == 0)` 的判断，即 `i == 0` 时让 `preSum[i] = nums[i]`。
 ​
 在其他常见的写法中，为了省去这个 if 判断，我们常常把「前缀和」数组 preSum 的长度定义为 原数组的长度 + 1。preSum 的第 0 个位置，相当于一个占位符，置为 0。
-那么就可以把 preSum 的公式统一为 preSum[i] = preSum[i - 1] + nums[i - 1]，此时的 preSum[i] 表示 nums 中 iii 元素左边所有元素之和（不包含当前元素 iii）。
+那么就可以把 preSum 的公式统一为 `preSum[i] = preSum[i - 1] + nums[i - 1]`，此时的 `preSum[i]` 表示 nums 中 iii 元素左边所有元素之和（不包含当前元素 iii）。
+```java
+        for (int i = 1; i <= gain.length; i++) {
+            prefixSum[i] = prefixSum[i - 1] + gain[i - 1];
+        }
+        // 或者
+        for (int i = 0; i < gain.length; i++) {
+            prefixSum[i + 1] = prefixSum[i] + gain[i];
+        }
+```
+
 
 
 ### lc528-前缀和+二分
@@ -1122,15 +1183,15 @@ class Solution {
 
 ## 诀窍
 
+- 没有思路的时候想想快慢指针, 能解决大部分链表问题
 - 单链表弄个虚拟头结点, 可以很省事
 - 双链表弄个虚拟头结点和虚拟尾结点, 刚开始就让虚拟头尾相连, 可以很省事, 参见[LRU](https://leetcode.com/problems/lru-cache/description/)里的那个, 如下: 
-
-```java
-        this.head = new DLinkedNode();  // dummy
-        this.tail = new DLinkedNode();  // dummy
-        head.next = tail;
-        tail.pre = head;
-```
+    ```java
+            this.head = new DLinkedNode();  // dummy
+            this.tail = new DLinkedNode();  // dummy
+            head.next = tail;
+            tail.pre = head;  // 刚开始初始化的时候虚拟首尾节点的中间没有实际节点, 所以虚拟首尾节点是相连的.
+    ```
 
 
 ## lc206 - 链表反转
@@ -1145,8 +1206,8 @@ class Solution {
 // 双指针
 class Solution {
     public ListNode reverseList(ListNode head) {
-        ListNode prev = null;
         ListNode cur = head;
+        ListNode prev = null;
         ListNode temp = null;
         while (cur != null) {
             temp = cur.next;// 保存下一个节点
