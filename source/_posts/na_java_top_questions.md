@@ -321,7 +321,7 @@ Here is the explanation of this Java code in English:
 In summary, this code implements the Singleton design pattern in Java, which ensures that only one instance of the `Singleton` class exists throughout the application. It uses double-checked locking for thread-safe lazy initialization of the instance, prevents cloning, and ensures that deserialization returns the existing singleton instance rather than creating a new one. This is a common and robust way of implementing the Singleton pattern in Java, taking into account thread safety and serialization issues.
 
 
-# 68-Executor Service and Future and CompletableFuture
+# 68-364-Executor Service and Future and CompletableFuture
 
 Benefits of using Executor Service and Future:
 - Resource Management: `ExecutorService` manages threads efficiently, reducing the overhead of thread creation and destruction.
@@ -406,7 +406,7 @@ In summary, `ExecutorService` simplifies thread management and task execution, w
 
 ## CompletableFuture
 
-- **Enhanced Functionality**:
+- Enhanced Functionality:
     - `CompletableFuture` is introduced in Java 8. It implements `Future` and provides additional functionality for chaining asynchronous operations, combining multiple futures, and handling exceptions.
     - It allows you to perform actions upon completion, combine multiple futures, and transform results.
     ```java
@@ -434,31 +434,36 @@ In summary, `ExecutorService` simplifies thread management and task execution, w
             // Block until the final result is available
             String result = resultFuture.get();
             System.out.println(result);
+            /* result print:
+                Doing other work...
+                Result: 42
+            */
         }
     }
     ```
-    - **Explanation**:
+    - Explanation:
         1. `CompletableFuture.supplyAsync(() -> {... });`: Creates a `CompletableFuture` that runs the given task asynchronously.
         2. `future.thenApply(result -> "Result: " + result);`: Chains another action to the `CompletableFuture`.
         3. `resultFuture.get();`: Blocks until the final result is available.
 
 ## Key Differences
-- **Chaining and Composing**:
-    - **Future**: Does not support chaining or combining multiple asynchronous tasks.
-    - **CompletableFuture**: Allows chaining of operations using methods like `thenApply`, `thenCompose`, `thenCombine`, etc., enabling functional composition of asynchronous tasks.
-- **Exception Handling**:
-    - **Future**: Limited to `get()` which throws checked exceptions.
-    - **CompletableFuture**: Provides methods like `exceptionally` and `handle` for better exception handling in asynchronous tasks.
-- **Completion Control**:
-    - **Future**: You have to wait for the future to complete using `get()`.
-    - **CompletableFuture**: Allows you to complete the future manually using `complete()` or `completeExceptionally()`.
+
+- Chaining and Composing:
+    - Future: Does not support chaining or combining multiple asynchronous tasks.
+    - CompletableFuture: Allows chaining of operations using methods like `thenApply`, `thenCompose`, `thenCombine`, etc., enabling functional composition of asynchronous tasks.
+- Exception Handling:
+    - Future: Limited to `get()` which throws checked exceptions.
+    - CompletableFuture: Provides methods like `exceptionally` and `handle` for better exception handling in asynchronous tasks.
+- Completion Control:
+    - Future: You have to wait for the future to complete using `get()`.
+    - CompletableFuture: Allows you to complete the future manually using `complete()` or `completeExceptionally()`.
 
 
 ## Best Practices
-- **Use Future**: For simple asynchronous tasks where you only need to wait for a result.
-- **Use CompletableFuture**: For complex asynchronous workflows, combining multiple tasks, and performing operations upon completion of tasks.
 
-By using `CompletableFuture`, you can write more readable and powerful asynchronous code, leveraging the functional programming features of Java 8 and later.
+- Use Future: For simple asynchronous tasks where you only need to wait for a result.
+- Use CompletableFuture: For complex asynchronous workflows, combining multiple tasks, and performing operations upon completion of tasks.
+    - By using `CompletableFuture`, you can write more readable and powerful asynchronous code, leveraging the functional programming features of Java 8 and later.
 
 
 # 70-Factory Pattern & Obeserver Pattern
@@ -612,9 +617,9 @@ The Proxy Design Pattern is a structural design pattern that provides a surrogat
 
 ## Structure of Proxy Design Pattern
 
-- **Subject**: This is an interface that defines the common interface for the RealSubject and Proxy.
-- **RealSubject**: This is the actual object that the proxy represents.
-- **Proxy**: This is the object that controls access to the RealSubject. It has a reference to the RealSubject and implements the Subject interface.
+- Subject: This is an interface that defines the common interface for the RealSubject and Proxy.
+- RealSubject: This is the actual object that the proxy represents.
+- Proxy: This is the object that controls access to the RealSubject. It has a reference to the RealSubject and implements the Subject interface.
 
 ```java
 interface Image {
@@ -656,14 +661,15 @@ class ProxyImage implements Image {
     }
 }
 ```
-**Explanation**:
-1. **Interface `Image`**:
+
+Explanation:
+1. Interface `Image`:
     - `interface Image` defines the `display()` method that both `RealImage` and `ProxyImage` will implement.
-2. **RealSubject `RealImage`**:
+2. RealSubject `RealImage`:
     - `RealImage` implements `Image`.
     - The `RealImage` constructor loads the image from disk when an instance is created.
     - The `display()` method displays the image.
-3. **Proxy `ProxyImage`**:
+3. Proxy `ProxyImage`:
     - `ProxyImage` also implements `Image`.
     - `ProxyImage` holds a reference to `RealImage`.
     - In the `display()` method of `ProxyImage`, if `realImage` is not instantiated, it creates a `RealImage` instance.
@@ -672,16 +678,16 @@ class ProxyImage implements Image {
 
 ## Use Cases
 
-- **Remote Proxy**: Used to represent an object that exists in a different address space, like a remote object in a distributed system.
-- **Virtual Proxy**: Used to create expensive objects on demand. For example, loading images only when they are needed to be displayed.
-- **Protection Proxy**: Used to control access to the real object, providing authentication or authorization.
+- Remote Proxy: Used to represent an object that exists in a different address space, like a remote object in a distributed system.
+- Virtual Proxy: Used to create expensive objects on demand. For example, loading images only when they are needed to be displayed.
+- Protection Proxy: Used to control access to the real object, providing authentication or authorization.
 
 
 ## Benefits
 
-- **Lazy Loading**: Objects can be loaded only when they are needed, improving performance.
-- **Access Control**: Provides a way to control access to the real object, adding security or authorization.
-- **Enhanced Functionality**: Proxies can add additional functionality, like logging or caching, without modifying the real object.
+- Lazy Loading: Objects can be loaded only when they are needed, improving performance.
+- Access Control: Provides a way to control access to the real object, adding security or authorization.
+- Enhanced Functionality: Proxies can add additional functionality, like logging or caching, without modifying the real object.
 
 
 ## Example of Usage
@@ -696,13 +702,10 @@ public class ProxyPatternExample {
     }
 }
 ```
-**Explanation**:
+Explanation:
 1. We create a `ProxyImage` instance with the file name "test.jpg".
 2. The first time `display()` is called, `RealImage` is instantiated and the image is loaded and displayed.
 3. The second time `display()` is called, the already instantiated `RealImage` is used, avoiding reloading.
-
-
-By using the Proxy Design Pattern, you can control access to objects, add functionality, and optimize performance by loading objects only when necessary.
 
 
 # 135-map vs. flatMap
@@ -973,7 +976,7 @@ In Java, threads can communicate, interact, and share data with each other throu
 
 ### Shared Variables
 
-- **Using Volatile Variables**:
+- Using Volatile Variables:
     - A `volatile` variable ensures that all reads and writes to the variable are directly to and from main memory, not cached by threads. It is useful for simple flags or status indicators.
 ```java
 public class VolatileExample {
@@ -988,7 +991,7 @@ public class VolatileExample {
     }
 }
 ```
-- **Explanation**:
+- Explanation:
     1. `private volatile boolean flag = false;`: Declares a `volatile` boolean variable.
     2. `setFlag()` sets the `flag` to `true`.
     3. `getFlag()` retrieves the value of `flag`.
@@ -997,7 +1000,7 @@ public class VolatileExample {
 
 ### Synchronization
 
-- **Using Synchronized Methods and Blocks**:
+- Using Synchronized Methods and Blocks:
     - Synchronization ensures that only one thread can access a synchronized method or block at a time, preventing race conditions.
 ```java
 public class SharedData {
@@ -1012,14 +1015,14 @@ public class SharedData {
     }
 }
 ```
-- **Explanation**:
+- Explanation:
     1. `public synchronized void increment() {... }`: Synchronized method ensures thread-safe access to `count`.
     2. `public synchronized int getCount() {... }`: Ensures thread-safe access when reading `count`.
 
 
 ### Wait, Notify, and NotifyAll
 
-- **Using wait(), notify(), and notifyAll()**:
+- Using wait(), notify(), and notifyAll():
     - These methods are used in conjunction with synchronized blocks to pause and resume threads.
 ```java
 public class WaitNotifyExample {
@@ -1042,14 +1045,14 @@ public class WaitNotifyExample {
     }
 }
 ```
-- **Explanation**:
+- Explanation:
     1. `waitForReady()` waits until `ready` is `true`, using `lock.wait()`.
     2. `setReady()` sets `ready` to `true` and wakes up waiting threads using `lock.notifyAll()`.
 
 
 ### Thread Confinement
 
-- **Using ThreadLocal**:
+- Using ThreadLocal:
     - `ThreadLocal` allows each thread to have its own copy of a variable.
 ```java
 public class ThreadLocalExample {
@@ -1061,7 +1064,7 @@ public class ThreadLocalExample {
     }
 }
 ```
-- **Explanation**:
+- Explanation:
     1. `ThreadLocal<Integer> threadLocal = new ThreadLocal<>();`: Creates a `ThreadLocal` variable.
     2. `threadLocal.set(1);`: Sets the value for the current thread.
     3. `threadLocal.get();`: Retrieves the value for the current thread.
@@ -1069,7 +1072,7 @@ public class ThreadLocalExample {
 
 ### Using Concurrent Data Structures
 
-- **Using Concurrent Collections**:
+- Using Concurrent Collections:
     - Java provides concurrent collections like `ConcurrentHashMap`, `CopyOnWriteArrayList`, etc., which are thread-safe.
 ```java
 import java.util.concurrent.ConcurrentHashMap;
@@ -1082,7 +1085,7 @@ public class ConcurrentMapExample {
     }
 }
 ```
-- **Explanation**:
+- Explanation:
     1. `ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();`: Creates a thread-safe map.
     2. `map.put("key", 1);`: Puts an entry in the map.
     3. `map.get("key");`: Retrieves the value from the map.
@@ -1090,7 +1093,7 @@ public class ConcurrentMapExample {
 
 ### Using Locks and Condition Variables
 
-- **Using ReentrantLock and Condition**:
+- Using ReentrantLock and Condition:
     - `ReentrantLock` provides more flexible locking than `synchronized`, and `Condition` allows more control over waiting and signaling.
 ```java
 import java.util.concurrent.locks.Condition;
@@ -1123,7 +1126,7 @@ public class LockConditionExample {
     }
 }
 ```
-- **Explanation**:
+- Explanation:
     1. `ReentrantLock lock = new ReentrantLock();`: Creates a reentrant lock.
     2. `Condition condition = lock.newCondition();`: Creates a condition associated with the lock.
     3. `condition.await();` makes the thread wait.
@@ -1187,7 +1190,7 @@ public class ThreadLock {
 
 ### Finding Deadlocks
 
-- **Thread Dump Analysis**:
+- Thread Dump Analysis:
     - You can use tools like `jstack` (part of the JDK) to take a thread dump of a running Java application. A thread dump shows the state of all threads, including which locks they hold and which locks they are waiting for.
     - Example of using `jstack`:
         ```
@@ -1197,7 +1200,7 @@ public class ThreadLock {
     - Analyzing the thread dump:
         - Look for threads that are in the `BLOCKED` state. If two or more threads are waiting on locks held by each other, it indicates a deadlock.
         - For example, if Thread A is waiting for a lock held by Thread B, and Thread B is waiting for a lock held by Thread A, it's a deadlock.
-- **Java VisualVM**:
+- Java VisualVM:
     - Java VisualVM is a monitoring and profiling tool. It can detect deadlocks automatically.
     - Steps:
         1. Start your Java application.
@@ -1209,7 +1212,7 @@ public class ThreadLock {
 
 ### Avoiding Deadlocks
 
-- **Lock Ordering**:
+- Lock Ordering:
     - Always acquire locks in a consistent order across all threads.
     - Example:
     ```java
@@ -1234,9 +1237,9 @@ public class ThreadLock {
         }
     }
     ```
-    - **Explanation**:
+    - Explanation:
         - Both `method1()` and `method2()` acquire `lock1` before `lock2`. This ensures that no thread holds `lock2` while waiting for `lock1`.
-- **Lock Timeout**:
+- Lock Timeout:
     - Use `tryLock()` with a timeout instead of `synchronized` or `lock()`.
     - Example:
     ```java
@@ -1265,19 +1268,19 @@ public class ThreadLock {
         }
     }
     ```
-    - **Explanation**:
+    - Explanation:
         1. `tryLock(100, TimeUnit.MILLISECONDS)` tries to acquire the lock with a timeout of 100 milliseconds.
         2. If the lock cannot be acquired within the timeout, the thread can take corrective action.
-- **Avoid Nested Locks**:
+- Avoid Nested Locks:
     - Minimize the use of nested locks. If possible, design your code to use a single lock or fewer nested locks.
 
 
 ### Best Practices
 
-- **Resource Allocation Graph**:
+- Resource Allocation Graph:
     - Use a resource allocation graph to analyze potential deadlocks before implementation.
     - Ensure that the graph does not contain cycles, which indicate potential deadlocks.
-- **Deadlock Detection Algorithms**:
+- Deadlock Detection Algorithms:
     - Implement deadlock detection algorithms like the Banker's algorithm in more complex systems, especially in operating systems or resource management systems.
 
 
@@ -1289,94 +1292,94 @@ In Java, the `equals()` method is used to compare the equality of two objects. H
 
 - The `equals()` method is defined in the `Object` class, which is the superclass of all classes in Java.
 - The default implementation of `equals()` uses the `==` operator, which checks if two references point to the same object (i.e., reference equality).
-```java
-public class EqualsExample {
-    public static void main(String[] args) {
-        Object obj1 = new Object();
-        Object obj2 = new Object();
-        Object obj3 = obj1;
+    ```java
+    public class EqualsExample {
+        public static void main(String[] args) {
+            Object obj1 = new Object();
+            Object obj2 = new Object();
+            Object obj3 = obj1;
 
-        System.out.println(obj1.equals(obj2)); // false
-        System.out.println(obj1.equals(obj3)); // true
+            System.out.println(obj1.equals(obj2)); // false
+            System.out.println(obj1.equals(obj3)); // true
+        }
     }
-}
-```
-- **Explanation**:
-    1. `obj1.equals(obj2)` returns `false` because `obj1` and `obj2` are different object instances.
-    2. `obj1.equals(obj3)` returns `true` because `obj3` refers to the same object as `obj1`.
+    ```
+    - Explanation:
+        1. `obj1.equals(obj2)` returns `false` because `obj1` and `obj2` are different object instances.
+        2. `obj1.equals(obj3)` returns `true` because `obj3` refers to the same object as `obj1`.
 
 
 ## Overriding equals()
 
 - You should override the `equals()` method in your custom classes if you want to compare objects based on their state (content equality) rather than reference equality.
-```java
-class Person {
-    private String name;
-    private int age;
+    ```java
+    class Person {
+        private String name;
+        private int age;
 
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
+        public Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass()!= o.getClass()) return false;
-        Person person = (Person) o;
-        return age == person.age && name.equals(person.name);
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass()!= o.getClass()) return false;
+            Person person = (Person) o;
+            return age == person.age && name.equals(person.name);
+        }
     }
-}
-```
-- **Explanation**:
-    1. `if (this == o) return true;` checks if the objects are the same reference.
-    2. `if (o == null || getClass()!= o.getClass()) return false;` checks if `o` is `null` or not of the same class.
-    3. `Person person = (Person) o;` casts `o` to `Person`.
-    4. `return age == person.age && name.equals(person.name);` compares the `age` and `name` fields.
+    ```
+    - Explanation:
+        1. `if (this == o) return true;` checks if the objects are the same reference.
+        2. `if (o == null || getClass()!= o.getClass()) return false;` checks if `o` is `null` or not of the same class.
+        3. `Person person = (Person) o;` casts `o` to `Person`.
+        4. `return age == person.age && name.equals(person.name);` compares the `age` and `name` fields.
 
 
 ## hashCode() and equals()
 
 - If you override `equals()`, you should also override `hashCode()`.
 - The `hashCode()` method is used in hash-based collections like `HashMap` and `HashSet`.
-```java
-class Person {
-    private String name;
-    private int age;
+    ```java
+    class Person {
+        private String name;
+        private int age;
 
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
+        public Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass()!= o.getClass()) return false;
-        Person person = (Person) o;
-        return age == person.age && name.equals(person.name);
-    }
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass()!= o.getClass()) return false;
+            Person person = (Person) o;
+            return age == person.age && name.equals(person.name);
+        }
 
-    @Override
-    public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + age;
-        return result;
+        @Override
+        public int hashCode() {
+            int result = name.hashCode();
+            result = 31 * result + age;
+            return result;
+        }
     }
-}
-```
-- **Explanation**:
-    1. `hashCode()` is overridden to generate a hash code based on `name` and `age`.
-    2. The formula `int result = name.hashCode(); result = 31 * result + age;` is a common way to combine hash codes.
+    ```
+    - Explanation:
+        1. `hashCode()` is overridden to generate a hash code based on `name` and `age`.
+        2. The formula `int result = name.hashCode(); result = 31 * result + age;` is a common way to combine hash codes.
 
 
 ## Rules for equals()
 
-- **Reflexive**: `x.equals(x)` should always be `true`.
-- **Symmetric**: If `x.equals(y)` is `true`, then `y.equals(x)` should also be `true`.
-- **Transitive**: If `x.equals(y)` is `true` and `y.equals(z)` is `true`, then `x.equals(z)` should be `true`.
-- **Consistent**: Repeated calls to `equals()` should return the same result, if the objects have not changed.
-- **Null Check**: `x.equals(null)` should always be `false`.
+- Reflexive: `x.equals(x)` should always be `true`.
+- Symmetric: If `x.equals(y)` is `true`, then `y.equals(x)` should also be `true`.
+- Transitive: If `x.equals(y)` is `true` and `y.equals(z)` is `true`, then `x.equals(z)` should be `true`.
+- Consistent: Repeated calls to `equals()` should return the same result, if the objects have not changed.
+- Null Check: `x.equals(null)` should always be `false`.
 
 
 ## Using equals()
@@ -1393,129 +1396,109 @@ public class EqualsUsage {
     }
 }
 ```
-- **Explanation**:
-    1. `p1.equals(p2)` returns `true` because `p1` and `p2` have the same `name` and `age`.
+- Explanation:
+    1. `p1.equals(p2)` returns `true` because `p1` and `p2` have the same `name` and `age`(because we overrode its `equals` method above).
     2. `p1.equals(p3)` returns `false` because `p1` and `p3` have different `name` and `age`.
 
 
-By understanding and correctly implementing the `equals()` method, you can ensure proper object comparison, especially in collections and other scenarios where content equality is required.
+# 132-What is fail-fast and fail-safe?
 
+Here's an explanation of fail-fast and fail-safe mechanisms in Java, particularly in the context of collections:
 
-# What is fail-fast and fail-safe?
+## Fail-Fast
 
-In Java, the `equals()` method is used to compare the equality of two objects. Here's a detailed explanation:
+- Concept:
+    - Fail-fast iterators in Java immediately throw a `ConcurrentModificationException` if the collection is modified structurally during iteration. Structural modifications include adding or removing elements.
+    - It is designed to fail as soon as possible to avoid unpredictable behavior due to concurrent modifications.
+- Example of Fail-Fast Iterator:
+    ```java
+    import java.util.ArrayList;
+    import java.util.Iterator;
+    import java.util.List;
+    import java.util.ConcurrentModificationException;
 
-## Default Implementation
+    public class test {
+        public static void main(String[] args) {
+            List<String> list = new ArrayList<>();
+            list.add("A");
+            list.add("B");
+            list.add("C");
 
-- The `equals()` method is defined in the `Object` class, which is the superclass of all classes in Java.
-- The default implementation of `equals()` uses the `==` operator, which checks if two references point to the same object (i.e., reference equality).
-```java
-public class EqualsExample {
-    public static void main(String[] args) {
-        Object obj1 = new Object();
-        Object obj2 = new Object();
-        Object obj3 = obj1;
-
-        System.out.println(obj1.equals(obj2)); // false
-        System.out.println(obj1.equals(obj3)); // true
+            try {
+                Iterator<String> iterator = list.iterator();
+                while (iterator.hasNext()) {
+                    String element = iterator.next();
+                    if (element.equals("A")) {
+                        // Structural modification
+                        list.remove(element);
+                        /*
+                        the correct way!! When we want to remove an element, we use iterator.remove() instead of list.remove(element). This is the correct way to remove elements while iterating through the list, as the iterator's remove() method is designed to handle the modification safely, updating the internal state of the iterator and avoiding ConcurrentModificationException.
+                        */
+                    }
+                }
+            } catch (ConcurrentModificationException e) {
+                System.out.println("ConcurrentModificationException caught: " + e.getMessage());
+            }
+            /* result print:
+                ConcurrentModificationException caught: null
+            */
+        }
     }
-}
-```
-- **Explanation**:
-    1. `obj1.equals(obj2)` returns `false` because `obj1` and `obj2` are different object instances.
-    2. `obj1.equals(obj3)` returns `true` because `obj3` refers to the same object as `obj1`.
+    ```
+    - Explanation:
+        1. We create an `ArrayList` and add elements "A", "B", and "C".
+        2. We obtain an iterator using `list.iterator()`.
+        3. While iterating, we attempt to remove an element using `list.remove(element)`.
+        4. This results in a `ConcurrentModificationException` because the collection is modified during iteration.
 
 
-## Overriding equals()
+## Fail-Safe
 
-- You should override the `equals()` method in your custom classes if you want to compare objects based on their state (content equality) rather than reference equality.
-```java
-class Person {
-    private String name;
-    private int age;
+- Concept:
+    - Fail-safe iterators in Java do not throw `ConcurrentModificationException` when the collection is modified structurally during iteration.
+    - They operate on a copy of the collection, not the original collection, so changes to the original collection do not affect the iteration.
+- Example of Fail-Safe Iterator:
+    ```java
+    import java.util.concurrent.CopyOnWriteArrayList;
 
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
+    public class FailSafeExample {
+            public static void main(String[] args) {
+                    CopyOnWriteArrayList<String> list = new CopyOnWriteArrayList<>();
+                    list.add("A");
+                    list.add("B");
+                    list.add("C");
+
+                    Iterator<String> iterator = list.iterator();
+                    while (iterator.hasNext()) {
+                            String element = iterator.next();
+                            if (element.equals("B")) {
+                                    // Structural modification
+                                    list.remove(element);
+                            }
+                    }
+            }
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass()!= o.getClass()) return false;
-        Person person = (Person) o;
-        return age == person.age && name.equals(person.name);
-    }
-}
-```
-- **Explanation**:
-    1. `if (this == o) return true;` checks if the objects are the same reference.
-    2. `if (o == null || getClass()!= o.getClass()) return false;` checks if `o` is `null` or not of the same class.
-    3. `Person person = (Person) o;` casts `o` to `Person`.
-    4. `return age == person.age && name.equals(person.name);` compares the `age` and `name` fields.
+    ```
+    - Explanation:
+        1. We create a `CopyOnWriteArrayList`.
+        2. We add elements "A", "B", and "C".
+        3. We obtain an iterator using `list.iterator()`.
+        4. We attempt to remove an element using `list.remove(element)` during iteration.
+        5. No `ConcurrentModificationException` is thrown because `CopyOnWriteArrayList` uses a fail-safe iterator that works on a copy of the list.
 
 
-## hashCode() and equals()
+## Key Differences
 
-- If you override `equals()`, you should also override `hashCode()`.
-- The `hashCode()` method is used in hash-based collections like `HashMap` and `HashSet`.
-```java
-class Person {
-    private String name;
-    private int age;
-
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass()!= o.getClass()) return false;
-        Person person = (Person) o;
-        return age == person.age && name.equals(person.name);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + age;
-        return result;
-    }
-}
-```
-- **Explanation**:
-    1. `hashCode()` is overridden to generate a hash code based on `name` and `age`.
-    2. The formula `int result = name.hashCode(); result = 31 * result + age;` is a common way to combine hash codes.
+- Concurrency Handling:
+    - Fail-Fast: Detects concurrent modifications and fails immediately, useful in single-threaded or low-concurrency environments.
+    - Fail-Safe: Does not fail when the collection is modified, suitable for concurrent environments.
+- Performance:
+    - Fail-Fast: Generally more efficient in single-threaded environments as it does not need to create copies of the collection.
+    - Fail-Safe: Slower in single-threaded environments due to copying the collection, but more suitable for concurrent environments.
 
 
-## Rules for equals()
+## Best Practices
 
-- **Reflexive**: `x.equals(x)` should always be `true`.
-- **Symmetric**: If `x.equals(y)` is `true`, then `y.equals(x)` should also be `true`.
-- **Transitive**: If `x.equals(y)` is `true` and `y.equals(z)` is `true`, then `x.equals(z)` should be `true`.
-- **Consistent**: Repeated calls to `equals()` should return the same result, if the objects have not changed.
-- **Null Check**: `x.equals(null)` should always be `false`.
-
-
-## Using equals()
-
-```java
-public class EqualsUsage {
-    public static void main(String[] args) {
-        Person p1 = new Person("John", 30);
-        Person p2 = new Person("John", 30);
-        Person p3 = new Person("Jane", 25);
-
-        System.out.println(p1.equals(p2)); // true
-        System.out.println(p1.equals(p3)); // false
-    }
-}
-```
-- **Explanation**:
-    1. `p1.equals(p2)` returns `true` because `p1` and `p2` have the same `name` and `age`.
-    2. `p1.equals(p3)` returns `false` because `p1` and `p3` have different `name` and `age`.
-
-
-By understanding and correctly implementing the `equals()` method, you can ensure proper object comparison, especially in collections and other scenarios where content equality is required.
+- Use Fail-Fast: When you are in a single-threaded or low-concurrency environment and want to detect concurrent modifications early.
+- Use Fail-Safe: When you expect concurrent modifications and want to avoid `ConcurrentModificationException`, especially in highly concurrent environments.
+- Understanding the difference between fail-fast and fail-safe mechanisms helps you choose the right collection and iterator for your concurrency needs, ensuring robustness and predictability in your code.
