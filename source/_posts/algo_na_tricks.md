@@ -5,6 +5,7 @@ tags:
 - noodle
 - Algo
 - LeetCode
+- NA
 categories:
 - Algo
 password: '0622'
