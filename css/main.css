@@ -58,19 +58,19 @@ dfn {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
-  color: #f00;
+  color: #6666da;
 }
 h2 {
   color: #ffa500;
 }
 h3 {
-  color: #00f;
-}
-h4 {
   color: #19d619;
 }
-h5 {
+h4 {
   color: #800080;
+}
+h5 {
+  color: #f00;
 }
 h6 {
   color: #ffc0cb;
@@ -2054,7 +2054,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9fb17d;
+  background: #ff0bbb;
 }
 .links-of-blogroll {
   font-size: 13px;
