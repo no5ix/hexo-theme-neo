@@ -151,6 +151,11 @@ input[id$=local-search-input] {
   top: 90px;
   right: 0;
 
+  /* -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-transition: -webkit-transform 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out; */
+
   +mobile() {
     top: 100px
     padding: 0
@@ -205,6 +210,7 @@ input[id$=local-search-input] {
       margin-bottom: 20px;
       line-height: 30px;
       font-weight: normal;
+
       &:last-child {
         //border-bottom: none;
         margin-bottom: 0;
@@ -224,6 +230,12 @@ input[id$=local-search-input] {
       }
     }
   }
+}
+
+
+.local-search-result-cls.active {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
 }
 
 

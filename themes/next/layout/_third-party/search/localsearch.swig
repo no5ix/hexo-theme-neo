@@ -68,7 +68,13 @@
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -249,10 +255,9 @@
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -276,7 +281,7 @@
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

@@ -84,7 +84,7 @@
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
