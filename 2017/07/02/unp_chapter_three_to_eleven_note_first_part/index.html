@@ -116,7 +116,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20170729020828685?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbm9zaXg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170729021237265?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbm9zaXg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170729022856179?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbm9zaXg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.527Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="重读UNIX网络编程第三章到第十一章笔记整理(一)">
 <meta name="twitter:description" content="因为第二章之后基本都是纯Socket API的内容， 第三章到第十一章的笔记整理合并到一起。  第三章 3.4 ：字节排序函数，涉及到大小端，处理网络字节序和主机字节序的转换    如何判别是大端(Big-Endian)还是小端(Little-Endian):  1234567891011121314151617181920212223242526union TestBigOrLittle&amp;#1">
@@ -701,7 +701,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -980,7 +980,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1161,10 +1167,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1188,7 +1193,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

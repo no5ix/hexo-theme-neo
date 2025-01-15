@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="01 SIGHUP 挂起（hangup） 02 SIGINT 中断，当用户从键盘按^c键或^break键时 03 SIGQUIT 退出，当用户从键盘按quit键时 04 SIGILL 非法指令 05 SIGTRAP 跟踪陷阱（trace trap），启动进程，跟踪代码的执行 06 SIGIOT IOT指令 07 SIGEMT EMT指令 08 SIGFPE 浮点运算溢出 09 SIGKILL 杀">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.469Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.564Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 常用SIG信号及其键值">
 <meta name="twitter:description" content="01 SIGHUP 挂起（hangup） 02 SIGINT 中断，当用户从键盘按^c键或^break键时 03 SIGQUIT 退出，当用户从键盘按quit键时 04 SIGILL 非法指令 05 SIGTRAP 跟踪陷阱（trace trap），启动进程，跟踪代码的执行 06 SIGIOT IOT指令 07 SIGEMT EMT指令 08 SIGFPE 浮点运算溢出 09 SIGKILL 杀">
@@ -625,7 +625,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -888,7 +888,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1069,10 +1075,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1096,7 +1101,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

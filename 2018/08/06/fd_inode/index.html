@@ -108,7 +108,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/fd_inode/fd_inode4.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/fd_inode/fd_inode5.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/linux/hard_link_soft_link.jpg">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.505Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.599Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="文件描述符FD与Inode">
 <meta name="twitter:description" content="FD 文件描述符　　Linux 系统中，把一切都看做是文件，当进程打开现有文件或创建新文件时，内核向进程返回一个文件描述符，文件描述符就是内核为了高效管理已被打开的文件所创建的索引，用来指向被打开的文件，所有执行 I/O 操作的系统调用都会通过文件描述符。 文件描述符、文件、进程间的关系我们可以通过 linux 的几个基本的 I/O 操作函数来理解什么是文件描述符。 123456fd = open">
@@ -763,7 +763,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -1042,7 +1042,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1223,10 +1229,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1250,7 +1255,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

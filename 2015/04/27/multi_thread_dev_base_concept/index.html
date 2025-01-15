@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="竞态（race condition）软件层面上，竞态是指多个线程或进程读写一个共享资源 (或共享设备) 时的输出结果依赖于线程或进程的先后执行顺序或者时间；（ 更权威的介绍可以看 wiki ) 至于为什么会发生竞态呢？很简单，因为并发，并发使多线程，多进程环境变成可能。 竞态具体场景：假如我们有 2 个进程会对一个全局变量进行 ++ 操作，理想时，程序会这样执行： Thread 1Thread 2">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.512Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.607Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多线程开发的一些基本概念">
 <meta name="twitter:description" content="竞态（race condition）软件层面上，竞态是指多个线程或进程读写一个共享资源 (或共享设备) 时的输出结果依赖于线程或进程的先后执行顺序或者时间；（ 更权威的介绍可以看 wiki ) 至于为什么会发生竞态呢？很简单，因为并发，并发使多线程，多进程环境变成可能。 竞态具体场景：假如我们有 2 个进程会对一个全局变量进行 ++ 操作，理想时，程序会这样执行： Thread 1Thread 2">
@@ -650,7 +650,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -929,7 +929,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1110,10 +1116,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1137,7 +1142,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

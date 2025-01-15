@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="如何绕过 g++ 4.8.1 那个不能在宏里面使用 R”(…)” 的 bug？ 看到形如：R”” 这样的写法，相信学过 Python 的童鞋会感到似曾相识。Python 支持所谓的 “raw string”。Python 文档这样介绍 raw string： Both string and bytes literals may optionally be prefixed with a lette">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.482Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.576Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++11的Raw String Literals">
 <meta name="twitter:description" content="如何绕过 g++ 4.8.1 那个不能在宏里面使用 R”(…)” 的 bug？ 看到形如：R”” 这样的写法，相信学过 Python 的童鞋会感到似曾相识。Python 支持所谓的 “raw string”。Python 文档这样介绍 raw string： Both string and bytes literals may optionally be prefixed with a lette">
@@ -636,7 +636,7 @@ Hello, world!
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -915,7 +915,13 @@ Hello, world!
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1096,10 +1102,9 @@ Hello, world!
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1123,7 +1128,7 @@ Hello, world!
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

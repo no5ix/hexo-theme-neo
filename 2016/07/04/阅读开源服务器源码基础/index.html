@@ -103,7 +103,7 @@
 <meta property="og:description" content="当阅读一些开源服务器源码的时候, 如果不知道以下知识, 就会有知识盲点, 导致不知所云.这篇博客会讲述一些相关的编程知识点, 把之前的笔记总结一下.还是那句老话, 带着问题阅读是最容易让人类迅速进入状态的. 进程的内存布局是什么样的?记忆口诀 : 文初堆栈  每个进程所分配的内存由很多部分组成，通常称之为“段( segment)”。如下所示。  文本段  包含了进程运行的程序机器语言指令。文本段具">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://img.blog.csdn.net/20170822215327682?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbm9zaXg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.537Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.631Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阅读开源服务器源码基础">
 <meta name="twitter:description" content="当阅读一些开源服务器源码的时候, 如果不知道以下知识, 就会有知识盲点, 导致不知所云.这篇博客会讲述一些相关的编程知识点, 把之前的笔记总结一下.还是那句老话, 带着问题阅读是最容易让人类迅速进入状态的. 进程的内存布局是什么样的?记忆口诀 : 文初堆栈  每个进程所分配的内存由很多部分组成，通常称之为“段( segment)”。如下所示。  文本段  包含了进程运行的程序机器语言指令。文本段具">
@@ -672,7 +672,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -951,7 +951,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1132,10 +1138,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1159,7 +1164,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

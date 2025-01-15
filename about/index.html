@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="为何此博客乱码或排版混乱或过渡动画卡顿?因为本博客没有对 IE6 / 老Edge / UC 做深度适配. 如果您在PC端使用的是 360浏览器 / 搜狗浏览器, 请在地址栏切换成其极速模式(切换成Chromium内核)来浏览此博客可以得到最佳效果. 可以的话, 请使用 新Edge(Chromium内核版本, 推荐) / Chrome(推荐) / Firefox / Safari 打开本博客.  交">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.537Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="About">
 <meta name="twitter:description" content="为何此博客乱码或排版混乱或过渡动画卡顿?因为本博客没有对 IE6 / 老Edge / UC 做深度适配. 如果您在PC端使用的是 360浏览器 / 搜狗浏览器, 请在地址栏切换成其极速模式(切换成Chromium内核)来浏览此博客可以得到最佳效果. 可以的话, 请使用 新Edge(Chromium内核版本, 推荐) / Chrome(推荐) / Firefox / Safari 打开本博客.  交">
@@ -442,7 +442,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -721,7 +721,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -902,10 +908,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -929,7 +934,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

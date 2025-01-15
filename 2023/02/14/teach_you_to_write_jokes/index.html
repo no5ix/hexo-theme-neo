@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="简介　　几乎很少有什么关于幽默创作方面的理论，你也很难找到这方面的书籍。对于幽默，几乎就是凭借着个人的天赋，比如说赵本山、郭德纲、周星驰，想弄出好的段子，几乎就是凭借这些人的个人能力。你如果问他们，你们是怎么想出好笑话的，他们也是莫名其妙，他们会这样说：灵机一动、灵感、一拍大腿、脑子里电光一闪，总之，他们不会说出具体的方法来。一些相声老师傅会口耳相传一些做包袱的手法，但那些方法听起来就有些可笑。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.527Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="教你写笑话">
 <meta name="twitter:description" content="简介　　几乎很少有什么关于幽默创作方面的理论，你也很难找到这方面的书籍。对于幽默，几乎就是凭借着个人的天赋，比如说赵本山、郭德纲、周星驰，想弄出好的段子，几乎就是凭借这些人的个人能力。你如果问他们，你们是怎么想出好笑话的，他们也是莫名其妙，他们会这样说：灵机一动、灵感、一拍大腿、脑子里电光一闪，总之，他们不会说出具体的方法来。一些相声老师傅会口耳相传一些做包袱的手法，但那些方法听起来就有些可笑。">
@@ -829,7 +829,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -1108,7 +1108,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1289,10 +1295,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1316,7 +1321,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

@@ -103,7 +103,7 @@
 <meta property="og:description" content="LoginServer(Gate)当完成渠道SDK回调验证之后,验证完玩家信息,用了Nginx的负载均衡给每位玩家分配一台不繁忙的游戏服务器,在Redis中存了一份玩家在线有效时间key,这个key也可以用来完成封号操作 MainServer因为弱交互/短连接的关系,大多数情况玩家和玩家之间不需要实时面对面PK，打一下对方的离线数据，计算下排行榜，排行榜是实时计算的,存在Redis里, 做了分页处">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/2016/07/30/how_to_implement_a_slg_one/slg1.png">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.509Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速完成一个简易SLG游戏思路一">
 <meta name="twitter:description" content="LoginServer(Gate)当完成渠道SDK回调验证之后,验证完玩家信息,用了Nginx的负载均衡给每位玩家分配一台不繁忙的游戏服务器,在Redis中存了一份玩家在线有效时间key,这个key也可以用来完成封号操作 MainServer因为弱交互/短连接的关系,大多数情况玩家和玩家之间不需要实时面对面PK，打一下对方的离线数据，计算下排行榜，排行榜是实时计算的,存在Redis里, 做了分页处">
@@ -629,7 +629,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -908,7 +908,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1089,10 +1095,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1116,7 +1121,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

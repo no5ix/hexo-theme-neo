@@ -103,7 +103,7 @@
 <meta property="og:description" content="前言使用SVN在管理代码的时候免不了进行代码的合并和还原，特别是当前版本的修改发现有重大问题的时候，还原是避免不了的，那么究竟应该怎样操作呢？ 内容使用SVN查看文件或目录的日志的时候，右键单击日志记录会弹出下面这个界面，今天我们来着重了解一下被红圈标记的三个选项——“Update item to this version”，“Revert to this version”，“Revert cha">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/2014/12/13/SVN的UpdateItemToThisRevision和RevertToThisRevision和UpdateItemToRevision的区别/svn_1.jpg">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.472Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVN的UpdateItemToThisRevision和RevertToThisRevision和UpdateItemToRevision的区别">
 <meta name="twitter:description" content="前言使用SVN在管理代码的时候免不了进行代码的合并和还原，特别是当前版本的修改发现有重大问题的时候，还原是避免不了的，那么究竟应该怎样操作呢？ 内容使用SVN查看文件或目录的日志的时候，右键单击日志记录会弹出下面这个界面，今天我们来着重了解一下被红圈标记的三个选项——“Update item to this version”，“Revert to this version”，“Revert cha">
@@ -622,7 +622,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -901,7 +901,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1082,10 +1088,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1109,7 +1114,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

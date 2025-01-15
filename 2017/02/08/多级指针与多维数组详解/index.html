@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20160623113621428?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 <meta property="og:image" content="https://hulinhong.com/2017/02/08/多级指针与多维数组详解/3.png">
 <meta property="og:image" content="https://hulinhong.com/2017/02/08/多级指针与多维数组详解/4.png">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.533Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.628Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多级指针与多维数组详解">
 <meta name="twitter:description" content="指针与数组是 C/C++ 编程中非常重要的元素，同时也是较难以理解的。其中，多级指针与 “多维” 数组更是让很多人云里雾里，其实，只要掌握一定的方法，理解多级指针和 “多维” 数组完全可以像理解一级指针和一维数组那样简单。 基础知识首先，先声明一些常识，如果你对这些常识还不理解，请先去弥补一下基础知识：  实际上并不存在多维数组，所谓的多维数组本质上是用一维数组模拟的。  数组名是一个常量（意味着">
@@ -713,7 +713,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -992,7 +992,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1173,10 +1179,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1200,7 +1205,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

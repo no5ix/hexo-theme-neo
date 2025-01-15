@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="译者：陈敬凤（nunu）    审校：崔国军（飞扬971）大家好，我是格伦·菲德勒，是一位来自洛杉矶的职业游戏开发者。我作为一名职业游戏开发者已经有15年了。而在这其中的十年时光里，我都是专门做网络编程的。在这期间我大部分的业余时间一直致力于研究网络物理模拟方面的问题。在这个系列文章中我的目标是分享我已经知道的一切有关网络物理模拟方面的知识。写这些文章是一个工作量很大的工作，而且我完全是在我的业余">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.537Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.631Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络物理模拟一之网络物理部分的简介">
 <meta name="twitter:description" content="译者：陈敬凤（nunu）    审校：崔国军（飞扬971）大家好，我是格伦·菲德勒，是一位来自洛杉矶的职业游戏开发者。我作为一名职业游戏开发者已经有15年了。而在这其中的十年时光里，我都是专门做网络编程的。在这期间我大部分的业余时间一直致力于研究网络物理模拟方面的问题。在这个系列文章中我的目标是分享我已经知道的一切有关网络物理模拟方面的知识。写这些文章是一个工作量很大的工作，而且我完全是在我的业余">
@@ -605,7 +605,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -868,7 +868,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1049,10 +1055,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1076,7 +1081,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

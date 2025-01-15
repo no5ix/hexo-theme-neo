@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="当我们在win10系统中运行一些程序的时候，经常会提示需要管理员身份才能运行，但是每次都要右键选择以管理员身份运行很麻烦，那么Win10系统下怎么让所有程序都默认以管理员身份运行呢？. . .">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.532Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Win10系统下怎么让所有程序都默认以管理员身份运行">
 <meta name="twitter:description" content="当我们在win10系统中运行一些程序的时候，经常会提示需要管理员身份才能运行，但是每次都要右键选择以管理员身份运行很麻烦，那么Win10系统下怎么让所有程序都默认以管理员身份运行呢？. . .">
@@ -424,9 +424,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/01/09/sux_readme/" rel="prev" title="一个只有2M+大小的强大效率工具sux">
+              <a href="/2020/01/09/win10_home_disable_auto_update/" rel="prev" title="Win10禁止自动更新踩坑">
               <p class="post-nav-pre-next-title">
-                  一个只有2M+大小的强大效率工具sux
+                  Win10禁止自动更新踩坑
               </p> 
               <i class="fa fa-chevron-right"></i>
               </a>
@@ -493,9 +493,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2020/01/09/sux_readme/" rel="prev" title="一个只有2M+大小的强大效率工具sux">
+                <a href="/2020/01/09/win10_home_disable_auto_update/" rel="prev" title="Win10禁止自动更新踩坑">
                 <p class="post-nav-pre-next-title">
-                    一个只有2M+大小的强大效率工具sux
+                    Win10禁止自动更新踩坑
                 </p> 
                 <i class="fa fa-chevron-right"></i>
                 </a>
@@ -618,7 +618,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -881,7 +881,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1062,10 +1068,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1089,7 +1094,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

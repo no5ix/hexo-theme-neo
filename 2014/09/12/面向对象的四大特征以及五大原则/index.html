@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="面向对象的四大特征 封装：封装是把过程和数据包围起来，对数据的访问只能通过已定义的界面，面向对象计算始于这个基本概念，即现实世界可以被描绘成一系列完全自治，封装的对象，这些对象通过一个受保护的接口访问其他对象  继承：继承是一种联结类的层次模型，并且允许和鼓励类的重用，它提供了一种明确表达共性的方法，对象的一个新类可以从现在的类中派生，这个过程成为继承，新类继承了原始类的特性，新类成为原始类的派生">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.537Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.631Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向对象的四大特征以及五大原则">
 <meta name="twitter:description" content="面向对象的四大特征 封装：封装是把过程和数据包围起来，对数据的访问只能通过已定义的界面，面向对象计算始于这个基本概念，即现实世界可以被描绘成一系列完全自治，封装的对象，这些对象通过一个受保护的接口访问其他对象  继承：继承是一种联结类的层次模型，并且允许和鼓励类的重用，它提供了一种明确表达共性的方法，对象的一个新类可以从现在的类中派生，这个过程成为继承，新类继承了原始类的特性，新类成为原始类的派生">
@@ -636,7 +636,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -915,7 +915,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1096,10 +1102,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1123,7 +1128,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

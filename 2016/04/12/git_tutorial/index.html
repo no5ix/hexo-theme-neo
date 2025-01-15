@@ -111,7 +111,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/git_tutorial/rebase_i1.png">
 <meta property="og:image" content="https://hulinhong.com/img/git_tutorial/rebase_i2.png">
 <meta property="og:image" content="https://hulinhong.com/img/git_tutorial/rebase_i3.png">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.505Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git教程">
 <meta name="twitter:description" content="之前有一份私人git笔记老长老长了, 今天得空, 把它浓缩成5分钟版本.感觉纯基础性的东西整理成博客差也差不多了, 还有很多凌乱的工作笔记慢慢在一点一点整理放上来吧,估计下面几篇博客就开始游戏服务器的开发心得之类的了. . . .">
@@ -841,7 +841,7 @@ doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -1120,7 +1120,13 @@ doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1301,10 +1307,9 @@ doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1328,7 +1333,7 @@ doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

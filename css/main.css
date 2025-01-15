@@ -50,6 +50,7 @@ abbr[title] {
 b,
 strong {
   font-weight: bold;
+  color: #008080;
 }
 dfn {
   font-style: italic;
@@ -57,6 +58,22 @@ dfn {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+  color: #f00;
+}
+h2 {
+  color: #ffa500;
+}
+h3 {
+  color: #00f;
+}
+h4 {
+  color: #19d619;
+}
+h5 {
+  color: #800080;
+}
+h6 {
+  color: #ffc0cb;
 }
 mark {
   background: #ff0;
@@ -497,7 +514,7 @@ code {
   padding: 2px 4px;
   word-wrap: break-word;
   color: #555;
-  background: #eee;
+  background: #b0dfb0;
   border-radius: 3px;
   font-size: 13px;
 }
@@ -1240,6 +1257,11 @@ pre .javascript .function {
 @media screen and (max-width: 767px) {
   .menu .menu-item {
     margin-top: 10px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .menu .menu-item {
+    margin-left: 0px;
   }
 }
 .menu .menu-item a {
@@ -1985,7 +2007,7 @@ pre .javascript .function {
   font-size: 22px;
 }
 .site-state-item-name {
-  font-size: 13px;
+  font-size: 8px;
   color: inherit;
 }
 .feed-link {
@@ -2032,7 +2054,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1af91f;
+  background: #9fb17d;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2567,6 +2589,10 @@ input[id$=local-search-input] {
   width: 400px;
   top: 90px;
   right: 0;
+/* -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-transition: -webkit-transform 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out; */
 }
 @media (max-width: 767px) {
   .local-search-result-cls {
@@ -2636,6 +2662,14 @@ input[id$=local-search-input] {
 }
 .local-search-result-cls ul li em.search-keyword {
   color: #e58c7c;
+}
+.local-search-result-cls.active {
+  -webkit-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
 }
 .local-search-result-cls ul:before {
   content: "";
@@ -3446,6 +3480,7 @@ hr {
   position: relative;
   float: right;
   margin-top: 2px;
+  margin-left: 16px;
   padding-top: 3px;
 }
 @media (max-width: 767px) {
@@ -3555,7 +3590,7 @@ hr {
 /* width: 400px; */
   top: 90px;
   right: 0;
-  transition: transform 0.25s ease-in-out;
+/* transition:transform .25s ease-in-out; */
 }
 .highlight figcaption {
   margin: 0em;

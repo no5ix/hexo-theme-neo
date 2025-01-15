@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="编译器优化级别用 C/C++ 的肯定都知道编译器编译有各种优化级别，编译器优化级别大体如下：  O0（默认选项）：不开启优化，方便功能调试 Og：方便调试的优化选项（比 O1 更保守） O1：保守的优化选项，打开了四十多个优化选项 O2：常用的发布优化选项，在 O1 的基础上额外打开了四十多个优化选项，包括自动内联等规则 Os：产生较小代码体积的优化选项（比 O2 更保守） O3：较为激进的优化选">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.482Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.576Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cpp的各个编译选项备忘整理">
 <meta name="twitter:description" content="编译器优化级别用 C/C++ 的肯定都知道编译器编译有各种优化级别，编译器优化级别大体如下：  O0（默认选项）：不开启优化，方便功能调试 Og：方便调试的优化选项（比 O1 更保守） O1：保守的优化选项，打开了四十多个优化选项 O2：常用的发布优化选项，在 O1 的基础上额外打开了四十多个优化选项，包括自动内联等规则 Os：产生较小代码体积的优化选项（比 O2 更保守） O3：较为激进的优化选">
@@ -654,7 +654,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -933,7 +933,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1114,10 +1120,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1141,7 +1146,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

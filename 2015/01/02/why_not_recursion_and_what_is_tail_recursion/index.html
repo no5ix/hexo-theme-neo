@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="为什么不推荐递归递归的调试难度奇高，就决定了实际项目中很少用递归。 而且递归确实运行效率低，因为函数一层一层调用存在调用栈， 在切换到更深层的函数时要产生断点，为了保证回来时继续运行， 必须保存现在所处函数的各种状态，回来时恢复状态，这样一层层下去性能损失就不断增加。 大量开辟在栈区的内存 ，直到每一层的递归结束或整个递归结束才释放 且这个内存空间可能呈几何级数增加， 空间效率不佳， 有可能会栈溢">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.532Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为什么不推荐递归以及什么是尾递归">
 <meta name="twitter:description" content="为什么不推荐递归递归的调试难度奇高，就决定了实际项目中很少用递归。 而且递归确实运行效率低，因为函数一层一层调用存在调用栈， 在切换到更深层的函数时要产生断点，为了保证回来时继续运行， 必须保存现在所处函数的各种状态，回来时恢复状态，这样一层层下去性能损失就不断增加。 大量开辟在栈区的内存 ，直到每一层的递归结束或整个递归结束才释放 且这个内存空间可能呈几何级数增加， 空间效率不佳， 有可能会栈溢">
@@ -668,7 +668,7 @@ TailRescuvie(1, 120)
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -947,7 +947,13 @@ TailRescuvie(1, 120)
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1128,10 +1134,9 @@ TailRescuvie(1, 120)
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1155,7 +1160,7 @@ TailRescuvie(1, 120)
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

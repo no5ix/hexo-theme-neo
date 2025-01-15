@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="老书新看, 有了许多不同的见解, 也准备拿出以前自己私人的老笔记做修正放到博客里, 加深理解. 在这个浮躁人人都能写书的时代基本要看一本书需要挑很久, 谁写的, 写得怎么样, 是否是业界经典, 都要需要一一斟酌各种查证方可, 不然看一本烂书事半功倍, 浪费生命,影响效率, 被误导跑偏, 能让人静下心来的书籍不多, 能让人看好几遍仍回味无穷的经典就更少了 陈硕说过, 学东西不要只是从网上看点大牛的">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.537Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.631Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="重新看unix网络编程的一些心得">
 <meta name="twitter:description" content="老书新看, 有了许多不同的见解, 也准备拿出以前自己私人的老笔记做修正放到博客里, 加深理解. 在这个浮躁人人都能写书的时代基本要看一本书需要挑很久, 谁写的, 写得怎么样, 是否是业界经典, 都要需要一一斟酌各种查证方可, 不然看一本烂书事半功倍, 浪费生命,影响效率, 被误导跑偏, 能让人静下心来的书籍不多, 能让人看好几遍仍回味无穷的经典就更少了 陈硕说过, 学东西不要只是从网上看点大牛的">
@@ -612,7 +612,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -875,7 +875,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1056,10 +1062,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1083,7 +1088,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

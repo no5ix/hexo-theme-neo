@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/thread_specific_data/20140521140749687.png">
 <meta property="og:image" content="https://hulinhong.com/img/thread_specific_data/20140521141540062.png">
 <meta property="og:image" content="https://hulinhong.com/img/thread_specific_data/20140521141742921.png">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.527Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线程特有数据">
 <meta name="twitter:description" content="在 Linux 系统中使用 C/C++ 进行多线程编程时，我们遇到最多的就是对同一变量的多线程读写问题，大多情况下遇到这类问题都是通过锁机制来处理，但这对程序的性能带来了很大的影响， 当然对于那些系统原生支持原子操作的数据类型来说，我们可以使用原子操作来处理，这能对程序的性能会得到一定的提高。那么对于那些系统不支持原子操作的自定义数据类型， 在不使用锁的情况下如何做到线程安全呢？本文将从线程特有数">
@@ -696,7 +696,7 @@ void *pthread_getspecific (pthread_key_t key);
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -975,7 +975,13 @@ void *pthread_getspecific (pthread_key_t key);
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1156,10 +1162,9 @@ void *pthread_getspecific (pthread_key_t key);
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1183,7 +1188,7 @@ void *pthread_getspecific (pthread_key_t key);
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="1. 为什么需要分支预测优化 将流水线引入cpu，可以提高cpu的效率。更简单的说，让cpu可以预先取出下一条指令，可以提供cpu的效率。如下图所示：    取指令 执行指令 输出结果      取指令 执行    可见，cpu流水钱可以减少cpu等待取指令的耗时，从而提高cpu的效率。如果存在跳转指令，那么预先取出的指令就无用了。cpu在执行当前指令时，从内存中取出了当前指令的下一条指令。执行完">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.511Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GCC的分支预测优化__builtin_expect">
 <meta name="twitter:description" content="1. 为什么需要分支预测优化 将流水线引入cpu，可以提高cpu的效率。更简单的说，让cpu可以预先取出下一条指令，可以提供cpu的效率。如下图所示：    取指令 执行指令 输出结果      取指令 执行    可见，cpu流水钱可以减少cpu等待取指令的耗时，从而提高cpu的效率。如果存在跳转指令，那么预先取出的指令就无用了。cpu在执行当前指令时，从内存中取出了当前指令的下一条指令。执行完">
@@ -413,10 +413,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/03/18/linux_directory_permission/" rel="next" title="linux一些不要想当然的事(一)之目录权限">
+              <a href="/2015/04/11/linux_gcc_atomic/" rel="next" title="GCC的原子操作函数">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
-                  linux一些不要想当然的事(一)之目录权限
+                  GCC的原子操作函数
                 </p> 
               </a>
             
@@ -520,10 +520,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2015/03/18/linux_directory_permission/" rel="next" title="linux一些不要想当然的事(一)之目录权限">
+                <a href="/2015/04/11/linux_gcc_atomic/" rel="next" title="GCC的原子操作函数">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
-                    linux一些不要想当然的事(一)之目录权限
+                    GCC的原子操作函数
                   </p> 
                 </a>
               
@@ -667,7 +667,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -946,7 +946,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1127,10 +1133,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1154,7 +1159,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

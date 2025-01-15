@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="可变参数的宏一般在调试打印Debug信息的时候, 需要可变参数的宏. 从C99开始可以使编译器标准支持可变参数宏(variadic macros), 另外GCC也支持可变参数宏, 但是两种在细节上可能存在区别. __VA_ARGS__ 将 “…” 传递给宏 . 如 #define debug(format, ...) fprintf(stderr, format, __VA_ARGS__) GCC">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.488Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++可变参数">
 <meta name="twitter:description" content="可变参数的宏一般在调试打印Debug信息的时候, 需要可变参数的宏. 从C99开始可以使编译器标准支持可变参数宏(variadic macros), 另外GCC也支持可变参数宏, 但是两种在细节上可能存在区别. __VA_ARGS__ 将 “…” 传递给宏 . 如 #define debug(format, ...) fprintf(stderr, format, __VA_ARGS__) GCC">
@@ -411,10 +411,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/11/lua_cpp_bind/" rel="next" title="C++与Lua本质原始交互API">
+              <a href="/2015/11/11/lua_cpp_toluapp_tutorial/" rel="next" title="tolua++安装">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
-                  C++与Lua本质原始交互API
+                  tolua++安装
                 </p> 
               </a>
             
@@ -500,10 +500,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2015/11/11/lua_cpp_bind/" rel="next" title="C++与Lua本质原始交互API">
+                <a href="/2015/11/11/lua_cpp_toluapp_tutorial/" rel="next" title="tolua++安装">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
-                    C++与Lua本质原始交互API
+                    tolua++安装
                   </p> 
                 </a>
               
@@ -647,7 +647,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -926,7 +926,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1107,10 +1113,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1134,7 +1139,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

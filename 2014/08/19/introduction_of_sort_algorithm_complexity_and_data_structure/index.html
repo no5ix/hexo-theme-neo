@@ -103,7 +103,7 @@
 <meta property="og:description" content="因为之前的笔记和书籍相关知识都是零零散散的， 没有一个汇总， 所以写了这篇博客。有些算法很简单，复杂度一眼都能看得出来， 几乎不需要记忆 ， 但是有些算法或者数据结构的操作的复杂度就不是一眼可以看得出来， 推导也是很费时间的， 所谓常识就是应该熟记于心且被认可的知识。 必须掌握的知识 DataStructure 链表 二叉树 二叉搜索树   栈 队列 散列表   算法 二分查找 快速排序 归并排序">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/img/algo_newbie/sort_algo_complexity.png">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.510Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谈一谈各类算法的复杂度和常用数据结构">
 <meta name="twitter:description" content="因为之前的笔记和书籍相关知识都是零零散散的， 没有一个汇总， 所以写了这篇博客。有些算法很简单，复杂度一眼都能看得出来， 几乎不需要记忆 ， 但是有些算法或者数据结构的操作的复杂度就不是一眼可以看得出来， 推导也是很费时间的， 所谓常识就是应该熟记于心且被认可的知识。 必须掌握的知识 DataStructure 链表 二叉树 二叉搜索树   栈 队列 散列表   算法 二分查找 快速排序 归并排序">
@@ -734,7 +734,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -1013,7 +1013,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1194,10 +1200,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1221,7 +1226,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

@@ -119,7 +119,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/vs2017_offline_install/5c95d43668d8642c79ed38e5N4FGlMio01.png">
 <meta property="og:image" content="https://hulinhong.com/img/vs2017_offline_install/5c95d43668d8642c70dcf723j2MH435e01.png">
 <meta property="og:image" content="https://hulinhong.com/img/vs2017_offline_install/5c95d4372dcade4eec14f16afOPQVf1y01.png">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.532Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Visual Studio 2017 各版本安装包离线下载、安装全解析">
 <meta name="twitter:description" content="中文乱码解决方案问题: 如果你用非简体中文版(比如英文版/繁体中文版)的vs来打开含有简体中文的项目, 则会乱码. 下面是繁体vs的解决方案(英文版vs解决方案也是一样):   现在我来说怎么解决在繁体VS中打开简体VS中开发的项目： 首先要明白VS中项目文件的编码方式，并不是所有文件的编码方式都一样如web.config之类的xml会以UTF-8方式保存，其他文件则和你的vs设定有关。默认情况下">
@@ -746,7 +746,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -1025,7 +1025,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1206,10 +1212,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1233,7 +1238,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

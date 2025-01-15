@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="本篇自我总结本篇主要讲了数据包的分包和重组问题, 到底数据包多大才好呢?是不是越大越好呢?包太大了怎么办呢?请看总结, 不明之处再看文中具体讲解. 为什么需要做这个可靠UDP协议网络协议在动作游戏类型（FPS）中的典型特征就是一个持续发送的数据包，在两个方向上以稳定的速度如20或30包每秒发送。这些数据包都包含有不可靠的无序数据例如t时间内的世界状态；所以，当一个数据包丢失，重新发送它并不是特别有">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.520Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="构建游戏网络协议五之可靠的有序消息">
 <meta name="twitter:description" content="本篇自我总结本篇主要讲了数据包的分包和重组问题, 到底数据包多大才好呢?是不是越大越好呢?包太大了怎么办呢?请看总结, 不明之处再看文中具体讲解. 为什么需要做这个可靠UDP协议网络协议在动作游戏类型（FPS）中的典型特征就是一个持续发送的数据包，在两个方向上以稳定的速度如20或30包每秒发送。这些数据包都包含有不可靠的无序数据例如t时间内的世界状态；所以，当一个数据包丢失，重新发送它并不是特别有">
@@ -649,7 +649,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -928,7 +928,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1109,10 +1115,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1136,7 +1141,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

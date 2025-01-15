@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="有些错误是编译器查不到的, 这种错误是最可怕的, 当项目大了之后,即使用 Valgrind 也很难定位,因为裸指针在团队合作中使用很容易导致其他成员忘记释放或多次释放, 所以在团队合作中一般使用智能指针.  而智能指针用的不好, 结果可能适得其反. 所以我们聊一下智能指针的几点注意事项. 总结自 C++ Primer. 一个简单的包含删除器的例子演示123456789101112131415161">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.524Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.618Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="智能指针笔记">
 <meta name="twitter:description" content="有些错误是编译器查不到的, 这种错误是最可怕的, 当项目大了之后,即使用 Valgrind 也很难定位,因为裸指针在团队合作中使用很容易导致其他成员忘记释放或多次释放, 所以在团队合作中一般使用智能指针.  而智能指针用的不好, 结果可能适得其反. 所以我们聊一下智能指针的几点注意事项. 总结自 C++ Primer. 一个简单的包含删除器的例子演示123456789101112131415161">
@@ -424,9 +424,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/11/linux_gcc_atomic/" rel="prev" title="GCC的原子操作函数">
+              <a href="/2015/04/12/sizeof_struct/" rel="prev" title="对象模型之内存对齐基础">
               <p class="post-nav-pre-next-title">
-                  GCC的原子操作函数
+                  对象模型之内存对齐基础
               </p> 
               <i class="fa fa-chevron-right"></i>
               </a>
@@ -519,9 +519,9 @@ test_function_bind( p, 331, 9 ) = 7
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2015/04/11/linux_gcc_atomic/" rel="prev" title="GCC的原子操作函数">
+                <a href="/2015/04/12/sizeof_struct/" rel="prev" title="对象模型之内存对齐基础">
                 <p class="post-nav-pre-next-title">
-                    GCC的原子操作函数
+                    对象模型之内存对齐基础
                 </p> 
                 <i class="fa fa-chevron-right"></i>
                 </a>
@@ -653,7 +653,7 @@ test_function_bind( p, 331, 9 ) = 7
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -932,7 +932,13 @@ test_function_bind( p, 331, 9 ) = 7
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1113,10 +1119,9 @@ test_function_bind( p, 331, 9 ) = 7
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1140,7 +1145,7 @@ test_function_bind( p, 331, 9 ) = 7
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

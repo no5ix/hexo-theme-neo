@@ -119,7 +119,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/etcd/1beabef5a1168cdc43766903e65f907d.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/etcd/e7d6918c1c9b7c9f2829779966ffb5d8.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/distributed/721ceeff.png">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.521Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器开发自我修养专栏-分布式系统">
 <meta name="twitter:description" content="分布式系统分布式系统的就准备:    CAP理论 BASE理论 分布式事务 分布式锁 限流 熔断 一致性选举算法 主从架构 集群架构 异地多活 负载均衡 分层架构 微服务, 服务治理 …  共识consensus 准确的翻译是共识，即多个提议者达成共识的过程，例如 Paxos，Raft 就是共识算法，paxos 是一种共识理论，分布式系统是他的场景，一致性是他的目标。 一致性（Consistenc">
@@ -1059,7 +1059,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -1338,7 +1338,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1519,10 +1525,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1546,7 +1551,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

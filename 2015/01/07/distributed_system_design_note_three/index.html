@@ -103,7 +103,7 @@
 <meta property="og:description" content="分布式系统设计策略重试机制一般情况下，写一段网络交互的代码，发起rpc或者http，都会遇到请求超时而失败情况。 可能是网络抖动(暂时的网络变更导致包不可达，比如拓扑变更)或者对端挂掉。 这时一般处理逻辑是将请求包在一个重试循环块里，如下：[cpp] view plain copy print?int retry = 3;while(!request() &amp;amp;&amp;amp; retry–)sch">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/2015/01/07/distributed_system_design_note_three/distribution31.png">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.492Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.586Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式系统设计概要笔记-三">
 <meta name="twitter:description" content="分布式系统设计策略重试机制一般情况下，写一段网络交互的代码，发起rpc或者http，都会遇到请求超时而失败情况。 可能是网络抖动(暂时的网络变更导致包不可达，比如拓扑变更)或者对端挂掉。 这时一般处理逻辑是将请求包在一个重试循环块里，如下：[cpp] view plain copy print?int retry = 3;while(!request() &amp;amp;&amp;amp; retry–)sch">
@@ -639,7 +639,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -918,7 +918,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1099,10 +1105,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1126,7 +1131,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

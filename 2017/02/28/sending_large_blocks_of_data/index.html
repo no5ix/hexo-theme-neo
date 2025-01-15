@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="本篇自我总结有了本系列上篇文章中的分包和重组系统为何还要这个发送大块数据系统?是否是多余的?是雷同的吗?请看总结概要理清思路, 再细看文章. 为什么需要做这个发送大块数据系统第一眼看上去，这种替代性的技术似乎非常类似于数据包的分包和重组，但是它的实现是完全不同的。这种实现上的差异的目的是为了解决数据包分包和重组的一个关键弱点 : 一个片段的丢失就会导致整个数据包都要被丢弃掉然后重新分包重发。 你可">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.523Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="构建游戏网络协议四之发送大块数据">
 <meta name="twitter:description" content="本篇自我总结有了本系列上篇文章中的分包和重组系统为何还要这个发送大块数据系统?是否是多余的?是雷同的吗?请看总结概要理清思路, 再细看文章. 为什么需要做这个发送大块数据系统第一眼看上去，这种替代性的技术似乎非常类似于数据包的分包和重组，但是它的实现是完全不同的。这种实现上的差异的目的是为了解决数据包分包和重组的一个关键弱点 : 一个片段的丢失就会导致整个数据包都要被丢弃掉然后重新分包重发。 你可">
@@ -656,7 +656,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -935,7 +935,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1116,10 +1122,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1143,7 +1148,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

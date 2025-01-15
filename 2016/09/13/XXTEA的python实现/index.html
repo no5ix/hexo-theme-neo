@@ -103,7 +103,7 @@
 <meta property="og:description" content="在数据的加解密领域，算法分为对称密钥与非对称密钥两种。 对称密钥与非对称密钥由于各自的特点，所应用的领域是不尽相同的。 对称密钥加密算法由于其速度快，一般用于整体数据的加密，而非对称密钥加密算法的安全性能佳，在数字签名领域得到广泛的应用。 微型加密算法（TEA）及其相关变种（XTEA，Block TEA，XXTEA） 都是分组加密算法，它们很容易被描述，实现也很简单（典型的几行代码）。 TEA是T">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/2016/09/13/XXTEA的python实现/py_xxtea1.png">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.473Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XXTEA的python实现">
 <meta name="twitter:description" content="在数据的加解密领域，算法分为对称密钥与非对称密钥两种。 对称密钥与非对称密钥由于各自的特点，所应用的领域是不尽相同的。 对称密钥加密算法由于其速度快，一般用于整体数据的加密，而非对称密钥加密算法的安全性能佳，在数字签名领域得到广泛的应用。 微型加密算法（TEA）及其相关变种（XTEA，Block TEA，XXTEA） 都是分组加密算法，它们很容易被描述，实现也很简单（典型的几行代码）。 TEA是T">
@@ -639,7 +639,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -902,7 +902,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1083,10 +1089,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1110,7 +1115,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }

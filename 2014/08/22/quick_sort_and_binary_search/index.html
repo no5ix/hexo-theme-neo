@@ -103,7 +103,7 @@
 <meta property="og:description" content="快速排序与归并排序一样， 快排也是用了分治的思想。 特别注意 : 快排的核心模块是Partition, 而Partition的复杂度为O(N). 你可以想象一个两副牌然后随意取出一张牌pivot，其他的所有牌都跟这张pivot牌比较，  大的放右边那一摞A，小的放左边B。接着再从左边这一摞B再随意取出一张牌pivot，其他的所有牌都跟这张pivot牌比较，  大的放右边那一摞，小的放左边，递归下去">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/img/algo_newbie/quick_sort_partition_anim.gif">
-<meta property="og:updated_time" content="2025-01-15T09:08:28.519Z">
+<meta property="og:updated_time" content="2025-01-15T12:32:18.614Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法三之谈一谈快排优化和二分查找">
 <meta name="twitter:description" content="快速排序与归并排序一样， 快排也是用了分治的思想。 特别注意 : 快排的核心模块是Partition, 而Partition的复杂度为O(N). 你可以想象一个两副牌然后随意取出一张牌pivot，其他的所有牌都跟这张pivot牌比较，  大的放右边那一摞A，小的放左边B。接着再从左边这一摞B再随意取出一张牌pivot，其他的所有牌都跟这张pivot牌比较，  大的放右边那一摞，小的放左边，递归下去">
@@ -663,7 +663,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="site-state-item site-state-about">
             <a href="/about/">
               <span class="site-state-item-about fa fa-fw fa-user"></span>
-              <span class="site-state-item-name">关于</span>
+              <span class="site-state-item-name">about</span>
             </a>
           </div>
           
@@ -942,7 +942,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 200 );
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
 
         // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
@@ -1123,10 +1129,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 300);
+          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 1000);
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
       });
 
@@ -1150,7 +1155,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             // is_load_xml_finished = 1;
 
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
           }
         });
       }
