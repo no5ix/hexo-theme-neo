@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="URLhttps://www.youtube.com/watch?v=Et9OCDNvJ78 . . .">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T13:59:24.998Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.517Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YT Indian Accent Top View of Binary Tree">
 <meta name="twitter:description" content="URLhttps://www.youtube.com/watch?v=Et9OCDNvJ78 . . .">
@@ -1191,7 +1191,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1378,9 +1379,14 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

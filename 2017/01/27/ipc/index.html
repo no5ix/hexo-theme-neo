@@ -103,7 +103,7 @@
 <meta property="og:description" content="概绍IPC 即 Inter Process Communication, 大概有以下几种方式(排序已打乱) :    6.共享内存( shared memory, 非常实用, 后文将说一下比较常用的两种方式, 分别是 mmap 和 System V共享内存  ) ：共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问。共享内存是最快的 IPC 方式，它是针">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/img/ipc/mmap.jpg">
-<meta property="og:updated_time" content="2025-01-15T13:59:25.005Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程间的通信与同步">
 <meta name="twitter:description" content="概绍IPC 即 Inter Process Communication, 大概有以下几种方式(排序已打乱) :    6.共享内存( shared memory, 非常实用, 后文将说一下比较常用的两种方式, 分别是 mmap 和 System V共享内存  ) ：共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问。共享内存是最快的 IPC 方式，它是针">
@@ -1197,7 +1197,8 @@ msqid    owner      send                 recv                 change
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1384,9 +1385,14 @@ msqid    owner      send                 recv                 change
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

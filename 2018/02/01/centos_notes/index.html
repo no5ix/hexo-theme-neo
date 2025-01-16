@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="查询系统相关信息$ cat /etc/centos-release CentOS release 6.7 (Final)  [root@host ~]# uname -i i386 安装gcc4.8centos 6 的gcc版本太低才4.4.7, 要安装高版本的4.8才完全支持c++11 . . .">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T13:59:24.977Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS备忘">
 <meta name="twitter:description" content="查询系统相关信息$ cat /etc/centos-release CentOS release 6.7 (Final)  [root@host ~]# uname -i i386 安装gcc4.8centos 6 的gcc版本太低才4.4.7, 要安装高版本的4.8才完全支持c++11 . . .">
@@ -916,7 +916,8 @@ ln -s $(which g++) /usr/bin/c++
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1103,9 +1104,14 @@ ln -s $(which g++) /usr/bin/c++
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

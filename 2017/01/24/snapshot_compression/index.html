@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="自我总结快照压缩技术的要点为 :   压缩Orientation数据 : 利用四元数的”最小的三个分量”性质:x^2+y^2+z^2+w^2 = 1 来在传输的时候丢弃一个分量并在网络的另外一端对整个四元数进行重建 压缩线性速度和Postion数据 : 把他们限制在某个范围内, 就可以用这个范围的最大值所占用的比特位数来保存这两种数据了, 而不用一个超大的数来保证可以保存他们的最大值了(占用超多b">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T13:59:25.019Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络物理模拟五之快照压缩">
 <meta name="twitter:description" content="自我总结快照压缩技术的要点为 :   压缩Orientation数据 : 利用四元数的”最小的三个分量”性质:x^2+y^2+z^2+w^2 = 1 来在传输的时候丢弃一个分量并在网络的另外一端对整个四元数进行重建 压缩线性速度和Postion数据 : 把他们限制在某个范围内, 就可以用这个范围的最大值所占用的比特位数来保存这两种数据了, 而不用一个超大的数来保证可以保存他们的最大值了(占用超多b">
@@ -911,7 +911,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1098,9 +1099,14 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

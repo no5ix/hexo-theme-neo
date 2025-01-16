@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="其他设备投影不到surface上更新其他的设备的网卡驱动 windows更新之后windows hello出问题比如报出以下问题:  识别反应慢 解锁之后摄像头的指示灯还在亮  先尝试 进入 设置-系统-电源/睡眠-网络连接, 设置为睡眠总是断开网络 如果不行,则尝试回退或者重装以下驱动:  Biometric devices(Windows Hello Face Software Device或">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T13:59:25.021Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Surface使用优化">
 <meta name="twitter:description" content="其他设备投影不到surface上更新其他的设备的网卡驱动 windows更新之后windows hello出问题比如报出以下问题:  识别反应慢 解锁之后摄像头的指示灯还在亮  先尝试 进入 设置-系统-电源/睡眠-网络连接, 设置为睡眠总是断开网络 如果不行,则尝试回退或者重装以下驱动:  Biometric devices(Windows Hello Face Software Device或">
@@ -941,7 +941,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1128,9 +1129,14 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

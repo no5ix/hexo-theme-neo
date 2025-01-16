@@ -110,7 +110,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/linux/dead_lock/dead_lock5.png">
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/linux/dead_lock/dead_lock6.png">
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/linux/process_scheduler.jpg">
-<meta property="og:updated_time" content="2025-01-15T13:59:25.017Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.535Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器开发自我修养专栏-Linux进程管理">
 <meta name="twitter:description" content="Linux进程管理读者-写者问题定义： 允许多个进程同时对数据进行读操作，但是不允许读和写以及写和写操作同时发生。 解决方案：    读者优先  读进程只要看到有其他读进程正在访问文件，就可以继续作读访问；写进程必须等待所有读进程都不访问时才能写文件，即使写进程可能比一些读进程更早提出申请。 读者写者公平竞争，老实排队  因为读者优先的方案如果在读访问非常频繁的场合，有可能造成写进程一直无法访问文">
@@ -1104,7 +1104,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1291,9 +1292,14 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

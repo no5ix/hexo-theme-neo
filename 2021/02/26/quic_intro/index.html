@@ -116,7 +116,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/quic_intro/quic_intro_8.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/quic_intro/quic_intro_9.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/quic_intro/quic_intro_10.jpg">
-<meta property="og:updated_time" content="2025-01-15T13:59:25.014Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.533Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QUIC原理与KCP会话握手借鉴">
 <meta name="twitter:description" content="参考:   https://zhuanlan.zhihu.com/p/142794794 https://zhuanlan.zhihu.com/p/32553477  本文主要介绍 QUIC 协议产生的背景和核心特性。 写在前面如果你的 App，在不需要任何修改的情况下就能提升 15% 以上的访问速度。特别是弱网络的时候能够提升 20% 以上的访问速度。 如果你的 App，在频繁切换 4G 和 W">
@@ -1086,7 +1086,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1273,9 +1274,14 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

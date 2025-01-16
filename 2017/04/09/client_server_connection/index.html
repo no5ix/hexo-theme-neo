@@ -115,7 +115,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/client_server_connection/challenge-response-packet.png">
 <meta property="og:image" content="https://hulinhong.com/img/client_server_connection/connection-payload-packet.png">
 <meta property="og:image" content="https://hulinhong.com/img/client_server_connection/disconnect-packet.png">
-<meta property="og:updated_time" content="2025-01-15T13:59:24.977Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="构建游戏网络协议六之客户端与服务器的连接">
 <meta name="twitter:description" content="本篇自我总结这篇文章网上找不到翻译, 我也没时间详细翻译, 大概总结一下吧.本篇主要讲了把本系列之前五篇文章的技术应用到实战中处理客户端与服务器的的连接.请看总结, 不明之处再看文中具体讲解. 简单的连接协议First up we have the client state machine.The client is in one of three states:  Disconnected Co">
@@ -956,7 +956,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1143,9 +1144,14 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

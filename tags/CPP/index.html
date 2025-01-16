@@ -752,9 +752,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2015/11/11/lua_cpp_toluapp_tutorial/" itemprop="url">
+            <a class="post-title-link" href="/2015/11/11/lua_cpp_bind/" itemprop="url">
               
-                <span itemprop="name">tolua++安装</span>
+                <span itemprop="name">C++与Lua本质原始交互API</span>
               
             </a>
         
@@ -778,9 +778,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2015/11/11/lua_cpp_bind/" itemprop="url">
+            <a class="post-title-link" href="/2015/11/11/lua_cpp_toluapp_tutorial/" itemprop="url">
               
-                <span itemprop="name">C++与Lua本质原始交互API</span>
+                <span itemprop="name">tolua++安装</span>
               
             </a>
         
@@ -882,9 +882,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2015/04/11/linux_gcc_builtin_expect/" itemprop="url">
+            <a class="post-title-link" href="/2015/04/11/linux_gcc_atomic/" itemprop="url">
               
-                <span itemprop="name">GCC的分支预测优化__builtin_expect</span>
+                <span itemprop="name">GCC的原子操作函数</span>
               
             </a>
         
@@ -908,9 +908,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2015/04/11/linux_gcc_atomic/" itemprop="url">
+            <a class="post-title-link" href="/2015/04/11/linux_gcc_builtin_expect/" itemprop="url">
               
-                <span itemprop="name">GCC的原子操作函数</span>
+                <span itemprop="name">GCC的分支预测优化__builtin_expect</span>
               
             </a>
         
@@ -1441,7 +1441,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1628,9 +1629,14 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="当你点击 .uproject 文件却打不开项目, 弹出一个窗口写着 “Failed TO Launch Editor”的时候,大概率是因为你对 UE4Editor.exe 设置为了以管理员身份打开,所以解决方法就是 :  只要对 UE4Editor.exe 右键-属性-兼容性, 去掉”以管理员身份运行此程序”的勾 以及去掉”更改所有用户的设置”中的以管理员身份运行此程序的√">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T13:59:25.022Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.541Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UE4中如何解决Failed To Launch Editor">
 <meta name="twitter:description" content="当你点击 .uproject 文件却打不开项目, 弹出一个窗口写着 “Failed TO Launch Editor”的时候,大概率是因为你对 UE4Editor.exe 设置为了以管理员身份打开,所以解决方法就是 :  只要对 UE4Editor.exe 右键-属性-兼容性, 去掉”以管理员身份运行此程序”的勾 以及去掉”更改所有用户的设置”中的以管理员身份运行此程序的√">
@@ -870,7 +870,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1057,9 +1058,14 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

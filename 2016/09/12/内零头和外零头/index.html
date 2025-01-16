@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="问题:在内存管理中，“内零头”和“外零头”个指的是什么？在固定式分区分配、可变式分区分配、页式虚拟存储系统、段式虚拟存储系统中，各会存在何种零头？为什么？ 解答： 在存储管理中， 内零头是指分配给作业的存储空间中未被利用的部分， 外零头是指系统中无法利用的小存储块。    在固定式分区分配中，为将一个用户作业装入内存，内存分配程序从系统分区表中找出一个能满足作业要求的空闲分区分配给作业，由于一个作">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T13:59:25.028Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.546Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="内零头和外零头">
 <meta name="twitter:description" content="问题:在内存管理中，“内零头”和“外零头”个指的是什么？在固定式分区分配、可变式分区分配、页式虚拟存储系统、段式虚拟存储系统中，各会存在何种零头？为什么？ 解答： 在存储管理中， 内零头是指分配给作业的存储空间中未被利用的部分， 外零头是指系统中无法利用的小存储块。    在固定式分区分配中，为将一个用户作业装入内存，内存分配程序从系统分区表中找出一个能满足作业要求的空闲分区分配给作业，由于一个作">
@@ -934,7 +934,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1121,9 +1122,14 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

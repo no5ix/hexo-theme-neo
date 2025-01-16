@@ -103,7 +103,7 @@
 <meta property="og:description" content="Introduction 基于python编写，安装方便 进程管理工具，可以很方便的对用户定义的进程进行启动，关闭，重启，并且对意外关闭的进程进行重启 ，只需要简单的配置一下即可，且有web端，状态、日志查看清晰明了。 组成部分 supervisord[服务端，所以要通过这个来启动它]supervisorctl[客户端，可以来执行stop等命令]  官方文档地址：http://supervisor">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.screenshot.net/y60zgio">
-<meta property="og:updated_time" content="2025-01-15T13:59:25.021Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="supervisor 备忘">
 <meta name="twitter:description" content="Introduction 基于python编写，安装方便 进程管理工具，可以很方便的对用户定义的进程进行启动，关闭，重启，并且对意外关闭的进程进行重启 ，只需要简单的配置一下即可，且有web端，状态、日志查看清晰明了。 组成部分 supervisord[服务端，所以要通过这个来启动它]supervisorctl[客户端，可以来执行stop等命令]  官方文档地址：http://supervisor">
@@ -968,7 +968,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1155,9 +1156,14 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

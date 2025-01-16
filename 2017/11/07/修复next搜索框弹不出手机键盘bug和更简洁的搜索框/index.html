@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="动机 next自带的搜索框有手机键盘不能自动弹出来的bug, 需要点击两次才可以弹出来 渴望拥有更简洁的搜索框  展示图如我博客右上角所示 GitHub我的博客源码, 欢迎Fork+Star. 如果你也喜欢这样的搜索框, 参考这个commit便可改成跟我一样.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T13:59:25.027Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.546Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修复next搜索框弹不出手机键盘bug和更简洁的搜索框">
 <meta name="twitter:description" content="动机 next自带的搜索框有手机键盘不能自动弹出来的bug, 需要点击两次才可以弹出来 渴望拥有更简洁的搜索框  展示图如我博客右上角所示 GitHub我的博客源码, 欢迎Fork+Star. 如果你也喜欢这样的搜索框, 参考这个commit便可改成跟我一样.">
@@ -903,7 +903,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1090,9 +1091,14 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

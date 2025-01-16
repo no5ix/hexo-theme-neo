@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/a_fish_flock_ai_plugin_for_ue4/HowToUse2.png">
 <meta property="og:image" content="https://hulinhong.com/img/a_fish_flock_ai_plugin_for_ue4/HowToUse3.png">
 <meta property="og:image" content="https://hulinhong.com/img/a_fish_flock_ai_plugin_for_ue4/HowToUse4.png">
-<meta property="og:updated_time" content="2025-01-15T13:59:24.969Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个基于虚幻4群聚鱼群AI插件">
 <meta name="twitter:description" content="A fish flock AI Plugin for Unreal Engine 4一个基于虚幻4的鱼群 AI 插件 this Plugin version can Run 2000+ fishes at the same time这个插件版本可以同时运行 2000+ 条鱼儿 源码已放到fish  Video Preview 视频演示     DownloadMyFish.exe (Win64)">
@@ -974,7 +974,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1161,9 +1162,14 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

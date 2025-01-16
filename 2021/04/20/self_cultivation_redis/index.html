@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/redis/lru_cache_algo.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/cache_db_consistency/cache_db_consistency_9.png">
 <meta property="og:image" content="https://hulinhong.com/img/cache_db_consistency/cache_db_consistency_1.png">
-<meta property="og:updated_time" content="2025-01-15T13:59:25.017Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器开发自我修养专栏-Redis实现原理">
 <meta name="twitter:description" content="Redisredis 数据结构有哪些？分别怎么实现的？ String:  全是整数的时候用整数编码int 当有字符串的时候用简单动态字符串sds编码   HashTable:  元素比较少或者元素比较短的时候用压缩表ziplist(key1|val1|key2|val2|…这样存储),  其他时候就用字典ht   Set:  元素全是整数的时候用整数集合编码(一种特殊的编码, 会使用各种规则来利用">
@@ -1184,7 +1184,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1371,9 +1372,14 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

@@ -103,7 +103,7 @@
 <meta property="og:description" content="原文出处 Fast-Paced Multiplayer (Part I): Client-Server Game Architecture   Introduction This is the first in a series of articles exploring the techniques and algorithms that make fast-paced multiplayer">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/img/fpm1-01.png">
-<meta property="og:updated_time" content="2025-01-15T13:59:25.028Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多人快节奏游戏一之C&#x2F;S游戏架构">
 <meta name="twitter:description" content="原文出处 Fast-Paced Multiplayer (Part I): Client-Server Game Architecture   Introduction This is the first in a series of articles exploring the techniques and algorithms that make fast-paced multiplayer">
@@ -899,7 +899,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1086,9 +1087,14 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

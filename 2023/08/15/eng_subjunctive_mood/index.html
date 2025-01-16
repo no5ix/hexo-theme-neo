@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="英语从句原文">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T13:59:24.992Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.511Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="English SubJunctive Mood">
 <meta name="twitter:description" content="英语从句原文">
@@ -411,10 +411,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2023/08/11/eng_easy_english_family_life2/" rel="next" title="Easy English - Family Life2">
+              <a href="/2023/08/15/eng_pronunciation/" rel="next" title="English Pronunciation">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
-                  Easy English - Family Life2
+                  English Pronunciation
                 </p> 
               </a>
             
@@ -470,10 +470,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2023/08/11/eng_easy_english_family_life2/" rel="next" title="Easy English - Family Life2">
+                <a href="/2023/08/15/eng_pronunciation/" rel="next" title="English Pronunciation">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
-                    Easy English - Family Life2
+                    English Pronunciation
                   </p> 
                 </a>
               
@@ -871,7 +871,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1058,9 +1059,14 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

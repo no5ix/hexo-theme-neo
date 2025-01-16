@@ -116,7 +116,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/etcd_intro/740e703fb347a074addb3be1e10d33e0.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/etcd_intro/167e2a4f72b05a18425e7ab3baf7a03b.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/etcd_intro/6c0d225b6ab0cbb4a89afd4b12de0c59.jpg">
-<meta property="og:updated_time" content="2025-01-15T13:59:25.000Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="etcd的从应用场景到实现原理的全方位解读">
 <meta name="twitter:description" content=". . .">
@@ -1299,7 +1299,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1486,9 +1487,14 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

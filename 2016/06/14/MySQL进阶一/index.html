@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="引擎MySQL是有多个引擎的, 不同的场景情况用不同的引擎以提升性能和灵活性.三大最常用的引擎 :   InnoDB : 可靠的事务处理引擎 ,不支持全文搜索 MyISAM : 支持全文搜索, 不支持事务处理 MEMORY :  功能等同于MyISAM, 但数据存储在内存而不是磁盘, 所以速度非常快, 特别适用于临时表(temporary table)  索引索引是用来改善搜索性能的, 不要滥用索">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T13:59:24.966Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.485Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL进阶一">
 <meta name="twitter:description" content="引擎MySQL是有多个引擎的, 不同的场景情况用不同的引擎以提升性能和灵活性.三大最常用的引擎 :   InnoDB : 可靠的事务处理引擎 ,不支持全文搜索 MyISAM : 支持全文搜索, 不支持事务处理 MEMORY :  功能等同于MyISAM, 但数据存储在内存而不是磁盘, 所以速度非常快, 特别适用于临时表(temporary table)  索引索引是用来改善搜索性能的, 不要滥用索">
@@ -932,7 +932,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1119,9 +1120,14 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 

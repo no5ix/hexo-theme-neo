@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="GDB多进程/多线程调试实战例子在gcc编译的时候，记得附加 -lpthread参数, 否则会出现 undefined reference to ‘pthread_create’ 的错误.(因为在链接的时候，无法找到phread库中哥函数的入口地址，于是链接会失败。) 例程123456789101112131415161718192021222324252627282930313233343536">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-15T13:59:25.000Z">
+<meta property="og:updated_time" content="2025-01-16T02:29:29.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GDB多进程多线程调试实战">
 <meta name="twitter:description" content="GDB多进程/多线程调试实战例子在gcc编译的时候，记得附加 -lpthread参数, 否则会出现 undefined reference to ‘pthread_create’ 的错误.(因为在链接的时候，无法找到phread库中哥函数的入口地址，于是链接会失败。) 例程123456789101112131415161718192021222324252627282930313233343536">
@@ -1229,7 +1229,8 @@ Program received signal SIGINT, Interrupt.
         }
         else
         {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1416,9 +1417,14 @@ Program received signal SIGINT, Interrupt.
           }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
-          $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
 
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
+            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
+          // } else {
+          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
+          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          // }
         }
       });
 
