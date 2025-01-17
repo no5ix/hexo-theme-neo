@@ -19,6 +19,66 @@ password: '0622'
 **. . .**<!-- more -->
 
 
+# IDs Questions Map
+
+- "id": 43, "question": "Abstract class vs. Interface. When to use abstract class and when to use interface?",
+- "id": 44, "question": "New feature of Java 8. Give an example of how you use them in your project",
+- "id": 45, "question": "Comparable vs. Comparator",
+- "id": 46, "question": "Types of Exceptions and how do you deal with exceptions in your project?",
+- "id": 47, "question": "Generics and how do you use generics in your project?",
+- "id": 48, "question": "Java OOP 4 principles, and explain each of them",
+- "id": 49, "question": "If java 8 allows default method in interface, so what is the real difference between interface and abstract class?",
+- "id": 52, "question": "Serialization, What is Serializable and SerialVersionUID?",
+- "id": 53, "question": "HashMap: how does it work internally, what is hash collision",
+- "id": 59, "question": "What is the Functional Interface? Java 8 built in functional interface?",
+- "id": 62, "question": "HashTable vs. HashMap",
+- "id": 67, "question": "Implement a singleton",
+- "id": 68, "question": "Do you know about the Executor Service and Future?",
+- "id": 69, "question": "Explain the Factory design pattern",
+- "id": 70, "question": "What design patterns did you worked on before?",
+- "id": 71, "question": "How to custom an Exception?",
+- "id": 72, "question": "OutOfMemoryError vs StackOverflowError vs Memory Leak",
+- "id": 75, "question": "java 8: Different types of \"method reference\"",
+- "id": 78, "question": "What is Optional?",
+- "id": 90, "question": "ArrayList vs LinkedList, which one to choose?",
+- "id": 91, "question": "How does Java class loader work?",
+- "id": 92, "question": "Java 8: Intermediate operator and terminal operator in stream api",
+- "id": 95, "question": "How do you create a thread?",
+- "id": 98, "question": "How does arraylist work internally?",
+- "id": 104, "question": "How does thread communicate/interact/share data with each other?",
+- "id": 106, "question": "What are the meaning of thread methods: join, wait, sleep, yield",
+- "id": 113, "question": "Shallow copy vs. Deep copy",
+- "id": 115, "question": "How does ConcurrentHashMap works?",
+- "id": 117, "question": "What is ConcurrentModificationException and how to handle it?",
+- "id": 118, "question": "Relationship between equals() and hashcode()",
+- "id": 119, "question": "How to make class immutable?",
+- "id": 121, "question": "What is the deadlock? How to FIND it? How to avoid it?",
+- "id": 127, "question": "Difference between HashSet and TreeSet, HashMap and TreeMap",
+- "id": 131, "question": "When implements Serializable, what if you don't define the serialVersionUID? What if you remove it?",
+- "id": 132, "question": "What is fail-fast and fail-safe?",
+- "id": 135, "question": "Map vs. FlatMap",
+- "id": 138, "question": "HashMap vs LinkedHashMap and HashSet vs LinkedHashSet",
+- "id": 139, "question": "why using static and why not?",
+- "id": 163, "question": "what is SOLID principle?",
+- "id": 295, "question": "How to make a global count in multithreading environment",
+- "id": 296, "question": "Difference: Synchronized, ThreadLocal, Volatile, AtomicInteger",
+- "id": 303, "question": "How does string works? Why is String immutable in Java?",
+- "id": 310, "question": "What's Garbage collection types and Whats new in java 8? ",
+- "id": 321, "question": "Java switch statement has too many cases, how to improve it",
+- "id": 330, "question": "New features in java 11  and 17",
+- "id": 332, "question": "Difference: Sleep and Wait",
+- "id": 343, "question": "Suppose when you have Employee class to store data, when do you use list or map",
+- "id": 344, "question": "Difference: Arraylist vs LinkedList, when to use which",
+- "id": 363, "question": "Difference runnable vs callable",
+- "id": 364, "question": "Difference future vs completableFuture",
+- "id": 371, "question": "JDK vs JRE vs JVM",
+- "id": 372, "question": "What is externalization and its difference with serialization",
+- "id": 373, "question": "How do you implement a deadlock",
+- "id": 374, "question": "Synchronized method vs Synchronized block",
+- "id": 375, "question": "Difference between Iterator and Enumeration",
+- "id": 448, "question": "What is proxy design pattern",
+
+
 # 46-Types of Exceptions
 
 ![Exception](/img/java_top_questions/image.png)
@@ -130,10 +190,11 @@ When to Use:
 
 Java 8 has several new features. Here are some of them along with examples of how they can be used in a project:
 
-## 1. Lambda Expressions
+## Lambda Expressions
+
 Lambda expressions enable a more concise way to represent code blocks that can be passed to methods or stored in variables.
 
-**Example: In an e-commerce project, filtering a list of products by price. Suppose there is a `Product` class with a `price` field.
+Example: In an e-commerce project, filtering a list of products by price. Suppose there is a `Product` class with a `price` field.
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -170,10 +231,12 @@ public class Main {
 }
 ```
 
-## 2. Method References
+
+## Method References
+
 Method references provide a more concise way to refer to existing methods.
 
-**Example: In a logging project, there is a `Logger` class with a `logMessage` method for logging messages.
+Example: In a logging project, there is a `Logger` class with a `logMessage` method for logging messages.
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -194,10 +257,11 @@ public class Main {
 }
 ```
 
-## 3. Stream API
+## Stream API
+
 The Stream API is used for performing functional operations on collections, such as filtering, mapping, and reducing.
 
-**Example: In a data analysis project, calculating the total salary of employees. Suppose there is an `Employee` class with a `salary` field.
+Example: In a data analysis project, calculating the total salary of employees. Suppose there is an `Employee` class with a `salary` field.
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -231,11 +295,11 @@ public class Main {
 }
 ```
 
-## 4. Optional Class
+## Optional Class
 
 The Optional class is used to solve the problem of null pointer exceptions and handle potentially null values more gracefully.
 
-**Example: In a user management system, getting a user's email address. Suppose the `User` class has a `getEmail` method that might return `null`.
+Example: In a user management system, getting a user's email address. Suppose the `User` class has a `getEmail` method that might return `null`.
 ```java
 import java.util.Optional;
 
