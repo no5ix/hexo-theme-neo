@@ -111,7 +111,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/git_tutorial/rebase_i1.png">
 <meta property="og:image" content="https://hulinhong.com/img/git_tutorial/rebase_i2.png">
 <meta property="og:image" content="https://hulinhong.com/img/git_tutorial/rebase_i3.png">
-<meta property="og:updated_time" content="2025-01-16T02:29:29.519Z">
+<meta property="og:updated_time" content="2025-01-17T05:27:28.990Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git教程">
 <meta name="twitter:description" content="之前有一份私人git笔记老长老长了, 今天得空, 把它浓缩成5分钟版本.感觉纯基础性的东西整理成博客差也差不多了, 还有很多凌乱的工作笔记慢慢在一点一点整理放上来吧,估计下面几篇博客就开始游戏服务器的开发心得之类的了. . . .">
@@ -320,7 +320,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
     <link itemprop="mainEntityOfPage" href="https://hulinhong.com/2016/04/12/git_tutorial/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="no5ix">
+      <meta itemprop="name" content="Wasp">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
@@ -421,10 +421,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/06/Source引擎多人游戏网络设计/" rel="next" title="Source引擎多人游戏网络设计">
+              <a href="/2016/01/06/latency_compensating_methods_in_client_server_in_game_protocol_design_and_optimization/" rel="next" title="C/S游戏架构中延迟补偿的设计和优化方法">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
-                  Source引擎多人游戏网络设计
+                  C/S游戏架构中延迟补偿的设计和优化方法
                 </p> 
               </a>
             
@@ -694,10 +694,10 @@ doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2016/01/06/Source引擎多人游戏网络设计/" rel="next" title="Source引擎多人游戏网络设计">
+                <a href="/2016/01/06/latency_compensating_methods_in_client_server_in_game_protocol_design_and_optimization/" rel="next" title="C/S游戏架构中延迟补偿的设计和优化方法">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
-                    Source引擎多人游戏网络设计
+                    C/S游戏架构中延迟补偿的设计和优化方法
                   </p> 
                 </a>
               
@@ -797,11 +797,11 @@ doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="no5ix">
+            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="Wasp">
           </a>
-          <p class="site-author-name" itemprop="name">no5ix</p>
+          <p class="site-author-name" itemprop="name">Wasp</p>
            
-              <p class="site-description motion-element" itemprop="description">推荐使用Chrome/Firefox/Safari阅读本博客. 以前的老笔记将会一篇一篇慢慢整理为博客, 这既启发了他人, 也锻炼了自己的描述交流能力.</p>
+              <p class="site-description motion-element" itemprop="description">It is recommended to use Chrome/Firefox/Safari to read this blog.</p>
           
         </div>
 
@@ -868,7 +868,7 @@ doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
           <div class="links-of-blogroll motion-element links-of-blogroll-block">
             <div class="links-of-blogroll-title">
               <i class="fa  fa-fw fa-globe"></i>
-              友情链接
+              friendship links
             </div>
             <ul class="links-of-blogroll-list">
               
@@ -926,7 +926,7 @@ doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">no5ix</span>
+  <span class="author" itemprop="copyrightHolder">Wasp</span>
 </div>
 
 
@@ -1120,8 +1120,9 @@ doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
         }
         else
         {
-          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
-          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 800);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1309,13 +1310,13 @@ doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
 
-          // if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
-          // } else {
-          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
-          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
-          // }
+          if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+          } else {
+                $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
+              //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          }
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1000);
         }
       });
 

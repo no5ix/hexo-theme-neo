@@ -105,7 +105,7 @@
 <meta property="og:image" content="http://www.plantuml.com/plantuml/svg/ZLBBJi9G4DttAsvOmo-OI731WXLBmm9jGPAcZOX6OaWK4r8YB-KH20Y24Z6chKOIDK3u6Uw3l_3YvN7RIkAgCtFkd9bpEeUoUYg22m60VMZqaFQ9NysGa184CPm87uHF9E0A98F7ikltJKILHIaEN44fVYR5uNkQbMapcRPHeGyRWn3BKQTFp1uUbw5UNvQWba7jqkR9R5o7kHhNadqctTmcjr2ckEa-BzXJeZ55uXVmAuhgyovR0qb_S3UmcglNONe0nrLKBfmpBggFamiydXtBE2vcc5MD0-QKSV6VhNQOCu6BbwqRGxYOOIkv3c0btG7OR104HKr881wB7YM06h7PZOqkBcLOoGtG_VMyKIB64p6l14aHmQBLGM3vlyJCeuygAxbffg-pxGJscu6tazcN3hK6RWxf7cHQWSqs7fLHksKdaQK8ux0S5RE065setU5A1sbq5JpiKG_cbrbqyxALnNAAg9oVJLhCE2hbFriuJcvHADPGzGtb3UhdmpVz4dC4Cus5vyN7DTCF">
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/mysql/mysql_master_slave_sync.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/mysql/readview.jpg">
-<meta property="og:updated_time" content="2025-01-16T02:29:29.536Z">
+<meta property="og:updated_time" content="2025-01-17T05:27:29.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器开发自我修养专栏-MySQL原理">
 <meta name="twitter:description" content="MySQL参考网址 https://chenjiabing666.github.io/2020/04/20/Mysql%E6%9C%80%E5%85%A8%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/ https://blog.csdn.net/qq_41011723/article/details/105953813 https://blog.csdn.net/qq_">
@@ -314,7 +314,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
     <link itemprop="mainEntityOfPage" href="https://hulinhong.com/2021/01/24/self_cultivation_mysql/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="no5ix">
+      <meta itemprop="name" content="Wasp">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
@@ -836,11 +836,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="no5ix">
+            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="Wasp">
           </a>
-          <p class="site-author-name" itemprop="name">no5ix</p>
+          <p class="site-author-name" itemprop="name">Wasp</p>
            
-              <p class="site-description motion-element" itemprop="description">推荐使用Chrome/Firefox/Safari阅读本博客. 以前的老笔记将会一篇一篇慢慢整理为博客, 这既启发了他人, 也锻炼了自己的描述交流能力.</p>
+              <p class="site-description motion-element" itemprop="description">It is recommended to use Chrome/Firefox/Safari to read this blog.</p>
           
         </div>
 
@@ -907,7 +907,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="links-of-blogroll motion-element links-of-blogroll-block">
             <div class="links-of-blogroll-title">
               <i class="fa  fa-fw fa-globe"></i>
-              友情链接
+              friendship links
             </div>
             <ul class="links-of-blogroll-list">
               
@@ -965,7 +965,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">no5ix</span>
+  <span class="author" itemprop="copyrightHolder">Wasp</span>
 </div>
 
 
@@ -1159,8 +1159,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
-          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 800);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1348,13 +1349,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
 
-          // if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
-          // } else {
-          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
-          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
-          // }
+          if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+          } else {
+                $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
+              //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          }
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1000);
         }
       });
 

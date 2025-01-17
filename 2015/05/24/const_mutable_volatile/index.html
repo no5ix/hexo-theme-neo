@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="const关键字const 是比较常见的关键字, 也是非常好的预防错误的手段. const 修饰普通变量和指针const 修饰变量，一般有两种写法： const TYPE value;  TYPE const value; 这两种写法在本质上是一样的。它的含义是：const 修饰的类型为 TYPE 的变量 value 是不可变的。对于一个非指针的类型 TYPE，无论怎么写，都是一个含义，即 val">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-16T02:29:29.495Z">
+<meta property="og:updated_time" content="2025-01-17T05:27:28.966Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="const和volatile和mutable讲解">
 <meta name="twitter:description" content="const关键字const 是比较常见的关键字, 也是非常好的预防错误的手段. const 修饰普通变量和指针const 修饰变量，一般有两种写法： const TYPE value;  TYPE const value; 这两种写法在本质上是一样的。它的含义是：const 修饰的类型为 TYPE 的变量 value 是不可变的。对于一个非指针的类型 TYPE，无论怎么写，都是一个含义，即 val">
@@ -310,7 +310,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
     <link itemprop="mainEntityOfPage" href="https://hulinhong.com/2015/05/24/const_mutable_volatile/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="no5ix">
+      <meta itemprop="name" content="Wasp">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
@@ -424,9 +424,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/06/22/socket可读可写条件与非阻塞connect或accept浅析/" rel="prev" title="socket可读可写条件与非阻塞connect或accept浅析">
+              <a href="/2015/06/22/epoll扼要总结/" rel="prev" title="epoll扼要总结">
               <p class="post-nav-pre-next-title">
-                  socket可读可写条件与非阻塞connect或accept浅析
+                  epoll扼要总结
               </p> 
               <i class="fa fa-chevron-right"></i>
               </a>
@@ -641,9 +641,9 @@ i = 32
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2015/06/22/socket可读可写条件与非阻塞connect或accept浅析/" rel="prev" title="socket可读可写条件与非阻塞connect或accept浅析">
+                <a href="/2015/06/22/epoll扼要总结/" rel="prev" title="epoll扼要总结">
                 <p class="post-nav-pre-next-title">
-                    socket可读可写条件与非阻塞connect或accept浅析
+                    epoll扼要总结
                 </p> 
                 <i class="fa fa-chevron-right"></i>
                 </a>
@@ -731,11 +731,11 @@ i = 32
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="no5ix">
+            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="Wasp">
           </a>
-          <p class="site-author-name" itemprop="name">no5ix</p>
+          <p class="site-author-name" itemprop="name">Wasp</p>
            
-              <p class="site-description motion-element" itemprop="description">推荐使用Chrome/Firefox/Safari阅读本博客. 以前的老笔记将会一篇一篇慢慢整理为博客, 这既启发了他人, 也锻炼了自己的描述交流能力.</p>
+              <p class="site-description motion-element" itemprop="description">It is recommended to use Chrome/Firefox/Safari to read this blog.</p>
           
         </div>
 
@@ -802,7 +802,7 @@ i = 32
           <div class="links-of-blogroll motion-element links-of-blogroll-block">
             <div class="links-of-blogroll-title">
               <i class="fa  fa-fw fa-globe"></i>
-              友情链接
+              friendship links
             </div>
             <ul class="links-of-blogroll-list">
               
@@ -860,7 +860,7 @@ i = 32
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">no5ix</span>
+  <span class="author" itemprop="copyrightHolder">Wasp</span>
 </div>
 
 
@@ -1054,8 +1054,9 @@ i = 32
         }
         else
         {
-          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
-          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 800);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1243,13 +1244,13 @@ i = 32
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
 
-          // if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
-          // } else {
-          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
-          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
-          // }
+          if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+          } else {
+                $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
+              //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          }
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1000);
         }
       });
 

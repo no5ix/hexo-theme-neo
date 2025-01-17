@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="有些错误是编译器查不到的, 这种错误是最可怕的, 当项目大了之后,即使用 Valgrind 也很难定位,因为裸指针在团队合作中使用很容易导致其他成员忘记释放或多次释放, 所以在团队合作中一般使用智能指针.  而智能指针用的不好, 结果可能适得其反. 所以我们聊一下智能指针的几点注意事项. 总结自 C++ Primer. 一个简单的包含删除器的例子演示123456789101112131415161">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-16T02:29:29.538Z">
+<meta property="og:updated_time" content="2025-01-17T05:27:29.009Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="智能指针笔记">
 <meta name="twitter:description" content="有些错误是编译器查不到的, 这种错误是最可怕的, 当项目大了之后,即使用 Valgrind 也很难定位,因为裸指针在团队合作中使用很容易导致其他成员忘记释放或多次释放, 所以在团队合作中一般使用智能指针.  而智能指针用的不好, 结果可能适得其反. 所以我们聊一下智能指针的几点注意事项. 总结自 C++ Primer. 一个简单的包含删除器的例子演示123456789101112131415161">
@@ -310,7 +310,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
     <link itemprop="mainEntityOfPage" href="https://hulinhong.com/2015/04/11/smart_pointer_note/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="no5ix">
+      <meta itemprop="name" content="Wasp">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
@@ -609,11 +609,11 @@ test_function_bind( p, 331, 9 ) = 7
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="no5ix">
+            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="Wasp">
           </a>
-          <p class="site-author-name" itemprop="name">no5ix</p>
+          <p class="site-author-name" itemprop="name">Wasp</p>
            
-              <p class="site-description motion-element" itemprop="description">推荐使用Chrome/Firefox/Safari阅读本博客. 以前的老笔记将会一篇一篇慢慢整理为博客, 这既启发了他人, 也锻炼了自己的描述交流能力.</p>
+              <p class="site-description motion-element" itemprop="description">It is recommended to use Chrome/Firefox/Safari to read this blog.</p>
           
         </div>
 
@@ -680,7 +680,7 @@ test_function_bind( p, 331, 9 ) = 7
           <div class="links-of-blogroll motion-element links-of-blogroll-block">
             <div class="links-of-blogroll-title">
               <i class="fa  fa-fw fa-globe"></i>
-              友情链接
+              friendship links
             </div>
             <ul class="links-of-blogroll-list">
               
@@ -738,7 +738,7 @@ test_function_bind( p, 331, 9 ) = 7
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">no5ix</span>
+  <span class="author" itemprop="copyrightHolder">Wasp</span>
 </div>
 
 
@@ -932,8 +932,9 @@ test_function_bind( p, 331, 9 ) = 7
         }
         else
         {
-          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
-          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 800);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1121,13 +1122,13 @@ test_function_bind( p, 331, 9 ) = 7
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
 
-          // if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
-          // } else {
-          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
-          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
-          // }
+          if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+          } else {
+                $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
+              //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          }
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1000);
         }
       });
 

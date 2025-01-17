@@ -111,7 +111,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/cache_db_consistency/cache_db_consistency_6.png">
 <meta property="og:image" content="https://hulinhong.com/img/cache_db_consistency/cache_db_consistency_7.png">
 <meta property="og:image" content="https://hulinhong.com/img/cache_db_consistency/cache_db_consistency_8.png">
-<meta property="og:updated_time" content="2025-01-16T02:29:29.495Z">
+<meta property="og:updated_time" content="2025-01-17T05:27:28.966Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cache和DB一致性">
 <meta name="twitter:description" content="Cache Aside Pattern什么是 “Cache Aside Pattern”？答：旁路缓存方案的经验实践，这个实践又分读实践，写实践。 对于读请求先读 cache，再读 db如果，cache hit，则直接返回数据如果，cache miss，则访问 db，并将数据 set 回缓存  （1）先从 cache 中尝试 get 数据，结果 miss 了（2）再从 db 中读取数据，从库，读写">
@@ -320,7 +320,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
     <link itemprop="mainEntityOfPage" href="https://hulinhong.com/2018/09/25/cache_db_consistency/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="no5ix">
+      <meta itemprop="name" content="Wasp">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
@@ -618,11 +618,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="no5ix">
+            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="Wasp">
           </a>
-          <p class="site-author-name" itemprop="name">no5ix</p>
+          <p class="site-author-name" itemprop="name">Wasp</p>
            
-              <p class="site-description motion-element" itemprop="description">推荐使用Chrome/Firefox/Safari阅读本博客. 以前的老笔记将会一篇一篇慢慢整理为博客, 这既启发了他人, 也锻炼了自己的描述交流能力.</p>
+              <p class="site-description motion-element" itemprop="description">It is recommended to use Chrome/Firefox/Safari to read this blog.</p>
           
         </div>
 
@@ -689,7 +689,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="links-of-blogroll motion-element links-of-blogroll-block">
             <div class="links-of-blogroll-title">
               <i class="fa  fa-fw fa-globe"></i>
-              友情链接
+              friendship links
             </div>
             <ul class="links-of-blogroll-list">
               
@@ -747,7 +747,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">no5ix</span>
+  <span class="author" itemprop="copyrightHolder">Wasp</span>
 </div>
 
 
@@ -941,8 +941,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
-          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 800);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1130,13 +1131,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
 
-          // if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
-          // } else {
-          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
-          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
-          // }
+          if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+          } else {
+                $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
+              //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          }
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1000);
         }
       });
 

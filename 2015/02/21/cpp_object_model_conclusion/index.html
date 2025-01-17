@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://hulinhong.com/2015/02/21/cpp_object_model_conclusion/virtual_table_0.png">
 <meta property="og:image" content="https://hulinhong.com/2015/02/21/cpp_object_model_conclusion/virtual_table_1.png">
 <meta property="og:image" content="https://hulinhong.com/2015/02/21/cpp_object_model_conclusion/cpp_object_model_conclusion_1.png">
-<meta property="og:updated_time" content="2025-01-16T02:29:29.496Z">
+<meta property="og:updated_time" content="2025-01-17T05:27:28.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++对象模型之虚函数实例讲解">
 <meta name="twitter:description" content="介绍因为c++只规定了 虚继承/ 虚函数/ 多继承/ 的行为, 但将实现方法留给编译器作者. 所以各个平台的实现并不相同, 得出的结果也不尽相同. 经测试, vs和gcc目前比较统一的情况只有2种 :  无继承+无虚函数 无继承+虚函数  故本文只讨论这2种, 以及了解虚函数和虚继承的含义. . . .">
@@ -314,7 +314,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
     <link itemprop="mainEntityOfPage" href="https://hulinhong.com/2015/02/21/cpp_object_model_conclusion/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="no5ix">
+      <meta itemprop="name" content="Wasp">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/uploads/avatar.png">
     </span>
@@ -622,11 +622,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="/" class="site-author-image" rel="start" style="border:none">
-            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="no5ix">
+            <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="Wasp">
           </a>
-          <p class="site-author-name" itemprop="name">no5ix</p>
+          <p class="site-author-name" itemprop="name">Wasp</p>
            
-              <p class="site-description motion-element" itemprop="description">推荐使用Chrome/Firefox/Safari阅读本博客. 以前的老笔记将会一篇一篇慢慢整理为博客, 这既启发了他人, 也锻炼了自己的描述交流能力.</p>
+              <p class="site-description motion-element" itemprop="description">It is recommended to use Chrome/Firefox/Safari to read this blog.</p>
           
         </div>
 
@@ -693,7 +693,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="links-of-blogroll motion-element links-of-blogroll-block">
             <div class="links-of-blogroll-title">
               <i class="fa  fa-fw fa-globe"></i>
-              友情链接
+              friendship links
             </div>
             <ul class="links-of-blogroll-list">
               
@@ -751,7 +751,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">no5ix</span>
+  <span class="author" itemprop="copyrightHolder">Wasp</span>
 </div>
 
 
@@ -945,8 +945,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         }
         else
         {
-          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 1000);
-          $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
+          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 800);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
+          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 1000);
           // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
@@ -1134,13 +1135,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           first_char_flag = 1;
           $('#' + content_id).removeAttr("headroom_special_attr");
 
-          // if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.slideDownBigIn', 1000);
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1200);
-          // } else {
-          //   $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 1000);
-          //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
-          // }
+          if (isMobile()) {
+            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+          } else {
+                $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
+              //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+          }
+          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1000);
         }
       });
 
