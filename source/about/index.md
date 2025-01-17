@@ -5,13 +5,13 @@ type: "about"
 ---
 
 
-# 为何此博客乱码或排版混乱或过渡动画卡顿?
+# Why does this blog have garbled characters, messy layout, or choppy transition animations?
 
-因为本博客没有对 IE6 / 老Edge / UC 做深度适配.
+This blog has not been deeply optimized for IE6, old Edge, or UC.
 
-如果您在PC端使用的是 360浏览器 / 搜狗浏览器, 请在地址栏切换成其极速模式(切换成Chromium内核)来浏览此博客可以得到最佳效果.
+If you are using 360 Browser or Sogou Browser on the PC side, please switch to the Extreme Speed mode (switch to the Chromium kernel) in the address bar to browse this blog for the best experience.
 
-可以的话, 请使用 新Edge(Chromium内核版本, 推荐) / Chrome(推荐) / Firefox / Safari 打开本博客.
+If possible, please use the new Edge (Chromium kernel version, recommended), Chrome (recommended), Firefox, or Safari to open this blog.
 
 <!-- 
 # 所属阵营及主要技能加点是?
@@ -19,17 +19,17 @@ type: "about"
 网易 / 后台开发
  -->
 
-# 交流一哈?
+# Some projects
 
-- <i class="fa fa-fw fa-envelope fa-2x"></i>Email :  (将#替换为@)
+<!-- - <i class="fa fa-fw fa-envelope fa-2x"></i>Email :  (将#替换为@) -->
 
 - <i class="fa fa-fw fa-github fa-2x"></i>GitHub : https://github.com/no5ix
-    - [sux](https://github.com/no5ix/sux) : 一个只有2M+大小的强大效率工具.
-    - [auto-toc](https://github.com/no5ix/auto-toc) : 一个自动生成网站目录大纲的油猴脚本.
-    - [tab-to-find](https://github.com/no5ix/tab-to-find) : 按一下Tab你就能交互式搜一切文件 & 动态补全任何路径的shell插件.
-    - [kcpp](https://github.com/no5ix/kcpp) : 一个单头文件的kcp会话实现(并实现了dynamic redundancy + reliable/unreliable channel), 另附一个注释版kcp.
-    - [realtime-server](https://github.com/no5ix/realtime-server) : 一个轻量级的游戏服务器引擎.
-    - [realtime-server-ue4-demo](https://github.com/no5ix/realtime-server-ue4-demo) : 为realtime-server而写的一个UE4状态同步demo.
-    - [realtinet](https://github.com/no5ix/realtinet) : 一个快速的双通道(可靠与非可靠)udp网络库, 基于 muduo + kcp .
-    - [flock-ai-ue4-plugin](https://github.com/no5ix/flock-ai-ue4-plugin) : 一个基于虚幻4的鱼群 AI 插件.
+- [sux](https://github.com/no5ix/sux) : An alternative to Alfred+Wox+Listary+OneQuick+CapslockPlus.
+- [auto-toc](https://github.com/no5ix/auto-toc) : A userscript that adds a table of contents to any website. 
+- [tab-to-find](https://github.com/no5ix/tab-to-find) : A shell plugin that provides interactive Tab search & completion for any path.
+    <!-- - [kcpp](https://github.com/no5ix/kcpp) : 一个单头文件的kcp会话实现(并实现了dynamic redundancy + reliable/unreliable channel), 另附一个注释版kcp. -->
+    <!-- - [realtime-server](https://github.com/no5ix/realtime-server) : 一个轻量级的游戏服务器引擎. -->
+    <!-- - [realtime-server-ue4-demo](https://github.com/no5ix/realtime-server-ue4-demo) : 为realtime-server而写的一个UE4状态同步demo. -->
+    <!-- - [realtinet](https://github.com/no5ix/realtinet) : 一个快速的双通道(可靠与非可靠)udp网络库, 基于 muduo + kcp . -->
+- [flock-ai-ue4-plugin](https://github.com/no5ix/flock-ai-ue4-plugin) : A fish flock AI plugin for Unreal Engine 4.
 <!-- - 网易云音乐 : https://music.163.com/#/user/home?id=47256866 -->

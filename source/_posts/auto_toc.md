@@ -1,5 +1,5 @@
 ---
-title: 一个自动生成网站目录大纲的油猴脚本
+title: A userscript that adds a table of contents to any website
 date: 2022-08-25 21:56:12
 tags:
 - GitHub

@@ -1,5 +1,5 @@
 ---
-title: 一个只有2M+大小的强大效率工具sux
+title: An alternative to Alfred+Wox+Listary+OneQuick+CapslockPlus
 date: 2020-01-09 22:09:39
 tags:
 - GitHub
@@ -29,23 +29,23 @@ Inspired by Alfred/Wox/Listary/Capslock+/utools, thank u.
 - [知乎链接](https://www.zhihu.com/question/310110592/answer/1909948496)
 - [下载链接](https://github.com/no5ix/sux/releases)
 
+`sux` is a powerful productivity tool with a size of only 2M+. It also has the following features:
 
-`sux` 是一个只有2M+大小的强大效率工具同时拥有
-- [翻译](#翻译)
-- [历史剪切板](#历史剪切板clipboard-plus)
-- [Everything搜索工具栏](#Everything搜索工具栏)
-- [截图 & 贴图](#截图和贴图)
-- [类似listary/alfred/wox的快捷搜索](#快捷搜索search-plus): `shift+空格`
-- [类似macos的触发角](#类似macos的触发角hot-corner)
-- [屏幕边缘触发器](#屏幕边缘触发器hot-edge)
-- [全局自定义快捷键实现各种操作](#快捷键完全自定义)
-- [文本替换器](#文字替换器replace-text)
-- [文本变换器](#文本变换器)
-- [托盘菜单](#托盘菜单)
-- [快捷指令](#cmds指令)
-- [可自定义的json配置](#自定义配置)
-- 自定义主题
-- blabla...
+- [Translation](#translation)
+- [History Clipboard](#history-clipboard-clipboard-plus)
+- [Everything Search Toolbar](#everything-search-toolbar)
+- [Screenshot & Pinning](#screenshot-and-pinning)
+- [Quick Search Similar to listary/alfred/wox](#quick-search-search-plus): `shift + space`
+- [Hot Corners Similar to macOS](#hot-corners-similar-to-macos-hot-corner)
+- [Hot Edge Triggers](#hot-edge-triggers-hot-edge)
+- [Fully Customizable Global Shortcuts for Various Operations](#fully-customizable-shortcuts)
+- [Text Replacer](#text-replacer-replace-text)
+- [Text Transformer](#text-transformer)
+- [Tray Menu](#tray-menu)
+- [CMDS Commands](#cmds-commands)
+- [Customizable JSON Configuration](#customizable-configuration)
+- Custom Themes
+- etc."
 
 An alternative to **Alfred**/**Wox**/**Listary**/**Capslock+**/**OneQuick** .
 
