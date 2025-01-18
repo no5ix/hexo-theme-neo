@@ -206,7 +206,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/quic/quic_2.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/quic/quic_3.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/nginx/nginx_architecture.png">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.701Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="noodle_plan">
 <meta name="twitter:description" content="pending_fini 看看其他内存库的优化实现,,如tcmalloc啥的 算法类 线段树 字典树  lc高频 热门 kmp lc 174 地下城游戏问题 矩阵相关的算法题 lfu, 代码太长, 而且用到了不常用的数据结构, 目测不太会考       微信社招面经的面/笔试题 字节跳动百度拼多多面笔试题  . . .">
@@ -4722,7 +4722,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -4919,7 +4919,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

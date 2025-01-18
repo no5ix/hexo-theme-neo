@@ -103,7 +103,7 @@
 <meta property="og:description" content="tab-to-find  tab-to-findOne tab enables interactive and dynamic search for everything!! It also supports tab dynamic completion of commands for the paths of any directories and files.  It is extremely">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://raw.githubusercontent.com/no5ix/tab-to-find/main/tab-to-find-demo.gif">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.712Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A shell plugin that provides interactive Tab search &amp; completion for any path">
 <meta name="twitter:description" content="tab-to-find  tab-to-findOne tab enables interactive and dynamic search for everything!! It also supports tab dynamic completion of commands for the paths of any directories and files.  It is extremely">
@@ -946,7 +946,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1143,7 +1143,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

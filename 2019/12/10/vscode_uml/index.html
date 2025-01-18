@@ -104,7 +104,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/img/vscode_uml/vsc_uml_path.png">
 <meta property="og:image" content="http://www.plantuml.com/plantuml/svg/HOxD2eCm48JlUOevYKKgrFHKV9UoNVzIaYne1A7uxgOQyVGDE_F1igLfmh8q-2dW3kUUYJgnYYmY7_bDhKhnBZGTxK815X-BbAehQdtivVDjEM0WA-_P9Ablmz6Uvxei_q-ym6GP90Q1UcGPd7WJP8JndMm0">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.718Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:53.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vscode用markdown画uml">
 <meta name="twitter:description" content="需要安装的vsc插件  Markdown All in One Markdown Preview Enhanced PlantUML  备注：   Markdown All in One,VSCode 中支持 Markdown(键盘快捷键、目录、自动预览等) Markdown Preview Enhanced 可以对 Markdown 做增强预览, 比如支持各种绘图等 PlantUML, 一款很强">
@@ -913,7 +913,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1110,7 +1110,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

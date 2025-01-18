@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="df df命令用于显示磁盘分区上的可使用的磁盘空间。默认显示单位为KB。可以利用该命令来获取硬盘被占用了多少空间，目前还剩下多少空间等信息。   -a或–all：包含全部的文件系统； –block-size=&amp;lt;区块大小&amp;gt;：以指定的区块大小来显示区块数目； -h或–human-readable：以可读性较高的方式来显示信息； -H或–si：与-h参数相同，但在计算时是以1000 Byte">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.697Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.980Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常用运维命令(df和free和top)笔记整理(三)">
 <meta name="twitter:description" content="df df命令用于显示磁盘分区上的可使用的磁盘空间。默认显示单位为KB。可以利用该命令来获取硬盘被占用了多少空间，目前还剩下多少空间等信息。   -a或–all：包含全部的文件系统； –block-size=&amp;lt;区块大小&amp;gt;：以指定的区块大小来显示区块数目； -h或–human-readable：以可读性较高的方式来显示信息； -H或–si：与-h参数相同，但在计算时是以1000 Byte">
@@ -934,7 +934,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1131,7 +1131,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

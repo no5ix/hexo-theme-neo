@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="基于比较的排序算法复杂度的理论下界为 O(nlog n)，同时指出了：  每一次判定  a &amp;lt; b ，都相当于回答了一次「是否问题」。按照已有的知识，若要尽可能快地完成排序，就要让每一次大小判断的结果落在两种答案之一的概率接近；若不然，则这次比较带来的信息量较小，也就需要更多次的比较来完成排序。  此篇建立在这些知识的基础上，首先探讨以下三个问题，而后引出号称「在所有情况下，都能较快完成排序">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.696Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="内省排序">
 <meta name="twitter:description" content="基于比较的排序算法复杂度的理论下界为 O(nlog n)，同时指出了：  每一次判定  a &amp;lt; b ，都相当于回答了一次「是否问题」。按照已有的知识，若要尽可能快地完成排序，就要让每一次大小判断的结果落在两种答案之一的概率接近；若不然，则这次比较带来的信息量较小，也就需要更多次的比较来完成排序。  此篇建立在这些知识的基础上，首先探讨以下三个问题，而后引出号称「在所有情况下，都能较快完成排序">
@@ -947,7 +947,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1144,7 +1144,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

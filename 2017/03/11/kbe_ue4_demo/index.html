@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="写到一半发现论坛的热门帖子里官方写了个u3d的demo源码解析,  内容几乎重复, u3d跟ue4的demo框架流程几乎都是差不多的, 直接给出官方帖子的链接好了, 尴尬:http://bbs.kbengine.org/forum.php?mod=viewthread&amp;amp;tid=166">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.697Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.980Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KBE的UE4的demo大体解读">
 <meta name="twitter:description" content="写到一半发现论坛的热门帖子里官方写了个u3d的demo源码解析,  内容几乎重复, u3d跟ue4的demo框架流程几乎都是差不多的, 直接给出官方帖子的链接好了, 尴尬:http://bbs.kbengine.org/forum.php?mod=viewthread&amp;amp;tid=166">
@@ -862,7 +862,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1059,7 +1059,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

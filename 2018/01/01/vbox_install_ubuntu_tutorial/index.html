@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/vbox_install_ubuntu_tutorial/20150116222246498.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/vbox_install_ubuntu_tutorial/20150116222308759.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/vbox_install_ubuntu_tutorial/20150116222336153.jpg">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.718Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:53.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VirtualBox安装Ubuntu教程">
 <meta name="twitter:description" content="最近因某些原因重装了Win10, 虚拟机也需要重装, 记录一下过程, 供以后查阅, 以免走更多弯路 一些常用命令 scp :  比如把自己windows上的某个文件test.py上传到某台linux上, 则在windows上用git bash到达这个文件所在的目录然后输入命令scp test.py hlh@192.168.80.8:/home/test_dir 下载则把命令顺序反过来:    ma">
@@ -996,7 +996,7 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1193,7 +1193,7 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="动机 next自带的搜索框有手机键盘不能自动弹出来的bug, 需要点击两次才可以弹出来 渴望拥有更简洁的搜索框  展示图如我博客右上角所示 GitHub我的博客源码, 欢迎Fork+Star. 如果你也喜欢这样的搜索框, 参考这个commit便可改成跟我一样.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.719Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:53.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修复next搜索框弹不出手机键盘bug和更简洁的搜索框">
 <meta name="twitter:description" content="动机 next自带的搜索框有手机键盘不能自动弹出来的bug, 需要点击两次才可以弹出来 渴望拥有更简洁的搜索框  展示图如我博客右上角所示 GitHub我的博客源码, 欢迎Fork+Star. 如果你也喜欢这样的搜索框, 参考这个commit便可改成跟我一样.">
@@ -897,7 +897,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1094,7 +1094,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

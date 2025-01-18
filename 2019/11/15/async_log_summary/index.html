@@ -111,7 +111,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/syslog_intro/1089769-20170323165530158-761295228.png">
 <meta property="og:image" content="https://hulinhong.com/img/syslog_intro/1089769-20170410132458782-973391177.png">
 <meta property="og:image" content="https://hulinhong.com/img/syslog_intro/1089769-20170323163540080-1733313578.png">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.665Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="异步日志小结">
 <meta name="twitter:description" content="最近工作涉及到生产环境的日志系统, 小结一波, 其实践为:   cpp高性能的异步日志系统模块导出给py使用 此cpp模块另起线程 logger通过unix socket连接上address 为 “/dev/log”，与 rsyslogd 程序通信 log先缓存在一个buffer中, 通过一个任务来把log存入syslog这一事件封装起来 把这个任务加入一个线程间可保序输出的任务队列(常用asio">
@@ -975,7 +975,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1172,7 +1172,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

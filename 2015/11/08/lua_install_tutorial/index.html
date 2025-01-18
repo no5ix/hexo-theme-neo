@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="ubuntu环境. . .">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.698Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lua的win和linux环境搭建">
 <meta name="twitter:description" content="ubuntu环境. . .">
@@ -943,7 +943,7 @@ sudo make install
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1140,7 +1140,7 @@ sudo make install
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

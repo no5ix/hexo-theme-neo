@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="PHP 超级全局变量概绍 PHP中预定义了几个超级全局变量（superglobals） ，  这意味着它们在一个脚本的全部作用域中都可用。  你不需要特别说明，就可以在函数及类中使用。 PHP 超级全局变量列表:  $GLOBALS $_SERVER $_REQUEST $_POST $_GET $_FILES $_ENV $_COOKIE $_SESSION  $GLOBALS$GLOBALS">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.658Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP的超级全局变量小结">
 <meta name="twitter:description" content="PHP 超级全局变量概绍 PHP中预定义了几个超级全局变量（superglobals） ，  这意味着它们在一个脚本的全部作用域中都可用。  你不需要特别说明，就可以在函数及类中使用。 PHP 超级全局变量列表:  $GLOBALS $_SERVER $_REQUEST $_POST $_GET $_FILES $_ENV $_COOKIE $_SESSION  $GLOBALS$GLOBALS">
@@ -955,7 +955,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1152,7 +1152,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

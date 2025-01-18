@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="官方解释及分析摘自http://valgrind.org/docs/manual/faq.html#faq.deflost 5.2.With Memcheck’s memory leak detector, what’s the difference between “definitely lost”, “indirectly lost”, “possibly lost”, “still reac">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.718Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:53.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于Valgrind所报的4种内存丢失">
 <meta name="twitter:description" content="官方解释及分析摘自http://valgrind.org/docs/manual/faq.html#faq.deflost 5.2.With Memcheck’s memory leak detector, what’s the difference between “definitely lost”, “indirectly lost”, “possibly lost”, “still reac">
@@ -984,7 +984,7 @@ valgrind: Use --help for more information.
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1181,7 +1181,7 @@ valgrind: Use --help for more information.
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

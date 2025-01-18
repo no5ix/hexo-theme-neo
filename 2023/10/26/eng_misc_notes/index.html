@@ -103,7 +103,7 @@
 <meta property="og:description" content="原文英语杂项笔记原文 时间介词以下是常见的表示时间点的介词用法：●On：用于表示特定的某一天或日期或某一天的上中下午，如：on Monday, on July 4th , on the weekend, on Monday morning  (“On the weekend” 和 “at the weekend” 都是正确的表达方式，含义相同。然而，“at the weekend” 在英国英语中更">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/img/eng_misc_notes/image.png">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.682Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="English Misc Notes">
 <meta name="twitter:description" content="原文英语杂项笔记原文 时间介词以下是常见的表示时间点的介词用法：●On：用于表示特定的某一天或日期或某一天的上中下午，如：on Monday, on July 4th , on the weekend, on Monday morning  (“On the weekend” 和 “at the weekend” 都是正确的表达方式，含义相同。然而，“at the weekend” 在英国英语中更">
@@ -900,7 +900,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1097,7 +1097,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

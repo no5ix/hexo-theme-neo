@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="增删改查 INSERT INTO table_name (列1, 列2,…) VALUES (值1, 值2,….)  DELETE FROM 表名称 WHERE 列名称 = 值  UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值  SELECT 列名称 FROM 表名称   关联SQL join 用于根据两个或多个表中的列之间的关系，从这些表中查询数据。 Join和Ke">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.657Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.940Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL入门一之增删查改与关联">
 <meta name="twitter:description" content="增删改查 INSERT INTO table_name (列1, 列2,…) VALUES (值1, 值2,….)  DELETE FROM 表名称 WHERE 列名称 = 值  UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值  SELECT 列名称 FROM 表名称   关联SQL join 用于根据两个或多个表中的列之间的关系，从这些表中查询数据。 Join和Ke">
@@ -1133,7 +1133,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1330,7 +1330,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

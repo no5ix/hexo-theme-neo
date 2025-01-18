@@ -115,7 +115,7 @@
 <meta property="og:image" content="https://github.com/no5ix/no5ix.github.io/blob/source/source/img/sux/replace_text.gif">
 <meta property="og:image" content="https://github.com/no5ix/no5ix.github.io/blob/source/source/img/sux/donate_wechat.png">
 <meta property="og:image" content="https://github.com/no5ix/no5ix.github.io/blob/source/source/img/sux/donate_alipay.png">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.712Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="An alternative to Alfred+Wox+Listary+OneQuick+CapslockPlus">
 <meta name="twitter:description" content="sux   知乎链接 下载链接  sux is a powerful productivity tool with a size of only 2M+. It also has the following features:  Translation History Clipboard Everything Search Toolbar Screenshot &amp;amp; Pinning Qu">
@@ -1655,7 +1655,7 @@ Just download [<i class="fa fa-download fa-2x fa-fw"></i>sux.zip](https://github
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1852,7 +1852,7 @@ Just download [<i class="fa fa-download fa-2x fa-fw"></i>sux.zip](https://github
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

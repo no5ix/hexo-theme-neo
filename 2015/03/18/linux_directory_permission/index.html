@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="目录的可读/可写/可执行权限不要把目录的这几个权限和档案的这几个权限混淆了, 不要想当然的以为是差不多的, 差很多!记忆技巧 : 档案的rwx是针对于档案的内容来设计的, 而目录的rwx是针对于目录的文件名列表来设计的 . . .">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.698Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux一些不要想当然的事(一)之目录权限">
 <meta name="twitter:description" content="目录的可读/可写/可执行权限不要把目录的这几个权限和档案的这几个权限混淆了, 不要想当然的以为是差不多的, 差很多!记忆技巧 : 档案的rwx是针对于档案的内容来设计的, 而目录的rwx是针对于目录的文件名列表来设计的 . . .">
@@ -424,9 +424,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/11/smart_pointer_note/" rel="prev" title="智能指针笔记">
+              <a href="/2015/04/11/linux_gcc_builtin_expect/" rel="prev" title="GCC的分支预测优化__builtin_expect">
               <p class="post-nav-pre-next-title">
-                  智能指针笔记
+                  GCC的分支预测优化__builtin_expect
               </p> 
               <i class="fa fa-chevron-right"></i>
               </a>
@@ -495,9 +495,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2015/04/11/smart_pointer_note/" rel="prev" title="智能指针笔记">
+                <a href="/2015/04/11/linux_gcc_builtin_expect/" rel="prev" title="GCC的分支预测优化__builtin_expect">
                 <p class="post-nav-pre-next-title">
-                    智能指针笔记
+                    GCC的分支预测优化__builtin_expect
                 </p> 
                 <i class="fa fa-chevron-right"></i>
                 </a>
@@ -902,7 +902,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1099,7 +1099,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

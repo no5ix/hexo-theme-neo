@@ -103,7 +103,7 @@
 <meta property="og:description" content="概绍IPC 即 Inter Process Communication, 大概有以下几种方式(排序已打乱) :    6.共享内存( shared memory, 非常实用, 后文将说一下比较常用的两种方式, 分别是 mmap 和 System V共享内存  ) ：共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问。共享内存是最快的 IPC 方式，它是针">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/img/ipc/mmap.jpg">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.697Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.980Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程间的通信与同步">
 <meta name="twitter:description" content="概绍IPC 即 Inter Process Communication, 大概有以下几种方式(排序已打乱) :    6.共享内存( shared memory, 非常实用, 后文将说一下比较常用的两种方式, 分别是 mmap 和 System V共享内存  ) ：共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问。共享内存是最快的 IPC 方式，它是针">
@@ -1191,7 +1191,7 @@ msqid    owner      send                 recv                 change
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1388,7 +1388,7 @@ msqid    owner      send                 recv                 change
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

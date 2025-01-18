@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="介绍与 JSON 相比， Protobuf 的序列化和反序列化的速度更快，而且传输的数据会先压缩，使得传输的效率更高些 。Protobuf ， 全称 Protocol Buffer ， 是 Google 公司内部的混合语言数据标准，是一种轻便高效的结构化数据存储格式，可以用于结构化数据串行化，或者说序列化。 它很适合做数据存储或 RPC 数据交换格式 。 Protobuf是可用于通信协议、数据存储">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.704Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ProtoBuf的安装与使用">
 <meta name="twitter:description" content="介绍与 JSON 相比， Protobuf 的序列化和反序列化的速度更快，而且传输的数据会先压缩，使得传输的效率更高些 。Protobuf ， 全称 Protocol Buffer ， 是 Google 公司内部的混合语言数据标准，是一种轻便高效的结构化数据存储格式，可以用于结构化数据串行化，或者说序列化。 它很适合做数据存储或 RPC 数据交换格式 。 Protobuf是可用于通信协议、数据存储">
@@ -964,7 +964,7 @@ ggsmd
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1161,7 +1161,7 @@ ggsmd
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

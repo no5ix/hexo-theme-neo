@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="main看起来似乎所有的组件都有一个这样的宏(KBENGINE_MAIN)来包裹main函数123456intKBENGINE_MAIN(intargc, char* argv[])&amp;#123;	ENGINE_COMPONENT_INFO&amp;amp;info = g_kbeSrvConfig.getXXX();	returnkbeMainT&amp;lt;XXX&amp;gt;(argc, argv, YYY, i">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.697Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.980Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kbe服务端笔记(一)">
 <meta name="twitter:description" content="main看起来似乎所有的组件都有一个这样的宏(KBENGINE_MAIN)来包裹main函数123456intKBENGINE_MAIN(intargc, char* argv[])&amp;#123;	ENGINE_COMPONENT_INFO&amp;amp;info = g_kbeSrvConfig.getXXX();	returnkbeMainT&amp;lt;XXX&amp;gt;(argc, argv, YYY, i">
@@ -896,7 +896,7 @@ Resmgr的初始化（配置）工作主要由initialize接口完成，代码如�
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1093,7 +1093,7 @@ Resmgr的初始化（配置）工作主要由initialize接口完成，代码如�
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

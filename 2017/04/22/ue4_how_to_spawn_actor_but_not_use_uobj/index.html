@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="介绍其实不用继承 UObject 也可以生成一个 actor,  关键的点就是拿到 UWorld ,所以只要从一个拥有 UWorld 的虚幻相关实例中传递它的 UWorld 给一个原生 C++ 类也可以. 示例代码. . .">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.714Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UE4中如何不继承UObject就能spawn一个actor">
 <meta name="twitter:description" content="介绍其实不用继承 UObject 也可以生成一个 actor,  关键的点就是拿到 UWorld ,所以只要从一个拥有 UWorld 的虚幻相关实例中传递它的 UWorld 给一个原生 C++ 类也可以. 示例代码. . .">
@@ -890,7 +890,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1087,7 +1087,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

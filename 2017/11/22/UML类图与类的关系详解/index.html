@@ -111,7 +111,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/uml_illustrate/660db5e8.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/uml_illustrate/b72557a8.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/uml_illustrate/04e78de6.jpg">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.659Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UML类图与类的关系详解">
 <meta name="twitter:description" content="原文出处 在画类图的时候，理清类和类之间的关系是重点。类的关系有泛化(Generalization)、实现（Realization）、依赖(Dependency)和关联(Association)。其中关联又分为一般关联关系和聚合关系(Aggregation)，合成关系(Composition)。下面我们结合实例理解这些关系。 基本概念类图（Class Diagram）: 类图是面向对象系统建模中最">
@@ -935,7 +935,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1132,7 +1132,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

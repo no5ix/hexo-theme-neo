@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="Boost.Asio入门首先，让我们先来了解一下什么是Boost.Asio？怎么编译它？ linux下直接 : sudo apt-get install libboost-all-dev 什么是Boost.Asio简单来说，Boost.Asio是一个跨平台的、主要用于网络和其他一些底层输入/输出编程的C++库。 . . .">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.655Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.939Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="5分钟上手boost.asio">
 <meta name="twitter:description" content="Boost.Asio入门首先，让我们先来了解一下什么是Boost.Asio？怎么编译它？ linux下直接 : sudo apt-get install libboost-all-dev 什么是Boost.Asio简单来说，Boost.Asio是一个跨平台的、主要用于网络和其他一些底层输入/输出编程的C++库。 . . .">
@@ -938,7 +938,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1135,7 +1135,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

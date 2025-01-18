@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/thread_specific_data/20140521140749687.png">
 <meta property="og:image" content="https://hulinhong.com/img/thread_specific_data/20140521141540062.png">
 <meta property="og:image" content="https://hulinhong.com/img/thread_specific_data/20140521141742921.png">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.713Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线程特有数据">
 <meta name="twitter:description" content="在 Linux 系统中使用 C/C++ 进行多线程编程时，我们遇到最多的就是对同一变量的多线程读写问题，大多情况下遇到这类问题都是通过锁机制来处理，但这对程序的性能带来了很大的影响， 当然对于那些系统原生支持原子操作的数据类型来说，我们可以使用原子操作来处理，这能对程序的性能会得到一定的提高。那么对于那些系统不支持原子操作的自定义数据类型， 在不使用锁的情况下如何做到线程安全呢？本文将从线程特有数">
@@ -969,7 +969,7 @@ void *pthread_getspecific (pthread_key_t key);
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1166,7 +1166,7 @@ void *pthread_getspecific (pthread_key_t key);
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

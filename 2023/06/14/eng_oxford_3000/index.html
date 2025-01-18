@@ -129,7 +129,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/eng_oxford_3000/image-10.png">
 <meta property="og:image" content="https://hulinhong.com/img/eng_oxford_3000/image-11.png">
 <meta property="og:image" content="https://hulinhong.com/img/eng_oxford_3000/image-12.png">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.683Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The oxford 3000 by cefr level">
 <meta name="twitter:description" content="Unfamiliar continent: 大陆 [unfamiliar] Africa is the second largest continent in the world.  非洲是世界上第二大的大陆。     gallery: 画廊 [unfamiliar] The art gallery features works from famous artists around the wor">
@@ -7790,7 +7790,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -7987,7 +7987,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

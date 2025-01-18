@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="URL https://www.youtube.com/watch?v=uvFtyDy_Bt0 https://www.bilibili.com/video/BV15H2EYeEKX/?spm_id_from=333.337.search-card.all.click&amp;amp;vd_source=8a83b38420b65ac33aa101b7754630f6  What is the Deep">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.690Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="John Mearsheimer and Jeffrey Sachs | All-In Summit 2024">
 <meta name="twitter:description" content="URL https://www.youtube.com/watch?v=uvFtyDy_Bt0 https://www.bilibili.com/video/BV15H2EYeEKX/?spm_id_from=333.337.search-card.all.click&amp;amp;vd_source=8a83b38420b65ac33aa101b7754630f6  What is the Deep">
@@ -2138,7 +2138,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -2335,7 +2335,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

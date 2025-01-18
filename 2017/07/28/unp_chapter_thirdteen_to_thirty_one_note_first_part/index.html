@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/unp_chapter_thirdteen_to_thirty_one_note_first_part/daemon_command.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/about_sighup_sigpipe/1.png">
 <meta property="og:image" content="https://hulinhong.com/img/unp_chapter_thirdteen_to_thirty_one_note_first_part/setid.jpg">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.714Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="重读UNP（UNIX网络编程）13章到31章笔记整理（结合TLPI和APUE两书的笔记整理）(一)">
 <meta name="twitter:description" content="因为UNP第三部分（第三版13-31章）的内容结合APUE（UNIX环境高级编程）和TLPI（The Linux Programming Interface）来看才能比较清晰，所以笔记整理会穿插很多这两本书的内容 引申知识，作业控制以及相关命令  . . .">
@@ -1070,7 +1070,7 @@ S．修改进程的当前工作目录，通常会改为根日录(／)。这样�
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1267,7 +1267,7 @@ S．修改进程的当前工作目录，通常会改为根日录(／)。这样�
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

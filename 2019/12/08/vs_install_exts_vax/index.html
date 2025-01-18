@@ -103,7 +103,7 @@
 <meta property="og:description" content=". . .">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/img/vs_install_exts_vax/vs2017_exts.png">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.718Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:53.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VS必装插件">
 <meta name="twitter:description" content=". . .">
@@ -930,7 +930,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1127,7 +1127,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

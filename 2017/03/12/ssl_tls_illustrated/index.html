@@ -103,7 +103,7 @@
 <meta property="og:description" content="互联网的通信安全，建立在 SSL/TLS 协议之上。 本文简要介绍 SSL/TLS 协议的运行机制。文章的重点是设计思想和运行过程，不涉及具体的实现细节。如果想了解这方面的内容，请参阅 RFC 文档。 . . .">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/img/ssl_tls_illustrated/ssl_tls_illustrated.png">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.711Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSL&#x2F;TLS详解">
 <meta name="twitter:description" content="互联网的通信安全，建立在 SSL/TLS 协议之上。 本文简要介绍 SSL/TLS 协议的运行机制。文章的重点是设计思想和运行过程，不涉及具体的实现细节。如果想了解这方面的内容，请参阅 RFC 文档。 . . .">
@@ -984,7 +984,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1181,7 +1181,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

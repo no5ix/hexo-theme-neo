@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://hulinhong.com/2015/02/21/cpp_object_model_conclusion/virtual_table_0.png">
 <meta property="og:image" content="https://hulinhong.com/2015/02/21/cpp_object_model_conclusion/virtual_table_1.png">
 <meta property="og:image" content="https://hulinhong.com/2015/02/21/cpp_object_model_conclusion/cpp_object_model_conclusion_1.png">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.669Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.952Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++对象模型之虚函数实例讲解">
 <meta name="twitter:description" content="介绍因为c++只规定了 虚继承/ 虚函数/ 多继承/ 的行为, 但将实现方法留给编译器作者. 所以各个平台的实现并不相同, 得出的结果也不尽相同. 经测试, vs和gcc目前比较统一的情况只有2种 :  无继承+无虚函数 无继承+虚函数  故本文只讨论这2种, 以及了解虚函数和虚继承的含义. . . .">
@@ -939,7 +939,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1136,7 +1136,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

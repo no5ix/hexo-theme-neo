@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/win_share_not_found_issue/win_share_not_found_issue_1.png">
 <meta property="og:image" content="https://hulinhong.com/img/win_share_not_found_issue/win_share_not_found_issue_2.png">
 <meta property="og:image" content="https://hulinhong.com/img/win_share_not_found_issue/win_share_not_found_issue_3.png">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.719Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:53.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows共享教程">
 <meta name="twitter:description" content="曾在使用Win0系统进行数据交换过程中发现，网上邻居上怎么找都找不着其他电脑，为何呢？也是用了很多办法，一次次失败后最后终于解决了，原来在很多优化/安全软件“整理”过的电脑中，有他们认为危险但实际非常重要的设置被强行关闭了。接下来我们看看怎么处理。 先参考下面几张图设置一波 . . .">
@@ -880,7 +880,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1077,7 +1077,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

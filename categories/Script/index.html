@@ -570,6 +570,32 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       <h2 class="post-title">
         
+            <a class="post-title-link" href="/2015/11/11/lua_pairs_ipairs/" itemprop="url">
+              
+                <span itemprop="name">Lua中ipairs和pairs的区别与使用</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2015-11-11T19:29:22+00:00" content="2015-11-11">
+          11-11
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
             <a class="post-title-link" href="/2015/11/11/lua_cpp_toluapp_tutorial/" itemprop="url">
               
                 <span itemprop="name">tolua++安装</span>
@@ -599,32 +625,6 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             <a class="post-title-link" href="/2015/11/11/lua_cpp_bind/" itemprop="url">
               
                 <span itemprop="name">C++与Lua本质原始交互API</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2015-11-11T19:29:22+00:00" content="2015-11-11">
-          11-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2015/11/11/lua_pairs_ipairs/" itemprop="url">
-              
-                <span itemprop="name">Lua中ipairs和pairs的区别与使用</span>
               
             </a>
         
@@ -1146,7 +1146,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1343,7 +1343,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

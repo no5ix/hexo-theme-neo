@@ -103,7 +103,7 @@
 <meta property="og:description" content="分布式系统设计策略重试机制一般情况下，写一段网络交互的代码，发起rpc或者http，都会遇到请求超时而失败情况。 可能是网络抖动(暂时的网络变更导致包不可达，比如拓扑变更)或者对端挂掉。 这时一般处理逻辑是将请求包在一个重试循环块里，如下：[cpp] view plain copy print?int retry = 3;while(!request() &amp;amp;&amp;amp; retry–)sch">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/2015/01/07/distributed_system_design_note_three/distribution31.png">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.678Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式系统设计概要笔记-三">
 <meta name="twitter:description" content="分布式系统设计策略重试机制一般情况下，写一段网络交互的代码，发起rpc或者http，都会遇到请求超时而失败情况。 可能是网络抖动(暂时的网络变更导致包不可达，比如拓扑变更)或者对端挂掉。 这时一般处理逻辑是将请求包在一个重试循环块里，如下：[cpp] view plain copy print?int retry = 3;while(!request() &amp;amp;&amp;amp; retry–)sch">
@@ -912,7 +912,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1109,7 +1109,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

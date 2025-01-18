@@ -119,7 +119,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/etcd/1beabef5a1168cdc43766903e65f907d.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/etcd/e7d6918c1c9b7c9f2829779966ffb5d8.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/distributed/721ceeff.png">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.707Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.990Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器开发自我修养专栏-分布式系统">
 <meta name="twitter:description" content="分布式系统分布式系统的就准备:    CAP理论 BASE理论 分布式事务 分布式锁 限流 熔断 一致性选举算法 主从架构 集群架构 异地多活 负载均衡 分层架构 微服务, 服务治理 …  共识consensus 准确的翻译是共识，即多个提议者达成共识的过程，例如 Paxos，Raft 就是共识算法，paxos 是一种共识理论，分布式系统是他的场景，一致性是他的目标。 一致性（Consistenc">
@@ -1332,7 +1332,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1529,7 +1529,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

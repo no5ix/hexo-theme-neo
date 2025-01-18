@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="自我总结快照插值这种游戏同步技术的要点为 :   视觉模拟 : 每帧从网络的发送侧捕获所有相关状态的快照，并将其传输到网络的接收侧，在那里我们将试图重建一个视觉上近似合理的模拟 缓冲区 : 内插值之前会缓冲一段合适的时间来处理网络抖动 内插值Interpolation : 处理快照之间的拉扯 线性插值 Hermite插值   外插值Extrapolation (文中翻译为”预测”或”推测”) :">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.711Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络物理模拟四之快照插值">
 <meta name="twitter:description" content="自我总结快照插值这种游戏同步技术的要点为 :   视觉模拟 : 每帧从网络的发送侧捕获所有相关状态的快照，并将其传输到网络的接收侧，在那里我们将试图重建一个视觉上近似合理的模拟 缓冲区 : 内插值之前会缓冲一段合适的时间来处理网络抖动 内插值Interpolation : 处理快照之间的拉扯 线性插值 Hermite插值   外插值Extrapolation (文中翻译为”预测”或”推测”) :">
@@ -913,7 +913,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1110,7 +1110,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

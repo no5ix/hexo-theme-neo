@@ -104,7 +104,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/2014/09/22/binary_tree_create_and_destroy/binary_tree_create_and_destroy_1.png">
 <meta property="og:image" content="https://hulinhong.com/2014/09/22/binary_tree_create_and_destroy/binary_tree_create_and_destroy_2.png">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.667Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.950Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构一之二叉树的创建和销毁">
 <meta name="twitter:description" content="接着上一篇， 上一篇主要说了各种排序算法， 但对几个常用的数据结构还未提及，所以这一篇主要讲二叉树, 二叉树已经包括很多链表的知识了。所有代码都是测试过的, 可以直接撸. 二叉树这里不举太多数字方面的东西， 我们直接看图， 直观感性的认识满二叉树和完全二叉树：  有一点性质需要牢记：具有n个结点的完全二叉树的最大高度为log2n+1 二叉树的二叉链式存储二叉树的二叉链式存储方案的代码表示： 123">
@@ -903,7 +903,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1100,7 +1100,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

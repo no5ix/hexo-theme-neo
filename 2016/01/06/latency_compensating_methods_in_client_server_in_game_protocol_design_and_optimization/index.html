@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="自我总结注 : V社这篇文章相当有价值, 所以会有尽可能详细的注解以及对原译文各种翻译纰漏的修正. 广义的延迟补偿主要包括两个方面 :  A 如何显示目标 a. 对于本玩家自己 客户端预表现(本文翻译为”客户端预测”) : 比如对于玩家移动的预测, 可以把服务器确认过的movement信息作为开始, 然后使用自己本地的movement input来进行预表现, 服务器跟客户端共享同一套move代码">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.697Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.980Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C&#x2F;S游戏架构中延迟补偿的设计和优化方法">
 <meta name="twitter:description" content="自我总结注 : V社这篇文章相当有价值, 所以会有尽可能详细的注解以及对原译文各种翻译纰漏的修正. 广义的延迟补偿主要包括两个方面 :  A 如何显示目标 a. 对于本玩家自己 客户端预表现(本文翻译为”客户端预测”) : 比如对于玩家移动的预测, 可以把服务器确认过的movement信息作为开始, 然后使用自己本地的movement input来进行预表现, 服务器跟客户端共享同一套move代码">
@@ -936,7 +936,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1133,7 +1133,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

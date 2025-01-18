@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="概绍关联容器和顺序容器有着根本的不同 : 关联容器中的元素是按关键字来保存和访问的 。与之相对，顺序容器中的元素是按它们在容器中的位置来顺序保存和访问的 。 关联容器支持高效的关键字查找和访问 。两个主要的关联容器类型是 :   map  set  map概绍map 中 的元素是一些关键字一值 ( key-value )对 : 关键字起到索 引 的作用，值则表示与索引相关联的数据 。字典则是一个很">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.712Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="stl关联容器的特性">
 <meta name="twitter:description" content="概绍关联容器和顺序容器有着根本的不同 : 关联容器中的元素是按关键字来保存和访问的 。与之相对，顺序容器中的元素是按它们在容器中的位置来顺序保存和访问的 。 关联容器支持高效的关键字查找和访问 。两个主要的关联容器类型是 :   map  set  map概绍map 中 的元素是一些关键字一值 ( key-value )对 : 关键字起到索 引 的作用，值则表示与索引相关联的数据 。字典则是一个很">
@@ -986,7 +986,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1183,7 +1183,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

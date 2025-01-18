@@ -104,7 +104,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/2015/01/05/distributed_system_design_note_two/distribution21.png">
 <meta property="og:image" content="https://hulinhong.com/2015/01/05/distributed_system_design_note_two/distribution22.png">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.679Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式系统设计概要笔记-二">
 <meta name="twitter:description" content="分布式系统特性CAP是分布式系统里最著名的理论，wiki百科如下  Consistency(all nodes see the same data at the same time) Availability (a guarantee that every request receives a response about whether it was successful or failed)">
@@ -920,7 +920,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1117,7 +1117,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

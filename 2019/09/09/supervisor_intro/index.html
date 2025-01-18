@@ -103,7 +103,7 @@
 <meta property="og:description" content="Introduction 基于python编写，安装方便 进程管理工具，可以很方便的对用户定义的进程进行启动，关闭，重启，并且对意外关闭的进程进行重启 ，只需要简单的配置一下即可，且有web端，状态、日志查看清晰明了。 组成部分 supervisord[服务端，所以要通过这个来启动它]supervisorctl[客户端，可以来执行stop等命令]  官方文档地址：http://supervisor">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.screenshot.net/y60zgio">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.712Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="supervisor 备忘">
 <meta name="twitter:description" content="Introduction 基于python编写，安装方便 进程管理工具，可以很方便的对用户定义的进程进行启动，关闭，重启，并且对意外关闭的进程进行重启 ，只需要简单的配置一下即可，且有web端，状态、日志查看清晰明了。 组成部分 supervisord[服务端，所以要通过这个来启动它]supervisorctl[客户端，可以来执行stop等命令]  官方文档地址：http://supervisor">
@@ -962,7 +962,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1159,7 +1159,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

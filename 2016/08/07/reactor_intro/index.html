@@ -116,7 +116,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/reactor_intro/1100082-794d7f69b6e2409a.png">
 <meta property="og:image" content="https://hulinhong.com/img/reactor_intro/using_multiple_reactors_with_thread_pool.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/server_model_summary/11.jpg">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.706Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.989Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reactor模式讲解">
 <meta name="twitter:description" content="关于服务器模型总结请转 此文, 文中也有Reactor的讲解. 对于 IO 来说，我们听得比较多的是:  BIO: 阻塞 IO NIO: 非阻塞 IO 同步 IO 异步 IO  以及其组合:  同步阻塞 IO 同步非阻塞 IO 异步阻塞 IO 异步非阻塞 IO  . . .">
@@ -1016,7 +1016,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1213,7 +1213,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

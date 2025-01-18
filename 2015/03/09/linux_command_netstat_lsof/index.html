@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="netstat netstat命令用来打印Linux中网络系统的状态信息，可让你得知整个Linux系统的网络情况。   -a或–all：显示所有连线中的Socket； -A&amp;lt;网络类型&amp;gt;或–&amp;lt;网络类型&amp;gt;：列出该网络类型连线中的相关地址； -c或–continuous：持续列出网络状态； -C或–cache：显示路由器配置的快取信息； -e或–extend：显示网络其他相关信息">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.698Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常用运维命令(netstat和lsof)笔记整理(二)">
 <meta name="twitter:description" content="netstat netstat命令用来打印Linux中网络系统的状态信息，可让你得知整个Linux系统的网络情况。   -a或–all：显示所有连线中的Socket； -A&amp;lt;网络类型&amp;gt;或–&amp;lt;网络类型&amp;gt;：列出该网络类型连线中的相关地址； -c或–continuous：持续列出网络状态； -C或–cache：显示路由器配置的快取信息； -e或–extend：显示网络其他相关信息">
@@ -958,7 +958,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1155,7 +1155,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

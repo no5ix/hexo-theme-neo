@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="GDB 操作提示在编译可执行文件时需要给 gcc 加上 “-g” 选项，这样它才会为生成的可执行文件加入额外的调试信息。不要使用编译器的优化选项，比如： “-O”，”-O2”。因为编译器会为了优化而改变程序流程，那样不利于调试。在 GDB 中执行 shell 命令可以使用：shell commandGDB 命令可以使用 TAB 键来补全。按两次 TAB 键可以看到所有可能的匹配。GDB 命令缩写：">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.692Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GDB基础教程">
 <meta name="twitter:description" content="GDB 操作提示在编译可执行文件时需要给 gcc 加上 “-g” 选项，这样它才会为生成的可执行文件加入额外的调试信息。不要使用编译器的优化选项，比如： “-O”，”-O2”。因为编译器会为了优化而改变程序流程，那样不利于调试。在 GDB 中执行 shell 命令可以使用：shell commandGDB 命令可以使用 TAB 键来补全。按两次 TAB 键可以看到所有可能的匹配。GDB 命令缩写：">
@@ -968,7 +968,7 @@ disable 1-5            //禁止第1到第5个断点
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1165,7 +1165,7 @@ disable 1-5            //禁止第1到第5个断点
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

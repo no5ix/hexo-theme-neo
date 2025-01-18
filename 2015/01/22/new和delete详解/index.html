@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="c++中对new申请的内存的释放方式有delete和delete[]两种方式，到底这两者有什么区别呢？ 疑问我们通常从教科书上看到这样的说明：delete 释放new分配的单个对象指针指向的内存delete[] 释放new分配的对象数组指针指向的内存那么，按照教科书的理解，我们看下下面的代码： 123int *a = new int[10];delete a;        //方式1delete">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.699Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="new和delete详解">
 <meta name="twitter:description" content="c++中对new申请的内存的释放方式有delete和delete[]两种方式，到底这两者有什么区别呢？ 疑问我们通常从教科书上看到这样的说明：delete 释放new分配的单个对象指针指向的内存delete[] 释放new分配的对象数组指针指向的内存那么，按照教科书的理解，我们看下下面的代码： 123int *a = new int[10];delete a;        //方式1delete">
@@ -914,7 +914,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1111,7 +1111,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

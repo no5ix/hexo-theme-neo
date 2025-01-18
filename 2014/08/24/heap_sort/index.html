@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="此文用的是最大堆, 最大堆的堆排序之后的数组是升序, 最小堆反之.堆排序 HeapSort 由 以下两部分组成 :  堆化 MaxHeapify  建堆 BuildMaxHeap.  . . .">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.693Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.976Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法四之谈一谈堆排序">
 <meta name="twitter:description" content="此文用的是最大堆, 最大堆的堆排序之后的数组是升序, 最小堆反之.堆排序 HeapSort 由 以下两部分组成 :  堆化 MaxHeapify  建堆 BuildMaxHeap.  . . .">
@@ -927,7 +927,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1124,7 +1124,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

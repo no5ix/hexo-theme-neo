@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="2.2 Booleans两个取值 false 和 true。但要注意 Lua 中所有的值都可以作为条件。在控制结构的条件中除了 false 和 nil 为假，其他值都为真。所以 Lua 认为 0 和空串都是真。 2.5 table我们用一个疑问来引入table的介绍 传的是值还是引用?lua的函数调用传的是值还是引用? . . .">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.698Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lua特别之处笔记">
 <meta name="twitter:description" content="2.2 Booleans两个取值 false 和 true。但要注意 Lua 中所有的值都可以作为条件。在控制结构的条件中除了 false 和 nil 为假，其他值都为真。所以 Lua 认为 0 和空串都是真。 2.5 table我们用一个疑问来引入table的介绍 传的是值还是引用?lua的函数调用传的是值还是引用? . . .">
@@ -918,7 +918,7 @@ nStringForTest : hi
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1115,7 +1115,7 @@ nStringForTest : hi
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

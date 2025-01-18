@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="桂林字牌总体玩法规则https://baike.baidu.com/item/大字牌 算胡头 计分的基本单位为”胡”，每5胡为1”舵”。(桂林称”舵”为“子”). 胡牌最低胡牌数10胡10 -14胡为1舵，15-19胡为2舵，20-24胡为3舵，以下类推。(逢5进1)。 胡牌在以下几种情况要加分: 自摸+1舵;有上醒牌每一张+1舵;有下醒牌每一张+1舵;天胡、地胡、三笼五坎四种特殊胡牌+1舵  特">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.692Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="桂林字牌">
 <meta name="twitter:description" content="桂林字牌总体玩法规则https://baike.baidu.com/item/大字牌 算胡头 计分的基本单位为”胡”，每5胡为1”舵”。(桂林称”舵”为“子”). 胡牌最低胡牌数10胡10 -14胡为1舵，15-19胡为2舵，20-24胡为3舵，以下类推。(逢5进1)。 胡牌在以下几种情况要加分: 自摸+1舵;有上醒牌每一张+1舵;有下醒牌每一张+1舵;天胡、地胡、三笼五坎四种特殊胡牌+1舵  特">
@@ -902,7 +902,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1099,7 +1099,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

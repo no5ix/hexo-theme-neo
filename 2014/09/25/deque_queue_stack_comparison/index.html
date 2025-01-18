@@ -104,7 +104,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/2014/09/25/deque_queue_stack_comparison/deque_queue_stack_comparison_1.png">
 <meta property="og:image" content="https://hulinhong.com/2014/09/25/deque_queue_stack_comparison/deque_queue_stack_comparison_2.png">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.674Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="STL之队列和双端队列和栈的比较">
 <meta name="twitter:description" content="队列和双端队列的比较队列(queue)是一种是相对于栈的一种数据结构，它是先进先出(First In First Out)。它只可以在尾部添加元素。  双端队列(deque double ended queue（双端队列）)是一种相对于队列的一种数据结构。它可以在尾部和头部插入、移除和获取。  三者成员函数的比较通过他们各自的成员函数我们能一目了然的看出区别 栈的成员函数 stack&amp;lt;Typ">
@@ -927,7 +927,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1124,7 +1124,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);

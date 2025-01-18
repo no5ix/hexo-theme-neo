@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="干货写在前面 协程的概念就不详细介绍了,不清楚的同学可以自己google,windows和unix like系统本身就提供了协程的支持,windows下叫fiber,unix like系统下叫ucontext. 协程是一种用户态的轻量级线程。本篇主要研究协程的 C/C++ 的实现。首先我们可以看看有哪些语言已经具备协程语义：  比较重量级的有 C#、erlang、golang* 轻量级有 pyth">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-17T11:14:49.668Z">
+<meta property="og:updated_time" content="2025-01-18T09:12:52.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于ucontext实现协程">
 <meta name="twitter:description" content="干货写在前面 协程的概念就不详细介绍了,不清楚的同学可以自己google,windows和unix like系统本身就提供了协程的支持,windows下叫fiber,unix like系统下叫ucontext. 协程是一种用户态的轻量级线程。本篇主要研究协程的 C/C++ 的实现。首先我们可以看看有哪些语言已经具备协程语义：  比较重量级的有 C#、erlang、golang* 轻量级有 pyth">
@@ -991,7 +991,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         if (isMobile())
         {
           // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-          scrollTo(last_page_x, last_page_y);
+              scrollTo(last_page_x, last_page_y);
 
           $('#' + content_id).hide();
         }
@@ -1188,7 +1188,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.bounceDownIn', 800);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
           } else {
                 $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
               //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
