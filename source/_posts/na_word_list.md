@@ -9,98 +9,119 @@ categories:
 password: '0622'
 ---
 
-# Unknow
+
+# Java
 
 1. Intellij `/ɪn’telɪdʒeɪ/`
-2. eden `/ˈiːdn/` , 伊甸园, gc相关
+2. **eden** `/ˈiːdn/` , 伊甸园, GC 相关
 3. serialization `/ ˌsɪriələˈzeɪʃn /` , `lization`美式发音读 `ləˈzeɪʃn`, 英式才读 `laɪˈzeɪʃn`
-4. hierarchical `/ˌhaɪəˈrɑːrkɪkl/`
-5. polymorphism `/ˌpɑːlɪˈmɔːrˌfɪzəm`
-6. session facade `/fəˈsɑːd/` : 
-7. composite
+4. **hierarchical** `/ˌhaɪəˈrɑːrkɪkl/`
+5. **polymorphism** `/ˌpɑːlɪˈmɔːrˌfɪzəm`
+6. **session facade** `/fəˈsɑːd/` :  通常是指在企业级应用开发中，用于封装和管理与业务逻辑相关的一系列操作的组件或类。它充当了客户端（如用户界面、其他系统等）与底层业务逻辑和数据访问层之间的中间层，就像是一个门面，将复杂的业务操作封装起来，为客户端提供一个简单、统一的接口。
+7. **composite** `/kəmˈpɑːzət/` adj. 合成的, 复合的
 8. Enumeration `/ɪˌnuːməˈreɪʃn/`
 9. NPE: Null Pointer Exception
-10. Volatile
-11. Atomic
-12. predicate `/ˈpredɪkət/` n. （语法）谓语 v. 使基于，使取决于；表明，`断言`
-13. PostgreSQL
-14. canssandra
-15. CosmosDB
-16. MongoDB Atlas
-17. Durability
-18. Atomicity
-19. Column Group
-20. Stored Procedures
-21. NVL
-22. Materialized View
-23. Aggregate
-24. Dispatch Servlet
-25. Soap
-26. Swagger
-27. Jersey Rest
-28. Thymeleaf
-29. Angular
-30. asynchrounous
-31. IOC
-32. Autowired
-33. Actuator
-34. embedded tomcat server
-35. Repository 
-36. DTO
-37. Pojo
-38. Hibernate
-39. Composite Primary Key `/kəmˈpɑːzət/` adj. 合成的 n. 合成物
-40. boilerplate
-41. Propagation
-42. Pessimistic Locking
-43. pointcut
-44. authentication
-45. authorization
-46. symmetric
-47. asymmetric
-48. Mockito
-49. Selenium
-50. Gatling
-51. Regression Test
-52. E2E test
-53. Prod
-54. TDD
-55. BDD
-56. CICD
-57. Agile
-58. Retro
-59. Grooming
-60. Scrum Master
-61. story points
-62. Monolithic
-63. Eureka
-64. Circuit Breaker
-65. Hystrix
-66. Zuul
-67. Ribbon
-68. NgX
-69. Round Robin
-70. Replica
-71. replay
-72. Fanout
-73. Saga Pattern
-74. orchestration
-75. docker-compose
-76. RDS
-77. Aurora
-78. DynamoDB
-79. EC2
-80. inbound
-81. outbound
-82. Elastic beanstalk
-83. Azure
-84. CosmosDB
-85. GCP
-86. Logstash
-87. Kibana
-88. Graphana
-89. ELK
+10. Volatile `/ˈvɑːlət(ə)l/` adj. 易变的，动荡不定的，反复无常的；（情绪）易变的，易怒的，突然发作的；（液体或固体）易挥发的，易气化的；（计算机内存）易失的 n. 挥发物
+11. **Atomic** `/əˈtɑːmɪk/`
+12. **predicate** `/ˈpredɪkət/` n. （语法）谓语 v. 使基于，使取决于；表明，`断言`
 
+
+# Database
+
+1. **PostgreSQL** `/ˈpoʊstˌɡre ˌɛs ˌkjuˈɛl/` 数据库管理系统，支持复杂查询,  PostgreSQL 开发者把它拼读为"post-gress-Q-L"。它也经常被简略念为"postgres", gress原意为: 行走,  官方读法 http://www.postgresql.org/files/postgresql.mp3
+2. Cassandra `/kəˈsændrə/` 分布式 NoSQL 数据库; n. 凶事预言家；不为人所信的预言家；卡珊德拉（希腊神话人物
+3.  CosmosDB `/ˈkɑːzˌmoʊs ˌdiːˈbiː/` 微软 Azure 提供的全局分布式数据库服务, `cosmos`本意是: n. 宇宙；完整和谐的一统体系；秋英属植物
+4.  **MongoDB Atlas** `/ˈmɑːŋɡoʊ ˌdiːˈbiː ˈætləs/` MongoDB 的云数据库服务
+5.  **Durability** `/ˌdʊrəˈbɪləti/` 数据库事务的 ACID 特性之一，指持久性
+6.  **Atomicity** `/ˌætəˈmɪsəti/` 数据库事务的 ACID 特性之一，指原子性
+7.  Column Group `/ˈkɑːləm ɡruːp/` 数据库列组，用于存储相关列数据
+8.  Stored Procedures `/stɔrd prəˈsiːdʒərz/` 存储过程，用于数据库逻辑封装
+9.  NVL `/ˌɛn ˌviː ˈɛl/` SQL 函数，用于替代 NULL 值
+10. Materialized View `/məˈtɪriəˌlaɪzd ˈvjuː/` 物化视图，存储查询结果的视图
+11. **Aggregate** `/ˈæɡrɪˌɡeɪt/` 聚合函数，用于数据汇总计算
+
+
+# Spring Boot
+
+1. Dispatch Servlet `/dɪˈspætʃ ˈsɜːrvlɪt/` Spring MVC 的核心调度器
+2. Soap `/soʊp/` 基于 XML 的 Web 服务协议
+3.  Swagger `/ˈswæɡər/` 用于生成 API 文档的工具
+4.  **Jersey Rest** `/ˈdʒɜrzi rɛst/` Java RESTful Web 服务框架
+5.  Thymeleaf `/ˈtaɪmˌliːf/` 用于 Java Web 应用的模板引擎, 由两个单词组成 thyme (`/taɪm/` 百里香, 一种植物),  leaf
+6.  Angular `/ˈæŋɡjələr/` JavaScript 前端框架，常与 Java 后端整合, 本意是: adj. [生物] 有角的；生硬的，笨拙的；瘦削的
+7.  Asynchronous `/ˌeɪˈsɪŋkrənəs/` 异步处理机制，提高性能
+8.  **synchronous** `ˈsɪŋkrənəs/` 同步的
+9.  IOC `/ˌaɪ ˌoʊ ˈsiː/` 控制反转，Spring 框架的核心概念
+10. Autowired `/ˈɔːtəˌwaɪrd/` Spring 注解，用于自动注入依赖
+11. **Actuator** `/ˈæktʃuˌeɪtər/` Spring Boot 提供的监控工具, 原型: actuate `/ˈæktʃueɪt/` vt. 开动（机器等）；促使，驱使；激励（人等）
+12. **Embedded** Tomcat Server `/ɪmˈbɛdɪd ˈtɑːmˌkæt ˈsɜːrvər/` 嵌入式 Tomcat，Spring Boot 默认 Web 服务器
+13. **Repository** `/rɪˈpɑːzətɔːri/` 数据访问层接口
+14. DTO `/ˌdiː ˌtiː ˈoʊ/` 数据传输对象, Data Transfer Object
+15. Pojo `/ˈpoʊdʒoʊ/` 简单 Java 对象, Plain Ordinary Java Object
+16. Hibernate `/ˈhaɪbərˌneɪt/` Java 的 ORM 框架
+17. Composite Primary Key `/kəmˈpɑːzɪt ˈpraɪˌmɛri ˈkiː/` 复合主键
+18. Boilerplate `/ˈbɔɪlərˌpleɪt/` 模板化代码
+19. **Propagation** `/ˌprɑːpəˈɡeɪʃən/` Spring 事务传播行为, n. （动植物等的）繁殖，增殖，；（观点、理论等的）传播；（运动、光线、声音等的）传送
+20. **Pessimistic** Locking `/ˌpesɪˈmɪstɪk/ ˈlɑːkɪŋ/` 悲观锁
+21. **Optimistic** Locking `/ˌɑːptɪˈmɪstɪk/` 乐观锁
+22. Pointcut `/ˈpɔɪntˌkʌt/` AOP 切入点
+23. **Authentication** `/ɔːˌθɛntɪˈkeɪʃən/` 身份验证
+24. **Authorization** `/ˌɔːθərəˈzeɪʃ(ə)n/` 授权
+25. **Symmetric** `/sɪˈmɛtrɪk/` 对称的
+26. **Asymmetric** `/ˌeɪsɪˈmɛtrɪk/` 非对称的
+
+
+# Agile
+
+1.  Mockito `/mɑːkˈiːtoʊ/` 测试框架，用于模拟对象, 一种类似莫吉托的酒
+2.  Selenium `/səˈliːniəm/` 自动化测试工具, n. [化学] 硒
+3.  **Gatling** `/ˈɡætlɪŋ/` 性能测试工具, n. 格林机关枪（初期的机关枪，为美国人 R.J.Gatling 所发明）
+4.  **Regression** Test `/rɪˈɡrɛʃən ˈtɛst/` 回归测试, Regression n. 后退，倒退；（思想或行为的）退化，退行；（疾病或症状的）消退；（统计）回归
+5.  E2E Test `/iː tuː iː ˈtɛst/` 端到端测试
+6.  Prod `/prɑːd/` 生产环境
+7.  TDD `/tiː diː diː/` 测试驱动开发, test-driven development
+8.  BDD `/biː diː diː/` 行为驱动开发, Behavior-driven development
+9.  CICD `/ˌsiː ˌaɪ ˌsiː ˈdiː/` 持续集成与持续部署, Continuous integration and continuous deployment
+10. **Agile** `/ˈædʒ(ə)l/` 敏捷开发, 本意为: 敏捷的
+11. Retro `/ˈrɛtroʊ/` 迭代回顾, Sprint Retrospective, `/ˌretrəˈspektɪv/` adj. 回顾的，回想的；有追溯效力的，溯及既往的 n. （艺术家作品）回顾展, 而 Retro `/ˈretroʊ/` adj. 怀旧的，重新流行的 n. （服装式样等）重新流行；<美，非正式>回顾展
+12. Grooming `/ˈɡruːmɪŋ/` 敏捷开发中的需求梳理, n. （动物）刷洗，梳毛；梳妆；培养；（以实施性侵为目的的）儿童诱骗 v. （动物）刷洗，梳毛；梳妆；培养；（以实施性侵为目的的）儿童诱骗（groom 的现在分词）
+13. Scrum Master `/skrʌm ˈmæstər/` Scrum 项目中的管理角色, n. 扭打，混乱；并列争球 vi. 参加并列争球 vt. 抛（球）开始并列争球
+14. Story Points `/ˈstɔːri ˈpɔɪnts/` 敏捷开发中的工作量估算单位
+
+
+# Distributed System
+
+1. Monolithic `/ˌmɑːnəˈlɪθɪk/` 单体架构, adj. 整体的；巨石的，庞大的；完全统一的 n. 单块集成电路，单片电路
+2. Eureka `/juˈriːkə/` 服务发现组件, int. （eureka）我发现了，我找到了；有了
+3.  Circuit Breaker `/ˈsɜːrkɪt ˈbreɪkər/` 服务熔断器, circuit n. 电路，回路；巡回活动，巡回地；环道，环线；巡回赛；赛车道；
+4.  Hystrix `/ˈhaɪstrɪks/` 服务熔断工具
+5.  Zuul `/zuːl/` API 网关
+6.  **Ribbon** `/ˈrɪbən/` 客户端负载均衡工具, n. 丝带，绸带
+7.  NgX `/ɛn ˌdʒiː ˈɛks/` Angular 框架工具
+8.  **Round Robin** `/raʊnd ˈrɑːbɪn/` 轮询算法
+9.  **Replica** `/ˈrɛplɪkə/` 副本, n. 复制品
+10. Replay `/ˌriːˈpleɪ/` 重放机制
+11. Fanout `/ˈfænˌaʊt/` 扇出模式, n. 扇出；展开；分列（账户
+12. Saga Pattern `/ˈsɑːɡə ˈpætərn/` 分布式事务模式, n. 萨迦（中世纪挪威或冰岛的传奇故事）；长篇小说，传奇故事；一连串事件（或经历）
+13. Orchestration `/ˌɔːrkɪˈstreɪʃən/` 服务编排, n. 管弦乐编曲；和谐的结合
+14. Docker-Compose `/ˈdɑːkər kəmˈpoʊz/` 容器编排工具, Compose v. 组成，构成；作曲；撰写（信、诗或演讲稿）；使镇静，使平静；为（照片、图像）构图；排版，排稿
+15. RDS `/ˌɑːr ˌdiː ˈɛs/` 关系型数据库服务 Relation Data System
+
+
+# Third Party Service
+
+1. Aurora `/əˈrɔːrə/` 亚马逊 RDS 提供的高性能数据库, n. 奥罗拉（女子名）；奥罗拉（曙光女神）；奥罗拉（美国城市）
+2. DynamoDB `/ˈdaɪnəˌmoʊ ˌdiː ˈbiː/` 分布式 NoSQL 数据库, Dynamo n. 发电机；精力充沛的人
+3.  EC2 `/ˌiː ˌsiː ˈtuː/` 亚马逊弹性计算云
+4.  **Inbound** `/ˈɪnˌbaʊnd/` 入站流量, adj. 入境的；归本国的；回内地的
+5.  **Outbound** `/ˈaʊtˌbaʊnd/` 出站流量
+6.  Elastic Beanstalk `/ɪˈlæstɪk ˈbiːnstɔːk/` AWS 应用部署服务, `Elastic` adj. 有弹性的；灵活的 n. 弹性织物，松紧带; `Beanstalk` n. 豆茎
+7.  **Azure** `/ˈæʒər/` 微软云计算平台
+8.  GCP `/ˌdʒiː ˌsiː ˈpiː/` 谷歌云平台
+9.  Logstash `/ˈlɔːɡˌstæʃ/` 日志收集工具, `stash` n. 藏匿处；藏匿物 vt. 存放；贮藏 vi. 存放；藏起来
+10. Kibana `/kɪˈbɑːnə/` 数据可视化工具
+11. Grafana `/ɡrəˈfɑːnə/` 监控与可视化平台
+12. ELK `/ˌiː ˌɛl ˈkeɪ/` 日志分析工具套件
 
 
 # All
