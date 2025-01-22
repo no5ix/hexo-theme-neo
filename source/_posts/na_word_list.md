@@ -69,6 +69,10 @@ password: '0622'
 24. **Authorization** `/ˌɔːθərəˈzeɪʃ(ə)n/` 授权
 25. **Symmetric** `/sɪˈmɛtrɪk/` 对称的
 26. **Asymmetric** `/ˌeɪsɪˈmɛtrɪk/` 非对称的
+27. **MyBatis** [mai'bətɪs]，中文音译：麦-波蒂斯。MyBatis的前世是ibatis，这个词是由"internet"和"abatis"组合而成，创始人是Clinton Begin。abatis 的英文读音是：['æbətɪs]，其含义是：篱笆墙，这是用来保护院子的一种设施，一般都是由木头，棍子，竹子，芦苇、灌木或者石头构成，常见于我国北方农村以及欧美等地广人稀的国家，用于保护院子。从ibatis的含义可知，其目的是想当做互联网的篱笆墙，是围绕着数据库提供持久化服务的一个框架。 
+28. **encrypte** `/ ɪnˈkrɪpt /` v. 把 ... 加密
+29. **pagination** / ˌpædʒɪˈneɪʃ(ə)n / n. 分页机制; 页码; 标记页数
+30. **idempotent** `/ aɪˈdempətənt /` adj. 幂等的
 
 
 # Agile
@@ -81,7 +85,7 @@ password: '0622'
 6.  Prod `/prɑːd/` 生产环境
 7.  TDD `/tiː diː diː/` 测试驱动开发, test-driven development
 8.  BDD `/biː diː diː/` 行为驱动开发, Behavior-driven development
-9.  CICD `/ˌsiː ˌaɪ ˌsiː ˈdiː/` 持续集成与持续部署, Continuous integration and continuous deployment
+9.  **CICD** `/ˌsiː ˌaɪ ˌsiː ˈdiː/` 持续集成与持续部署, Continuous integration and continuous deployment
 10. **Agile** `/ˈædʒ(ə)l/` 敏捷开发, 本意为: 敏捷的
 11. Retro `/ˈrɛtroʊ/` 迭代回顾, Sprint Retrospective, `/ˌretrəˈspektɪv/` adj. 回顾的，回想的；有追溯效力的，溯及既往的 n. （艺术家作品）回顾展, 而 Retro `/ˈretroʊ/` adj. 怀旧的，重新流行的 n. （服装式样等）重新流行；<美，非正式>回顾展
 12. Grooming `/ˈɡruːmɪŋ/` 敏捷开发中的需求梳理, n. （动物）刷洗，梳毛；梳妆；培养；（以实施性侵为目的的）儿童诱骗 v. （动物）刷洗，梳毛；梳妆；培养；（以实施性侵为目的的）儿童诱骗（groom 的现在分词）
@@ -106,6 +110,7 @@ password: '0622'
 13. Orchestration `/ˌɔːrkɪˈstreɪʃən/` 服务编排, n. 管弦乐编曲；和谐的结合
 14. Docker-Compose `/ˈdɑːkər kəmˈpoʊz/` 容器编排工具, Compose v. 组成，构成；作曲；撰写（信、诗或演讲稿）；使镇静，使平静；为（照片、图像）构图；排版，排稿
 15. RDS `/ˌɑːr ˌdiː ˈɛs/` 关系型数据库服务 Relation Data System
+16. theorem `/ ˈθiːərəm /` n. [数] 定理；原理
 
 
 # Third Party Service
@@ -184,7 +189,7 @@ password: '0622'
 56. association, @JoinColumn, MappedBy, Fetch, Lazy, Eager, Cascade, Persistence Context, Persistent, Detached, **boilerplate**
 57. Isolation level, @Transactional, rollbackFor, **Propagation**, ACID, Optimistic Locking, **Pessimistic Locking**, 
 58. Cache, 1st level cache, Query cache, CacheProvider, v, logging
-59. Naming Convention, Pagination, PagingndSortingRepository, Iterable, JpaRepository
+59. Naming Convention, **Pagination**, PagingndSortingRepository, Iterable, JpaRepository
 60. 
 61. Global Transaction, Read_Uncommited, Read_Comitted
 62. AOP, Aspect oriented programming, **pointcut**, aspect, advice, ExceptionHandler, ControllerAdvice

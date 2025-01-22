@@ -1,5 +1,5 @@
 ---
-title: Git教程
+title: Git Tutorial
 date: 2016-04-12 23:26:16
 tags: 
 - Git
