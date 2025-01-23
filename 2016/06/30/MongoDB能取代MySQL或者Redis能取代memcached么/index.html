@@ -16,7 +16,7 @@
     (function(){
         if(''){
           const hostname = window.location.hostname;
-          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1" || hostname.startsWith("192"))) {
             // console.log("The website is not running on localhost.");
             // alert('此文章并不公开, 输入文章密码方可阅读');
             var password = prompt('此文章并不公开, 输入文章密码方可阅读');
@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="mongodb和memcached不是一个范畴内的东西。 mongodb是文档型的非关系型数据库，其优势在于查询功能比较强大，能存储海量数据。 mongodb和memcached不存在谁替换谁的问题。和memcached更为接近的是redis。 它们都是内存型数据库，数据保存在内存中，通过tcp直接存取，优势是速度快，并发高，缺点是数据&amp;gt; 类型有限，查询功能不强，一般用作缓存。 一般现在的">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-22T08:58:48.324Z">
+<meta property="og:updated_time" content="2025-01-23T04:25:31.241Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB能取代MySQL或者Redis能取代memcached么">
 <meta name="twitter:description" content="mongodb和memcached不是一个范畴内的东西。 mongodb是文档型的非关系型数据库，其优势在于查询功能比较强大，能存储海量数据。 mongodb和memcached不存在谁替换谁的问题。和memcached更为接近的是redis。 它们都是内存型数据库，数据保存在内存中，通过tcp直接存取，优势是速度快，并发高，缺点是数据&amp;gt; 类型有限，查询功能不强，一般用作缓存。 一般现在的">

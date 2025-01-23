@@ -16,7 +16,7 @@
     (function(){
         if(''){
           const hostname = window.location.hostname;
-          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1" || hostname.startsWith("192"))) {
             // console.log("The website is not running on localhost.");
             // alert('此文章并不公开, 输入文章密码方可阅读');
             var password = prompt('此文章并不公开, 输入文章密码方可阅读');
@@ -104,7 +104,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/2016/06/21/NAT穿越基础/nat1.jpg">
 <meta property="og:image" content="https://hulinhong.com/2016/06/21/NAT穿越基础/nat2.jpg">
-<meta property="og:updated_time" content="2025-01-22T08:58:48.324Z">
+<meta property="og:updated_time" content="2025-01-23T04:25:31.241Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NAT穿越基础">
 <meta name="twitter:description" content="NAT类型 锥NAT 对称NAT   NAT作用 穿透锥NAT 网络拓扑结构 使用UDP穿透NAT 使用TCP穿透NAT   穿透对称NAT 同时开放TCP（ Simultaneous TCP open ）策略 UDP端口猜测策略   问题总结 参考  NAT类型注 : 我们本文主要讨论穿越锥NAT 锥NAT 全锥NAT ：全锥NAT 把所有来自相同内部IP 地址和端口的请求映射到相同的外部IP">

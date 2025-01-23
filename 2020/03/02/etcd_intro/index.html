@@ -16,7 +16,7 @@
     (function(){
         if(''){
           const hostname = window.location.hostname;
-          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1" || hostname.startsWith("192"))) {
             // console.log("The website is not running on localhost.");
             // alert('此文章并不公开, 输入文章密码方可阅读');
             var password = prompt('此文章并不公开, 输入文章密码方可阅读');
@@ -116,7 +116,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/etcd_intro/740e703fb347a074addb3be1e10d33e0.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/etcd_intro/167e2a4f72b05a18425e7ab3baf7a03b.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/etcd_intro/6c0d225b6ab0cbb4a89afd4b12de0c59.jpg">
-<meta property="og:updated_time" content="2025-01-22T08:58:48.358Z">
+<meta property="og:updated_time" content="2025-01-23T04:25:31.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="etcd的从应用场景到实现原理的全方位解读">
 <meta name="twitter:description" content=". . .">

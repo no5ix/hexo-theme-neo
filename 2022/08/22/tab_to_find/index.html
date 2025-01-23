@@ -16,7 +16,7 @@
     (function(){
         if(''){
           const hostname = window.location.hostname;
-          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1" || hostname.startsWith("192"))) {
             // console.log("The website is not running on localhost.");
             // alert('此文章并不公开, 输入文章密码方可阅读');
             var password = prompt('此文章并不公开, 输入文章密码方可阅读');
@@ -103,7 +103,7 @@
 <meta property="og:description" content="tab-to-find  tab-to-findOne tab enables interactive and dynamic search for everything!! It also supports tab dynamic completion of commands for the paths of any directories and files.  It is extremely">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://raw.githubusercontent.com/no5ix/tab-to-find/main/tab-to-find-demo.gif">
-<meta property="og:updated_time" content="2025-01-22T08:58:48.379Z">
+<meta property="og:updated_time" content="2025-01-23T04:25:31.296Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A shell plugin that provides interactive Tab search &amp; completion for any path">
 <meta name="twitter:description" content="tab-to-find  tab-to-findOne tab enables interactive and dynamic search for everything!! It also supports tab dynamic completion of commands for the paths of any directories and files.  It is extremely">

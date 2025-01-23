@@ -16,7 +16,7 @@
     (function(){
         if(''){
           const hostname = window.location.hostname;
-          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1" || hostname.startsWith("192"))) {
             // console.log("The website is not running on localhost.");
             // alert('此文章并不公开, 输入文章密码方可阅读');
             var password = prompt('此文章并不公开, 输入文章密码方可阅读');
@@ -466,9 +466,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2021/03/08/self_cultivation_linux_memory_manage/" itemprop="url">
+            <a class="post-title-link" href="/2021/03/08/self_cultivation_linux_process/" itemprop="url">
               
-                <span itemprop="name">服务器开发自我修养专栏-Linux内存管理</span>
+                <span itemprop="name">服务器开发自我修养专栏-Linux进程管理</span>
               
             </a>
         
@@ -492,9 +492,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2021/03/08/self_cultivation_linux_process/" itemprop="url">
+            <a class="post-title-link" href="/2021/03/08/self_cultivation_linux_memory_manage/" itemprop="url">
               
-                <span itemprop="name">服务器开发自我修养专栏-Linux进程管理</span>
+                <span itemprop="name">服务器开发自我修养专栏-Linux内存管理</span>
               
             </a>
         

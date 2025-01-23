@@ -16,7 +16,7 @@
     (function(){
         if(''){
           const hostname = window.location.hostname;
-          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1" || hostname.startsWith("192"))) {
             // console.log("The website is not running on localhost.");
             // alert('此文章并不公开, 输入文章密码方可阅读');
             var password = prompt('此文章并不公开, 输入文章密码方可阅读');
@@ -397,6 +397,41 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       <h2 class="post-title">
         
+            <a class="post-title-link" href="/2015/07/11/redis概要之数据类型/" itemprop="url">
+              
+                <span itemprop="name">redis概要之数据类型</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2015-07-11T09:29:22+00:00" content="2015-07-11">
+          07-11
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
             <a class="post-title-link" href="/2015/07/11/redis_hiredis_install_tutorial/" itemprop="url">
               
                 <span itemprop="name">redis和hiredis安装教程</span>
@@ -435,41 +470,6 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             <a class="post-title-link" href="/2015/07/11/python和lua数据类型的比较/" itemprop="url">
               
                 <span itemprop="name">python和lua数据类型的比较</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2015-07-11T09:29:22+00:00" content="2015-07-11">
-          07-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2015/07/11/redis概要之数据类型/" itemprop="url">
-              
-                <span itemprop="name">redis概要之数据类型</span>
               
             </a>
         

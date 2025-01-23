@@ -16,7 +16,7 @@
     (function(){
         if(''){
           const hostname = window.location.hostname;
-          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1")) {
+          if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1" || hostname.startsWith("192"))) {
             // console.log("The website is not running on localhost.");
             // alert('此文章并不公开, 输入文章密码方可阅读');
             var password = prompt('此文章并不公开, 输入文章密码方可阅读');
@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="boost.python 迟暮, 久违 pybind11 , 来玩玩 官方介绍pybind11 is a lightweight header-only library that exposes C++ types in Python and vice versa, mainly to create Python bindings of existing C++ code. Its goals a">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-22T08:58:48.371Z">
+<meta property="og:updated_time" content="2025-01-23T04:25:31.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="久违pybind11">
 <meta name="twitter:description" content="boost.python 迟暮, 久违 pybind11 , 来玩玩 官方介绍pybind11 is a lightweight header-only library that exposes C++ types in Python and vice versa, mainly to create Python bindings of existing C++ code. Its goals a">
