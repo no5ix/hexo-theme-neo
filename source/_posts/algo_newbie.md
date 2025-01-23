@@ -2132,11 +2132,14 @@ A也重复上述步骤递归。
 
 递归结束之后， 左边的都比右边的小， 而且是有序的。
 
+![](/img/algo_newbie/quick_sort/quick_sort_0.png)
+
 ![](/img/algo_newbie/quick_sort/quick_sort_2.png)
 
 动画演示:
+
 <video width="100%" controls="controls">
-<source src="/img/algo_newbie/quick_sort/quick_sort_partition_anim.mp4" type="video/mp4" />
+    <source src="/img/algo_newbie/quick_sort/quick_sort_partition_anim.mp4" type="video/mp4" />
 </video>
 
 

@@ -64,6 +64,66 @@ password: '0622'
             - 除了google没人考dp, dp会几个经典的就行了(背包，股票，偷房子, 很多变形), dp难的是给竞赛生的, 
 
 
+# Pilot Training Questions
+                     
+## Leetcode
+
+- Arrays
+    - Two sum: https://leetcode.com/problems/two-sum/description/
+    - Contains Duplicate: https://leetcode.com/problems/contains-duplicate/description/
+    - Group Anagram: https://leetcode.com/problems/group-anagrams/description/
+    - Best Time to Buy and Sell Stock: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
+    - Top K Frequent Elements: https://leetcode.com/problems/top-k-frequent-elements/description/
+    - Longest Consecutive Sequence: https://leetcode.com/problems/longest-consecutive-sequence/description/
+- Two Pointer
+    - Valid Palindrome: https://leetcode.com/problems/valid-palindrome/description/
+    - 3Sum: https://leetcode.com/problems/3sum/description/
+- Binary Search
+    - Binary Search: https://leetcode.com/problems/binary-search/description/
+    - Search in Rotated Sorted Array: https://leetcode.com/problems/search-in-rotated-sorted-array/description/
+    - Koko Eating Bananas: https://leetcode.com/problems/koko-eating-bananas/description/
+- Sliding Window
+    - Longest Substring Without Repeating Characters: https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
+- Linked List
+    - Reverse Linked List: https://leetcode.com/problems/reverse-linked-list/description/
+    - Merge Two Sorted Lists: https://leetcode.com/problems/merge-two-sorted-lists/description/
+    - Linked List Cycle: https://leetcode.com/problems/linked-list-cycle/description/
+    - Copy List with Random Pointer: https://leetcode.com/problems/copy-list-with-random-pointer/description/
+- Stack & Queue
+    - Valid Parentheses: https://leetcode.com/problems/valid-parentheses/description/
+    - Min Stack: https://leetcode.com/problems/min-stack/description/
+    - Implement Queue using Stacks: https://leetcode.com/problems/implement-queue-using-stacks/description/
+- DFS & BFS
+    - Number of Islands: https://leetcode.com/problems/number-of-islands/description/
+
+## Rest API
+
+- User Info
+    - Given URL: https://jsonplaceholder.typicode.com/users
+    - You need to write a REST api to call the given URL and return a user with its "name, username, zipcode"
+    - for example, if user id is 1, you should return a JSON file with username "Bret", email "Sincere@april.biz" and zipcode "92998-3874"
+        - HINT: use "Rest Template"
+    - Result: OPEN a webbrowser and enter: http://localhost:8080/user/1 should return the correct result.
+    - Follow-up: id only 1-10, how to handle /user/11 → print in the page “Invalid ID”
+    - Solution
+- Movie
+    - https://jsonmock.hackerrank.com/api/movies/search/?Title=waterworld 
+    - GIVEN Above URL. Write a MVC with rest api to fetch this URL and then create new rest APIs to:
+        - Show all movies
+        - Show all movies sort by year
+        - Fetch a particular movie based on its imdbID.
+        - Hint: have multiple pages
+    - Solutions
+        - look at this URL date, it has multiple pages, each page has 10 movies, we need to fetch all pages to get a full list of movies and then filter to find the particular movie by imdbID
+        - each movie has Title, Year, imdbID three fields, we need to create a model to match them
+        - need org.json.simple to parse the json object from the given URL
+- Build a POST API /greetings with below requirements
+    - Create a POST API /greetings
+    - INPUT – json array: [{"name":"john doe", "work": "engineer"}, {"name":"jane who", "work": "manager"}] 
+    - OUTPUT - json: {"data": ["Hello john the engineer", "Hello jane the manager"], "timestamp": "${requested_timestamp}"
+    - Use postman to call the API and pass input, it should return the correct response.
+
+
 # 概绍
 
 本群的每日刷题打卡活动, 按照 GitHub 49k star的项目 https://github.com/youngyangyang04/leetcode-master 的刷题顺序.
@@ -336,7 +396,6 @@ public class Main {
 
 ```java
         Queue<Integer> queue = new ArrayDeque<>();  // 不要用 LinkedList(除非你要往队列里插入null, 因为ArrayDeque不准插入null, 但是LinkedList可以), ArrayDeque用circular buffer实现的, 是最高效的: https://stackoverflow.com/questions/6129805/what-is-the-fastest-java-collection-with-the-basic-functionality-of-a-queue
-        deque.offerFirst(1);
         queue.offer(1);
         queue.offer(2);
         queue.isEmpty();
@@ -377,7 +436,7 @@ public class Main {
 
 ## Stack(一般不用因为有性能问题)
 
-在 Java 中，如果我们希望避免使用 `Stack` 类以减少同步带来的性能问题，可以使用其他不包含同步的集合类实现栈（stack）的功能，例如 `Deque`（双端队列）。`Deque` 接口的实现类如 `ArrayDeque` 都是很好的选择。
+**注意!!!** 在 Java 中，如果我们希望避免使用 `Stack` 类以减少同步带来的性能问题，可以使用其他不包含同步的集合类实现栈（stack）的功能，例如 `Deque`（双端队列）。`Deque` 接口的实现类如 `ArrayDeque` 都是很好的选择。`Deque`也可以直接 `push`, `pop`, `peek`
 
 ```java
         Stack<Integer> stack = new Stack<>();
@@ -458,9 +517,13 @@ public class Main {
 - 适合解决 Top K 问题, 因为最快
 - 快速选择平均情况下，时间复杂度为 O(N)。
 - 空间复杂度：O(N)。哈希表的大小为 O(N)，用于排序的数组的大小也为 O(N)，快速排序的空间复杂度最好情况为 O(logN)，最坏情况为 O(N)。
-- 参考 algo_newbie.md ##普通快排 里的代码, 及其动画演示, 帮助理解
+- 参考 {% post_link algo_newbie %} ##普通快排 里的代码, 及其动画演示(safari可能播放不了视频), 帮助理解
+
+![key frame](/img/algo_newbie/quick_sort/quick_sort_0.png)
 
 ```java QuickSelect模板
+    Random random = new Random();
+
     public int[] topK(int[] nums, int k) {
         int partitionIndex = 0;
         int targetIndex = nums.length - k;
@@ -479,7 +542,8 @@ public class Main {
     }
 
     private int quickSelect(int[] nums, int left, int right) {
-        int randIndex = (int) (Math.random() * (right - left + 1)) + left;
+        // int randIndex = (int) (Math.random() * (right - left + 1)) + left;
+        int randIndex = random.nextInt(right - left + 1) + left;
         swap(randIndex, left)
 
         Pair pivot = nums[left];
@@ -630,7 +694,7 @@ class Solution {
 
 - 为什么要`int mid = left + (right - left) / 2` ? 答案见下方代码中的注释
 - 是 `while (leftIndex <= rightIndex)` 还是 `while (leftIndex < rightIndex)` ? 答案见下方代码注释或者[这里](https://leetcode.cn/problems/binary-search/solutions/8337/er-fen-cha-zhao-xiang-jie-by-labuladong/) 的讲解
-- 二分查找, 当在数组中找不到对应的值, 循环完毕后的left和right的含义是什么?
+- 二分查找, **当在数组中找不到对应的值, 循环完毕后的left和right的含义是什么?**
     - 如果目标值不在数组中，循环结束时满足条件：right < left，循环结束后的 left 和 right 的含义如下:
     - left 的含义: 
         - left 指向插入目标值的位置（满足排序要求）。
@@ -655,7 +719,7 @@ class Solution {
             - •	最终状态：
             - •	left = 4（数组长度，超出范围）。
             - •	right = 3（最后一个索引，值为 9）。
-- 比如说给你有序数组 `nums = [1,2,2,2,3]`, target 为 2，如果我想得到 target 的左侧边界，即索引 1，或者我想得到 target 的右侧边界，即索引 3, 怎么做呢? 
+- 比如说给你有序数组 `nums = [1,2,2,2,3]`, target 为 2，如果我想得到 target 的**左侧边界**，即索引 1，或者我想得到 target 的**右侧边界**，即索引 3, 怎么做呢? 
     - 见下方代码的`left_bound`和`right_bound`, 详细讲解请参考: https://leetcode.cn/problems/binary-search/solutions/8337/er-fen-cha-zhao-xiang-jie-by-labuladong/
 - https://programmercarl.com/0704.二分查找.html#二分法第一种写法
 - https://leetcode.com/problems/binary-search/
@@ -715,7 +779,7 @@ class Solution {
         // 最后要检查 left 越界的情况
         if (left >= nums.length || nums[left] != target)
             return -1;
-        return left;
+        return left; // 为什么返回left? 因为上面的相等的情况的时候用了 right = mid - 1; 则while退出条件是 left == right + 1, 那此时的左侧边界是应该返回left
     }
 
     // 比如说给你有序数组 `nums = [1,2,2,2,3]`, target 为 2，我想得到 target 的右侧边界，即索引 3, 
