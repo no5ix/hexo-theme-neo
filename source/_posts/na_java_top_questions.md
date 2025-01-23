@@ -21,62 +21,62 @@ password: '0622'
 
 # IDs Questions Map
 
-- "id": 43, "question": "Abstract class vs. Interface. When to use abstract class and when to use interface?",
-- "id": 44, "question": "New feature of Java 8. Give an example of how you use them in your project",
-- "id": 45, "question": "Comparable vs. Comparator",
-- "id": 46, "question": "Types of Exceptions and how do you deal with exceptions in your project?",
-- "id": 47, "question": "Generics and how do you use generics in your project?",
-- "id": 48, "question": "Java OOP 4 principles, and explain each of them",
-- "id": 49, "question": "If java 8 allows default method in interface, so what is the real difference between interface and abstract class?",
-- "id": 52, "question": "Serialization, What is Serializable and SerialVersionUID?",
-- "id": 53, "question": "HashMap: how does it work internally, what is hash collision",
-- "id": 59, "question": "What is the Functional Interface? Java 8 built in functional interface?",
-- "id": 62, "question": "HashTable vs. HashMap",
-- "id": 67, "question": "Implement a singleton",
-- "id": 68, "question": "Do you know about the Executor Service and Future?",
-- "id": 69, "question": "Explain the Factory design pattern",
-- "id": 70, "question": "What design patterns did you worked on before?",
-- "id": 71, "question": "How to custom an Exception?",
-- "id": 72, "question": "OutOfMemoryError vs StackOverflowError vs Memory Leak",
-- "id": 75, "question": "java 8: Different types of \"method reference\"",
-- "id": 78, "question": "What is Optional?",
-- "id": 90, "question": "ArrayList vs LinkedList, which one to choose?",
-- "id": 91, "question": "How does Java class loader work?",
-- "id": 92, "question": "Java 8: Intermediate operator and terminal operator in stream api",
-- "id": 95, "question": "How do you create a thread?",
-- "id": 98, "question": "How does arraylist work internally?",
-- "id": 104, "question": "How does thread communicate/interact/share data with each other?",
-- "id": 106, "question": "What are the meaning of thread methods: join, wait, sleep, yield",
-- "id": 113, "question": "Shallow copy vs. Deep copy",
-- "id": 115, "question": "How does ConcurrentHashMap works?",
-- "id": 117, "question": "What is ConcurrentModificationException and how to handle it?",
-- "id": 118, "question": "Relationship between equals() and hashcode()",
-- "id": 119, "question": "How to make class immutable?",
-- "id": 121, "question": "What is the deadlock? How to FIND it? How to avoid it?",
-- "id": 127, "question": "Difference between HashSet and TreeSet, HashMap and TreeMap",
-- "id": 131, "question": "When implements Serializable, what if you don't define the serialVersionUID? What if you remove it?",
-- "id": 132, "question": "What is fail-fast and fail-safe?",
-- "id": 135, "question": "Map vs. FlatMap",
-- "id": 138, "question": "HashMap vs LinkedHashMap and HashSet vs LinkedHashSet",
-- "id": 139, "question": "why using static and why not?",
-- "id": 163, "question": "what is SOLID principle?",
-- "id": 295, "question": "How to make a global count in multithreading environment",
-- "id": 296, "question": "Difference: Synchronized, ThreadLocal, Volatile, AtomicInteger",
-- "id": 303, "question": "How does string works? Why is String immutable in Java?",
-- "id": 310, "question": "What's Garbage collection types and Whats new in java 8? ",
-- "id": 321, "question": "Java switch statement has too many cases, how to improve it",
-- "id": 330, "question": "New features in java 11  and 17",
-- "id": 332, "question": "Difference: Sleep and Wait",
-- "id": 343, "question": "Suppose when you have Employee class to store data, when do you use list or map",
-- "id": 344, "question": "Difference: Arraylist vs LinkedList, when to use which",
-- "id": 363, "question": "Difference runnable vs callable",
-- "id": 364, "question": "Difference future vs completableFuture",
-- "id": 371, "question": "JDK vs JRE vs JVM",
-- "id": 372, "question": "What is externalization and its difference with serialization",
-- "id": 373, "question": "How do you implement a deadlock",
-- "id": 374, "question": "Synchronized method vs Synchronized block",
-- "id": 375, "question": "Difference between Iterator and Enumeration",
-- "id": 448, "question": "What is proxy design pattern",
+1. "id": 43, "question": "Abstract class vs. Interface. When to use abstract class and when to use interface?",
+2. "id": 44, "question": "New feature of Java 8. Give an example of how you use them in your project",
+3. "id": 45, "question": "Comparable vs. Comparator",
+4. "id": 46, "question": "Types of Exceptions and how do you deal with exceptions in your project?",
+5. "id": 47, "question": "Generics and how do you use generics in your project?",
+6. "id": 48, "question": "Java OOP 4 principles, and explain each of them",
+7. "id": 49, "question": "If java 8 allows default method in interface, so what is the real difference between interface and abstract class?",
+8. "id": 52, "question": "Serialization, What is Serializable and SerialVersionUID?",
+9. "id": 53, "question": "HashMap: how does it work internally, what is hash collision",
+10. "id": 59, "question": "What is the Functional Interface? Java 8 built in functional interface?",
+11. "id": 62, "question": "HashTable vs. HashMap",
+12. "id": 67, "question": "Implement a singleton",
+13. "id": 68, "question": "Do you know about the Executor Service and Future?",
+14. "id": 69, "question": "Explain the Factory design pattern",
+15. "id": 70, "question": "What design patterns did you worked on before?",
+16. "id": 71, "question": "How to custom an Exception?",
+17. "id": 72, "question": "OutOfMemoryError vs StackOverflowError vs Memory Leak",
+18. "id": 75, "question": "java 8: Different types of \"method reference\"",
+19. "id": 78, "question": "What is Optional?",
+20. "id": 90, "question": "ArrayList vs LinkedList, which one to choose?",
+21. "id": 91, "question": "How does Java class loader work?",
+22. "id": 92, "question": "Java 8: Intermediate operator and terminal operator in stream api",
+23. "id": 95, "question": "How do you create a thread?",
+24. "id": 98, "question": "How does arraylist work internally?",
+25. "id": 104, "question": "How does thread communicate/interact/share data with each other?",
+26. "id": 106, "question": "What are the meaning of thread methods: join, wait, sleep, yield",
+27. "id": 113, "question": "Shallow copy vs. Deep copy",
+28. "id": 115, "question": "How does ConcurrentHashMap works?",
+29. "id": 117, "question": "What is ConcurrentModificationException and how to handle it?",
+30. "id": 118, "question": "Relationship between equals() and hashcode()",
+31. "id": 119, "question": "How to make class immutable?",
+32. "id": 121, "question": "What is the deadlock? How to FIND it? How to avoid it?",
+33. "id": 127, "question": "Difference between HashSet and TreeSet, HashMap and TreeMap",
+34. "id": 131, "question": "When implements Serializable, what if you don't define the serialVersionUID? What if you remove it?",
+35. "id": 132, "question": "What is fail-fast and fail-safe?",
+36. "id": 135, "question": "Map vs. FlatMap",
+37. "id": 138, "question": "HashMap vs LinkedHashMap and HashSet vs LinkedHashSet",
+38. "id": 139, "question": "why using static and why not?",
+39. "id": 163, "question": "what is SOLID principle?",
+40. "id": 295, "question": "How to make a global count in multithreading environment",
+41. "id": 296, "question": "Difference: Synchronized, ThreadLocal, Volatile, AtomicInteger",
+42. "id": 303, "question": "How does string works? Why is String immutable in Java?",
+43. "id": 310, "question": "What's Garbage collection types and What's new in java 8? ",
+44. "id": 321, "question": "Java switch statement has too many cases, how to improve it",
+45. "id": 330, "question": "New features in java 11  and 17",
+46. "id": 332, "question": "Difference: Sleep and Wait",
+47. "id": 343, "question": "Suppose when you have Employee class to store data, when do you use list or map",
+48. "id": 344, "question": "Difference: Arraylist vs LinkedList, when to use which",
+49. "id": 363, "question": "Difference runnable vs callable",
+50. "id": 364, "question": "Difference future vs completableFuture",
+51. "id": 371, "question": "JDK vs JRE vs JVM",
+52. "id": 372, "question": "What is externalization and its difference with serialization",
+53. "id": 373, "question": "How do you implement a deadlock",
+54. "id": 374, "question": "Synchronized method vs Synchronized block",
+55. "id": 375, "question": "Difference between Iterator and Enumeration",
+56. "id": 448, "question": "What is proxy design pattern",
 
 
 # 46-Types of Exceptions
@@ -887,6 +887,74 @@ In functional programming, `Map` and `FlatMap` are two commonly used higher-orde
     - Use Synchronized Block: When only a part of the method needs to be synchronized, especially in longer methods where only a small part accesses shared resources.
 
 
+# 296-Difference: Synchronized, ThreadLocal, Volatile, AtomicInteger
+
+- Synchronized: it is to make resource thread safe in multi-threading environments, can be used on block of code OR method. If we have Employee object and it contains another address object and updateEmployee() method. If we put synchronized on the method, it will lock the whole employee object. If we use synchronized(address) in the code, it will only lock the address field, will not lock whole employee object, So the synchronized block has better performance.
+- ThreadLocal: If a variable is defined as ThreadLocal, then when a thread gets this variable, it will gets its own copy, so when this thread update this variable, it only updates its own copy, the other copies used by other threads will not be affected.
+- Volatile: If a variable is volatile, it is kept at a core main memory. All threads will only read and update this main copy. They will not have their own copy. All threas share exactly the same main copy. It guarantees that if one thread updates the value, the other threads will get that updated value because there is only 1 copy.
+- AtomicInteger: AtomicInteger/AtomicBoolean/AtomicReference etc: the 'atomic' is to make sure the operations on the variable is a single operation and cannot be splitted further. It is typically used as a Global Counting and prevent thread race conditions.
+
+
+## volatile
+
+在Java中，`volatile`是一个关键字，用于修饰变量，它主要有以下作用和含义：
+
+### 保证可见性
+- 可见性是指当一个线程修改了共享变量的值，其他线程能够立即得知这个修改。在没有`volatile`关键字修饰的情况下，线程可能会从自己的本地缓存中读取变量的值，而不是从主内存中获取最新的值，这就可能导致数据不一致的问题。
+- 当变量被声明为`volatile`时，任何线程对该变量的写操作都会立即刷新到主内存中，而其他线程在读取该变量时，也会强制从主内存中获取最新的值，从而保证了不同线程之间对该变量的可见性。例如：
+
+```java
+public class VolatileExample {
+    // 定义一个volatile修饰的变量
+    private volatile boolean flag = false;
+
+    public void setFlag() {
+        flag = true;
+    }
+
+    public void checkFlag() {
+        if (flag) {
+            System.out.println("Flag is true");
+        } else {
+            System.out.println("Flag is false");
+        }
+    }
+}
+```
+
+在上述代码中，`flag`变量被`volatile`修饰，当一个线程调用`setFlag`方法修改`flag`的值为`true`时，其他线程调用`checkFlag`方法能够立即获取到`flag`的最新值。
+
+### 禁止指令重排序
+- 指令重排序是指编译器和处理器为了优化程序性能，可能会对指令进行重新排序，但是这种重排序可能会导致程序的执行结果与预期不符。
+- `volatile`关键字可以禁止指令重排序，保证变量的读写操作按照代码中的顺序执行。例如，在单例模式的双重检查锁定（DCL）实现中，如果不使用`volatile`修饰单例对象，可能会出现问题：
+
+```java
+public class Singleton {
+    // 这里需要使用volatile修饰，防止指令重排序
+    private static volatile Singleton instance;
+
+    private Singleton() {
+    }
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+```
+
+在上述代码中，`instance`变量被`volatile`修饰，这可以确保在创建单例对象时，不会因为指令重排序而导致其他线程获取到未完全初始化的对象。
+
+需要注意的是，`volatile`关键字并不能保证原子性。如果需要保证原子性，通常可以使用`java.util.concurrent.atomic`包下的原子类，或者使用`synchronized`关键字来实现。
+
+
+
 # 106-Thread
 
 Here is an explanation of some important thread methods in Java: `join`, `wait`, `sleep`, and `yield`.
@@ -1602,7 +1670,7 @@ The SOLID principles are a set of five design principles in object - oriented pr
     - Benefits: It makes the code more flexible and easier to test. By depending on abstractions, different implementations can be swapped in and out without major changes to the `high-level` modules.
 
 
-# What's Garbage collection types and Whats new about GC in java 8
+# What's Garbage collection types and What's new about GC in java 8
 
 Reference: https://zhuanlan.zhihu.com/p/25539690
 
