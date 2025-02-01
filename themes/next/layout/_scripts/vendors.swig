@@ -12,6 +12,7 @@
 {% set js_vendors.lazyload    = 'jquery_lazyload/jquery.lazyload.js?v=1.9.7' %}
 {% set js_vendors.velocity    = 'velocity/velocity.min.js?v=1.2.1' %}
 {% set js_vendors.velocity_ui = 'velocity/velocity.ui.min.js?v=1.2.1' %}
+{% set js_vendors.darkmode    = 'darkmode/darkmode-js.min.js?v=1.5.7' %}
 
 {% if theme.fancybox %}
   {% set js_vendors.fancybox  = 'fancybox/dist/jquery.fancybox.js?v=3.2.10' %}
@@ -43,3 +44,23 @@
   {% set internal_script = url_for(theme.vendors._internal) + '/' + internal %}
   <script type="text/javascript" src="{{ theme.vendors[name] | default(internal_script) }}"></script>
 {% endfor %}
+
+{% if theme.darkmode_js %}
+  <script type="text/javascript">
+    var options = {
+      bottom: '64px', // default: '32px'
+      right: '32px', // default: '32px'
+      left: 'unset', // default: 'unset'
+      time: '0.5s', // default: '0.3s'
+      mixColor: '#fff', // default: '#fff'
+      backgroundColor: '#fff',  // default: '#fff'
+      buttonColorDark: '#100f2c',  // default: '#100f2c'
+      buttonColorLight: '#fff', // default: '#fff'
+      // saveInCookies: true, // default: true,
+      label: '🌓', // default: ''
+      autoMatchOsTheme: true // default: true
+    }
+    const darkmode = new Darkmode(options);
+    darkmode.showWidget();
+  {% endif %}
+</script>

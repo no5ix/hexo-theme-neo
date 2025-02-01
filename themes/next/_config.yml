@@ -616,6 +616,9 @@ motion:
 # Fancybox
 fancybox: true
 
+# Darkmode 关闭了, 因为header没有变黑, 没意义, 不好看
+darkmode_js: false
+
 # Progress bar in the top during page loading.
 pace: false
 # Themes list:
@@ -671,6 +674,9 @@ vendors:
   # fancybox_css: https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css
   fancybox:
   fancybox_css:
+
+  # Darkmode.js
+  darkmode_js:
 
   # css : https://static1.squarespace.com/static/ta/5134cbefe4b0c6fb04df8065/9160/assets/styles/site.css?9276
   # js : https://static1.squarespace.com/static/ta/5134cbefe4b0c6fb04df8065/9276/scripts/pages/home-winter-2017/index.js
