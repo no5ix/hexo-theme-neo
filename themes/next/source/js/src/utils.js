@@ -30,6 +30,26 @@ NexT.utils = NexT.$u = {
         }
       });
 
+      // for Fancybox 5.0.36, it's too lag, so I didn't use it.
+      // Fancybox.bind("[data-fancybox]", {
+      //   // Transition effect when changing gallery items
+      //   // Carousel: {
+      //   //   transition: "slide",
+      //   // },
+      //   // // Disable image zoom animation on opening and closing
+      //   // Images: {
+      //   //   zoom: true,
+      //   // },
+      //   // // Custom CSS transition on opening
+      //   // showClass: "f-fadeIn",
+      //   Thumbs: false,
+      //   hideScrollbar: false,
+      //   Images: {
+      //     initialSize: "fit",
+      //   },
+      //   height: 600,
+      // });
+
     $('[data-fancybox]').fancybox({
       buttons : [
         // 'slideShow',
@@ -41,8 +61,14 @@ NexT.utils = NexT.$u = {
         'close'
       ],
       // animationEffect : "zoom",
-      animationEffect : "zoom-in-out",
-      transitionEffect : "slide",
+      // animationEffect : "tube",
+      animationEffect : "circular",
+      // animationEffect : "rotate",
+      // animationEffect : "fade",
+      // animationEffect : "slide",
+      // animationEffect : "zoom-in-out",
+      // transitionEffect : "tube",
+      transitionEffect : "circular",
       mobile : {
         idleTime : false,
         margin   : 0,

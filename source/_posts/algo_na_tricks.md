@@ -56,7 +56,7 @@ password: '0622'
                 1. 一个是简单bfs(类似岛的数量number of islands, 经典中的经典了)
                 2. 写一个能O1 add remove getrandom的set
     - okx:
-        - 我还面了okx coinbase之后的炒币app第二名, payment组
+        - 我还面了okx, coinbase之后的炒币app第二名, payment组
         - algo: 一轮是lc49, 一轮是lc362
         - sd: sd是设计一个notification system
     - Google:

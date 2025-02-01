@@ -667,6 +667,8 @@ vendors:
 
   # Internal version: 3.2.10
   # See: http://fancyapps.com/fancybox/
+  # fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js
+  # fancybox_css: https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css
   fancybox:
   fancybox_css:
 
