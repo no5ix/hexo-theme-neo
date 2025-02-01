@@ -15,6 +15,7 @@
   --link-hover-color: #222;
   --brand-color: #222;
   --brand-hover-color: #222;
+  --table-border-color: #ddd;
   --table-row-odd-bg-color: #f9f9f9;
   --table-row-hover-bg-color: #f5f5f5;
 /* --menu-item-bg-color: $menu-item-bg-color; */
@@ -50,6 +51,7 @@
     --link-hover-color: #fff;
     --brand-color: $grey-lighter;
     --brand-hover-color: $grey-lighter;
+    --table-border-color: #808080;
     --table-row-odd-bg-color: #363333;
     --table-row-hover-bg-color: #102c4c;
 /* --menu-item-bg-color: $menu-item-bg-color-dark; */
@@ -490,7 +492,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  border: 1px solid #ddd;
+  border: 1px solid var(--table-border-color);
   font-size: 14px;
   table-layout: fixed;
   word-wrap: break-all;
@@ -511,8 +513,8 @@ td {
 }
 th,
 td {
-  border-bottom: 3px solid #ddd;
-  border-right: 1px solid #eee;
+  border-bottom: 3px solid var(--table-border-color);
+  border-right: 1px solid var(--table-border-color);
 }
 th {
   padding-bottom: 10px;
@@ -1714,19 +1716,28 @@ pre .javascript .function {
   text-align: left;
 }
 .posts-expand .post-tags {
-  margin-top: 40px;
-  text-align: center;
+  text-align: right;
 }
 .posts-expand .post-tags a {
-  display: inline-block;
-  margin: 5px;
-  font-size: 13px;
+  font-size: 16px;
+  color: #0593d3;
+  padding: 6px 20px;
+  background: var(--tag-cloud-a-bg-color);
+  border-bottom: none;
+  border-radius: 18px;
+/* box-shadow: inset 0.475em 0.375em 0.45em 0 #bbb; */
+}
+.posts-expand .post-tags a:hover {
+  color: #0593d3;
+  background: #3e3e3e;
+  border-bottom: none;
+  text-decoration: none;
 }
 .post-nav {
   display: table;
   margin-bottom: 100px;
   width: 100%;
-  border-bottom: 1px solid #eee;
+/* border-bottom: 1px solid var(--link-color); */
 }
 .post-nav-divider {
   display: table-cell;
@@ -2127,7 +2138,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #db6eff;
+  background: #30a6f0;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3495,20 +3506,6 @@ hr {
 }
 .posts-expand .post-body img {
   margin: 0;
-}
-.posts-expand .post-tags {
-  text-align: right;
-}
-.posts-expand .post-tags a {
-  padding: 2px 20px;
-  background: #f5f5f5;
-  border-bottom: none;
-  border-radius: 18px;
-/* box-shadow: inset 0.475em 0.375em 0.45em 0 #bbb; */
-}
-.posts-expand .post-tags a:hover {
-  background: #e1e1e1;
-  color: #fff;
 }
 .posts-expand .post-nav {
   margin-top: 40px;
