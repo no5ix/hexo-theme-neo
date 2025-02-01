@@ -10,7 +10,10 @@
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
+
+
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
 
 <script>
     (function(){
@@ -102,7 +105,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="自我总结状态同步的要点为 :   input+state : 既通过网络发送输入信息又会发送状态信息来进行同步 发送端 优先级累加器 : 只发送一些重要的实体状态更新, 而不是所有都发. 如果遇到一个物体的状态更新信息不合适放到这个数据包里面，那么就跳过这个物体并尝试下一个。当你序列化完这个数据包以后，将那些已经在这帧更新过的物体在优先级累加器里面的值重置为0，但是那些没有在这帧更新过的物体在优先">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-23T12:30:03.189Z">
+<meta property="og:updated_time" content="2025-02-01T13:49:55.478Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络物理模拟六之状态同步">
 <meta name="twitter:description" content="自我总结状态同步的要点为 :   input+state : 既通过网络发送输入信息又会发送状态信息来进行同步 发送端 优先级累加器 : 只发送一些重要的实体状态更新, 而不是所有都发. 如果遇到一个物体的状态更新信息不合适放到这个数据包里面，那么就跳过这个物体并尝试下一个。当你序列化完这个数据包以后，将那些已经在这帧更新过的物体在优先级累加器里面的值重置为0，但是那些没有在这帧更新过的物体在优先">
@@ -770,6 +773,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
 
 
@@ -799,7 +803,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
+  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
+
+  
   <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+
+
 
 
   

@@ -10,7 +10,10 @@
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
+
+
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
 
 <script>
     (function(){
@@ -102,7 +105,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="快速重传算法概绍在收到一个失序的报文段时，  TCP立即需要产生一个ACK(一个重复的ACK)。这个重复的ACK不应该被迟延。该重复的ACK的曰的在于让对方知道收到一个失序的报文段，并告诉对方自己希望收到的序号。 由于我们不知道一个重复的ACK足由一个丢失的报文段引起的，还是由于仅仅出现了几个报文段的重新排序，因此我们等待少量重复的ACK到来。假如这只是一些报文段的重新排序，则在重新排序的报文段被">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-23T12:30:03.200Z">
+<meta property="og:updated_time" content="2025-02-01T13:49:55.490Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="白话TCP快速重传">
 <meta name="twitter:description" content="快速重传算法概绍在收到一个失序的报文段时，  TCP立即需要产生一个ACK(一个重复的ACK)。这个重复的ACK不应该被迟延。该重复的ACK的曰的在于让对方知道收到一个失序的报文段，并告诉对方自己希望收到的序号。 由于我们不知道一个重复的ACK足由一个丢失的报文段引起的，还是由于仅仅出现了几个报文段的重新排序，因此我们等待少量重复的ACK到来。假如这只是一些报文段的重新排序，则在重新排序的报文段被">
@@ -741,6 +744,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
 
 
@@ -770,7 +774,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
+  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
+
+  
   <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+
+
 
 
   

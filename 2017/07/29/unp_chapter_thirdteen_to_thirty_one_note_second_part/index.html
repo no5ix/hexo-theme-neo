@@ -10,7 +10,10 @@
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
+
+
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
 
 <script>
     (function(){
@@ -102,7 +105,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="16章 16.3节 ： 非阻塞connect 有三个用途： 我们想在connect的时候处理其他事情 可以同时建立多个连接 可以通过select设置一个更短一点的超时时间   实现步骤：  a. 用fcntl把套接字设置为非阻塞  b. 处理客户端和服务器都在同一主机上的情况  c. 使用select设置超时，并处理超时情况  d. 处理当连接建立的时候，描述符变为可写；以及当连接建立遇到错误的时">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-23T12:30:03.191Z">
+<meta property="og:updated_time" content="2025-02-01T13:49:55.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="重读UNP（UNIX网络编程）13章到31章笔记整理（结合TLPI和APUE两书的笔记整理）(二)">
 <meta name="twitter:description" content="16章 16.3节 ： 非阻塞connect 有三个用途： 我们想在connect的时候处理其他事情 可以同时建立多个连接 可以通过select设置一个更短一点的超时时间   实现步骤：  a. 用fcntl把套接字设置为非阻塞  b. 处理客户端和服务器都在同一主机上的情况  c. 使用select设置超时，并处理超时情况  d. 处理当连接建立的时候，描述符变为可写；以及当连接建立遇到错误的时">
@@ -772,6 +775,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
 
 
@@ -801,7 +805,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
+  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
+
+  
   <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+
+
 
 
   

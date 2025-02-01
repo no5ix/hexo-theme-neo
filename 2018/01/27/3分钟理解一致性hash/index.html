@@ -10,7 +10,10 @@
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
+
+
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
 
 <script>
     (function(){
@@ -116,7 +119,7 @@
 <meta property="og:image" content="https://hulinhong.com/2018/01/27/3分钟理解一致性hash/ConsistentHashing_12.png">
 <meta property="og:image" content="https://hulinhong.com/2018/01/27/3分钟理解一致性hash/ConsistentHashing_13.png">
 <meta property="og:image" content="https://hulinhong.com/2018/01/27/3分钟理解一致性hash/ConsistentHashing_14.png">
-<meta property="og:updated_time" content="2025-01-23T12:30:03.123Z">
+<meta property="og:updated_time" content="2025-02-01T13:49:55.420Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3分钟理解一致性hash">
 <meta name="twitter:description" content="在了解一致性哈希算法之前，最好先了解一下缓存中的一个应用场景，了解了这个应用场景之后，再来理解一致性哈希算法，就容易多了，也更能体现出一致性哈希算法的优点，那么，我们先来描述一下这个经典的分布式缓存的应用场景。 场景描述假设，我们有三台缓存服务器，用于缓存图片，我们为这三台缓存服务器编号为0号、1号、2号，现在，有3万张图片需要缓存，我们希望这些图片被均匀的缓存到这3台服务器上，以便它们能够分摊缓">
@@ -809,6 +812,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
 
 
@@ -838,7 +842,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
+  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
+
+  
   <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+
+
 
 
   

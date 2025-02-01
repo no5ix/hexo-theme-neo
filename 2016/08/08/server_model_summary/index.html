@@ -10,7 +10,10 @@
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
+
+
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
 
 <script>
     (function(){
@@ -108,7 +111,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/server_model_summary/9.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/server_model_summary/11.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/server_model_summary/useful_model.jpg">
-<meta property="og:updated_time" content="2025-01-23T12:30:03.187Z">
+<meta property="og:updated_time" content="2025-02-01T13:49:55.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器模型总结">
 <meta name="twitter:description" content="关于Reactor模式讲解请转 此文 服务器模型总结 其中“互通”指的是如果开发chat服务，多个客户连接之间是否能方便地交换数据（chat也是三大TCP网络编程案例之一）。 对于echo/httpd/Sudoku这类“连接相互独立”的服务程序，这个功能无足轻重，但是对于chat类服务却至关重要。 “顺序性”指的是在httpd/Sudoku这类请求响应服务中，如果客户连接顺序发送多个请求，那么计算">
@@ -801,6 +804,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
 
 
@@ -830,7 +834,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
+  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
+
+  
   <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+
+
 
 
   

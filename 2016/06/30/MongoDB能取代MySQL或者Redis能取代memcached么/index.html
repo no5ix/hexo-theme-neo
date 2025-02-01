@@ -10,7 +10,10 @@
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
+
+
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
 
 <script>
     (function(){
@@ -102,7 +105,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="mongodb和memcached不是一个范畴内的东西。 mongodb是文档型的非关系型数据库，其优势在于查询功能比较强大，能存储海量数据。 mongodb和memcached不存在谁替换谁的问题。和memcached更为接近的是redis。 它们都是内存型数据库，数据保存在内存中，通过tcp直接存取，优势是速度快，并发高，缺点是数据&amp;gt; 类型有限，查询功能不强，一般用作缓存。 一般现在的">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-01-23T12:30:03.127Z">
+<meta property="og:updated_time" content="2025-02-01T13:49:55.423Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB能取代MySQL或者Redis能取代memcached么">
 <meta name="twitter:description" content="mongodb和memcached不是一个范畴内的东西。 mongodb是文档型的非关系型数据库，其优势在于查询功能比较强大，能存储海量数据。 mongodb和memcached不存在谁替换谁的问题。和memcached更为接近的是redis。 它们都是内存型数据库，数据保存在内存中，通过tcp直接存取，优势是速度快，并发高，缺点是数据&amp;gt; 类型有限，查询功能不强，一般用作缓存。 一般现在的">
@@ -745,6 +748,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
 
 
@@ -774,7 +778,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
+  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
+
+  
   <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+
+
 
 
   

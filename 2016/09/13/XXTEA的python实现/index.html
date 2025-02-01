@@ -10,7 +10,10 @@
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
+
+
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
 
 <script>
     (function(){
@@ -103,7 +106,7 @@
 <meta property="og:description" content="在数据的加解密领域，算法分为对称密钥与非对称密钥两种。 对称密钥与非对称密钥由于各自的特点，所应用的领域是不尽相同的。 对称密钥加密算法由于其速度快，一般用于整体数据的加密，而非对称密钥加密算法的安全性能佳，在数字签名领域得到广泛的应用。 微型加密算法（TEA）及其相关变种（XTEA，Block TEA，XXTEA） 都是分组加密算法，它们很容易被描述，实现也很简单（典型的几行代码）。 TEA是T">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/2016/09/13/XXTEA的python实现/py_xxtea1.png">
-<meta property="og:updated_time" content="2025-01-23T12:30:03.129Z">
+<meta property="og:updated_time" content="2025-02-01T13:49:55.426Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XXTEA的python实现">
 <meta name="twitter:description" content="在数据的加解密领域，算法分为对称密钥与非对称密钥两种。 对称密钥与非对称密钥由于各自的特点，所应用的领域是不尽相同的。 对称密钥加密算法由于其速度快，一般用于整体数据的加密，而非对称密钥加密算法的安全性能佳，在数字签名领域得到广泛的应用。 微型加密算法（TEA）及其相关变种（XTEA，Block TEA，XXTEA） 都是分组加密算法，它们很容易被描述，实现也很简单（典型的几行代码）。 TEA是T">
@@ -746,6 +749,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
 
 
@@ -775,7 +779,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
+  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
+
+  
   <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+
+
 
 
   

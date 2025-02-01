@@ -10,7 +10,10 @@
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
+
+
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
 
 <script>
     (function(){
@@ -103,7 +106,7 @@
 <meta property="og:description" content="原文出处 Fast-Paced Multiplayer (Part I): Client-Server Game Architecture   Introduction This is the first in a series of articles exploring the techniques and algorithms that make fast-paced multiplayer">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/img/fpm1-01.png">
-<meta property="og:updated_time" content="2025-01-23T12:30:03.196Z">
+<meta property="og:updated_time" content="2025-02-01T13:49:55.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多人快节奏游戏一之C&#x2F;S游戏架构">
 <meta name="twitter:description" content="原文出处 Fast-Paced Multiplayer (Part I): Client-Server Game Architecture   Introduction This is the first in a series of articles exploring the techniques and algorithms that make fast-paced multiplayer">
@@ -743,6 +746,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
 
 
@@ -772,7 +776,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
+  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
+
+  
   <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+
+
 
 
   

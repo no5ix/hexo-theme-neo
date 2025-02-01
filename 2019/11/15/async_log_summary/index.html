@@ -10,7 +10,10 @@
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
+
+
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
 
 <script>
     (function(){
@@ -111,7 +114,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/syslog_intro/1089769-20170323165530158-761295228.png">
 <meta property="og:image" content="https://hulinhong.com/img/syslog_intro/1089769-20170410132458782-973391177.png">
 <meta property="og:image" content="https://hulinhong.com/img/syslog_intro/1089769-20170323163540080-1733313578.png">
-<meta property="og:updated_time" content="2025-01-23T12:30:03.135Z">
+<meta property="og:updated_time" content="2025-02-01T13:49:55.431Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="异步日志小结">
 <meta name="twitter:description" content="最近工作涉及到生产环境的日志系统, 小结一波, 其实践为:   cpp高性能的异步日志系统模块导出给py使用 此cpp模块另起线程 logger通过unix socket连接上address 为 “/dev/log”，与 rsyslogd 程序通信 log先缓存在一个buffer中, 通过一个任务来把log存入syslog这一事件封装起来 把这个任务加入一个线程间可保序输出的任务队列(常用asio">
@@ -825,6 +828,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
 
 
@@ -854,7 +858,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
+  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
+
+  
   <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+
+
 
 
   

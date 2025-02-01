@@ -10,7 +10,10 @@
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
+
+
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
 
 <script>
     (function(){
@@ -104,7 +107,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://raw.githubusercontent.com/no5ix/realtime-server/dev/img/UE4DemoScreenshot.gif">
 <meta property="og:image" content="https://raw.githubusercontent.com/no5ix/realtime-server/dev/img/img_1.png">
-<meta property="og:updated_time" content="2025-01-23T12:30:03.132Z">
+<meta property="og:updated_time" content="2025-02-01T13:49:55.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个轻量级的游戏服务器引擎">
 <meta name="twitter:description" content="一个轻量级的游戏服务器引擎    要点 业务层基于ECS框架来做开发, 继承实体基类与组件基类即可 基于etcd的 服务注册 / TTL / 服务发现 / 负载均衡 / 上报负载 / Watch机制 一体化 基于msgpack的RPC框架, 支持 ip地址直接call以及配合ECS的remote虚拟实体/组件直接call 基于asyncio异步IO的协程业务层支持, 可实现类似 result =">
@@ -795,6 +798,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
 
 
@@ -824,7 +828,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
+  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
+
+  
   <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+
+
 
 
   
