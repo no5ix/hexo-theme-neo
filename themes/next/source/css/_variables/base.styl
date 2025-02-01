@@ -33,10 +33,15 @@ $green        = #b0dfb0
 
 // Global text color on <body>
 $text-color                   = $black-light
+$text-color-dark              = $grey-light;
+$bold-text-color              = #000
+$bold-text-color-dark         = #fff
 
 // Global link color.
 $link-color                   = $black-light
+$link-color-dark              = $grey-light;
 $link-hover-color             = $black-deep
+$link-hover-color-dark        = white;
 $link-decoration-color        = $grey-light
 $link-decoration-hover-color  = $black-deep
 
@@ -44,12 +49,31 @@ $link-decoration-hover-color  = $black-deep
 $border-color                 = $grey-light
 
 // Background color for <body>
+$header-bg-color                = $whitesmoke;
+$header-bg-color-dark           = $black-dim;
+
+
+// Background color for <body>
 $body-bg-color                = white
+$body-bg-color-dark           = #282828;
+$content-bg-color             = white;
+$content-bg-color-dark        = $black-dim;
 
 // Selection
 $selection-bg                 = $blue-deep
 $selection-color              = white
+$selection-bg-dark            = $grey;
+$selection-color-dark         = $black-dim;
 
+// Tag cloud color
+$tag-cloud-a-bg-color         = #f5f5f5;
+$tag-cloud-a-bg-color-dark    = #2b2121;
+
+// Local search color
+$local-search-bg-color        = #e8e8e8;
+$local-search-bg-color-dark   = #484444;
+$local-search-key-word-color   = black;
+$local-search-key-word-color-dark = white;
 
 
 // Typography
@@ -136,7 +160,9 @@ $table-cell-padding             = 8px
 $table-cell-border-right-color  = $gainsboro
 $table-cell-border-bottom-color = $gray-lighter
 $table-row-odd-bg-color         = #f9f9f9
+$table-row-odd-bg-color-dark    = #363333;
 $table-row-hover-bg-color       = $whitesmoke
+$table-row-hover-bg-color-dark  = #102c4c;
 
 
 
@@ -179,10 +205,10 @@ $pagination-link-border         = $gainsboro
 
 $pagination-link-hover-bg       = transparent
 $pagination-link-hover-color    = $link-color
-$pagination-link-hover-border   = $black-deep
+$pagination-link-hover-border   = var(--link-hover-color);
 
 $pagination-active-bg           = $grey-light
-$pagination-active-color        = white
+$pagination-active-color        = var(--content-bg-color);
 $pagination-active-border       = $grey-light
 
 
@@ -222,6 +248,8 @@ $head-bg                        = transparent
 $site-meta-text-align           = center
 $brand-color                    = white
 $brand-hover-color              = white
+$brand-color-dark               = $grey-lighter;
+$brand-hover-color-dark         = $grey-lighter;
 $brand-bg                       = $black-deep
 
 $logo-font-size                 = 20px

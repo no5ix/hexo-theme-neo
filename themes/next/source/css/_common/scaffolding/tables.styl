@@ -9,8 +9,13 @@ table {
   word-wrap: break-all;
 }
 table>tbody>tr {
-  &:nth-of-type(odd) { background-color: $table-row-odd-bg-color; }
-  &:hover { background-color: $table-row-hover-bg-color; }
+  &:nth-of-type(odd) {
+    background: var(--table-row-odd-bg-color);
+  }
+
+  &:hover {
+    background: var(--table-row-hover-bg-color);
+  }
 }
 
 caption, th, td {

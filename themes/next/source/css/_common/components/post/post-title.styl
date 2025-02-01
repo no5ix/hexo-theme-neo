@@ -11,20 +11,18 @@
 .posts-expand .post-title-link {
   display: inline-block;
   position: relative;
-  color: $black-light;
+  color: var(--link-color);
   /* color: $grey-dim; */
   border-bottom: none;
   line-height: 1.2;
   vertical-align: top;
-  font-weight: bolder;
-  font-size: 32px;
 
   +mobile() {
     font-size: 24px;
   }
 
   &:hover {
-    color: #000;
+    color: var(--link-hover-color);
   }
 
   &::before {
@@ -34,7 +32,7 @@
     height: 1px;
     bottom: 0;
     left: 0;
-    background-color: #555;
+    background: var(--link-color);
     /* visibility: hidden; */
     transform: scaleX(1);
     the-transition();
@@ -49,5 +47,5 @@
 }
 
 .posts-expand .post-title, .posts-expand .post-meta {
-  text-align: left;
+  text-align: center;
 }

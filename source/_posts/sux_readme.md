@@ -31,21 +31,21 @@ Inspired by Alfred/Wox/Listary/Capslock+/utools, thank u.
 
 `sux` is a powerful productivity tool with a size of only 2M+. It also has the following features:
 
-- [Translation](#translation)
-- [History Clipboard](#history-clipboard-clipboard-plus)
-- [Everything Search Toolbar](#everything-search-toolbar)
-- [Screenshot & Pinning](#screenshot-and-pinning)
-- [Quick Search Similar to listary/alfred/wox](#quick-search-search-plus): `shift + space`
-- [Hot Corners Similar to macOS](#hot-corners-similar-to-macos-hot-corner)
-- [Hot Edge Triggers](#hot-edge-triggers-hot-edge)
-- [Fully Customizable Global Shortcuts for Various Operations](#fully-customizable-shortcuts)
-- [Text Replacer](#text-replacer-replace-text)
-- [Text Transformer](#text-transformer)
-- [Tray Menu](#tray-menu)
-- [CMDS Commands](#cmds-commands)
-- [Customizable JSON Configuration](#customizable-configuration)
+- Translation
+- History Clipboard
+- Everything Search Toolbar
+- Screenshot & Pinning
+- Quick Search Similar to listary/alfred/wox
+- Hot Corners Similar to macOS
+- Hot Edge Triggers
+- Fully Customizable Global Shortcuts for Various Operations
+- Text Replacer
+- Text Transformer
+- Tray Menu
+- CMD Commands
+- Customizable JSON Configuration
 - Custom Themes
-- etc."
+- etc ...
 
 An alternative to **Alfred**/**Wox**/**Listary**/**Capslock+**/**OneQuick** .
 

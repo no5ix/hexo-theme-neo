@@ -87,6 +87,16 @@ scheme: Mist
 # scheme: Gemini
 
 
+# Official Dark Mode(copy from hexo-next v8.x)
+darkmode: true
+
+
+# Browser header panel color.
+theme_color:
+  light: "#222"
+  dark: "#222"
+
+
 # ---------------------------------------------------------------
 # Sidebar Settings
 # ---------------------------------------------------------------
@@ -616,7 +626,7 @@ motion:
 # Fancybox
 fancybox: true
 
-# Darkmode 关闭了, 因为header没有变黑, 没意义, 不好看
+# 第三方 darkmode.js 关闭了, 因为header没有变黑, 没意义, 不好看
 darkmode_js: false
 
 # Progress bar in the top during page loading.
