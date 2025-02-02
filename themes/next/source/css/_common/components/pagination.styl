@@ -59,9 +59,12 @@
   .pagination {
     .prev, .next, .page-number {
       margin-bottom: 10px;
-      border-top: 0;
-      border-bottom: 1px solid $pagination-link-border;
+      /* border-top: 0; */
+      /* border-bottom: 1px solid $pagination-link-border; */
 
-      &:hover { border-bottom-color: $pagination-link-hover-border; }
+      &:hover { 
+        /* border-bottom-color: $pagination-link-hover-border; */
+        border-color: $pagination-link-hover-border;
+      }
     }
   }
