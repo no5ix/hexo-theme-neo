@@ -36,7 +36,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --header-bg-color: #333;
-    --tag-cloud-a-bg-color: #2b2121;
+    --tag-cloud-a-bg-color: #333;
     --local-search-bg-color: #484444;
     --local-search-key-word-color: #fff;
     --body-bg-color: #282828;
@@ -1395,6 +1395,55 @@ pre .javascript .function {
 .use-motion .collection-title {
   opacity: 0;
 }
+.post-body table a[href^="#"],
+.post-body ul a[href^="#"],
+.post-body p a[href^="#"] {
+  color: var(--text-color);
+  border-bottom: 1px solid #808080;
+}
+.post-body table a[href^="#"]:hover,
+.post-body ul a[href^="#"]:hover,
+.post-body p a[href^="#"]:hover {
+  color: var(--link-hover-color);
+  text-decoration: none;
+  border-bottom: 1px solid var(--link-hover-color);
+  word-wrap: break-word;
+}
+.post-body a,
+.post-body table a,
+.post-body ul a,
+.post-body p a {
+  color: #0593d3;
+  border-bottom: 1px solid #0593d3;
+}
+.post-body a:hover,
+.post-body table a:hover,
+.post-body ul a:hover,
+.post-body p a:hover {
+  color: var(--link-hover-color);
+  text-decoration: none;
+  border-bottom: 1px solid var(--link-hover-color);
+  word-wrap: break-word;
+}
+.tag-cloud {
+  text-align: center;
+}
+.tag-cloud a {
+  color: var(--text-color);
+  display: inline-block;
+  margin: 10px;
+  padding: 2px 20px;
+  background: var(--tag-cloud-a-bg-color);
+  border-bottom: none;
+  border-radius: 18px;
+/* box-shadow: inset 0.475em 0.375em 0.45em 0 #bbb; */
+}
+.tag-cloud a:hover {
+  color: var(--link-hover-color);
+  background: #3e3e3e;
+  border-bottom: none;
+  text-decoration: none;
+}
 .posts-expand {
   padding-top: 40px;
 }
@@ -1708,16 +1757,17 @@ pre .javascript .function {
   text-align: right;
 }
 .posts-expand .post-tags a {
-  font-size: 16px;
-  color: #0593d3;
-  padding: 6px 20px;
+  color: var(--text-color);
+  font-size: 12px;
+  display: inline-block;
+  margin: 10px;
+  padding: 2px 20px;
   background: var(--tag-cloud-a-bg-color);
   border-bottom: none;
   border-radius: 18px;
-/* box-shadow: inset 0.475em 0.375em 0.45em 0 #bbb; */
 }
 .posts-expand .post-tags a:hover {
-  color: #0593d3;
+  color: var(--link-hover-color);
   background: #3e3e3e;
   border-bottom: none;
   text-decoration: none;
@@ -1748,11 +1798,11 @@ pre .javascript .function {
   display: block;
   line-height: 25px;
   font-size: 14px;
-  color: #555;
+  color: var(--link-color);
   border-bottom: none;
 }
 .post-nav-item a:hover {
-  color: #222;
+  color: var(--link-hover-color);
   border-bottom: none;
 }
 .post-nav-item a:active {
@@ -1831,54 +1881,6 @@ pre .javascript .function {
 }
 .rtl.post-title {
   font-family: UKIJ Ekran;
-}
-.post-body table a[href^="#"],
-.post-body ul a[href^="#"],
-.post-body p a[href^="#"] {
-  color: var(--text-color);
-  border-bottom: 1px solid #808080;
-}
-.post-body table a[href^="#"]:hover,
-.post-body ul a[href^="#"]:hover,
-.post-body p a[href^="#"]:hover {
-  color: var(--link-hover-color);
-  text-decoration: none;
-  border-bottom: 1px solid var(--link-hover-color);
-  word-wrap: break-word;
-}
-.post-body a,
-.post-body table a,
-.post-body ul a,
-.post-body p a {
-  color: #0593d3;
-  border-bottom: 1px solid #0593d3;
-}
-.post-body a:hover,
-.post-body table a:hover,
-.post-body ul a:hover,
-.post-body p a:hover {
-  color: var(--link-hover-color);
-  text-decoration: none;
-  border-bottom: 1px solid var(--link-hover-color);
-  word-wrap: break-word;
-}
-.tag-cloud {
-  text-align: center;
-}
-.tag-cloud a {
-  display: inline-block;
-  margin: 10px;
-  padding: 2px 20px;
-  background: var(--tag-cloud-a-bg-color);
-  border-bottom: none;
-  border-radius: 18px;
-/* box-shadow: inset 0.475em 0.375em 0.45em 0 #bbb; */
-}
-.tag-cloud a:hover {
-  color: #0593d3;
-  background: #3e3e3e;
-  border-bottom: none;
-  text-decoration: none;
 }
 .sidebar {
   position: fixed;
@@ -2127,7 +2129,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #930d50;
+  background: #8c6e2e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3168,7 +3170,7 @@ input[id$=local-search-input] {
   }
 }
 .page-post-detail .sidebar-toggle-line {
-  background: #555;
+  background: var(--link-color);
 }
 .page-post-detail .comments {
   overflow: hidden;
@@ -3566,7 +3568,7 @@ hr {
   display: none;
 }
 .page-post-detail .post-meta {
-  margin-bottom: 60px;
+  margin-bottom: 6px;
 }
 .pagination {
   margin: 120px 0 0;
