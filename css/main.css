@@ -1199,13 +1199,14 @@ pre .javascript .function {
   .pagination .next,
   .pagination .page-number {
     margin-bottom: 10px;
-    border-top: 0;
-    border-bottom: 1px solid #eee;
+/* border-top: 0; */
+/* border-bottom: 1px solid $pagination-link-border; */
   }
   .pagination .prev:hover,
   .pagination .next:hover,
   .pagination .page-number:hover {
-    border-bottom-color: #666;
+/* border-bottom-color: $pagination-link-hover-border; */
+    border-color: #666;
   }
 }
 .comments {
@@ -2160,7 +2161,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f3f;
+  background: #ff98e2;
 }
 .links-of-blogroll {
   font-size: 13px;
