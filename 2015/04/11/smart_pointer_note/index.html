@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -105,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="有些错误是编译器查不到的, 这种错误是最可怕的, 当项目大了之后,即使用 Valgrind 也很难定位,因为裸指针在团队合作中使用很容易导致其他成员忘记释放或多次释放, 所以在团队合作中一般使用智能指针.  而智能指针用的不好, 结果可能适得其反. 所以我们聊一下智能指针的几点注意事项. 总结自 C++ Primer. 一个简单的包含删除器的例子演示123456789101112131415161">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.305Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="智能指针笔记">
 <meta name="twitter:description" content="有些错误是编译器查不到的, 这种错误是最可怕的, 当项目大了之后,即使用 Valgrind 也很难定位,因为裸指针在团队合作中使用很容易导致其他成员忘记释放或多次释放, 所以在团队合作中一般使用智能指针.  而智能指针用的不好, 结果可能适得其反. 所以我们聊一下智能指针的几点注意事项. 总结自 C++ Primer. 一个简单的包含删除器的例子演示123456789101112131415161">
@@ -119,7 +115,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -427,9 +425,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/11/linux_gcc_atomic/" rel="prev" title="GCC的原子操作函数">
+              <a href="/2015/04/11/linux_gcc_builtin_expect/" rel="prev" title="GCC的分支预测优化__builtin_expect">
               <p class="post-nav-pre-next-title">
-                  GCC的原子操作函数
+                  GCC的分支预测优化__builtin_expect
               </p> 
               <i class="fa fa-chevron-right"></i>
               </a>
@@ -522,9 +520,9 @@ test_function_bind( p, 331, 9 ) = 7
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2015/04/11/linux_gcc_atomic/" rel="prev" title="GCC的原子操作函数">
+                <a href="/2015/04/11/linux_gcc_builtin_expect/" rel="prev" title="GCC的分支预测优化__builtin_expect">
                 <p class="post-nav-pre-next-title">
-                    GCC的原子操作函数
+                    GCC的分支预测优化__builtin_expect
                 </p> 
                 <i class="fa fa-chevron-right"></i>
                 </a>
@@ -780,7 +778,11 @@ test_function_bind( p, 331, 9 ) = 7
 
 
 
+
   
+
+
+
 
 
 
@@ -809,10 +811,7 @@ test_function_bind( p, 331, 9 ) = 7
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

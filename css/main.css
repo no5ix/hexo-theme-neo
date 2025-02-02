@@ -72,9 +72,9 @@
   }
   img {
     opacity: 0.75;
-  }
-  img:hover {
-    opacity: 0.9;
+/* &:hover {
+        opacity: .9;
+      } */
   }
   iframe {
     color-scheme: light;
@@ -2160,7 +2160,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e9b62a;
+  background: #f3f;
 }
 .links-of-blogroll {
   font-size: 13px;

@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -114,7 +110,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/syslog_intro/1089769-20170323165530158-761295228.png">
 <meta property="og:image" content="https://hulinhong.com/img/syslog_intro/1089769-20170410132458782-973391177.png">
 <meta property="og:image" content="https://hulinhong.com/img/syslog_intro/1089769-20170323163540080-1733313578.png">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.260Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="异步日志小结">
 <meta name="twitter:description" content="最近工作涉及到生产环境的日志系统, 小结一波, 其实践为:   cpp高性能的异步日志系统模块导出给py使用 此cpp模块另起线程 logger通过unix socket连接上address 为 “/dev/log”，与 rsyslogd 程序通信 log先缓存在一个buffer中, 通过一个任务来把log存入syslog这一事件封装起来 把这个任务加入一个线程间可保序输出的任务队列(常用asio">
@@ -129,7 +125,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -829,7 +827,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -858,10 +860,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

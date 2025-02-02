@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -106,7 +102,7 @@
 <meta property="og:description" content="在数据的加解密领域，算法分为对称密钥与非对称密钥两种。 对称密钥与非对称密钥由于各自的特点，所应用的领域是不尽相同的。 对称密钥加密算法由于其速度快，一般用于整体数据的加密，而非对称密钥加密算法的安全性能佳，在数字签名领域得到广泛的应用。 微型加密算法（TEA）及其相关变种（XTEA，Block TEA，XXTEA） 都是分组加密算法，它们很容易被描述，实现也很简单（典型的几行代码）。 TEA是T">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/2016/09/13/XXTEA的python实现/py_xxtea1.png">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.254Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.448Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XXTEA的python实现">
 <meta name="twitter:description" content="在数据的加解密领域，算法分为对称密钥与非对称密钥两种。 对称密钥与非对称密钥由于各自的特点，所应用的领域是不尽相同的。 对称密钥加密算法由于其速度快，一般用于整体数据的加密，而非对称密钥加密算法的安全性能佳，在数字签名领域得到广泛的应用。 微型加密算法（TEA）及其相关变种（XTEA，Block TEA，XXTEA） 都是分组加密算法，它们很容易被描述，实现也很简单（典型的几行代码）。 TEA是T">
@@ -121,7 +117,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -750,7 +748,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -779,10 +781,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

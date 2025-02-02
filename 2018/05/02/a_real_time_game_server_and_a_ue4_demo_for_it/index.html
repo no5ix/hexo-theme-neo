@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -107,7 +103,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://raw.githubusercontent.com/no5ix/realtime-server/dev/img/UE4DemoScreenshot.gif">
 <meta property="og:image" content="https://raw.githubusercontent.com/no5ix/realtime-server/dev/img/img_1.png">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.258Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.451Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个轻量级的游戏服务器引擎">
 <meta name="twitter:description" content="一个轻量级的游戏服务器引擎    要点 业务层基于ECS框架来做开发, 继承实体基类与组件基类即可 基于etcd的 服务注册 / TTL / 服务发现 / 负载均衡 / 上报负载 / Watch机制 一体化 基于msgpack的RPC框架, 支持 ip地址直接call以及配合ECS的remote虚拟实体/组件直接call 基于asyncio异步IO的协程业务层支持, 可实现类似 result =">
@@ -122,7 +118,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -799,7 +797,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -828,10 +830,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

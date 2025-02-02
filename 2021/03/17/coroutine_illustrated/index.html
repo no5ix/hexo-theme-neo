@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -105,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="干货写在前面 协程的概念就不详细介绍了,不清楚的同学可以自己google,windows和unix like系统本身就提供了协程的支持,windows下叫fiber,unix like系统下叫ucontext. 协程是一种用户态的轻量级线程。本篇主要研究协程的 C/C++ 的实现。首先我们可以看看有哪些语言已经具备协程语义：  比较重量级的有 C#、erlang、golang* 轻量级有 pyth">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.263Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于ucontext实现协程">
 <meta name="twitter:description" content="干货写在前面 协程的概念就不详细介绍了,不清楚的同学可以自己google,windows和unix like系统本身就提供了协程的支持,windows下叫fiber,unix like系统下叫ucontext. 协程是一种用户态的轻量级线程。本篇主要研究协程的 C/C++ 的实现。首先我们可以看看有哪些语言已经具备协程语义：  比较重量级的有 C#、erlang、golang* 轻量级有 pyth">
@@ -119,7 +115,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -845,7 +843,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -874,10 +876,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

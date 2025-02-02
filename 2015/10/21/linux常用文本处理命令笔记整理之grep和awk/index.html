@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -105,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="linux常用文本处理的命令的使用率很高， 所以整理了一些之前的笔记，用markdown来记录备忘。首先抛出问题， 带着问题来学记忆知识更有动力：  如何通过一条命令取得eth0的IP4地址 ：  1ifconfig eth0 | grep -w &amp;apos;inet&amp;apos; | awk &amp;apos;&amp;#123;print $2&amp;#125;&amp;apos; | awk -F: &amp;apos;&amp;#12">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.292Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用文本处理命令笔记整理之grep和awk">
 <meta name="twitter:description" content="linux常用文本处理的命令的使用率很高， 所以整理了一些之前的笔记，用markdown来记录备忘。首先抛出问题， 带着问题来学记忆知识更有动力：  如何通过一条命令取得eth0的IP4地址 ：  1ifconfig eth0 | grep -w &amp;apos;inet&amp;apos; | awk &amp;apos;&amp;#123;print $2&amp;#125;&amp;apos; | awk -F: &amp;apos;&amp;#12">
@@ -119,7 +115,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -794,7 +792,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -823,10 +825,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

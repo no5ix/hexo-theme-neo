@@ -29,7 +29,19 @@ $(document).ready(function () {
    * Register JS handlers by condition option.
    * Need to add config option in Front-End at 'layout/_partials/head.swig' file.
    */
-  CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();
+  CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();  // 经测试: 下方的mediumZoom放大图片的效果更好
+  CONFIG.mediumzoom && window.mediumZoom('.post-body :not(a) > img, .post-body > img', {
+    // background: 'var(--content-bg-color)',
+    background: '#333',
+    margin: 24,
+    // background: '#BADA55',
+    scrollOffset: 0,
+    // container: '#zoom-container',
+    // template: '#zoom-template',
+  });
+
+
+
   // CONFIG.tabs && NexT.utils.registerTabsTag();
 
   NexT.utils.embeddedVideoTransformer();

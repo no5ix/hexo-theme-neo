@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -105,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="自我总结注 : V社这篇文章相当有价值, 所以会有尽可能详细的注解以及对原译文各种翻译纰漏的修正. 广义的延迟补偿主要包括两个方面 :  A 如何显示目标 a. 对于本玩家自己 客户端预表现(本文翻译为”客户端预测”) : 比如对于玩家移动的预测, 可以把服务器确认过的movement信息作为开始, 然后使用自己本地的movement input来进行预表现, 服务器跟客户端共享同一套move代码">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.292Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.485Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C&#x2F;S游戏架构中延迟补偿的设计和优化方法">
 <meta name="twitter:description" content="自我总结注 : V社这篇文章相当有价值, 所以会有尽可能详细的注解以及对原译文各种翻译纰漏的修正. 广义的延迟补偿主要包括两个方面 :  A 如何显示目标 a. 对于本玩家自己 客户端预表现(本文翻译为”客户端预测”) : 比如对于玩家移动的预测, 可以把服务器确认过的movement信息作为开始, 然后使用自己本地的movement input来进行预表现, 服务器跟客户端共享同一套move代码">
@@ -119,7 +115,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -790,7 +788,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -819,10 +821,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

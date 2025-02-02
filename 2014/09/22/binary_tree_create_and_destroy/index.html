@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -107,7 +103,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/2014/09/22/binary_tree_create_and_destroy/binary_tree_create_and_destroy_1.png">
 <meta property="og:image" content="https://hulinhong.com/2014/09/22/binary_tree_create_and_destroy/binary_tree_create_and_destroy_2.png">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.261Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构一之二叉树的创建和销毁">
 <meta name="twitter:description" content="接着上一篇， 上一篇主要说了各种排序算法， 但对几个常用的数据结构还未提及，所以这一篇主要讲二叉树, 二叉树已经包括很多链表的知识了。所有代码都是测试过的, 可以直接撸. 二叉树这里不举太多数字方面的东西， 我们直接看图， 直观感性的认识满二叉树和完全二叉树：  有一点性质需要牢记：具有n个结点的完全二叉树的最大高度为log2n+1 二叉树的二叉链式存储二叉树的二叉链式存储方案的代码表示： 123">
@@ -122,7 +118,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -757,7 +755,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -786,10 +788,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

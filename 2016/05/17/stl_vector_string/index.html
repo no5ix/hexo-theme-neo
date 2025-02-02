@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -105,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="增长方式为了支持快速随机访问 ， vector 将元素连续存储一一每个元素紧挨着前一个元素存储 。 问题假定容器中元素是连续存储 的， 且容器的大小是可变的 ， 考虑 向 vector 或 string中添加元素会发生什么 :如果没有空间容纳新元素，容器不可能简单地将它添加到内存中其他位置一一因为元素必须连续存储。 容器必须分配新的内存空间来保存己有元素和新元素 ， 将已有元素从 旧位置移动到新空">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.306Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vector和string的内存分配与使用注意点">
 <meta name="twitter:description" content="增长方式为了支持快速随机访问 ， vector 将元素连续存储一一每个元素紧挨着前一个元素存储 。 问题假定容器中元素是连续存储 的， 且容器的大小是可变的 ， 考虑 向 vector 或 string中添加元素会发生什么 :如果没有空间容纳新元素，容器不可能简单地将它添加到内存中其他位置一一因为元素必须连续存储。 容器必须分配新的内存空间来保存己有元素和新元素 ， 将已有元素从 旧位置移动到新空">
@@ -119,7 +115,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -970,7 +968,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -999,10 +1001,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

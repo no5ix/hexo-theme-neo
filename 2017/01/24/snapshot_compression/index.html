@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -105,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="自我总结快照压缩技术的要点为 :   压缩Orientation数据 : 利用四元数的”最小的三个分量”性质:x^2+y^2+z^2+w^2 = 1 来在传输的时候丢弃一个分量并在网络的另外一端对整个四元数进行重建 压缩线性速度和Postion数据 : 把他们限制在某个范围内, 就可以用这个范围的最大值所占用的比特位数来保存这两种数据了, 而不用一个超大的数来保证可以保存他们的最大值了(占用超多b">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.305Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络物理模拟五之快照压缩">
 <meta name="twitter:description" content="自我总结快照压缩技术的要点为 :   压缩Orientation数据 : 利用四元数的”最小的三个分量”性质:x^2+y^2+z^2+w^2 = 1 来在传输的时候丢弃一个分量并在网络的另外一端对整个四元数进行重建 压缩线性速度和Postion数据 : 把他们限制在某个范围内, 就可以用这个范围的最大值所占用的比特位数来保存这两种数据了, 而不用一个超大的数来保证可以保存他们的最大值了(占用超多b">
@@ -119,7 +115,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -759,7 +757,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -788,10 +790,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -105,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="老书新看, 有了许多不同的见解, 也准备拿出以前自己私人的老笔记做修正放到博客里, 加深理解. 在这个浮躁人人都能写书的时代基本要看一本书需要挑很久, 谁写的, 写得怎么样, 是否是业界经典, 都要需要一一斟酌各种查证方可, 不然看一本烂书事半功倍, 浪费生命,影响效率, 被误导跑偏, 能让人静下心来的书籍不多, 能让人看好几遍仍回味无穷的经典就更少了 陈硕说过, 学东西不要只是从网上看点大牛的">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.318Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="重新看unix网络编程的一些心得">
 <meta name="twitter:description" content="老书新看, 有了许多不同的见解, 也准备拿出以前自己私人的老笔记做修正放到博客里, 加深理解. 在这个浮躁人人都能写书的时代基本要看一本书需要挑很久, 谁写的, 写得怎么样, 是否是业界经典, 都要需要一一斟酌各种查证方可, 不然看一本烂书事半功倍, 浪费生命,影响效率, 被误导跑偏, 能让人静下心来的书籍不多, 能让人看好几遍仍回味无穷的经典就更少了 陈硕说过, 学东西不要只是从网上看点大牛的">
@@ -119,7 +115,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -723,7 +721,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -752,10 +754,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -105,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="使用全局变量或者静态变量是导致多线程编程中非线程安全的常见原因。在多线程程序中，保障非线程安全的常用手段之一是使用互斥锁来做保护，这种方法带来了并发性能下降，同时也只能有一个线程对数据进行读写。 如果程序中能避免使用全局变量或静态变量，那么这些程序就是线程安全的，性能也可以得到很大的提升。 如果有些数据只能有一个线程可以访问，那么这一类数据就可以使用线程局部存储机制来处理，虽然使用这种机制会给程序">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.307Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线程局部存储">
 <meta name="twitter:description" content="使用全局变量或者静态变量是导致多线程编程中非线程安全的常见原因。在多线程程序中，保障非线程安全的常用手段之一是使用互斥锁来做保护，这种方法带来了并发性能下降，同时也只能有一个线程对数据进行读写。 如果程序中能避免使用全局变量或静态变量，那么这些程序就是线程安全的，性能也可以得到很大的提升。 如果有些数据只能有一个线程可以访问，那么这一类数据就可以使用线程局部存储机制来处理，虽然使用这种机制会给程序">
@@ -119,7 +115,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -770,7 +768,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -799,10 +801,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

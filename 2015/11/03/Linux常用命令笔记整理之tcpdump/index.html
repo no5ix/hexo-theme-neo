@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -106,7 +102,7 @@
 <meta property="og:description" content="强大的抓包工具, 博大精深内容太多, 所以这篇博客整理得只说常用, 具体的参考tcpdump用户手册,tcpdump需要root权限, 所以记得加上sudo 常用参数 -nn选项：意思是说当tcpdump遇到协议号或端口号时，不要将这些号码转换成对应的协议名称或端口名称。比如，大家都知道80是http端口，tcpdump就不会将它显示成http了  -c选项：是Count的含义，这设置了我们希望t">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/2015/11/03/Linux常用命令笔记整理之tcpdump/tcpdump1.png">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.251Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常用命令笔记整理之tcpdump">
 <meta name="twitter:description" content="强大的抓包工具, 博大精深内容太多, 所以这篇博客整理得只说常用, 具体的参考tcpdump用户手册,tcpdump需要root权限, 所以记得加上sudo 常用参数 -nn选项：意思是说当tcpdump遇到协议号或端口号时，不要将这些号码转换成对应的协议名称或端口名称。比如，大家都知道80是http端口，tcpdump就不会将它显示成http了  -c选项：是Count的含义，这设置了我们希望t">
@@ -121,7 +117,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -793,7 +791,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -822,10 +824,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

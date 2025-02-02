@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -107,7 +103,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://smilejay.com/wp-content/uploads/2012/01/gcc_compilation_stages.jpg">
 <meta property="og:image" content="http://smilejay.com/wp-content/uploads/2012/01/linking.jpg">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.318Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.511Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译过程">
 <meta name="twitter:description" content="通常我们使用gcc来生成可执行程序，命令为：gcc hello.c，默认生成可执行文件a.out其实编译（包括链接）的命令：gcc hello.c 可分解为如下4个大的步骤：预处理(Preprocessing)编译(Compilation)汇编(Assembly)链接(Linking)预处理1.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 预处理(Preproceess">
@@ -122,7 +118,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -780,7 +778,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -809,10 +811,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

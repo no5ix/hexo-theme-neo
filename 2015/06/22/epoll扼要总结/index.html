@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -106,7 +102,7 @@
 <meta property="og:description" content="epoll 编程接口epoll API是Linux系统专有的，在2.6版中新增。 epoll API的核心数据结构称作epoll实例，它和一个打开的文件描述符相关联。这个文件描述符不是用来做I/O操作的，相反，它是内核数据结构的句柄，这些内核数据结构实现了两个目的。  记录了在进程中声明过的感兴趣的文件描述符列表-interest list（兴趣列表）。 维护了处于I/O就绪态的文件描述符列表-r">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/2015/06/22/epoll扼要总结/epoll1.png">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.285Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.478Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="epoll扼要总结">
 <meta name="twitter:description" content="epoll 编程接口epoll API是Linux系统专有的，在2.6版中新增。 epoll API的核心数据结构称作epoll实例，它和一个打开的文件描述符相关联。这个文件描述符不是用来做I/O操作的，相反，它是内核数据结构的句柄，这些内核数据结构实现了两个目的。  记录了在进程中声明过的感兴趣的文件描述符列表-interest list（兴趣列表）。 维护了处于I/O就绪态的文件描述符列表-r">
@@ -121,7 +117,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -856,7 +854,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -885,10 +887,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -108,7 +104,7 @@
 <meta property="og:image" content="https://hulinhong.com/2015/02/21/cpp_object_model_conclusion/virtual_table_0.png">
 <meta property="og:image" content="https://hulinhong.com/2015/02/21/cpp_object_model_conclusion/virtual_table_1.png">
 <meta property="og:image" content="https://hulinhong.com/2015/02/21/cpp_object_model_conclusion/cpp_object_model_conclusion_1.png">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.263Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++对象模型之虚函数实例讲解">
 <meta name="twitter:description" content="介绍因为c++只规定了 虚继承/ 虚函数/ 多继承/ 的行为, 但将实现方法留给编译器作者. 所以各个平台的实现并不相同, 得出的结果也不尽相同. 经测试, vs和gcc目前比较统一的情况只有2种 :  无继承+无虚函数 无继承+虚函数  故本文只讨论这2种, 以及了解虚函数和虚继承的含义. . . .">
@@ -123,7 +119,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -793,7 +791,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -822,10 +824,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

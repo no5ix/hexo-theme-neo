@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -105,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="Redis简介要义 Redis运行在内存中但是可以持久化到磁盘, 重启的时候可以再次加载进行使用  Redis的所有操作都是原子性的，同时Redis还支持对几个操作全并后的原子性执行  Redis支持二进制案例的 Strings, Lists, Hashes, Sets 及 Ordered Sets 数据类型操作  Redis支持数据的备份，即master-slave模式的数据备份   Redis">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.301Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis概要之数据类型">
 <meta name="twitter:description" content="Redis简介要义 Redis运行在内存中但是可以持久化到磁盘, 重启的时候可以再次加载进行使用  Redis的所有操作都是原子性的，同时Redis还支持对几个操作全并后的原子性执行  Redis支持二进制案例的 Strings, Lists, Hashes, Sets 及 Ordered Sets 数据类型操作  Redis支持数据的备份，即master-slave模式的数据备份   Redis">
@@ -119,7 +115,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -429,9 +427,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/11/python和lua数据类型的比较/" rel="prev" title="python和lua数据类型的比较">
+              <a href="/2015/07/11/redis_hiredis_install_tutorial/" rel="prev" title="redis和hiredis安装教程">
               <p class="post-nav-pre-next-title">
-                  python和lua数据类型的比较
+                  redis和hiredis安装教程
               </p> 
               <i class="fa fa-chevron-right"></i>
               </a>
@@ -530,9 +528,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2015/07/11/python和lua数据类型的比较/" rel="prev" title="python和lua数据类型的比较">
+                <a href="/2015/07/11/redis_hiredis_install_tutorial/" rel="prev" title="redis和hiredis安装教程">
                 <p class="post-nav-pre-next-title">
-                    python和lua数据类型的比较
+                    redis和hiredis安装教程
                 </p> 
                 <i class="fa fa-chevron-right"></i>
                 </a>
@@ -788,7 +786,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -817,10 +819,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

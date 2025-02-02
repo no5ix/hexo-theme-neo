@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -106,7 +102,7 @@
 <meta property="og:description" content="LoginServer(Gate)当完成渠道SDK回调验证之后,验证完玩家信息,用了Nginx的负载均衡给每位玩家分配一台不繁忙的游戏服务器,在Redis中存了一份玩家在线有效时间key,这个key也可以用来完成封号操作 MainServer因为弱交互/短连接的关系,大多数情况玩家和玩家之间不需要实时面对面PK，打一下对方的离线数据，计算下排行榜，排行榜是实时计算的,存在Redis里, 做了分页处">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/2016/07/30/how_to_implement_a_slg_one/slg1.png">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.290Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.484Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速完成一个简易SLG游戏思路一">
 <meta name="twitter:description" content="LoginServer(Gate)当完成渠道SDK回调验证之后,验证完玩家信息,用了Nginx的负载均衡给每位玩家分配一台不繁忙的游戏服务器,在Redis中存了一份玩家在线有效时间key,这个key也可以用来完成封号操作 MainServer因为弱交互/短连接的关系,大多数情况玩家和玩家之间不需要实时面对面PK，打一下对方的离线数据，计算下排行榜，排行榜是实时计算的,存在Redis里, 做了分页处">
@@ -121,7 +117,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -756,7 +754,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -785,10 +787,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

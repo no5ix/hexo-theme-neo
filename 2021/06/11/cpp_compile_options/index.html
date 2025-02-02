@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -105,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="编译器优化级别用 C/C++ 的肯定都知道编译器编译有各种优化级别，编译器优化级别大体如下：  O0（默认选项）：不开启优化，方便功能调试 Og：方便调试的优化选项（比 O1 更保守） O1：保守的优化选项，打开了四十多个优化选项 O2：常用的发布优化选项，在 O1 的基础上额外打开了四十多个优化选项，包括自动内联等规则 Os：产生较小代码体积的优化选项（比 O2 更保守） O3：较为激进的优化选">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.263Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cpp的各个编译选项备忘整理">
 <meta name="twitter:description" content="编译器优化级别用 C/C++ 的肯定都知道编译器编译有各种优化级别，编译器优化级别大体如下：  O0（默认选项）：不开启优化，方便功能调试 Og：方便调试的优化选项（比 O1 更保守） O1：保守的优化选项，打开了四十多个优化选项 O2：常用的发布优化选项，在 O1 的基础上额外打开了四十多个优化选项，包括自动内联等规则 Os：产生较小代码体积的优化选项（比 O2 更保守） O3：较为激进的优化选">
@@ -119,7 +115,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -781,7 +779,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -810,10 +812,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -105,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="自我总结快照插值这种游戏同步技术的要点为 :   视觉模拟 : 每帧从网络的发送侧捕获所有相关状态的快照，并将其传输到网络的接收侧，在那里我们将试图重建一个视觉上近似合理的模拟 缓冲区 : 内插值之前会缓冲一段合适的时间来处理网络抖动 内插值Interpolation : 处理快照之间的拉扯 线性插值 Hermite插值   外插值Extrapolation (文中翻译为”预测”或”推测”) :">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.305Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.499Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络物理模拟四之快照插值">
 <meta name="twitter:description" content="自我总结快照插值这种游戏同步技术的要点为 :   视觉模拟 : 每帧从网络的发送侧捕获所有相关状态的快照，并将其传输到网络的接收侧，在那里我们将试图重建一个视觉上近似合理的模拟 缓冲区 : 内插值之前会缓冲一段合适的时间来处理网络抖动 内插值Interpolation : 处理快照之间的拉扯 线性插值 Hermite插值   外插值Extrapolation (文中翻译为”预测”或”推测”) :">
@@ -119,7 +115,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -767,7 +765,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -796,10 +798,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

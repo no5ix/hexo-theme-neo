@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -108,7 +104,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/thread_specific_data/20140521140749687.png">
 <meta property="og:image" content="https://hulinhong.com/img/thread_specific_data/20140521141540062.png">
 <meta property="og:image" content="https://hulinhong.com/img/thread_specific_data/20140521141742921.png">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.308Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线程特有数据">
 <meta name="twitter:description" content="在 Linux 系统中使用 C/C++ 进行多线程编程时，我们遇到最多的就是对同一变量的多线程读写问题，大多情况下遇到这类问题都是通过锁机制来处理，但这对程序的性能带来了很大的影响， 当然对于那些系统原生支持原子操作的数据类型来说，我们可以使用原子操作来处理，这能对程序的性能会得到一定的提高。那么对于那些系统不支持原子操作的自定义数据类型， 在不使用锁的情况下如何做到线程安全呢？本文将从线程特有数">
@@ -123,7 +119,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -823,7 +821,11 @@ void *pthread_getspecific (pthread_key_t key);
 
 
 
+
   
+
+
+
 
 
 
@@ -852,10 +854,7 @@ void *pthread_getspecific (pthread_key_t key);
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

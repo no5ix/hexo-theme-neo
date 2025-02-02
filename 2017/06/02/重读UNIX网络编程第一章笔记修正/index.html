@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -105,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="又准备从头看一遍unp, 把一些老笔记放到博客里来就当网盘吧, 顺便修正以及删减一些之前不够精炼的老笔记内容.   第一章重点如下 :        OSI (open systems interconnection), 即计算机通信开放系统互联模型 OSI分为七层, 从上到下依次为 应用层 表现层 会话层 传输层 网络层 数据链路层 物理层   对于网际网协议族, OSI顶上三层合并为一层, 称">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.318Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="重读UNIX网络编程第一章笔记修正">
 <meta name="twitter:description" content="又准备从头看一遍unp, 把一些老笔记放到博客里来就当网盘吧, 顺便修正以及删减一些之前不够精炼的老笔记内容.   第一章重点如下 :        OSI (open systems interconnection), 即计算机通信开放系统互联模型 OSI分为七层, 从上到下依次为 应用层 表现层 会话层 传输层 网络层 数据链路层 物理层   对于网际网协议族, OSI顶上三层合并为一层, 称">
@@ -119,7 +115,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -744,7 +742,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -773,10 +775,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

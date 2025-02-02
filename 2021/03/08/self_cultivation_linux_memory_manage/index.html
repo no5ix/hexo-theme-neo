@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -114,7 +110,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/linux/traditional_io.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/linux/sendfile1.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/noodle_plan/linux/sendfile2.jpg">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.302Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器开发自我修养专栏-Linux内存管理">
 <meta name="twitter:description" content="Linux内存管理为什么需要虚拟内存虚拟内存的目的是为了让物理内存扩充成更大的逻辑内存，从而让程序获得更多的可用内存。 为了更好的管理内存，操作系统将内存抽象成地址空间。每个程序拥有自己的地址空间，这个地址空间被分割成多个块，每一块称为一页。这些页被映射到物理内存，但不需要映射到连续的物理内存，也不需要所有页都必须在物理内存中。当程序引用到不在物理内存中的页时，由硬件执行必要的映射，将缺失的部分装">
@@ -129,7 +125,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -424,10 +422,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/03/08/self_cultivation_linux_process/" rel="next" title="服务器开发自我修养专栏-Linux进程管理">
+              <a href="/2021/02/26/quic_intro/" rel="next" title="QUIC原理与KCP会话握手借鉴">
                 <i class="fa fa-chevron-left"></i> 
                 <p class="post-nav-pre-next-title">
-                  服务器开发自我修养专栏-Linux进程管理
+                  QUIC原理与KCP会话握手借鉴
                 </p> 
               </a>
             
@@ -437,9 +435,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2021/03/13/self_cultivation_cpp/" rel="prev" title="服务器开发自我修养专栏-CPP要点">
+              <a href="/2021/03/08/self_cultivation_linux_process/" rel="prev" title="服务器开发自我修养专栏-Linux进程管理">
               <p class="post-nav-pre-next-title">
-                  服务器开发自我修养专栏-CPP要点
+                  服务器开发自我修养专栏-Linux进程管理
               </p> 
               <i class="fa fa-chevron-right"></i>
               </a>
@@ -684,10 +682,10 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2021/03/08/self_cultivation_linux_process/" rel="next" title="服务器开发自我修养专栏-Linux进程管理">
+                <a href="/2021/02/26/quic_intro/" rel="next" title="QUIC原理与KCP会话握手借鉴">
                   <i class="fa fa-chevron-left"></i> 
                   <p class="post-nav-pre-next-title">
-                    服务器开发自我修养专栏-Linux进程管理
+                    QUIC原理与KCP会话握手借鉴
                   </p> 
                 </a>
               
@@ -697,9 +695,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2021/03/13/self_cultivation_cpp/" rel="prev" title="服务器开发自我修养专栏-CPP要点">
+                <a href="/2021/03/08/self_cultivation_linux_process/" rel="prev" title="服务器开发自我修养专栏-Linux进程管理">
                 <p class="post-nav-pre-next-title">
-                    服务器开发自我修养专栏-CPP要点
+                    服务器开发自我修养专栏-Linux进程管理
                 </p> 
                 <i class="fa fa-chevron-right"></i>
                 </a>
@@ -955,7 +953,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -984,10 +986,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

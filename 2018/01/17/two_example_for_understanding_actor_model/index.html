@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -115,7 +111,7 @@
 <meta property="og:image" content="http://s3.51cto.com/wyfs02/M02/6F/78/wKiom1WdJT6ToafUAAHzO5b-wbg835.jpg">
 <meta property="og:image" content="http://s3.51cto.com/wyfs02/M00/6F/75/wKioL1WdJ8aQb3cnAAH3zqiR_OY263.jpg">
 <meta property="og:image" content="http://s3.51cto.com/wyfs02/M00/6F/78/wKiom1WdJkDCESVPAAHn1a3-nqU963.jpg">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.308Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="两个例子对比理解Actor模型">
 <meta name="twitter:description" content="Actor模型介绍Actor模式是一种并发模型，与另一种模型共享内存完全相反，Actor模型share nothing。所有的线程(或进程)通过消息传递的方式进行合作，这些线程(或进程)称为Actor。共享内存更适合单机多核的并发编程，而且共享带来的问题很多，编程也困难。 随着多核时代和分布式系统的到来，共享模型已经不太适合并发编程，因此几十年前就已经出现的Actor模型又重新受到了人们的重视。M">
@@ -130,7 +126,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -783,7 +781,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -812,10 +814,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

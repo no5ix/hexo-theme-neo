@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -107,7 +103,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/img/vscode_uml/vsc_uml_path.png">
 <meta property="og:image" content="http://www.plantuml.com/plantuml/svg/HOxD2eCm48JlUOevYKKgrFHKV9UoNVzIaYne1A7uxgOQyVGDE_F1igLfmh8q-2dW3kUUYJgnYYmY7_bDhKhnBZGTxK815X-BbAehQdtivVDjEM0WA-_P9Ablmz6Uvxei_q-ym6GP90Q1UcGPd7WJP8JndMm0">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.313Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vscode用markdown画uml">
 <meta name="twitter:description" content="需要安装的vsc插件  Markdown All in One Markdown Preview Enhanced PlantUML  备注：   Markdown All in One,VSCode 中支持 Markdown(键盘快捷键、目录、自动预览等) Markdown Preview Enhanced 可以对 Markdown 做增强预览, 比如支持各种绘图等 PlantUML, 一款很强">
@@ -122,7 +118,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -767,7 +765,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -796,10 +798,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

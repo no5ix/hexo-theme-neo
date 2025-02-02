@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -119,7 +115,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/reactor_intro/1100082-794d7f69b6e2409a.png">
 <meta property="og:image" content="https://hulinhong.com/img/reactor_intro/using_multiple_reactors_with_thread_pool.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/server_model_summary/11.jpg">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.300Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reactor模式讲解">
 <meta name="twitter:description" content="关于服务器模型总结请转 此文, 文中也有Reactor的讲解. 对于 IO 来说，我们听得比较多的是:  BIO: 阻塞 IO NIO: 非阻塞 IO 同步 IO 异步 IO  以及其组合:  同步阻塞 IO 同步非阻塞 IO 异步阻塞 IO 异步非阻塞 IO  . . .">
@@ -134,7 +130,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -870,7 +868,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -899,10 +901,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

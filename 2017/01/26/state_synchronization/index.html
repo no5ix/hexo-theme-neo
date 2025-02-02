@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -105,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="自我总结状态同步的要点为 :   input+state : 既通过网络发送输入信息又会发送状态信息来进行同步 发送端 优先级累加器 : 只发送一些重要的实体状态更新, 而不是所有都发. 如果遇到一个物体的状态更新信息不合适放到这个数据包里面，那么就跳过这个物体并尝试下一个。当你序列化完这个数据包以后，将那些已经在这帧更新过的物体在优先级累加器里面的值重置为0，但是那些没有在这帧更新过的物体在优先">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.306Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.499Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络物理模拟六之状态同步">
 <meta name="twitter:description" content="自我总结状态同步的要点为 :   input+state : 既通过网络发送输入信息又会发送状态信息来进行同步 发送端 优先级累加器 : 只发送一些重要的实体状态更新, 而不是所有都发. 如果遇到一个物体的状态更新信息不合适放到这个数据包里面，那么就跳过这个物体并尝试下一个。当你序列化完这个数据包以后，将那些已经在这帧更新过的物体在优先级累加器里面的值重置为0，但是那些没有在这帧更新过的物体在优先">
@@ -119,7 +115,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -774,7 +772,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -803,10 +805,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 

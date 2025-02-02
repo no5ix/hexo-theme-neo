@@ -66,10 +66,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/dist/jquery.fancybox.css?v=3.2.10" rel="stylesheet" type="text/css">
-
 
 
 
@@ -106,7 +102,7 @@
 <meta property="og:description" content="当阅读一些开源服务器源码的时候, 如果不知道以下知识, 就会有知识盲点, 导致不知所云.这篇博客会讲述一些相关的编程知识点, 把之前的笔记总结一下.还是那句老话, 带着问题阅读是最容易让人类迅速进入状态的. 进程的内存布局是什么样的?记忆口诀 : 文初堆栈  每个进程所分配的内存由很多部分组成，通常称之为“段( segment)”。如下所示。  文本段  包含了进程运行的程序机器语言指令。文本段具">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://img.blog.csdn.net/20170822215327682?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbm9zaXg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2025-02-02T14:47:47.318Z">
+<meta property="og:updated_time" content="2025-02-02T17:08:27.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阅读开源服务器源码基础">
 <meta name="twitter:description" content="当阅读一些开源服务器源码的时候, 如果不知道以下知识, 就会有知识盲点, 导致不知所云.这篇博客会讲述一些相关的编程知识点, 把之前的笔记总结一下.还是那句老话, 带着问题阅读是最容易让人类迅速进入状态的. 进程的内存布局是什么样的?记忆口诀 : 文初堆栈  每个进程所分配的内存由很多部分组成，通常称之为“段( segment)”。如下所示。  文本段  包含了进程运行的程序机器语言指令。文本段具">
@@ -121,7 +117,9 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"scrollpercent":true,"onmobile":true,"dimmer":true,"body_content_height":0,"display_duration":150},
     local_search: {"enable":true,"trigger":"auto","top_n_per_article":1},
-    fancybox: true,
+    fancybox: false,
+    mediumzoom: true,
+    darkmode_js: false,
     tabs: true,
     motion: {"enable":true,"async":false,"duration":222,"transition":{"header":"slideDownIn","menu":"slideDownIn","logo":"slideDownIn","post_block_else":"slideDownIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"slideDownIn","footer":"slideDownIn"}},
     duoshuo: {
@@ -799,7 +797,11 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
 
 
+
   
+
+
+
 
 
 
@@ -828,10 +830,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/darkmode/darkmode-js.min.js?v=1.5.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/dist/jquery.fancybox.js?v=3.2.10"></script>
+  <script type="text/javascript" src="/lib/mediumzoom/medium-zoom.js?v=1.1.0"></script>
 
 
 
