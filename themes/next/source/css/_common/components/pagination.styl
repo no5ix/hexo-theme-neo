@@ -22,8 +22,14 @@
     /* border-top: 1px solid $pagination-link-border; */
     transition-property: border-color;
     the-transition();
+    min-width: 10px;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 6px;
 
-    &:hover { border-top-color: $pagination-link-hover-border; }
+    &:hover { 
+      border-color: $pagination-link-hover-border;
+    }
   }
 
   .space {
@@ -38,7 +44,12 @@
   .page-number.current {
     color: $pagination-active-color;
     background: $pagination-active-bg;
-    border-top-color: $pagination-active-border;
+    /* border-top-color: $pagination-active-border; */
+
+    &:hover { 
+      /* border-top-color: $pagination-link-hover-border; */
+      border-color: transparent;
+    }
   }
 }
 
