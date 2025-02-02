@@ -1,6 +1,7 @@
 :root {
   --header-bg-color: #f5f5f5;
   --tag-cloud-a-bg-color: #f5f5f5;
+  --tag-cloud-a-bg-hover-color: #e1e1e1;
   --local-search-bg-color: #e8e8e8;
   --local-search-key-word-color: #000;
   --body-bg-color: #fff;
@@ -37,6 +38,7 @@
   :root {
     --header-bg-color: #333;
     --tag-cloud-a-bg-color: #333;
+    --tag-cloud-a-bg-hover-color: #3e3e3e;
     --local-search-bg-color: #484444;
     --local-search-key-word-color: #fff;
     --body-bg-color: #282828;
@@ -1470,7 +1472,7 @@ pre .javascript .function {
 }
 .tag-cloud a:hover {
   color: var(--link-hover-color);
-  background: #3e3e3e;
+  background: var(--tag-cloud-a-bg-hover-color);
   border-bottom: none;
   text-decoration: none;
 }
@@ -2158,7 +2160,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffbdff;
+  background: #e9b62a;
 }
 .links-of-blogroll {
   font-size: 13px;
