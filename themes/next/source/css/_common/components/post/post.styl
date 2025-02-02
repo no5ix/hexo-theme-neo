@@ -46,21 +46,6 @@
 }
 
 
-@import "post-expand";
-@import "post-collapse";
-@import "post-type";
-@import "post-title";
-@import "post-meta";
-@import "post-button";
-@import "post-tags";
-@import "post-nav";
-@import "post-eof";
-@import "post-gallery";
-@import "post-reward" if hexo-config('alipay') or hexo-config('wechatpay') or hexo-config('bitcoin');
-@import "post-copyright" if hexo-config('post_copyright.enable');
-@import "post-wordcount" if !hexo-config('post_wordcount.separated_meta');
-@import "post-widgets" if (hexo-config('facebook_sdk.enable') and hexo-config('facebook_sdk.like_button')) or (hexo-config('vkontakte_api.enable') and hexo-config('vkontakte_api.like')) or hexo-config('rating.enable');
-@import "post-rtl";
 
 // 文章内锚点样式
 .post-body table a[href^="#"],
@@ -95,6 +80,7 @@
   text-align: center;
 
   a {
+    color: var(--text-color);
     display: inline-block;
     margin: 10px;
     padding: 2px 20px;
@@ -104,9 +90,26 @@
     /* box-shadow: inset 0.475em 0.375em 0.45em 0 #bbb; */
   }
   a:hover { 
-    color: #0593d3;
+    color: var(--link-hover-color);
     background: #3e3e3e;
     border-bottom: none;
     text-decoration: none;
   }
 }
+
+
+@import "post-expand";
+@import "post-collapse";
+@import "post-type";
+@import "post-title";
+@import "post-meta";
+@import "post-button";
+@import "post-tags";
+@import "post-nav";
+@import "post-eof";
+@import "post-gallery";
+@import "post-reward" if hexo-config('alipay') or hexo-config('wechatpay') or hexo-config('bitcoin');
+@import "post-copyright" if hexo-config('post_copyright.enable');
+@import "post-wordcount" if !hexo-config('post_wordcount.separated_meta');
+@import "post-widgets" if (hexo-config('facebook_sdk.enable') and hexo-config('facebook_sdk.like_button')) or (hexo-config('vkontakte_api.enable') and hexo-config('vkontakte_api.like')) or hexo-config('rating.enable');
+@import "post-rtl";
