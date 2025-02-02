@@ -12,11 +12,19 @@
 {% set js_vendors.lazyload    = 'jquery_lazyload/jquery.lazyload.js?v=1.9.7' %}
 {% set js_vendors.velocity    = 'velocity/velocity.min.js?v=1.2.1' %}
 {% set js_vendors.velocity_ui = 'velocity/velocity.ui.min.js?v=1.2.1' %}
-{% set js_vendors.darkmode    = 'darkmode/darkmode-js.min.js?v=1.5.7' %}
 
 {% if theme.fancybox %}
   {% set js_vendors.fancybox  = 'fancybox/dist/jquery.fancybox.js?v=3.2.10' %}
 {% endif %}
+
+{% if theme.mediumzoom %}
+  {% set js_vendors.mediumzoom  = 'mediumzoom/medium-zoom.js?v=1.1.0' %}
+{% endif %}
+
+{% if theme.darkmode_js %}
+  {% set js_vendors.darkmode_js  = 'darkmode/darkmode-js.min.js?v=1.5.7' %}
+{% endif %}
+
 {% if theme.canvas_nest %}
   {% set js_vendors.canvas_nest  = 'canvas-nest/canvas-nest.min.js' %}
 {% endif %}

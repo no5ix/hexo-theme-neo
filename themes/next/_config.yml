@@ -623,8 +623,14 @@ motion:
     coll_header: slideDownIn
     footer: slideDownIn
 
-# Fancybox
-fancybox: true
+# FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
+# For more information: https://fancyapps.com/fancybox/
+fancybox: false
+
+# Medium Zoom is a JavaScript library for zooming images like Medium.
+# Warning: Do not enable both `fancybox` and `mediumzoom`.
+# For more information: https://medium-zoom.francoischalifour.com
+mediumzoom: true
 
 # 第三方 darkmode.js 关闭了, 因为header没有变黑, 没意义, 不好看
 darkmode_js: false
