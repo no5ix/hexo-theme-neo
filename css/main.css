@@ -598,6 +598,19 @@ code {
   border-radius: 3px;
   font-size: 13px;
 }
+pre {
+  padding: calc(0.8em / 0.9);
+  border-radius: 6px;
+  box-shadow: 0 3px 13px rgba(0,0,0,0.65);
+/* 隐藏 WebKit 浏览器（Chrome、Safari、Opera）的滚动条 */
+/* 隐藏 IE 和 Edge 浏览器的滚动条 */
+  -ms-overflow-style: none;
+/* 隐藏 Firefox 浏览器的滚动条 */
+  scrollbar-width: none;
+}
+pre::-webkit-scrollbar {
+  display: none;
+}
 pre code {
   padding: 0;
   color: #fff;
@@ -605,12 +618,21 @@ pre code {
   text-shadow: none;
 }
 .highlight {
-  border-radius: 1px;
+  border-radius: 6px;
+  box-shadow: 0 3px 13px rgba(0,0,0,0.65);
+/* 隐藏 WebKit 浏览器（Chrome、Safari、Opera）的滚动条 */
+  scrollbar-width: none; /* Firefox 隐藏滚动条 */
+  -ms-overflow-style: none; /* IE/Edge 隐藏滚动条 */
+}
+.highlight::-webkit-scrollbar {
+  display: none;
 }
 .highlight pre {
   border: none;
   margin: 0;
   padding: 10px 0;
+  border-radius: 0px;
+  box-shadow: none;
 }
 .highlight table {
   margin: 0;
@@ -1138,11 +1160,15 @@ pre .javascript .function {
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
+  min-width: 10px;
+  text-align: center;
+  border: 1px solid transparent;
+  border-radius: 6px;
 }
 .pagination .prev:hover,
 .pagination .next:hover,
 .pagination .page-number:hover {
-  border-top-color: var(--link-hover-color);
+  border-color: #666;
 }
 .pagination .space {
   padding: 0;
@@ -1155,9 +1181,13 @@ pre .javascript .function {
   margin-right: 0;
 }
 .pagination .page-number.current {
-  color: var(--content-bg-color);
-  background: #ccc;
-  border-top-color: #ccc;
+  color: #f5f5f5;
+  background: #316dca;
+/* border-top-color: $pagination-active-border; */
+}
+.pagination .page-number.current:hover {
+/* border-top-color: $pagination-link-hover-border; */
+  border-color: transparent;
 }
 @media (max-width: 767px) {
   .pagination {
@@ -1173,7 +1203,7 @@ pre .javascript .function {
   .pagination .prev:hover,
   .pagination .next:hover,
   .pagination .page-number:hover {
-    border-bottom-color: var(--link-hover-color);
+    border-bottom-color: #666;
   }
 }
 .comments {
@@ -2029,14 +2059,13 @@ pre .javascript .function {
   }
 }
 .site-author-image {
-  display: block;
   margin: 0 auto;
-  padding: 2px;
   max-width: 96px;
   height: auto;
 /* border: $site-author-image-border-width solid $site-author-image-border-color; */
-  box-shadow: 0 5px 35px rgba(0,0,0,0.65);
+  box-shadow: 0 3px 13px rgba(0,0,0,0.65);
 /* box-shadow: 13px 12px 24px rgba(0,0,0,0.65); */
+  border-radius: 10px;
 }
 .site-author-name {
   margin: 5px 0 0;
@@ -2129,7 +2158,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8c6e2e;
+  background: #ffbdff;
 }
 .links-of-blogroll {
   font-size: 13px;
