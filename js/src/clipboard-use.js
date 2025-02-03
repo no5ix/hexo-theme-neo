@@ -59,11 +59,19 @@
 				// $(this).text('✅');
 				// $(this).text('✔');
 				$b.find('i.fa-copy').remove();
-				$b.append($('<i class="fa fa-check" aria-hidden="true"></i>'));
+				// $b.append($('<i class="fa fa-check" aria-hidden="true"></i>'));
+				// $b.append($('<i class="fa fa-check-circle" aria-hidden="true"></i>'));
+				// $b.append($('<i class="fa fa-check-circle-o" aria-hidden="true"></i>'));
+				// $b.append($('<i class="fa fa-check-square" aria-hidden="true"></i>'));
+				$b.append($('<i class="fa fa-check-square-o" aria-hidden="true"></i>'));
 				setTimeout(function () {
 					// var $b = $wrap.find('.btn-copy')
 					// $b.text('');
-					$b.find('i.fa-check').remove();
+					// $b.find('i.fa-check').remove();
+					// $b.find('i.fa-check-circle').remove();
+					// $b.find('i.fa-check-circle-o').remove();
+					// $b.find('i.fa-check-square').remove();
+					$b.find('i.fa-check-square-o').remove();
 					$b.append($('<i class="fa fa-copy" aria-hidden="true"></i>'));
 				  }, 800);
 			}

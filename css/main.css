@@ -1471,6 +1471,10 @@ pre .javascript .function {
   border-bottom: none;
   text-decoration: none;
 }
+.medium-zoom-overlay,
+.medium-zoom-image--opened {
+  z-index: 3000;
+}
 .posts-expand {
   padding-top: 40px;
 }
@@ -2155,7 +2159,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f5f454;
+  background: #ffff26;
 }
 .links-of-blogroll {
   font-size: 13px;
