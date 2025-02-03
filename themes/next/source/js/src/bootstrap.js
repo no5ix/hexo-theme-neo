@@ -33,7 +33,7 @@ $(document).ready(function () {
   CONFIG.mediumzoom && window.mediumZoom('.post-body :not(a) > img, .post-body > img', {
     // background: 'var(--content-bg-color)',
     background: '#333',
-    margin: 24,
+    margin: 8,
     // background: '#BADA55',
     scrollOffset: 0,
     // container: '#zoom-container',

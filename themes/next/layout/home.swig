@@ -132,10 +132,6 @@
 </html>
 
 
-<!-- 页面点击小红心 -->
-{% if theme.loving_heart %}
-  <script type="text/javascript" src="/js/src/love.js"></script>
-{% endif %}
 
 
 <script type="text/javascript" src="/js/src/headroom.js"></script> 

@@ -88,10 +88,6 @@
 </html>
 
 
-<!-- 页面点击小红心 -->
-{% if theme.loving_heart %}
-  <script type="text/javascript" src="/js/src/love.js"></script>
-{% endif %}
 
 {% if theme.fireworks %}
   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
