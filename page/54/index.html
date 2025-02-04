@@ -1026,7 +1026,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hulinhong.com/2013/08/27/how_to_build_a_simple_ubuntu_server_three/">
+    <link itemprop="mainEntityOfPage" href="https://hulinhong.com/2014/01/18/na_springboot_notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wasp">
@@ -1045,7 +1045,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2013/08/27/how_to_build_a_simple_ubuntu_server_three/" itemprop="url">从零开始搭建一台简易Ubuntu服务器三</a></h1>
+                <a class="post-title-link" href="/2014/01/18/na_springboot_notes/" itemprop="url">NA Sprint Boot Notes</a></h1>
         
 
         <div class="post-meta">
@@ -1057,8 +1057,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-08-27T15:11:26+00:00">
-                2013-08-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-01-18T21:54:08+00:00">
+                2014-01-18
               </time>
             
 
@@ -1080,8 +1080,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -1132,17 +1132,26 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       
         
-          <h1 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h1><p>执行命令安装MySQL：sudo apt-get install mysql-server<br>安装的时候会提示填入一个root的初始密码，先输入个8做初始密码吧</p>
-<h1 id="导入客户数据库base-account"><a href="#导入客户数据库base-account" class="headerlink" title="导入客户数据库base_account"></a>导入客户数据库base_account</h1><p>mysql -uroot -p &lt; <strong>*</strong>.sql(某个sql文件)</p>
-<h1 id="安装svn并checkout一个svn服务器上的目录"><a href="#安装svn并checkout一个svn服务器上的目录" class="headerlink" title="安装svn并checkout一个svn服务器上的目录"></a>安装svn并checkout一个svn服务器上的目录</h1><ol>
-<li>进入 /data/www目录下 ：cd /data/www</li>
-<li>执行命令安装：sudo apt-get install subversion</li>
-<li>checkout一个目录（比如svn://112.124.26.188/myapp/td/01CServer_PHP/errorMsg），<br>执行命令：svn checkout svn://112.124.26.188/myapp/td/01CServer_PHP/errorMsg （或者 svn co svn://112.124.26.188/myapp/td/01CServer_PHP/errorMsg）</li>
-</ol>
-<p><strong>. . .</strong>
-          <!--noindex-->
           
-          <!--/noindex-->
+            <h1 id="the-relationship-between-Servlet-and-TomCat"><a href="#the-relationship-between-Servlet-and-TomCat" class="headerlink" title="the relationship between Servlet and TomCat"></a>the relationship between Servlet and TomCat</h1><p>Servlet is a specification and technology in Java for developing web applications, while Tomcat is an open - source Servlet container. The relationship between them is as follows:</p>
+<h2 id="Specification-and-implementation-relationship"><a href="#Specification-and-implementation-relationship" class="headerlink" title="Specification and implementation relationship"></a>Specification and implementation relationship</h2><ul>
+<li><strong>Servlet specification</strong>: Servlet is a set of standard specifications developed by Sun Microsystems (now Oracle). It defines how Servlet classes should be written and how to interact with client requests and servers. In simple terms, the Servlet specification is an abstract design that stipulates the interfaces and methods for handling requests and responses in web application development. For example, the Servlet specification defines the <code>javax.servlet.Servlet</code> interface, and the Servlet classes written by developers need to implement this interface or inherit abstract classes such as <code>HttpServlet</code>.</li>
+<li><strong>Tomcat implementation</strong>: Tomcat is a specific implementation of the Servlet specification. It implements various interfaces and methods defined in the Servlet specification, enabling the code written by developers that conforms to the Servlet specification to run on the Tomcat server. Tomcat provides a running environment for Servlets, allowing them to handle client requests and return responses.</li>
+</ul>
+<h2 id="Running-carrier-relationship"><a href="#Running-carrier-relationship" class="headerlink" title="Running carrier relationship"></a>Running carrier relationship</h2><ul>
+<li><strong>Servlet’s running dependency</strong>: A Servlet itself is just a piece of Java code and cannot run independently. It requires a running environment, namely a Servlet container. The Servlet code needs to be deployed in a Servlet container, which is responsible for loading, instantiating, and managing the lifecycle of the Servlet.</li>
+<li><strong>Tomcat as the carrier</strong>: Tomcat is such a Servlet container that can provide a running environment for Servlets. After developers write a Servlet class, they package it into a WAR (Web Application Archive) file and deploy it to Tomcat. Tomcat will be responsible for loading these Servlet classes, creating Servlet instances, and calling their methods to handle client requests. For example, when a client sends an HTTP request to the Tomcat server, Tomcat will find the corresponding Servlet according to the URL of the request and call the <code>service()</code> method of the Servlet for processing.</li>
+</ul>
+<h2 id="Interaction-and-collaboration-relationship"><a href="#Interaction-and-collaboration-relationship" class="headerlink" title="Interaction and collaboration relationship"></a>Interaction and collaboration relationship</h2><ul>
+<li><strong>Request processing flow</strong>: A client (such as a browser) sends an HTTP request to the Tomcat server. After receiving the request, Tomcat finds the corresponding Servlet according to information such as the URL of the request. Then, Tomcat creates <code>ServletRequest</code> and <code>ServletResponse</code> objects to encapsulate the client’s request information and response information respectively, and passes these two objects to the corresponding methods (such as <code>doGet()</code> or <code>doPost()</code>) of the Servlet. The Servlet processes the business logic according to the request information, generates the response content, and writes it into the <code>ServletResponse</code> object. Finally, Tomcat retrieves the response content from the <code>ServletResponse</code> object and returns it to the client.</li>
+<li><strong>Lifecycle management</strong>: Tomcat is responsible for managing the lifecycle of Servlets. After a Servlet is deployed to Tomcat, Tomcat will instantiate and initialize the Servlet (call the <code>init()</code> method) at an appropriate time. When a request arrives, it calls the service method of the Servlet to handle the request. When Tomcat is shut down or the Servlet is unloaded, Tomcat will call the <code>destroy()</code> method of the Servlet to release resources.</li>
+</ul>
+<h2 id="Development-and-deployment-relationship"><a href="#Development-and-deployment-relationship" class="headerlink" title="Development and deployment relationship"></a>Development and deployment relationship</h2><ul>
+<li><strong>Development aspect</strong>: When developers develop Servlets, they only need to write Java code following the Servlet specification to implement the corresponding business logic, without having to worry about how the Servlet runs on the server. They can use various Java development tools (such as Eclipse, IntelliJ IDEA, etc.) to write and debug Servlet code.</li>
+<li><strong>Deployment aspect</strong>: After development, the Servlet code is packaged into a WAR file and then deployed to the Tomcat server. Tomcat will automatically decompress the WAR file, load the Servlet classes in it into memory, and make them capable of handling client requests. This separated development and deployment method allows developers to focus on the implementation of business logic, while server administrators are responsible for server configuration and management. </li>
+</ul>
+
+          
         
       
 
@@ -1163,7 +1172,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         
       </footer>
       
-    </p></div>
+    </div>
     
     
     
@@ -1187,7 +1196,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/53/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/53/">53</a><span class="page-number current">54</span><a class="page-number" href="/page/55/">55</a><a class="extend next" rel="next" href="/page/55/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/53/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/">44</a><a class="page-number" href="/page/45/">45</a><a class="page-number" href="/page/46/">46</a><a class="page-number" href="/page/47/">47</a><a class="page-number" href="/page/48/">48</a><a class="page-number" href="/page/49/">49</a><a class="page-number" href="/page/50/">50</a><a class="page-number" href="/page/51/">51</a><a class="page-number" href="/page/52/">52</a><a class="page-number" href="/page/53/">53</a><span class="page-number current">54</span><a class="page-number" href="/page/55/">55</a><a class="extend next" rel="next" href="/page/55/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1253,7 +1262,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">272</span>
+                <span class="site-state-item-count">273</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1264,7 +1273,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">99</span>
+                <span class="site-state-item-count">100</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

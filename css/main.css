@@ -1844,7 +1844,7 @@ pre .javascript .function {
 }
 .post-nav-item .fa {
   position: absolute;
-  top: 8px;
+  top: 7px;
   left: 0;
   font-size: 12px;
 }
@@ -2162,7 +2162,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #5422dd;
+  background: #ff63ec;
 }
 .links-of-blogroll {
   font-size: 13px;
