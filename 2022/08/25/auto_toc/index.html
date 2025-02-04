@@ -102,7 +102,7 @@
 <meta property="og:description" content="auto-toc  auto-tocDisplays a table of contents for any website, making it easier to read and navigate long articles, documentations, and online books. Generate TOC(table of contents) for any website.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://raw.githubusercontent.com/no5ix/auto-toc/refs/heads/main/auto_toc_demo_image.jpg">
-<meta property="og:updated_time" content="2025-02-04T11:29:42.121Z">
+<meta property="og:updated_time" content="2025-02-04T12:38:50.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A userscript that adds a table of contents to any website">
 <meta name="twitter:description" content="auto-toc  auto-tocDisplays a table of contents for any website, making it easier to read and navigate long articles, documentations, and online books. Generate TOC(table of contents) for any website.">
@@ -1164,6 +1164,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       $(document).on('click', '#local-search-close', function() {
         CloseLocalSearch();
+      });
+
+      $(document).click(function(event) {
+          if (!$(event.target).closest('#' + content_id).length) {
+              CloseLocalSearch();
+          }
       });
 
       $(document).keyup(function(event){

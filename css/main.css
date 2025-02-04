@@ -2162,7 +2162,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff63ec;
+  background: #49ffac;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2649,7 +2649,7 @@ input[id$=local-search-input] {
   content: 'x';
   position: absolute;
   right: -11px;
-  top: 13px;
+  top: 9px;
   opacity: 1;
   background: #888;
   color: #fff;
@@ -2822,7 +2822,7 @@ input[id$=local-search-input] {
 }
 .search-icon {
   position: absolute;
-  top: 13px;
+  top: 9px;
   left: -16px;
 }
 @media (max-width: 767px) {
@@ -3347,7 +3347,7 @@ hr {
 }
 .menu {
   float: right;
-  margin: 4px 0 0 0;
+  margin: 0px 0 0 0;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .menu {
@@ -3575,9 +3575,9 @@ hr {
 .site-search {
   position: relative;
   float: right;
-  margin-top: 2px;
+/* margin-top: 2px; */
   margin-left: 16px;
-  padding-top: 3px;
+/* padding-top: 3px; */
 }
 @media (max-width: 767px) {
   .site-search {

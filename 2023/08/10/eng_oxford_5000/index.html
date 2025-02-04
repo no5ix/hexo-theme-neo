@@ -197,7 +197,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/eng_oxford_5000/image-93.png">
 <meta property="og:image" content="https://hulinhong.com/img/eng_oxford_5000/image-94.png">
 <meta property="og:image" content="https://hulinhong.com/img/eng_oxford_5000/image-95.png">
-<meta property="og:updated_time" content="2025-02-04T11:29:42.139Z">
+<meta property="og:updated_time" content="2025-02-04T12:38:50.940Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The oxford 5000 by cefr level">
 <meta name="twitter:description" content="Prompt翻译以下的每个单词, 并标注国际音标, 然后再用每个单词造一个句子并把句子翻译成中文: UnfamiliarB2ab absorb [əbˈsɔːrb] v. 吸收 Plants absorb water and nutrients from the soil.   植物从土壤中吸收水分和营养物质。     accommodate [əˈkɑːmədeɪt] v. 容纳；适应 The">
@@ -5824,6 +5824,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       $(document).on('click', '#local-search-close', function() {
         CloseLocalSearch();
+      });
+
+      $(document).click(function(event) {
+          if (!$(event.target).closest('#' + content_id).length) {
+              CloseLocalSearch();
+          }
       });
 
       $(document).keyup(function(event){

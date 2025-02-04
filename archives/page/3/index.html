@@ -713,9 +713,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2020/01/09/win10_home_disable_auto_update/" itemprop="url">
+            <a class="post-title-link" href="/2020/01/09/sux_readme/" itemprop="url">
               
-                <span itemprop="name">Win10禁止自动更新踩坑</span>
+                <span itemprop="name">An alternative to Alfred+Wox+Listary+OneQuick+CapslockPlus</span>
               
             </a>
         
@@ -748,9 +748,9 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2020/01/09/sux_readme/" itemprop="url">
+            <a class="post-title-link" href="/2020/01/09/win10_home_disable_auto_update/" itemprop="url">
               
-                <span itemprop="name">An alternative to Alfred+Wox+Listary+OneQuick+CapslockPlus</span>
+                <span itemprop="name">Win10禁止自动更新踩坑</span>
               
             </a>
         
@@ -1961,6 +1961,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       $(document).on('click', '#local-search-close', function() {
         CloseLocalSearch();
+      });
+
+      $(document).click(function(event) {
+          if (!$(event.target).closest('#' + content_id).length) {
+              CloseLocalSearch();
+          }
       });
 
       $(document).keyup(function(event){

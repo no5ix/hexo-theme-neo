@@ -111,7 +111,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/pycharm_remote_debug_img/pycharm_add_interpreter3.png">
 <meta property="og:image" content="https://hulinhong.com/img/pycharm_remote_debug_img/pycharm_remote_debug2.png">
 <meta property="og:image" content="https://hulinhong.com/img/pycharm_remote_debug_img/pycharm_remote_debug4.png">
-<meta property="og:updated_time" content="2025-02-04T11:29:42.161Z">
+<meta property="og:updated_time" content="2025-02-04T12:38:50.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pycharm远程调试的非attach方法备忘">
 <meta name="twitter:description" content=". . .">
@@ -1200,6 +1200,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       $(document).on('click', '#local-search-close', function() {
         CloseLocalSearch();
+      });
+
+      $(document).click(function(event) {
+          if (!$(event.target).closest('#' + content_id).length) {
+              CloseLocalSearch();
+          }
       });
 
       $(document).keyup(function(event){

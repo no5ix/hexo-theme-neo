@@ -102,7 +102,7 @@
 <meta property="og:description" content="ReferenceLittle Dinosaur website, The numbers in this article are based on the numbers on this website. . . .">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hulinhong.com/img/java_top_questions/image.png">
-<meta property="og:updated_time" content="2025-02-04T11:29:42.155Z">
+<meta property="og:updated_time" content="2025-02-04T12:38:50.956Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NA Java Top Questions">
 <meta name="twitter:description" content="ReferenceLittle Dinosaur website, The numbers in this article are based on the numbers on this website. . . .">
@@ -2211,6 +2211,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       $(document).on('click', '#local-search-close', function() {
         CloseLocalSearch();
+      });
+
+      $(document).click(function(event) {
+          if (!$(event.target).closest('#' + content_id).length) {
+              CloseLocalSearch();
+          }
       });
 
       $(document).keyup(function(event){

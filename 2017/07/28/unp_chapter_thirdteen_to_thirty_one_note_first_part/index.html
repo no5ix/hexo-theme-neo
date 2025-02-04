@@ -104,7 +104,7 @@
 <meta property="og:image" content="https://hulinhong.com/img/unp_chapter_thirdteen_to_thirty_one_note_first_part/daemon_command.jpg">
 <meta property="og:image" content="https://hulinhong.com/img/about_sighup_sigpipe/1.png">
 <meta property="og:image" content="https://hulinhong.com/img/unp_chapter_thirdteen_to_thirty_one_note_first_part/setid.jpg">
-<meta property="og:updated_time" content="2025-02-04T11:29:42.170Z">
+<meta property="og:updated_time" content="2025-02-04T12:38:50.970Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="重读UNP（UNIX网络编程）13章到31章笔记整理（结合TLPI和APUE两书的笔记整理）(一)">
 <meta name="twitter:description" content="因为UNP第三部分（第三版13-31章）的内容结合APUE（UNIX环境高级编程）和TLPI（The Linux Programming Interface）来看才能比较清晰，所以笔记整理会穿插很多这两本书的内容 引申知识，作业控制以及相关命令  . . .">
@@ -1311,6 +1311,12 @@ S．修改进程的当前工作目录，通常会改为根日录(／)。这样�
 
       $(document).on('click', '#local-search-close', function() {
         CloseLocalSearch();
+      });
+
+      $(document).click(function(event) {
+          if (!$(event.target).closest('#' + content_id).length) {
+              CloseLocalSearch();
+          }
       });
 
       $(document).keyup(function(event){

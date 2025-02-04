@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="main看起来似乎所有的组件都有一个这样的宏(KBENGINE_MAIN)来包裹main函数123456intKBENGINE_MAIN(intargc, char* argv[])&amp;#123;	ENGINE_COMPONENT_INFO&amp;amp;info = g_kbeSrvConfig.getXXX();	returnkbeMainT&amp;lt;XXX&amp;gt;(argc, argv, YYY, i">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-02-04T11:29:42.153Z">
+<meta property="og:updated_time" content="2025-02-04T12:38:50.953Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kbe服务端笔记(一)">
 <meta name="twitter:description" content="main看起来似乎所有的组件都有一个这样的宏(KBENGINE_MAIN)来包裹main函数123456intKBENGINE_MAIN(intargc, char* argv[])&amp;#123;	ENGINE_COMPONENT_INFO&amp;amp;info = g_kbeSrvConfig.getXXX();	returnkbeMainT&amp;lt;XXX&amp;gt;(argc, argv, YYY, i">
@@ -1137,6 +1137,12 @@ Resmgr的初始化（配置）工作主要由initialize接口完成，代码如�
 
       $(document).on('click', '#local-search-close', function() {
         CloseLocalSearch();
+      });
+
+      $(document).click(function(event) {
+          if (!$(event.target).closest('#' + content_id).length) {
+              CloseLocalSearch();
+          }
       });
 
       $(document).keyup(function(event){

@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="It is recommended to use Chrome/Firefox/Safari to read this blog.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-02-04T11:29:42.180Z">
+<meta property="og:updated_time" content="2025-02-04T12:38:50.980Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="categories">
 <meta name="twitter:description" content="It is recommended to use Chrome/Firefox/Safari to read this blog.">
@@ -914,6 +914,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       $(document).on('click', '#local-search-close', function() {
         CloseLocalSearch();
+      });
+
+      $(document).click(function(event) {
+          if (!$(event.target).closest('#' + content_id).length) {
+              CloseLocalSearch();
+          }
       });
 
       $(document).keyup(function(event){

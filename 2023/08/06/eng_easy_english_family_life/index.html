@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="Youtube origin URLhttps://www.youtube.com/watch?v=J1f47XwvQYA&amp;amp;list=PLhPfBpTj6VpTuTSndeBBzTMxvzpYDa8UE&amp;amp;index=3 1. Family Morning Routine good morning, Nicholas. it’s time for school.come on get">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-02-04T11:29:42.137Z">
+<meta property="og:updated_time" content="2025-02-04T12:38:50.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Easy English - Family Life">
 <meta name="twitter:description" content="Youtube origin URLhttps://www.youtube.com/watch?v=J1f47XwvQYA&amp;amp;list=PLhPfBpTj6VpTuTSndeBBzTMxvzpYDa8UE&amp;amp;index=3 1. Family Morning Routine good morning, Nicholas. it’s time for school.come on get">
@@ -1401,6 +1401,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       $(document).on('click', '#local-search-close', function() {
         CloseLocalSearch();
+      });
+
+      $(document).click(function(event) {
+          if (!$(event.target).closest('#' + content_id).length) {
+              CloseLocalSearch();
+          }
       });
 
       $(document).keyup(function(event){

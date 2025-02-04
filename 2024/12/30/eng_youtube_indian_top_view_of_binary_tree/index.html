@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="烫">
 <meta property="og:description" content="URLhttps://www.youtube.com/watch?v=Et9OCDNvJ78 . . .">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2025-02-04T11:29:42.146Z">
+<meta property="og:updated_time" content="2025-02-04T12:38:50.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YT Indian Accent Top View of Binary Tree">
 <meta name="twitter:description" content="URLhttps://www.youtube.com/watch?v=Et9OCDNvJ78 . . .">
@@ -1426,6 +1426,12 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       $(document).on('click', '#local-search-close', function() {
         CloseLocalSearch();
+      });
+
+      $(document).click(function(event) {
+          if (!$(event.target).closest('#' + content_id).length) {
+              CloseLocalSearch();
+          }
       });
 
       $(document).keyup(function(event){
