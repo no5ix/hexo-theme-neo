@@ -297,6 +297,12 @@
         CloseLocalSearch();
       });
 
+      $(document).click(function(event) {
+          if (!$(event.target).closest('#' + content_id).length) {
+              CloseLocalSearch();
+          }
+      });
+
       $(document).keyup(function(event){
         switch(event.keyCode) {
           case 27:
