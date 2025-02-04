@@ -509,7 +509,7 @@ td {
 }
 th,
 td {
-  border-bottom: 3px solid var(--table-border-color);
+/* border-bottom: 1px solid var(--table-border-color); */
   border-right: 1px solid var(--table-border-color);
 }
 th {
@@ -518,6 +518,9 @@ th {
 }
 td {
   border-bottom-width: 1px;
+}
+thead {
+  border-bottom: 1px solid var(--table-border-color);
 }
 html,
 body {
@@ -2159,7 +2162,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fef;
+  background: #5422dd;
 }
 .links-of-blogroll {
   font-size: 13px;
