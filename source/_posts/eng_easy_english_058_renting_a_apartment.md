@@ -56,6 +56,9 @@ https://www.youtube.com/watch?v=0TBsMgwQaE8
 - > let me show you now the kitchen, it is a fully equipped(provided with whatever is needed for use) kitchen it has a `stove`(/stoʊv/ n. （取暖或烹饪用的）炉子，火炉；厨灶，炉头；窑；<英>温室) top and oven microwave and refrigerator. the oven and `stovetop`(/ˈstoʊvtɑːp/ n. （炉具上的）炉盘) use gas
 
 
+**. . .**<!-- more -->
+
+
 # Talk about what she can do
 
 - will i be responsible for paying the gas bill?

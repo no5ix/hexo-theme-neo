@@ -42,6 +42,9 @@ Switch black/white themes automatically according to your compupter's light/dark
   - `<b>`
 
 
+**. . .**<!-- more -->
+
+
 # Installation & Usage
 
 - English: https://greasyfork.org/en/scripts/458022-auto-toc?locale_override=1

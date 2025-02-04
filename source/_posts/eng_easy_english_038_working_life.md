@@ -63,6 +63,9 @@ https://www.youtube.com/watch?v=6x5k1A8kbo0
 - thank you for your time. 
 
 
+**. . .**<!-- more -->
+
+
 # 02:31-how did your job interview go
 
 - > hey marcus, how did your job interview go ?

@@ -41,6 +41,9 @@ https://www.youtube.com/watch?v=jiBHZ_rqHB8
 - > You're very welcome, enjoy your flight !
 
 
+**. . .**<!-- more -->
+
+
 # Security
 
 - Passport and boarding pass, please.

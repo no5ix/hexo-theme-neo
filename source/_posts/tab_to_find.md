@@ -51,6 +51,9 @@ Abbreviation: TTF
 - Press tab for completion as usual
 
 
+**. . .**<!-- more -->
+
+
 # 安装方法
 
 1. 先安装fd, 按照 [fd的安装方法](https://github.com/sharkdp/fd#installation) 安装一下就行(一般来说就是一行命令就搞定), 不用额外配置

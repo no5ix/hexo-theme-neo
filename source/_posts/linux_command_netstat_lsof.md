@@ -39,7 +39,8 @@ categories:
 
 **. . .**<!-- more -->
 
-## *netstat常用用法：netstat -anlp*
+
+## netstat常用用法：netstat -anlp
 
 
 netstat -anlpt的含义是 ： 列出所有处于使用tcp协议的 Sockets
@@ -79,7 +80,7 @@ tcp6       1      0 ::1:50654               ::1:631                 CLOSE_WAIT  
 - -v：显示版本信息
 - -R: 显示PPID（父进程ID）
 
-## *lsof常用用法1：lsof -p*
+## lsof常用用法1：lsof -p
 
 
 ps -ef |grep sshd|grep -v grep| awk '{print $2}'|xargs sudo lsof -p的含义是：
@@ -176,7 +177,7 @@ frps    4721  wcl   12u     IPv6 117334428      0t0     TCP *:6004 (LISTEN)
 lsof 的 `-nP` 参数用于将 ip 地址和端口号显示为正常的数值类型，否则可能会用别名表示。
 
 
-## *lsof常用用法：lsof -i:*
+## lsof常用用法：lsof -i:
 sudo lsof -i:22含义为列出占用22的进程
 ```
 b@b-VirtualBox:~$ sudo lsof -i:22

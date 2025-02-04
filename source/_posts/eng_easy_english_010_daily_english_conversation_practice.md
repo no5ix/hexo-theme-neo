@@ -34,6 +34,9 @@ https://www.youtube.com/watch?v=GAuqgOC6eKY
 - We love u too.
 
 
+**. . .**<!-- more -->
+
+
 # 02:04 What did you do for spring break.
 
 - Hey Jason, hey Paul, it's so good to see you again.

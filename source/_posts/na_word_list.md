@@ -1,11 +1,12 @@
 ---
-title: NA word list
+title: NA Word List
 date: 2025-01-18 21:54:08
 tags:
 - noodle
 - NA
+- Java
 categories:
-- Misc
+- Java
 password: '0622'
 ---
 
