@@ -1132,26 +1132,13 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       
         
+          <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a href="https://www.bilibili.com/video/BV1Fi4y1S7ix?spm_id_from=333.788.videopod.episodes&amp;vd_source=8a83b38420b65ac33aa101b7754630f6&amp;p=27" target="_blank" rel="noopener">视频教程</a></li>
+</ul>
+<p><strong>. . .</strong>
+          <!--noindex-->
           
-            <h1 id="the-relationship-between-Servlet-and-TomCat"><a href="#the-relationship-between-Servlet-and-TomCat" class="headerlink" title="the relationship between Servlet and TomCat"></a>the relationship between Servlet and TomCat</h1><p>Servlet is a specification and technology in Java for developing web applications, while Tomcat is an open - source Servlet container. The relationship between them is as follows:</p>
-<h2 id="Specification-and-implementation-relationship"><a href="#Specification-and-implementation-relationship" class="headerlink" title="Specification and implementation relationship"></a>Specification and implementation relationship</h2><ul>
-<li><strong>Servlet specification</strong>: Servlet is a set of standard specifications developed by Sun Microsystems (now Oracle). It defines how Servlet classes should be written and how to interact with client requests and servers. In simple terms, the Servlet specification is an abstract design that stipulates the interfaces and methods for handling requests and responses in web application development. For example, the Servlet specification defines the <code>javax.servlet.Servlet</code> interface, and the Servlet classes written by developers need to implement this interface or inherit abstract classes such as <code>HttpServlet</code>.</li>
-<li><strong>Tomcat implementation</strong>: Tomcat is a specific implementation of the Servlet specification. It implements various interfaces and methods defined in the Servlet specification, enabling the code written by developers that conforms to the Servlet specification to run on the Tomcat server. Tomcat provides a running environment for Servlets, allowing them to handle client requests and return responses.</li>
-</ul>
-<h2 id="Running-carrier-relationship"><a href="#Running-carrier-relationship" class="headerlink" title="Running carrier relationship"></a>Running carrier relationship</h2><ul>
-<li><strong>Servlet’s running dependency</strong>: A Servlet itself is just a piece of Java code and cannot run independently. It requires a running environment, namely a Servlet container. The Servlet code needs to be deployed in a Servlet container, which is responsible for loading, instantiating, and managing the lifecycle of the Servlet.</li>
-<li><strong>Tomcat as the carrier</strong>: Tomcat is such a Servlet container that can provide a running environment for Servlets. After developers write a Servlet class, they package it into a WAR (Web Application Archive) file and deploy it to Tomcat. Tomcat will be responsible for loading these Servlet classes, creating Servlet instances, and calling their methods to handle client requests. For example, when a client sends an HTTP request to the Tomcat server, Tomcat will find the corresponding Servlet according to the URL of the request and call the <code>service()</code> method of the Servlet for processing.</li>
-</ul>
-<h2 id="Interaction-and-collaboration-relationship"><a href="#Interaction-and-collaboration-relationship" class="headerlink" title="Interaction and collaboration relationship"></a>Interaction and collaboration relationship</h2><ul>
-<li><strong>Request processing flow</strong>: A client (such as a browser) sends an HTTP request to the Tomcat server. After receiving the request, Tomcat finds the corresponding Servlet according to information such as the URL of the request. Then, Tomcat creates <code>ServletRequest</code> and <code>ServletResponse</code> objects to encapsulate the client’s request information and response information respectively, and passes these two objects to the corresponding methods (such as <code>doGet()</code> or <code>doPost()</code>) of the Servlet. The Servlet processes the business logic according to the request information, generates the response content, and writes it into the <code>ServletResponse</code> object. Finally, Tomcat retrieves the response content from the <code>ServletResponse</code> object and returns it to the client.</li>
-<li><strong>Lifecycle management</strong>: Tomcat is responsible for managing the lifecycle of Servlets. After a Servlet is deployed to Tomcat, Tomcat will instantiate and initialize the Servlet (call the <code>init()</code> method) at an appropriate time. When a request arrives, it calls the service method of the Servlet to handle the request. When Tomcat is shut down or the Servlet is unloaded, Tomcat will call the <code>destroy()</code> method of the Servlet to release resources.</li>
-</ul>
-<h2 id="Development-and-deployment-relationship"><a href="#Development-and-deployment-relationship" class="headerlink" title="Development and deployment relationship"></a>Development and deployment relationship</h2><ul>
-<li><strong>Development aspect</strong>: When developers develop Servlets, they only need to write Java code following the Servlet specification to implement the corresponding business logic, without having to worry about how the Servlet runs on the server. They can use various Java development tools (such as Eclipse, IntelliJ IDEA, etc.) to write and debug Servlet code.</li>
-<li><strong>Deployment aspect</strong>: After development, the Servlet code is packaged into a WAR file and then deployed to the Tomcat server. Tomcat will automatically decompress the WAR file, load the Servlet classes in it into memory, and make them capable of handling client requests. This separated development and deployment method allows developers to focus on the implementation of business logic, while server administrators are responsible for server configuration and management. </li>
-</ul>
-
-          
+          <!--/noindex-->
         
       
 
@@ -1172,7 +1159,7 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
         
       </footer>
       
-    </div>
+    </p></div>
     
     
     
