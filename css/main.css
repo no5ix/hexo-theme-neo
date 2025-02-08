@@ -1912,7 +1912,7 @@ pre .javascript .function {
   display: none;
   width: 0;
   z-index: 1050;
-  box-shadow: 0 0px 6px rgba(0,0,0,0.65);
+  box-shadow: 2px 0px 8px rgba(0,0,0,0.65);
   background: #222;
   -webkit-transform: translateZ(0);
 }
@@ -2150,7 +2150,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c2ffec;
+  background: #e59432;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2721,6 +2721,7 @@ input[id$=local-search-input] {
   background: var(--local-search-bg-color);
 /* box-shadow: 0.625em 0.625em 0.75em 0 #ccc; */
 /* box-shadow: 2.475em 2.375em 9.75em 0 #555;; */
+  box-shadow: 3px 4px 16px rgba(0,0,0,0.65);
 }
 @media (max-width: 767px) {
   .local-search-result-cls ul {
@@ -3649,7 +3650,7 @@ hr {
   top: 0;
 /* box-shadow: 0 1px 3px rgba(26,26,26,.1); */
 /* box-shadow: 0em 0.625em 7.75em 0 #000; */
-  box-shadow: 0 0px 8px rgba(0,0,0,0.65);
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.65);
   transition: transform 0.25s ease-in-out;
   will-change: transform;
 }
