@@ -601,14 +601,7 @@ pre {
   padding: calc(0.8em / 0.9);
   border-radius: 6px;
   box-shadow: 0 3px 13px rgba(0,0,0,0.65);
-/* 隐藏 WebKit 浏览器（Chrome、Safari、Opera）的滚动条 */
-/* 隐藏 IE 和 Edge 浏览器的滚动条 */
-  -ms-overflow-style: none;
-/* 隐藏 Firefox 浏览器的滚动条 */
-  scrollbar-width: none;
-}
-pre::-webkit-scrollbar {
-  display: none;
+  overscroll-behavior-x: contain;
 }
 pre code {
   padding: 0;
@@ -619,12 +612,7 @@ pre code {
 .highlight {
   border-radius: 6px;
   box-shadow: 0 3px 13px rgba(0,0,0,0.65);
-/* 隐藏 WebKit 浏览器（Chrome、Safari、Opera）的滚动条 */
-  scrollbar-width: none; /* Firefox 隐藏滚动条 */
-  -ms-overflow-style: none; /* IE/Edge 隐藏滚动条 */
-}
-.highlight::-webkit-scrollbar {
-  display: none;
+  overscroll-behavior-x: contain;
 }
 .highlight pre {
   border: none;
@@ -1924,7 +1912,7 @@ pre .javascript .function {
   display: none;
   width: 0;
   z-index: 1050;
-/* box-shadow: 0.625em 0 3.75em 0 #000; */
+  box-shadow: 0 0px 6px rgba(0,0,0,0.65);
   background: #222;
   -webkit-transform: translateZ(0);
 }
@@ -2162,7 +2150,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #bd0f70;
+  background: #c2ffec;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2222,6 +2210,7 @@ pre .javascript .function {
 }
 .post-toc {
   overflow: auto;
+  overscroll-behavior: contain;
 }
 .post-toc ol {
   margin: 0;
@@ -3660,11 +3649,14 @@ hr {
   top: 0;
 /* box-shadow: 0 1px 3px rgba(26,26,26,.1); */
 /* box-shadow: 0em 0.625em 7.75em 0 #000; */
+  box-shadow: 0 0px 8px rgba(0,0,0,0.65);
   transition: transform 0.25s ease-in-out;
   will-change: transform;
-/* +mobile() {
-		box-shadow: 0em 0.625em 2.75em 0 #000;
-	} */
+}
+@media (max-width: 767px) {
+  .headroom {
+    box-shadow: 0 0px 8px rgba(0,0,0,0.65);
+  }
 }
 .headroom--pinned {
   -webkit-transform: translateY(0);
@@ -3737,29 +3729,20 @@ hr {
 button.darkmode-toggle {
   z-index: 9999;
 }
-html {
-  -ms-overflow-style: -ms-autohiding-scrollbar;
+* {
+  scrollbar-width: thin; /* 适用于 Firefox */
+  scrollbar-color: transparent transparent;
 }
-html {
-  overflow: overlay;
-}
-::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-/* background: rgba(0,0,0,0.2);    */
-  background: #ffcaca;
+*::-webkit-scrollbar-thumb {
+  background-color: transparent; /* 默认隐藏 */
+  transition: background-color 0.3s;
 }
-::-webkit-scrollbar-thumb:window-inactive {
-  background: rgba(0,0,0,0.1);
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0,0,0,0.3);
-}
-::-webkit-scrollbar-thumb:active {
-  background-color: rgba(0,0,0,0.4);
+*:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.4); /* 悬停或滚动时显示 */
 }
 .syntaxhighlighter a,
 .syntaxhighlighter div,
