@@ -1454,7 +1454,7 @@ pre .javascript .function {
   background: var(--tag-cloud-a-bg-color);
   border-bottom: none;
   border-radius: 18px;
-  box-shadow: inset 3px 4px 8px rgba(0,0,0,0.65);
+/* box-shadow: inset 3px 4px 8px rgba(0, 0, 0, 0.65); */
 }
 .tag-cloud a:hover {
   color: var(--link-hover-color);
@@ -1787,7 +1787,7 @@ pre .javascript .function {
   background: var(--tag-cloud-a-bg-color);
   border-bottom: none;
   border-radius: 18px;
-  box-shadow: inset 3px 4px 8px rgba(0,0,0,0.65);
+/* box-shadow: inset 3px 4px 8px rgba(0, 0, 0, 0.65); */
 }
 .posts-expand .post-tags a:hover {
   color: var(--link-hover-color);
@@ -2151,7 +2151,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff251a;
+  background: #3d2e66;
 }
 .links-of-blogroll {
   font-size: 13px;
