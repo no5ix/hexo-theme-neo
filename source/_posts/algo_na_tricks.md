@@ -62,6 +62,8 @@ password: '0622'
     - Google:
         - algo: 
             - 除了google没人考dp, dp会几个经典的就行了(背包，股票，偷房子, 很多变形), dp难的是给竞赛生的, 
+    - Linkedin:
+        - algo: 785 ,366, 简化版432, 后面vo两轮coding 问了三道题, 第一轮 经典题200
 
 
 # Pilot Training Questions
@@ -508,6 +510,20 @@ public class Main {
         String newStr = sb.toString();
         System.out.println(newStr);
 ```
+
+
+# 复杂度
+
+留意数据规模, 不要以为复杂度分析是专门用来难为你的，它其实是来帮你的，它是来偷偷告诉你解题思路的。
+你应该在开始写代码之前就留意题目给的数据规模，因为复杂度分析可以避免你在错误的思路上浪费时间，有时候它甚至可以直接告诉你这道题用什么算法。
+为啥这样说呢，因为一般题目都会告诉我们测试用例的数据规模有多大，**我们可以根据这个数据规模反推这道题能够允许的时间复杂度在什么范围，进一步反推我们应该要用什么算法**。
+举例来说吧:  
+- 比如一个题目给你输入一个数组，其长度能够达到 10^6 这个量级，那么我们肯定可以知道这道题的时间复杂度大概要小于 O(N2)，得优化成 O(NlogN) 或者 O(N) 才行。因为如果你写的算法是 O(N2) 的，最大的复杂度会达到 10^12 这个量级，在大部分判题系统上都是跑不过去的。
+    - 为了把复杂度控制在 O(NlogN) 或者 O(N)，我们的选择范围就缩小了，可能符合条件的做法是：对数组进行排序处理、前缀和、双指针、一维 dp 等等，从这些思路切入就比较靠谱。像嵌套 for 循环、二维 dp、回溯算法这些思路，基本可以直接排除掉了。
+- 再举个更直接的例子，如果你发现题目给的数据规模很小，比如数组长度 N 不超过 20 这样的，那么我们可以断定这道题大概率要用暴力穷举算法。
+    - 因为判题平台肯定是尽可能扩大数据规模难为你，它一反常态给这么小的数据规模，肯定是因为最优解就是指数/阶乘级别的复杂度。你放心用回溯算法 招呼它就行了，不用想别的算法了。
+
+所以说啊，很多读者看题都不看那个数据规模，上来就闷声写代码，这是不对滴。你先把题目给的所有信息都考虑进去，再写代码，这样才能少走弯路。
 
 
 # Quick Select
@@ -994,8 +1010,10 @@ class Solution {
 ## 双指针诀窍
 
 双指针和滑动窗口的一般不同点是: 
-- 双指针大多数时候是left指针在首, right在尾, 然后互相逐渐靠近
-- 或者一个快一个慢, right快(去寻找合适的数), left慢的指针就处理right找到数据; 而滑动窗口一般也是right快left慢但是为了维护一个区间窗口, 一般是用来求一个区间的最大最小和之类的东西
+- **互相靠近**: 双指针大多数时候是left指针在首, right在尾, 然后互相逐渐靠近
+- **快慢指针**: 或者一个快一个慢, right快(去寻找合适的数), left慢的指针就处理right找到数据; 
+    - 数组问题中比较常见的快慢指针技巧，是让你原地修改数组。比如说看下[力扣第 26 题「删除有序数组中的重复项」](https://leetcode.cn/problems/remove-duplicates-from-sorted-array/)，让你在有序数组去重
+- 而滑动窗口一般也是right快left慢, 但滑动窗口为了维护一个区间窗口, 一般是用来求一个**子区间**的`最大和`/`最小和`之类的东西
 - 理论上滑动窗口是双指针的一种, 只是比较像一个窗口而故名
 
 
@@ -1188,11 +1206,29 @@ class Solution {
 
 ## 滑动窗口模板与生动理论
 
+- 滑动窗口一般也是right快left慢, 但滑动窗口为了维护一个区间窗口, 一般是用来求一个**子区间**的`最大和`/`最小和`之类的东西
+- 理论上滑动窗口是双指针的一种, 只是比较像一个窗口而故名
 - https://leetcode.cn/problems/max-consecutive-ones-iii/solutions/609055/fen-xiang-hua-dong-chuang-kou-mo-ban-mia-f76z/
-- 《挑战程序设计竞赛》这本书中把滑动窗口叫做「虫取法」，我觉得非常生动形象。因为滑动窗口的两个指针移动的过程和虫子爬动的过程非常像：前脚不动，把后脚移动过来；后脚不动，把前脚向前移动。
-- 滑动窗口中用到了左右两个指针，它们移动的思路是：以右指针作为驱动，拖着左指针向前走。右指针每次只移动一步，而左指针在内部 while 循环中每次可能移动多步。右指针是主动前移，探索未知的新区域；左指针是被迫移动，负责寻找满足题意的区间。
+- 《挑战程序设计竞赛》这本书中把滑动窗口叫做`「虫取法」`，我觉得非常生动形象。因为滑动窗口的两个指针移动的过程和虫子爬动的过程非常像：前脚不动，把后脚移动过来；后脚不动，把前脚向前移动。
+- 滑动窗口中用到了左右两个指针，它们移动的思路是：以右指针作为驱动，拖着左指针向前走。右指针每次只移动一步，而左指针在内部 while 循环中每次可能移动多步。**右指针是主动前移，探索未知的新区域；左指针是被迫移动，负责寻找满足题意的区间。**
 
-滑动窗口的模板，能解决大多数的滑动窗口问题：
+
+### 滑动窗口的复杂度
+
+- **为啥是 O(N)？**
+    - 肯定有读者要问了，你这个滑动窗口框架不也用了一个嵌套 while 循环？为啥复杂度是 O(N) 呢？
+    - 简单说，指针 left, right 不会回退（它们的值只增不减），所以字符串/数组中的每个元素都只会进入窗口一次，然后被移出窗口一次，不会说有某些元素多次进入和离开窗口，所以算法的时间复杂度就和字符串/数组的长度成正比。
+    - 反观嵌套 for 循环的暴力解法，那个 j 会回退，所以某些元素会进入和离开窗口多次，所以时间复杂度就是 O(N2) 了。
+    - 我在 [算法时空复杂度分析实用指南](https://labuladong.online/algo/essential-technique/complexity-analysis/) 有具体教大家如何从理论上估算时间空间复杂度，这里就不展开了。
+- **为啥滑动窗口能在 O(N) 的时间穷举子数组？**
+    - 这个问题本身就是错误的，滑动窗口并不能穷举出所有子串。要想穷举出所有子串，必须用那个嵌套 for 循环。
+    - 然而对于某些题目，并不需要穷举所有子串，就能找到题目想要的答案。滑动窗口就是这种场景下的一套算法模板，帮你对穷举过程进行剪枝优化，避免冗余计算。
+    - 所以在 算法的本质 中我把滑动窗口算法归为「如何聪明地穷举」一类。
+
+
+### 滑动窗口的模板
+
+能解决大多数的滑动窗口问题：
 
 ```python 滑动窗口的模板
 def findSubArray(nums):
@@ -1482,12 +1518,18 @@ class Solution {
 
 ## 诀窍
 
+- 二叉树的算法题型主要是用来培养递归思维的，而层序遍历属于迭代遍历，也比较简单
 - 一共只有三种题目: 
     - 直接通过 dfs/bfs 可以计算的类型
     - 路径类
     - 最小祖先类
 - 二叉树最重要的是层序遍历的模板, 可以解决 `70%` 的二叉树题目
 - 路径题和公共祖先题和深度高度的题一般才会用到 `递归`, 其他大多数时候都可以层序遍历 / 前中序遍历的`迭代法`解决
+- **仔细观察，前中后序位置的代码，能力依次增强**。
+    1. **前序**位置的代码只能从函数参数中获取父节点传递来的数据。
+    2. **中序**位置的代码不仅可以获取参数数据，还可以获取到左子树通过函数返回值传递回来的数据。
+    3. **后序**位置的代码最强，不仅可以获取参数数据，还可以同时获取到左右子树通过函数返回值传递回来的数据。
+    4. **所以，某些情况下把代码移到后序位置效率最高；有些事情，只有后序位置的代码能做**
 - 二叉树递归写法诀窍, 递归函数什么时候需要返回值？什么时候不需要返回值？这里总结如下三点：
     - 如果需要搜索**整棵**二叉树且不用处理递归返回值，递归函数就不要返回值。（这种情况就是本文下半部分介绍的113.路径总和ii, https://programmercarl.com/0112.路径总和.html#相关题目推荐）
     - 如果需要搜索**整棵**二叉树且需要处理递归返回值，递归函数就需要返回值。 （这种情况我们在236. 二叉树的最近公共祖先, https://programmercarl.com/0236.二叉树的最近公共祖先.html#算法公开课）
@@ -1496,7 +1538,8 @@ class Solution {
 
 ## 层序(相当重要)
 
-![](/img/algo_na/binary_tree_level_order.gif)
+![level order](/img/algo_na_tricks/image.png)
+![animation process](/img/algo_na/binary_tree_level_order.gif)
 
 - 注意 `while (len > 0) {  }` 这个代码块里的就是同一层的结点处理
 - 掌握了这个模板, 可以解决 70% 的二叉树题目
@@ -1595,7 +1638,7 @@ class Solution {
 ```
 
 
-## 后序(迭代法不重要)
+## 后序(迭代法不重要,但递归解法的理解很重要)
 
 - 后序`迭代法`很少用到, 会前序按照以下方法就会写后序: 
     1. 先序遍历是`中左右`
@@ -1603,6 +1646,53 @@ class Solution {
     3. 变成`中右左` -> 反转result数组 -> `左右中`
     4. 后序遍历是`左右中`
 - 后序遍历的`递归法`用得着, 那种需要从树底下往上走来统计信息的就用得到, 如 `公共祖先` 这种题就需要后序遍历递归法
+
+[参考](https://labuladong.online/algo/essential-technique/binary-tree-summary/#后序位置的特殊之处)
+
+举些具体的例子来感受下它们的能力区别。现在给你一棵二叉树，我问你两个简单的问题：
+1. 如果把根节点看做第 1 层，如何打印出每一个节点所在的层数？
+2. 如何打印出每个节点的左右子树各有多少节点？
+
+第一个问题可以这样写代码：
+```java
+// 二叉树遍历函数
+void traverse(TreeNode root, int level) {
+    if (root == null) {
+        return;
+    }
+    // 前序位置
+    printf("Node %s at level %d", root.val, level);
+    traverse(root.left, level + 1);
+    traverse(root.right, level + 1);
+}
+
+// 这样调用
+traverse(root, 1);
+```
+
+第二个问题可以这样写代码：
+
+```java
+// 定义：输入一棵二叉树，返回这棵二叉树的节点总数
+int count(TreeNode root) {
+    if (root == null) {
+        return 0;
+    }
+    int leftCount = count(root.left);
+    int rightCount = count(root.right);
+    // 后序位置
+    printf("节点 %s 的左子树有 %d 个节点，右子树有 %d 个节点",
+            root, leftCount, rightCount);
+    return leftCount + rightCount + 1;
+}
+```
+这两个问题的根本区别在于:  
+
+一个节点在第几层，你从根节点遍历过来的过程就能顺带记录，用递归函数的参数就能传递下去；而以一个节点为根的整棵子树有多少个节点，你必须遍历完子树之后才能数清楚，然后通过递归函数的返回值拿到答案。
+
+结合这两个简单的问题，你品味一下后序位置的特点，只有后序位置才能通过返回值获取子树的信息。
+
+那么换句话说，**一旦你发现题目和子树有关，那大概率要给函数设置合理的定义和返回值，在后序位置写代码了。**
 
 
 ## 路径(重要)
@@ -1868,6 +1958,54 @@ class Solution {
 - 二叉搜索树的中序遍历是个递增有序数组, 利用好这一点非常方便解题
 - 二叉搜索树的迭代遍历很好写, 大多数时候用不到递归方式来解题
 - 空二叉树是二叉搜索树
+- https://labuladong.online/algo/data-structure/bst-part2/#一、判断-bst-的合法性
+
+https://leetcode.com/problems/validate-binary-search-tree/
+
+Given the root of a binary tree, determine if it is a valid binary search tree (BST).
+
+```java 错误代码
+boolean isValidBST(TreeNode root) {
+    if (root == null) return true;
+    // root 的左边应该更小
+    if (root.left != null && root.left.val >= root.val)
+        return false;
+    // root 的右边应该更大
+    if (root.right != null && root.right.val <= root.val)
+        return false;
+
+    return isValidBST(root.left)
+        && isValidBST(root.right);
+}
+```
+
+但是这个算法出现了错误，BST 的每个节点应该要小于右边子树的所有节点，
+错误的原因在于，对于每一个节点 root，代码值检查了它的左右孩子节点是否符合左小右大的原则；但是根据 BST 的定义，root 的整个左子树都要小于 root.val，整个右子树都要大于 root.val。
+
+问题是，对于某一个节点 root，他只能管得了自己的左右子节点，怎么把 root 的约束传递给左右子树呢？请看正确的代码：
+
+```java 正确代码
+// https://labuladong.online/algo/data-structure/bst-part2/#一、判断-bst-的合法性
+class Solution {
+    public boolean isValidBST(TreeNode root) {
+        return _isValidBST(root, null, null);
+    }
+
+    // 定义：该函数返回 root 为根的子树的所有节点是否满足 max.val > root.val > min.val
+    public boolean _isValidBST(TreeNode root, TreeNode min, TreeNode max) {
+        // base case
+        if (root == null) return true;
+        // 若 root.val 不符合 max 和 min 的限制，说明不是合法 BST
+        if (min != null && root.val <= min.val) return false;
+        if (max != null && root.val >= max.val) return false;
+        // 根据定义，限定左子树的最大值是 root.val，右子树的最小值是 root.val
+        return _isValidBST(root.left, min, root) 
+            && _isValidBST(root.right, root, max);
+    }
+}
+```
+
+我们通过使用辅助函数，增加函数参数列表，在参数中携带额外信息，将这种约束传递给子树的所有节点，这也是二叉树算法的一个小技巧吧。
 
 
 # 回溯
@@ -1881,19 +2019,37 @@ class Solution {
 - 参数: 因为回溯算法需要的参数可不像二叉树递归的时候那么容易一次性确定下来，所以一般是先写逻辑，然后需要什么参数，就填什么参数。
 
 ```java
+// DFS 算法把「做选择」「撤销选择」的逻辑放在 for 循环外面
+void dfs(Node root) {
+    if (root == null) return;
+    // 做选择
+    print("enter node %s", root);
+    for (Node child : root.children) {  // 多叉树 dfs
+        dfs(child);
+    }
+    // 撤销选择
+    print("leave node %s", root);
+}
+
+// 回溯算法把「做选择」「撤销选择」的逻辑放在 for 循环里面
 void backtrack(参数) {
     if (终止条件) {
         存放结果;
         return;
     }
-
     for (选择：本层集合中元素（树中节点孩子的数量就是集合的大小）) {
+        // 做选择
+        print("I'm on the branch from %s to %s", root, child);
         处理节点;
         backtracking(路径，选择列表); // 递归
+        // 撤销选择
+        print("I'll leave the branch from %s to %s", child, root);
         回溯，撤销处理结果
     }
 }
 ```
+
+看到了吧，你回溯算法必须把「做选择」和「撤销选择」的逻辑放在 for 循环里面，否则怎么拿到「树枝」的两个端点？
 
 
 ## 组合
@@ -1911,32 +2067,7 @@ class Solution {
     // 完全等价的, `ArrayList<ArrayList<Integer>> resultArr = new ArrayList<>();`
     // - 这是Java 7引入的“钻石操作符”的用法。
     // - 使用钻石操作符可以简化泛型类型的实例化，特别是当构造函数右侧的类型已经由变量声明时。
-    // - 它允许编译器自动推断出泛型类型参数，从而使代码更简洁、易读。//解法2：基于小顶堆实现
-    public int[] topKFrequent2(int[] nums, int k) {
-        Map<Integer,Integer> map = new HashMap<>(); //key为数组元素值,val为对应出现次数
-        for (int num : nums) {
-            map.put(num, map.getOrDefault(num, 0) + 1);
-        }
-        //在优先队列中存储二元组(num, cnt),cnt表示元素值num在数组中的出现次数
-        //出现次数按从队头到队尾的顺序是从小到大排,出现次数最低的在队头(相当于小顶堆)
-        PriorityQueue<int[]> pq = new PriorityQueue<>((pair1, pair2) -> pair1[1] - pair2[1]);
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) { //小顶堆只需要维持k个元素有序
-            if (pq.size() < k) { //小顶堆元素个数小于k个时直接加
-                pq.add(new int[]{entry.getKey(), entry.getValue()});
-            } else {
-                if (entry.getValue() > pq.peek()[1]) { //当前元素出现次数大于小顶堆的根结点(这k个元素中出现次数最少的那个)
-                    pq.poll(); //弹出队头(小顶堆的根结点),即把堆里出现次数最少的那个删除,留下的就是出现次数多的了
-                    pq.add(new int[]{entry.getKey(), entry.getValue()});
-                }
-            }
-        }
-        int[] ans = new int[k];
-        for (int i = k - 1; i >= 0; i--) { //依次弹出小顶堆,先弹出的是堆的根,出现次数少,后面弹出的出现次数多
-            ans[i] = pq.poll()[0];
-        }
-        return ans;
-    }
-}
+    // - 它允许编译器自动推断出泛型类型参数，从而使代码更简洁、易读。
     ArrayList<ArrayList<Integer>> resultArr = new ArrayList<>();
     LinkedList<Integer> path = new LinkedList<>();
     public ArrayList<ArrayList<Integer>> combine(int n, int k) {

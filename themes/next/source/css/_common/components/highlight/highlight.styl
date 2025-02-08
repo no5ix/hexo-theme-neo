@@ -32,14 +32,7 @@ pre {
   border-radius: 6px;
   box-shadow: 0 3px 13px rgba(0,0,0,0.65);
   
-  /* 隐藏 WebKit 浏览器（Chrome、Safari、Opera）的滚动条 */
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  /* 隐藏 IE 和 Edge 浏览器的滚动条 */
-  -ms-overflow-style: none;
-  /* 隐藏 Firefox 浏览器的滚动条 */
-  scrollbar-width: none;
+  overscroll-behavior-x: contain;
   
   code {
     padding: 0;
@@ -55,12 +48,7 @@ pre {
   border-radius: 6px;
   box-shadow: 0 3px 13px rgba(0,0,0,0.65);
 
-  /* 隐藏 WebKit 浏览器（Chrome、Safari、Opera）的滚动条 */
-  &::-webkit-scrollbar {
-    display: none;
-  }
-	scrollbar-width: none;  /* Firefox 隐藏滚动条 */
-  -ms-overflow-style: none; /* IE/Edge 隐藏滚动条 */
+  overscroll-behavior-x: contain;
 
   pre {
     border: none;

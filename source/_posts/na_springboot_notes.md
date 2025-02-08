@@ -408,3 +408,99 @@ connection.close();
 - **缺点**
     - **代码繁琐**：使用 JDBC 进行数据库操作需要编写大量的样板代码，如加载驱动、建立连接、关闭资源等，增加了开发的工作量。
     - **缺乏高级特性**：JDBC 本身不提供对象关系映射（ORM）等高级特性，对于复杂的数据库操作，开发人员需要手动编写大量的 SQL 语句和数据转换代码。 
+
+# CORS
+
+CORS（Cross-Origin Resource Sharing，跨域资源共享） 是一种浏览器安全机制，用于允许或限制不同源（域、协议、端口）的网页向你的服务器请求资源。
+
+1. 为什么需要 CORS？
+
+    出于安全考虑，浏览器默认禁止网页向不同的源发送请求（同源策略，Same-Origin Policy）。但在实际开发中，我们经常需要从不同的域名获取数据，比如：
+        •	前端运行在 http://localhost:3000
+        •	后端 API 运行在 http://api.example.com
+        •	浏览器会拦截前端对 http://api.example.com 的请求，除非服务器明确允许。
+
+2. CORS 允许跨域的方式
+
+    当前端向服务器发送跨域请求时，服务器需要在**响应头（Response Headers）**中加入 CORS 相关字段，比如：
+
+    `Access-Control-Allow-Origin: *`
+
+    表示允许所有来源访问该资源。
+
+    如果服务器只允许特定的域访问，比如 http://example.com：
+
+    `Access-Control-Allow-Origin: http://example.com`
+
+3. CORS 主要的 HTTP 头
+
+|头部字段|	作用|
+|:----:|:----:|
+|Access-Control-Allow-Origin |	允许的来源（* 代表所有） |
+|Access-Control-Allow-Methods |	允许的 HTTP 方法（如 GET, POST, PUT） |
+|Access-Control-Allow-Headers |	允许的请求头 |
+|Access-Control-Allow-Credentials |	是否允许携带 Cookie |
+
+4\. 预检请求（Preflight Request）
+    对于某些跨域请求（如 PUT、DELETE 或自定义头部的 POST），浏览器会先发送一个 OPTIONS 请求，服务器需要返回正确的 CORS 头，浏览器才会继续发送真正的请求。
+示例：
+```
+OPTIONS /api/data HTTP/1.1
+Origin: http://example.com
+Access-Control-Request-Method: POST
+```
+服务器响应：
+```
+HTTP/1.1 204 No Content
+Access-Control-Allow-Origin: http://example.com
+Access-Control-Allow-Methods: POST, GET, OPTIONS
+```
+5\. 如何解决 CORS 问题？
+    如果遇到 CORS 跨域报错，可以：
+        •	修改后端代码 添加 CORS 头（推荐）
+        •	使用反向代理（Nginx、Webpack devServer 代理）
+        •	在本地开发时使用浏览器插件（仅限调试）
+
+
+# CSRF
+
+CSRF（Cross-Site Request Forgery），即跨站请求伪造，是一种常见的网络攻击方式。下面为你详细解释 CSRF 但不涉及本项目代码：
+
+## 和jwt的关系
+
+在某些情况下，比如使用无状态的 RESTful API（如使用 JWT 进行身份验证，是无状态的），可以考虑禁用 CSRF 防护，因为 JWT 本身已经提供了一定的安全性，且 RESTful API 通常通过其他方式（如令牌验证）来确保请求的合法性。但在一些有状态的应用中，如传统的基于会话的 Web 应用，通常需要开启 CSRF 防护
+
+## 攻击原理
+1. **用户认证**：用户在访问某个受信任的网站 A 时，进行了登录操作，网站 A 会在用户的浏览器中保存用户的认证信息，比如会话 Cookie。
+2. **恶意网站诱导**：攻击者构建一个恶意网站 B，当用户在访问恶意网站 B 时，网站 B 会利用一些手段（比如自动提交表单等）向受信任的网站 A 发送一个请求。由于用户的浏览器中保存了网站 A 的认证信息，这个请求会携带用户的认证信息（如 Cookie）发送到网站 A。
+3. **网站 A 处理请求**：网站 A 收到请求后，因为请求中包含了用户的合法认证信息，会误以为是用户自己发起的请求，从而执行相应的操作，比如修改用户的密码、转账等。
+
+## 常见的攻击场景
+- **自动提交表单**：恶意网站包含一个隐藏的表单，表单的 action 属性指向受信任网站的某个敏感操作接口，当用户访问恶意网站时，表单会自动提交，从而触发对受信任网站的攻击请求。
+- **图片标签攻击**：攻击者在恶意网站中使用 `<img>` 标签，将其 `src` 属性设置为受信任网站的某个敏感操作接口，当用户访问恶意网站时，浏览器会自动请求该图片，从而触发对受信任网站的攻击请求。
+
+## 防范措施
+1. **使用 CSRF Token**
+    - 原理：服务器在生成页面时，会为每个用户的请求生成一个唯一的 CSRF Token，并将其嵌入到页面中（比如作为隐藏表单字段或者请求头）。当用户提交表单或者发送请求时，必须携带这个 CSRF Token。服务器在接收到请求时，会验证请求中的 CSRF Token 是否与服务器生成的一致，如果不一致则拒绝请求。
+    - 示例：在表单中添加 CSRF Token：
+```html
+<form action="/transfer" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <!-- 其他表单字段 -->
+    <input type="submit" value="Transfer">
+</form>
+```
+2. **检查请求的 Referer 头**
+    - 原理：服务器在接收到请求时，检查请求的 Referer 头，确保请求是从本网站的页面发起的。如果 Referer 头为空或者指向其他域名，则拒绝请求。
+    - 缺点：Referer 头可以被篡改，并且有些用户可能会禁用 Referer 头，因此这种方法不是非常可靠，通常作为辅助手段使用。
+3. **使用 SameSite Cookie 属性**
+    - 原理：SameSite 是一个 Cookie 属性，用于控制 Cookie 在跨站请求时的发送行为。可以将 Cookie 的 SameSite 属性设置为 `Strict` 或 `Lax`。`Strict` 表示 Cookie 只能在同一站点的请求中发送，`Lax` 表示 Cookie 可以在一些安全的跨站请求（如 GET 请求）中发送。
+    - 示例：在设置 Cookie 时添加 SameSite 属性：
+```java
+// Java 示例
+Cookie cookie = new Cookie("session_id", "123456");
+cookie.setSameSite("Strict");
+response.addCookie(cookie);
+```
+
+总之，CSRF 是一种严重的安全威胁，开发人员在开发 Web 应用时需要采取有效的防范措施来保护用户的信息安全。
