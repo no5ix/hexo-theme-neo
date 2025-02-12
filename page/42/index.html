@@ -309,6 +309,183 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hulinhong.com/2015/11/11/lua_pairs_ipairs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wasp">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="烫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/11/11/lua_pairs_ipairs/" itemprop="url">Lua中ipairs和pairs的区别与使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-11-11T19:29:22+00:00">
+                2015-11-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Script/" itemprop="url" rel="index">
+                    <span itemprop="name">Script</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+      
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+
+      
+      
+
+      
+        
+          <p>关于ipairs()和pairs(),Lua官方手册是这样说明的：</p>
+<p><strong>pairs (t)</strong></p>
+<p>If t has a metamethod __pairs, calls it with t as argument and returns the first three results from the call.</p>
+<p>Otherwise, returns three values: the next function, the table t, and nil, so that the construction</p>
+<pre><code>` for k,v in pairs(t) do body end`
+</code></pre><p>will iterate over all key–value pairs of table t.</p>
+<p>See function next for the caveats of modifying the table during its traversal.</p>
+<p><strong>ipairs (t)</strong></p>
+<p>If t has a metamethod __ipairs, calls it with t as argument and returns the first three results from the call.</p>
+<p>Otherwise, returns three values: an iterator function, the table t, and 0, so that the construction</p>
+<pre><code>` for i,v in ipairs(t) do body end`
+</code></pre><p>will iterate over the pairs (1,t[1]), (2,t[2]), …, up to the first integer key absent from the table.</p>
+<p>根据官方手册的描述，pairs会遍历表中所有的key-value值，而pairs会根据key的数值从1开始加1递增遍历对应的table[i]值，直到出现第一个不是按1递增的数值时候退出。</p>
+<p><strong>. . .</strong>
+          <!--noindex-->
+          
+          <!--/noindex-->
+        
+      
+
+
+      
+
+    
+      <footer class="post-footer">
+        
+
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </footer>
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+  </div>
+  
+  
+  
+  </article>
+
+
+      
+    
+      
+        
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hulinhong.com/2015/11/08/lua_install_tutorial/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -986,181 +1163,6 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
 
       
     
-      
-        
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hulinhong.com/2015/09/13/unity_cpp_swig_csharp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wasp">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="烫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/09/13/unity_cpp_swig_csharp/" itemprop="url">Unity中C#调用C++写的DLL之Swig篇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-09-13T19:18:55+00:00">
-                2015-09-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Misc/" itemprop="url" rel="index">
-                    <span itemprop="name">Misc</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-      
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-
-      
-      
-
-      
-        
-          
-            <p>近来要用Unity打包到安卓上玩, Unity那边需要用到服务器中用C++写的库,<br>对比了 <a href="https://zhuanlan.zhihu.com/p/30746354" target="_blank" rel="noopener">P/Invoke</a> 和 <a href="https://blog.csdn.net/springberlin/article/details/9260735" target="_blank" rel="noopener">C++/CLI</a> 两种方式, 都不够省心省力, 决定使用 Swig来撸.</p>
-<p>教程基本上按照<a href="https://zhuanlan.zhihu.com/p/31162922" target="_blank" rel="noopener">这篇文章</a>就可以, 文章写得非常详尽, </p>
-<p>但文中关于设置 swiglib.i 自定义生成工具的命令行的时候, </p>
-<p>他文中的下面一段要注意 : </p>
-<blockquote>
-<p>在常规中选择命令行并且写入：</p>
-</blockquote>
-<pre><code>echo on
-$(SolutionDir)/../../thirdpart/swigwin-3.0.12/swig.exe -c++ -csharp -outdir “$(SolutionDir)/../../../UnityProj/UnityCppLearn/Assets/SwigTools/Interface” “%(FullPath)”
-echo off
-</code></pre><p>应改成 : </p>
-<p>我们在自己填的时候要记得改成自己项目中的路径, 以及把上面这段命令中的中文引号改成英文引号.</p>
-
-          
-        
-      
-
-
-      
-
-    
-      <footer class="post-footer">
-        
-
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </footer>
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-  </div>
-  
-  
-  
-  </article>
-
-
-      
-    
   </section>
 
   
@@ -1231,7 +1233,7 @@ echo off
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">273</span>
+                <span class="site-state-item-count">274</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1242,7 +1244,7 @@ echo off
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">100</span>
+                <span class="site-state-item-count">101</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
