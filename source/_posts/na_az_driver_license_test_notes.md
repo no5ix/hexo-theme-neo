@@ -67,7 +67,20 @@ categories:
 - pedal 踏板
 - `winding road`:  弯绕的路, `winding` / ˈwaɪndɪŋ / adj. 蜿蜒的; `wind` / wɪnd / n. 风 v. 弯曲前进, 蜿蜒; 缠绕
 - Overtaking cars. 翻译：超车的车辆。 overtake [ˌəʊvəˈteɪk] v. 超车；赶上；突然来袭 这里是 “超车” 的意思。
-- swerve 突然转向
+- swerve / swɜːrv / 突然转向
+- roundabout / ˈraʊndəbaʊt / 环岛
+- Motorcycle 摩托车
+- scooter 小型摩托车
+- moped 助力车
+- drowsy / ˈdraʊzi / 困倦的
+- intoxicated. / ɪnˈtɑːksɪkeɪtɪd / adj. 喝醉的；极度兴奋的
+- sober./ ˈsoʊbər / adj. 未喝醉的，清醒的；严肃的
+- coordinated. / ko,ɔrd'netɪd / adj. 协调一致的；（色彩等）搭配协调的
+- cite v. 开罚单; 引用，援引； n. <美>引用，引文
+- inclement 天气险恶的
+- depressant /dɪˈpresnt/，名词，意为“镇静剂；抑制剂” 
+- stimulant /ˈstɪmjələnt/，名词，意为“兴奋剂；刺激物” 
+- Alcohol in any concentration 任何浓度的酒精 concentration n. 专心 ;含量, 浓度
 
 
 # HOV(High-Occupancy-Vehicle)
@@ -373,3 +386,40 @@ right-of-way to the driver on the right.(美国也有`让右原则`)
     - An intersection
     - `√`: A bridge
         - Bridges and overpasses freeze before regular roads because they are exposed to air on all sides, allowing cold air to circulate above and below them. This causes them to lose heat more quickly than roads that are in direct contact with the ground, which retains some warmth. As a result, bridges can become icy even when the rest of the road appears dry.
+- You should signal to turn ____ before beginning the turn.
+    - 20 feet
+    - 50 feet
+    - `√`: 100 feet
+- Motorcycles, scooters, and mopeds are not easy to see; therefore, you should:
+    - Slow down when driving.
+    - `√`: Make constant visual checks.
+    - Share a lane with a motorcycle.
+- When driving in fog, you should:
+    - `√`: Slow down and use your low beam headlights.
+    - Slow down and use your high beam headlights.
+        - 错误原因: 用远光灯在大雾/沙尘暴/下雪/下雨时候容易炫光, 更难看清路面
+    - Turn your lights on and off to warn other drivers.
+- While driving at night, a vehicle coming toward you has its high beams on, making it hard for you to see the road ahead. You should:
+    - Look ahead toward the left edge of your lane.
+    - `√`: Look ahead toward the right edge of your lane.
+        * When a vehicle with high beams on is approaching, looking toward the right edge of your lane helps you avoid being blinded by the bright lights. This technique, often called the `“right edge rule,”` allows you to use the road markings as a guide while keeping your vision adjusted to the darkness. Looking straight ahead into the high beams can cause temporary blindness, making it harder to see the road.
+    - Look straight ahead in your lane.
+- When you see an emergency vehicle approaching while using its flashing lights, you must:
+    - Maintain your speed and stay in your lane until the vehicle has passed.
+    - Move into the right lane and drive slowly until the vehicle has passed.
+    - `√`: Pull over to the curb or edge of the road and stop until the vehicle has passed.
+- The driver ahead of you stops at a crosswalk. What should you do?
+    - Cautiously pass the vehicle at 10 mph or slower.
+    - `√`: Stop, proceeding only when all the pedestrians have crossed.
+        - You must not pass a vehicle that is stopped at a crosswalk. There may be pedestrians crossing the street that you cannot see. Instead, stop, proceeding only after all pedestrians have crossed.
+    - Change lanes, look carefully, and pass the stopped vehicle.
+- Regulatory signs are:
+    - Green.
+    - Yellow.
+    - `√`: White.
+        - Regulatory signs inform drivers of specific laws that must be obeyed. Displayed laws may be about traffic direction, lane use, turning, speed, parking, or special situations. Regulatory signs are commonly `white squares` or rectangles with black, red, or green letters or symbols.
+ - At intersections, crosswalks, and railroad crossings, you should always:
+    - Stop, listen, and proceed cautiously.
+    - `√`: Look to the sides of your vehicle to see what is coming.
+        - Any time you come to a place where people may cross or enter your path, or where one line of traffic meets another, you should look to the left and right sides of your vehicle to make sure no one is coming.
+    - Slowly pass vehicles that seem to be stopped for no reason.
