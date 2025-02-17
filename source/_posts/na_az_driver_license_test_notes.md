@@ -15,7 +15,7 @@ categories:
 
 ![alt text](/img/na_az_driver_license_test_notes/image-13.png)
 
-Double solid yellow lines mean that passing is not allowed in either direction. **You may not cross the lines unless you are turning left**.(摘自 az driver's manual)
+Double solid yellow lines mean that passing is not allowed in either direction. **You may not cross the lines unless you are turning left**.(Excerpt from the AZ Driver’s Manual.)
 
 (感觉在美国大部分州都可以双黄实线左转进driveway或者alley的。其中**亚利桑那**、伊州、**加州**、宾州很确定，有实际看到过交规这么写。 [引用](https://zhuanlan.zhihu.com/p/63289641#:~:text=另外补充一点，可能考试,视频中有讲到%E3%80%82))
 

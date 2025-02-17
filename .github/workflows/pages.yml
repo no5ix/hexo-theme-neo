@@ -123,17 +123,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 1. 检出仓库 # Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
           submodules: recursive
       - name: 2. 安装 Node.js # Setup Node, 这个node版本很关键, 不要乱改
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "10.13.0"
       - name: 3. 缓存 Node 插件
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: ${{ runner.OS }}-npm-cache
