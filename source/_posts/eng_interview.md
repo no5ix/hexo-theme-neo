@@ -9,6 +9,9 @@ password: '0622'
 ---
 
 
+trying to generate subtitles using Doubao
+
+
 # Self Introduction
 
 

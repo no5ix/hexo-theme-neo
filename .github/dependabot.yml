@@ -1,0 +1,5 @@
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    ignore:
+      - dependency-name: "ejs"
