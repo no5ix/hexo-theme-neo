@@ -1,0 +1,227 @@
+---
+title: NA real interview questions
+date: 2025-02-19 02:45:08
+tags:
+- noodle
+- Java
+- NA
+categories:
+- Java
+password: '886'
+---
+
+
+
+**. . .**<!-- more -->
+
+
+
+# concepts
+
+## In java, difference between @controller and @restcontroller
+
+In Java, specifically in the Spring framework, both `@Controller` and `@RestController` are annotations used for building web - related components. Here are the key differences between them:
+
+### 1. Function and Purpose
+- **`@Controller`**
+    - It is a stereotype annotation in Spring MVC. It is mainly used to mark a class as a Spring MVC controller. A controller class typically handles HTTP requests, processes them, and then returns a view name. The view resolver in Spring MVC will then use this view name to render an appropriate view (such as a JSP page, Thymeleaf template, etc.) to the client.
+- **`@RestController`**
+    - It is a combination of `@Controller` and `@ResponseBody`. This annotation is designed for building RESTful web services. When a class is marked with `@RestController`, all the handler methods in this class will automatically serialize the return value to the HTTP response body in a format like JSON or XML by default.
+
+### 2. Return Value Handling
+- **`@Controller`**
+    - By default, the return value of a method in a `@Controller` class is treated as a view name. For example:
+```java
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class MyViewController {
+    @GetMapping("/view")
+    public String showView() {
+        return "myView";
+    }
+}
+```
+    - In this code, the method `showView` returns the string `"myView"`, and Spring MVC will look for a view with this name to render.
+- **`@RestController`**
+    - The return value of a method in a `@RestController` class is directly serialized and sent as the HTTP response body. For example:
+```java
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MyRestController {
+    @GetMapping("/data")
+    public String getData() {
+        return "This is some data";
+    }
+}
+```
+    - When a client makes a request to `/data`, the string `"This is some data"` will be sent directly in the response body.
+
+### 3. Usage Scenarios
+- **`@Controller`**
+    - It is suitable for traditional web applications where you need to render views based on user requests. For example, an e - commerce website where you need to display product lists, user profiles, etc. in HTML pages.
+- **`@RestController`**
+    - It is ideal for building RESTful APIs. These APIs can be consumed by various clients such as mobile applications, single - page web applications, etc. For example, a backend API for a mobile banking application that provides services like getting account balance, transaction history, etc. 
+
+
+## in kafka, how to handle schema evolution
+
+Here are several common methods to handle schema evolution in Apache Kafka:
+
+### 1. Using Schema Registry
+#### Avro with Confluent Schema Registry
+- **Principle**
+    - Confluent Schema Registry is a widely used tool for managing schemas in Kafka. It stores schemas in a central repository and enforces compatibility rules between different versions of schemas. When using Avro serialization, producers and consumers can interact with the Schema Registry to ensure that the data they produce and consume adheres to the defined schemas.
+- **Steps**
+    - **Producer side**: When a producer sends data, it first checks if the schema of the data exists in the Schema Registry. If not, it registers the new schema. The registry then assigns a unique ID to the schema. The producer serializes the data using Avro and includes the schema ID in the message.
+    - **Consumer side**: The consumer receives the message with the schema ID, fetches the corresponding schema from the Schema Registry, and deserializes the data using that schema.
+- **Compatibility Modes**
+    - **Backward compatibility**: Newer versions of the schema can be read by older consumers. For example, adding a new optional field to an Avro record is backward - compatible.
+    - **Forward compatibility**: Older versions of the schema can be read by newer consumers. For example, removing a non - required field is forward - compatible.
+    - **Full compatibility**: It combines backward and forward compatibility.
+
+#### Protobuf with Schema Registry
+- Similar to Avro, Protocol Buffers can also be used with a schema registry. Protobuf has its own serialization and deserialization mechanisms, and the schema registry helps in managing different versions of Protobuf schemas.
+
+### 2. Designing Flexible Schemas
+#### Use Optional Fields
+- When defining your data schema, mark non - essential fields as optional. For example, in Avro, you can define a field like this:
+```json
+{
+    "name": "optionalField",
+    "type": ["null", "string"],
+    "default": null
+}
+```
+- This allows you to add new fields in future schema versions without breaking existing consumers that may not expect these new fields.
+
+#### Avoid Breaking Changes
+- Do not remove or rename existing required fields. If you need to change the meaning of a field, it's better to add a new field and gradually deprecate the old one.
+
+### 3. Versioning in the Application Code
+#### Producer - Side Versioning
+- The producer can explicitly include a version number in the message. For example, you can add a `version` field to your data structure:
+```java
+public class MyMessage {
+    private int version;
+    private String data;
+
+    // Getters and setters
+}
+```
+- The producer can increment the version number when there is a schema change.
+
+#### Consumer - Side Version Handling
+- The consumer can check the version number in the message and handle the data differently based on the version. For example:
+```java
+if (message.getVersion() == 1) {
+    // Handle data in version 1 format
+} else if (message.getVersion() == 2) {
+    // Handle data in version 2 format
+}
+```
+
+### 4. Using Kafka Connect with Schema Evolution Support
+- Kafka Connect is a tool for moving data between Kafka and other systems. Some connectors support schema evolution. For example, the JDBC connector can handle changes in the database schema and propagate these changes to Kafka topics while maintaining compatibility.
+
+在 Apache Kafka 中，处理模式演变（Schema Evolution）有以下几种常见方法：
+
+### 1. 使用模式注册表
+#### 结合 Confluent 模式注册表使用 Avro
+- **原理**
+    - Confluent 模式注册表是 Kafka 中广泛使用的管理模式的工具。它将模式存储在中央存储库中，并对不同版本的模式执行兼容性规则。在使用 Avro 序列化时，生产者和消费者可以与模式注册表交互，以确保它们生产和消费的数据符合定义的模式。
+- **步骤**
+    - **生产者端**：生产者发送数据时，首先检查数据的模式是否存在于模式注册表中。如果不存在，则注册新模式。注册表会为该模式分配一个唯一的 ID。生产者使用 Avro 对数据进行序列化，并在消息中包含模式 ID。
+    - **消费者端**：消费者接收到包含模式 ID 的消息后，从模式注册表中获取相应的模式，并使用该模式对数据进行反序列化。
+- **兼容性模式**
+    - **向后兼容**：新模式可以被旧版本的消费者读取。例如，向 Avro 记录中添加一个新的可选字段就是向后兼容的。
+    - **向前兼容**：旧模式可以被新版本的消费者读取。例如，移除一个非必需字段是向前兼容的。
+    - **完全兼容**：同时具备向后兼容和向前兼容的特性。
+
+#### 结合模式注册表使用 Protocol Buffers（Protobuf）
+- 与 Avro 类似，Protocol Buffers 也可以与模式注册表结合使用。Protobuf 有自己的序列化和反序列化机制，模式注册表有助于管理不同版本的 Protobuf 模式。
+
+### 2. 设计灵活的模式
+#### 使用可选字段
+- 在定义数据模式时，将非必需字段标记为可选。例如，在 Avro 中可以这样定义一个字段：
+```json
+{
+    "name": "optionalField",
+    "type": ["null", "string"],
+    "default": null
+}
+```
+- 这样，在未来的模式版本中添加新字段时，不会破坏可能不期望这些新字段的现有消费者。
+
+#### 避免重大更改
+- 不要移除或重命名现有的必需字段。如果需要更改字段的含义，最好添加一个新字段，并逐步弃用旧字段。
+
+### 3. 在应用代码中进行版本控制
+#### 生产者端版本控制
+- 生产者可以在消息中显式包含版本号。例如，可以在数据结构中添加一个 `version` 字段：
+```java
+public class MyMessage {
+    private int version;
+    private String data;
+
+    // Getters 和 setters
+}
+```
+- 当模式发生变化时，生产者可以递增版本号。
+
+#### 消费者端版本处理
+- 消费者可以检查消息中的版本号，并根据版本不同对数据进行不同的处理。例如：
+```java
+if (message.getVersion() == 1) {
+    // 处理版本 1 格式的数据
+} else if (message.getVersion() == 2) {
+    // 处理版本 2 格式的数据
+}
+```
+
+### 4. 使用支持模式演变的 Kafka Connect
+- Kafka Connect 是用于在 Kafka 和其他系统之间移动数据的工具。一些连接器支持模式演变。例如，JDBC 连接器可以处理数据库模式的更改，并将这些更改传播到 Kafka 主题，同时保持兼容性。 
+
+
+## kafka Exactly one semantics
+
+Kafka 提供三种消息传递语义，分别是最多一次（At most once）、至少一次（At least once）和精确一次（Exactly once），它们的区别如下：
+
+### 最多一次（At most once）
+- **生产者**：消息发送后，不管是否成功写入 Kafka 就继续发送下一条消息。如果发送失败，不会重试。比如网络抖动导致消息没发出去，生产者也不会重新发送。
+- **消费者**：消费消息前先提交偏移量，再处理消息。若处理过程中消费者崩溃，已提交偏移量的消息不会再次处理，可能造成消息丢失。
+- **应用场景**：适用于对数据丢失容忍度较高，对性能要求较高的场景，如实时日志收集，少量日志丢失不影响整体分析。
+
+### 至少一次（At least once）
+- **生产者**：消息发送失败会重试，保证消息至少被写入 Kafka 一次。但如果写入成功，而确认响应丢失，生产者重试会导致消息重复写入。
+- **消费者**：先处理消息，处理完成后再提交偏移量。若处理完消息还未提交偏移量时消费者崩溃，重启后会重新处理之前的消息，导致消息重复消费。
+- **应用场景**：适用于对数据丢失零容忍，但能接受数据重复的场景，如数据统计分析，重复数据可以通过去重处理。
+
+### 精确一次（Exactly once）
+- **生产者**：有幂等生产者和事务性生产者两种机制。幂等生产者借助 PID 和序列号避免同一分区内重复写入；事务性生产者保证跨分区消息发送的原子性，失败可回滚。
+- **消费者**：结合生产者事务操作与手动提交偏移量，在事务中处理消息并在完成后提交，故障时事务回滚，确保消息不重复不丢失。
+- **应用场景**：适用于对数据准确性要求极高的场景，如金融交易系统，每笔交易必须精确处理一次。 
+
+### Concept
+Exactly-once semantics means that each message is written to a Kafka topic and consumed and processed exactly once, ensuring data consistency.
+
+### Challenges
+- **Producer**: Retries may lead to duplicate message writes due to the failure of receiving acknowledgments.
+- **Consumer**: Incorrect timing of offset commits may result in duplicate message processing or message loss.
+
+### Solutions
+- **Producer**
+    - **Idempotent Producer**: Introduced since Kafka 0.11.0, it avoids duplicate writes by means of the Producer ID (PID) and sequence numbers.
+    - **Transactional Producer**: Ensures the atomicity of message sending across multiple partitions, and in case of failure, the transaction can be rolled back.
+- **Consumer**: Combine the producer's transaction operations with manual offset commits. Process messages within a transaction and commit the offset after the processing is completed. When a failure occurs, the transaction is rolled back to ensure there are no message-related issues. 
+
+
+# bq
+
+# coding
+
+- find kth element in an array
+- find the middle node in a linked list

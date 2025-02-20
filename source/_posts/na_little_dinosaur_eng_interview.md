@@ -13,10 +13,7 @@ password: '886'
 
 **. . .**<!-- more -->
 
-LD refers to Little Dinosaur.
-
-
-# Self Introduction
+LD refers to `Little Dinosaur`.
 
 
 # BQ
