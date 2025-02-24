@@ -354,7 +354,7 @@
             request.onupgradeneeded = function(event) {
                 db = event.target.result;
                 if (!db.objectStoreNames.contains("searchData")) {
-                    db.createObjectStore("searchData", { keyPath: "id" });
+                    const objectStore = db.createObjectStore("searchData", { keyPath: "id" });
                     // 可以创建索引以便于查询
                     objectStore.createIndex("xmlDataIndex", "xml_data", { unique: false });
                 }
