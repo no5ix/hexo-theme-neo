@@ -145,7 +145,9 @@
               var content = orig_data_content;
               if (first_occur >= 0) {
                 var match_content = "";
-                if (!is_sensitive && !is_encrypted)
+                
+                const hostname = window.location.hostname;
+                if ((!is_sensitive && !is_encrypted) || (hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1" || hostname.startsWith("192")))
                 {
                   // cut out 100 characters
                   var start = first_occur - 20;
