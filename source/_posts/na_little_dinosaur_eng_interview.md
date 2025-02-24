@@ -1,5 +1,5 @@
 ---
-title: LD for Job Interviews
+title: LD Questions for Job Interviews
 date: 2025-02-18 23:51:06
 tags:
 - English
@@ -14,6 +14,10 @@ password: '886'
 **. . .**<!-- more -->
 
 LD refers to `Little Dinosaur`.
+
+# Reference
+
+[Little Dinosaur website](https://zihan1997.github.io/presentation/interview_questions/), The numbers in this article are based on the numbers on this website.
 
 
 # BQ

@@ -1,5 +1,5 @@
 ---
-title: NA Java Top Questions
+title: NA LD Questions notes
 date: 2025-01-12 23:36:08
 tags:
 - noodle
@@ -13,6 +13,9 @@ password: '886'
 
 
 **. . .**<!-- more -->
+
+
+LD refers to `Little Dinosaur`.
 
 # Reference
 

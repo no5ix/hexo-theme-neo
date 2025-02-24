@@ -15,6 +15,67 @@ password: '886'
 **. . .**<!-- more -->
 
 
+# Pilot Training Questions
+                     
+## Leetcode
+
+- Arrays
+    - Two sum: https://leetcode.com/problems/two-sum/description/
+    - Contains Duplicate: https://leetcode.com/problems/contains-duplicate/description/
+    - Group Anagram: https://leetcode.com/problems/group-anagrams/description/
+    - Best Time to Buy and Sell Stock: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
+    - Top K Frequent Elements: https://leetcode.com/problems/top-k-frequent-elements/description/
+    - Longest Consecutive Sequence: https://leetcode.com/problems/longest-consecutive-sequence/description/
+- Two Pointer
+    - Valid Palindrome: https://leetcode.com/problems/valid-palindrome/description/
+    - 3Sum: https://leetcode.com/problems/3sum/description/
+- Binary Search
+    - Binary Search: https://leetcode.com/problems/binary-search/description/
+    - Search in Rotated Sorted Array: https://leetcode.com/problems/search-in-rotated-sorted-array/description/
+    - Koko Eating Bananas: https://leetcode.com/problems/koko-eating-bananas/description/
+- Sliding Window
+    - Longest Substring Without Repeating Characters: https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
+- Linked List
+    - Reverse Linked List: https://leetcode.com/problems/reverse-linked-list/description/
+    - Merge Two Sorted Lists: https://leetcode.com/problems/merge-two-sorted-lists/description/
+    - Linked List Cycle: https://leetcode.com/problems/linked-list-cycle/description/
+    - Copy List with Random Pointer: https://leetcode.com/problems/copy-list-with-random-pointer/description/
+- Stack & Queue
+    - Valid Parentheses: https://leetcode.com/problems/valid-parentheses/description/
+    - Min Stack: https://leetcode.com/problems/min-stack/description/
+    - Implement Queue using Stacks: https://leetcode.com/problems/implement-queue-using-stacks/description/
+- DFS & BFS
+    - Number of Islands: https://leetcode.com/problems/number-of-islands/description/
+
+## Rest API
+
+- User Info
+    - Given URL: https://jsonplaceholder.typicode.com/users
+    - You need to write a REST api to call the given URL and return a user with its "name, username, zipcode"
+    - for example, if user id is 1, you should return a JSON file with username "Bret", email "Sincere@april.biz" and zipcode "92998-3874"
+        - HINT: use "Rest Template"
+    - Result: OPEN a webbrowser and enter: http://localhost:8080/user/1 should return the correct result.
+    - Follow-up: id only 1-10, how to handle /user/11 → print in the page “Invalid ID”
+    - Solution
+- Movie
+    - https://jsonmock.hackerrank.com/api/movies/search/?Title=waterworld 
+    - GIVEN Above URL. Write a MVC with rest api to fetch this URL and then create new rest APIs to:
+        - Show all movies
+        - Show all movies sort by year
+        - Fetch a particular movie based on its imdbID.
+        - Hint: have multiple pages
+    - Solutions
+        - look at this URL date, it has multiple pages, each page has 10 movies, we need to fetch all pages to get a full list of movies and then filter to find the particular movie by imdbID
+        - each movie has Title, Year, imdbID three fields, we need to create a model to match them
+        - need org.json.simple to parse the json object from the given URL
+- Build a POST API /greetings with below requirements
+    - Create a POST API /greetings
+    - INPUT – json array: [{"name":"john doe", "work": "engineer"}, {"name":"jane who", "work": "manager"}] 
+    - OUTPUT - json: {"data": ["Hello john the engineer", "Hello jane the manager"], "timestamp": "${requested_timestamp}"
+    - Use postman to call the API and pass input, it should return the correct response.
+
+
+
 
 # concepts
 

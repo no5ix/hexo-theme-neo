@@ -1,5 +1,5 @@
 ---
-title: NA Word List
+title: NA IT Word List
 date: 2025-01-18 21:54:08
 tags:
 - noodle
