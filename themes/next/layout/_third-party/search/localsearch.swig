@@ -2,6 +2,9 @@
   <script type="text/javascript">
 
     var is_load_xml_finished = 0;
+    var keywords = [];
+    var curDate = new Date();
+    var xml_resp_cache = null;
 
     var searchFunc = function (path, search_id, content_id) {
       // 0x00. environment initialization
@@ -9,7 +12,6 @@
 
       var $input = document.getElementById(search_id);
       var $resultContent = document.getElementById(content_id);
-      // var datas = [];
 
       /* loading css1 : Dot Css Loader*/
       var DotLoader = "<div class='loader'>Loading...</div>";
@@ -34,7 +36,6 @@
           "</div>";
 
       var str = "";
-      var keywords = [];
       var temp_keyword = "";
 
       // 是否为第一个字母被键入的标志位
@@ -78,43 +79,12 @@
           // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
           // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
-
-        // $('#' + content_id).velocity('stop').velocity( isMobile() ? 'transition.fadeOut' : 'transition.bounceUpOut', {
-        //   // delay: isMobile() ? 50 : 0,
-        //   duration: isMobile() ? 500 : 200,
-        //   // begin: function() { 
-        //   //   if (isMobile())
-        //   //   {
-        //   //     $('body').scrollTop(last_page_y);
-        //   //   } 
-        //   // }
-        //   complete: function () {
-        //     if (isMobile())
-        //     {
-        //       if (last_page_y < 20000)
-        //       {
-        //         $('body').velocity('scroll', { offset: last_page_y+"px", duration: last_page_y < 10000 ? 1000 : 2000 });
-        //       }
-        //       else
-        //       {
-        //         $('body').scrollTop(last_page_y);
-        //       }
-        //       // $('body').velocity('scroll');
-
-        //       // $('html,body').animate({
-        //       //   scrollTop: last_page_y
-        //       // },400);
-        //       // $('body').velocity('transition.slideDownIn', 1000);
-        //       // $('body').velocity('scroll', { offset: last_page_y+"px", duration: document.body.scrollHeight < 20000 ? 1500 : 3000 });
-        //     }
-        //   }
-        // });
       }
 
-      function handleSearch()
+      async function handleSearch()
       {
         if (keywords.length <= 0) {
-          return;
+            return;
         }
         $resultContent.innerHTML = "";
         $('#local-search-close').show();
@@ -122,18 +92,17 @@
         // 0x04. perform local searching
         if (is_load_xml_finished == 0)
         {
-          $resultContent.innerHTML = 
-            "<ul class='local-search-empty-ul'>" + 
-            local_search_tips +
-            ProgressBar;
+            $resultContent.innerHTML = 
+                "<ul class='local-search-empty-ul'>" + 
+                local_search_tips +
+                ProgressBar;
         }
         else
         {
           // Retrieve the object from local storage
-          var xml_resp = retrieve_search_xml()
+          var xml_resp = await retrieve_search_xml()
 
           xml_resp.forEach(function (data) {
-          // datas.forEach(function (data) {
             var isMatch = true;
             var content_index = [];
             if (!data.title || data.title.trim() === '') {
@@ -153,7 +122,8 @@
             if (data_content !== '') {
               keywords.forEach(function (keyword, i) {
                 index_title = data_title.indexOf(keyword);
-                index_content = (is_sensitive || is_encrypted) ? -1 : data_content.indexOf(keyword);
+                // index_content = (is_sensitive || is_encrypted) ? -1 : data_content.indexOf(keyword);  // 不能搜加密文章,
+                index_content = data_content.indexOf(keyword); //  这样可以搜加密了的文章, 但是搜索结果框不显示正文只显示标题
 
                 if (index_title < 0 && index_content < 0) {
                   isMatch = false;
@@ -180,22 +150,17 @@
                   // cut out 100 characters
                   var start = first_occur - 20;
                   var end = first_occur + 80;
-
                   if (start < 0) {
                     start = 0;
                   }
-
                   if (start == 0) {
                     end = 100;
                   }
-
                   if (end > content.length) {
                     end = content.length;
                   }
-
                   match_content = content.substr(start, end);
                 }
-
                 // highlight all keywords
                 var regS = "";
                 if (match_content != "")
@@ -249,8 +214,8 @@
             // $('body').scrollTop(0);
           if (isMobile())
           {
-            last_page_x = window.pageXOffset;
-            last_page_y = window.pageYOffset;
+            last_page_x = window.scrollX;
+            last_page_y = window.scrollY;
             // $('body').scrollTop(0);
             scrollTo(0,0);
 
@@ -268,30 +233,30 @@
         }
       });
 
+      // 如果输入框有文字, 等待下载 xml完毕之后再弹出结果
+      // var local_search_xml_data = localStorage.getItem('local_search_xml_data');
+      // if (!local_search_xml_data) {
+      //   $.ajax({
+      //     // 0x01. load xml file
+      //     url: path,
+      //     dataType: "xml",
+      //     success: function (xmlResponse) {
+      //       store_search_xml(xmlResponse);
 
-      var local_search_xml_data = localStorage.getItem('local_search_xml_data');
-      if (!local_search_xml_data) {
-        $.ajax({
-          // 0x01. load xml file
-          url: path,
-          dataType: "xml",
-          success: function (xmlResponse) {
-            store_search_xml(xmlResponse);
+      //       // setTimeout(function(){
+      //       //   is_load_xml_finished = 1;
 
-            // setTimeout(function(){
-            //   is_load_xml_finished = 1;
-
-            //   handleSearch();
-            //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
-            // }, 2000);
+      //       //   handleSearch();
+      //       //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
+      //       // }, 2000);
             
-            // is_load_xml_finished = 1;
+      //       // is_load_xml_finished = 1;
 
-            handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
-          }
-        });
-      }
+      //       handleSearch();
+      //       $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
+      //     }
+      //   });
+      // }
 
       $(document).on('click', '#local-search-close', function() {
         CloseLocalSearch();
@@ -324,36 +289,10 @@
     function isMobile() {
       // console.log(document.body.clientWidth);
       return document.body.clientWidth < 768
-
-      // var userAgent = window.navigator.userAgent;
-
-      // var isiPad = userAgent.match(/iPad/i) !== null;
-      // var mobileUA = [
-      //   'iphone', 'android', 'phone', 'mobile',
-      //   'wap', 'netfront', 'x11', 'java', 'opera mobi',
-      //   'opera mini', 'ucweb', 'windows ce', 'symbian',
-      //   'symbianos', 'series', 'webos', 'sony',
-      //   'blackberry', 'dopod', 'nokia', 'samsung',
-      //   'palmsource', 'xda', 'pieplus', 'meizu',
-      //   'midp' ,'cldc' , 'motorola', 'foma',
-      //   'docomo', 'up.browser', 'up.link', 'blazer',
-      //   'helio', 'hosin', 'huawei', 'novarra',
-      //   'coolpad', 'webos', 'techfaith', 'palmsource',
-      //   'alcatel', 'amoi', 'ktouch', 'nexian',
-      //   'ericsson', 'philips', 'sagem', 'wellcom',
-      //   'bunjalloo', 'maui', 'smartphone', 'iemobile',
-      //   'spice', 'bird', 'zte-', 'longcos',
-      //   'pantech', 'gionee', 'portalmmm', 'jig browser',
-      //   'hiptop', 'benq', 'haier', '^lct',
-      //   '320x320', '240x320', '176x220'
-      // ];
-      // var pattern = new RegExp(mobileUA.join('|'), 'i');
-
-      // return !isiPad && userAgent.match(pattern);
     }
 
-    function store_search_xml(xmlResponse) {
-        datas = $("entry", xmlResponse).map(function () {
+    {/* function store_search_xml(xmlResponse) {
+        var entries = $("entry", xmlResponse).map(function () {
           return {
             title: $("title", this).text(),
             content: $("content", this).text(),
@@ -362,50 +301,162 @@
           };
         }).get();
         // Put the object into storage
-        localStorage.setItem('local_search_xml_data', JSON.stringify(datas));
+        localStorage.setItem('local_search_xml_data', JSON.stringify(entries));
+        localStorage.setItem('last_store_local_search_date', curDate.getDate());
         is_load_xml_finished = 1;
-
-        console.log("store search.xml finished.");
-    }
+        console.log("[local search] - store search.xml finished.");
+    } */}
 
     function ajax_store_search_xml() {
-      $.ajax({
-        url: "/search.xml",
-        dataType: "xml",
-        success: function (xmlResponse) {
-            store_search_xml(xmlResponse);
-        }
-      });
+        console.log("[local search] - ajax downloading search.xml ...");
+        $.ajax({
+            url: "/search.xml",
+            dataType: "xml",
+            success: function (xmlResponse) {
+                setLocalSearchXMLData(xmlResponse);
+                // 如果输入框有文字, 等待下载 xml完毕之后再弹出结果
+                if (keywords.length > 0) {
+                    handleSearch();
+                    $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
+                }
+            }
+        });
     }
 
-    function retrieve_search_xml() {
-        // Retrieve the object from local storage
-        var retrievedObject = localStorage.getItem('local_search_xml_data');
-        var xml_resp = JSON.parse(retrievedObject)
-        return xml_resp
+    async function retrieve_search_xml() {
+        // // Retrieve the object from local storage
+        // var retrievedObject = localStorage.getItem('local_search_xml_data');
+        // var xml_resp = JSON.parse(retrievedObject)
+        // return xml_resp
+
+        if (xml_resp_cache) {
+          return xml_resp_cache;
+        }
+        // Retrieve the object from indexedDB
+        xml_resp_cache = await getLocalSearchXMLData();
+        return xml_resp_cache;
     }
 
     var getSearchFile = function(){
-      var path = "/search.xml";
-      var local_search_result_name = isMobile() ? "local-search-result-mobile" : "local-search-result-pc";
-      searchFunc(path, 'local-search-input', local_search_result_name);
+        var path = "/search.xml";
+        var local_search_result_name = isMobile() ? "local-search-result-mobile" : "local-search-result-pc";
+        searchFunc(path, 'local-search-input', local_search_result_name);
     }
 
-    var local_search_xml_data = localStorage.getItem('local_search_xml_data');
-    if (local_search_xml_data) {
-      is_load_xml_finished = 1;
-      console.log("load search.xml finished.");
+
+    let db; // 全局数据库变量
+
+    function openDatabase() {
+        return new Promise((resolve, reject) => {
+            const request = indexedDB.open("myDatabase", 1); // 设置为版本号 1, 用indexedDB替代localStorage, 因为indexedDB可以存储大量数据（几百 MB 到几 GB）, 而localStorage只能5MB左右, 
+            request.onupgradeneeded = function(event) {
+                db = event.target.result;
+                if (!db.objectStoreNames.contains("searchData")) {
+                    db.createObjectStore("searchData", { keyPath: "id" });
+                    // 可以创建索引以便于查询
+                    objectStore.createIndex("xmlDataIndex", "xml_data", { unique: false });
+                }
+            };
+            request.onsuccess = function(event) {
+                db = event.target.result;
+                console.log("[local search] - Database opened successfully.");
+                resolve(db);
+            };
+            request.onerror = function(event) {
+                console.error("[local search] - Database open error:", event.target.error);
+                reject(event.target.error);
+            };
+        });
     }
-    var last_use_local_search_date = localStorage.getItem('last_use_local_search_date');
-    var curDate = new Date();
+
+    async function setLocalSearchXMLData(xmlResponse) {
+        if (!db) {
+            await openDatabase();  // 确保数据库已打开
+        }
+        var transaction = db.transaction(["searchData"], "readwrite");
+        var objectStore = transaction.objectStore("searchData");
+
+        var xml_data = $("entry", xmlResponse).map(function () {
+          return {
+            title: $("title", this).text(),
+            content: $("content", this).text(),
+            url: $("url", this).text(),
+            encrypted: $("encrypted", this).text(),
+          };
+        }).get();
+        // 存储数据，主键为 "id"，这里我们将 "id" 设为 "local_search_xml_data"
+        var data = { id: "local_search_xml_data", xml_data: xml_data };
+
+        var request = objectStore.put(data);  // 使用 put 可以插入或者更新数据
+        request.onsuccess = function() {
+            console.log("[local search] - Data successfully stored in indexedDB.");
+            localStorage.setItem('last_store_local_search_date', curDate.getDate());
+            is_load_xml_finished = 1;
+        };
+        request.onerror = function(event) {
+            console.log("[local search] - Error storing data: ", event.target.error);
+        };
+    }
+
+    // 封装 IndexedDB 操作为 Promise
+    function getLocalSearchXMLData() {
+        return new Promise((resolve, reject) => {
+            if (!db) {
+                reject("[local search] - Database is not initialized.");
+                return;
+            }
+            var transaction = db.transaction(["searchData"], "readonly");
+            var objectStore = transaction.objectStore("searchData");
+            var request = objectStore.get("local_search_xml_data");  // 使用 id 获取数据
+            request.onsuccess = function(event) {
+                if (request.result) {
+                    // 数据存在，成功处理
+                    resolve(request.result.xml_data);  // 解析成功并返回结果
+                } else {
+                    // 数据未找到，返回失败
+                    reject("Data not found");  // 抛出错误
+                }
+            };
+            request.onerror = function(event) {
+                // 错误处理
+                console.log("[local search] - Error retrieving data: ", event.target.error);
+                reject(event.target.error);  // 抛出错误
+            };
+        });
+    }
+
+    // 使用 async/await 来调用这个函数
+    async function loadSearchData() {
+        try {
+            if (!db) {
+                await openDatabase();  // 确保数据库已打开
+            }
+            await getLocalSearchXMLData();  // 等待结果
+            is_load_xml_finished = 1;
+            console.log("[local search] - load search.xml finished.");
+            // console.log("Retrieved data: ", result);
+        } catch (error) {
+            // console.error("Error: ", error);
+            console.log("[local search] - load search.xml not found.");
+            ajax_store_search_xml();
+        }
+    }
+
+    // var local_search_xml_data = localStorage.getItem('local_search_xml_data');
+    // if (local_search_xml_data) {
+    //     is_load_xml_finished = 1;
+    //     console.log("[local search] - load search.xml finished.");
+    // }
+    var last_store_local_search_date = localStorage.getItem('last_store_local_search_date');
     // 只有在 localStorage 没有 search.xml数据或者 距离上次使用local search已经超过一天了才去取search.xml
     // 节省流量
-    if (last_use_local_search_date != curDate.getDate() || !local_search_xml_data) {
-      // preload search.xml
-      ajax_store_search_xml();
+    if (last_store_local_search_date != curDate.getDate()) {
+        // download search.xml
+        ajax_store_search_xml();
+    } else {
+        // 调用异步函数
+        loadSearchData();
     }
-
-    localStorage.setItem('last_use_local_search_date', curDate.getDate());
     
 
   </script>
