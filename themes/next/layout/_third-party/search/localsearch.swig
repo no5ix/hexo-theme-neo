@@ -5,6 +5,7 @@
     var keywords = [];
     var curDate = new Date();
     var xml_resp_cache = null;
+    var temp_keyword = "";
 
     var searchFunc = function (path, search_id, content_id) {
       // 0x00. environment initialization
@@ -36,7 +37,6 @@
           "</div>";
 
       var str = "";
-      var temp_keyword = "";
 
       // 是否为第一个字母被键入的标志位
       var first_char_flag = 0;
@@ -51,51 +51,43 @@
 
       function CloseLocalSearch()
       {
-        first_char_flag = 0;
-
-        $('#local-search-input').val('');
-        $('#local-search-close').hide();
-
-        // $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownOut', 200);
-
-        $('#' + content_id).attr("headroom_special_attr","true"); 
-        
-        if (isMobile())
-        {
-            // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-            
-            // $('#' + content_id).hide();
-            
-            // window.scrollTo({
-            //     top: last_page_y,
-            //     left: last_page_x,
-            //     behavior: "smooth",
-            //     duration: 3500 // 滚动动画持续x毫秒
-            // });
-
-            $('#' + content_id).velocity('stop').velocity( 'transition.slideUpOut', 600);
-            setTimeout(function() {
-                // scrollTo(last_page_x, last_page_y);
-                window.scrollTo({
-                    top: last_page_y,
-                    left: last_page_x,
-                    behavior: "smooth",
-                    duration: 300 // 滚动动画持续x毫秒
-                });
-            }, 150);
-        }
-        else
-        {
-          $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 800);
-          // $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
-          // $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 1000);
-          // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
-          // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
-          // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
-          // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
-          // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
-          // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
-        }
+          setTimeout(function() {  // 这个setTimeout的目的是为了解决当使用中文输入法输入英文的时候敲下enter键的那一瞬间发生从有文字到没文字又到有文字, 而下方window.scrollTo这个还没执行到, 会导致页面scroll乱滚; 加了这个timeout之后就可以检测是否属于这种情况
+              if (temp_keyword.length > 0) {
+                  return;
+              }
+              first_char_flag = 0;
+              $('#local-search-input').val('');
+              $('#local-search-close').hide();
+              // $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownOut', 200);
+              $('#' + content_id).attr("headroom_special_attr","true"); 
+              if (isMobile())
+              {
+                  // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
+                  // $('#' + content_id).hide();
+                  $('#' + content_id).velocity('stop').velocity( 'transition.slideUpOut', 600);
+                  setTimeout(function() {
+                      // scrollTo(last_page_x, last_page_y);
+                      window.scrollTo({
+                          top: last_page_y,
+                          left: last_page_x,
+                          behavior: "smooth",
+                          duration: 300 // 滚动动画持续x毫秒
+                      });
+                  }, 150);
+              }
+              else
+              {
+                  $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 800);
+                  // $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
+                  // $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 1000);
+                  // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+                  // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+                  // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+                  // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+                  // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+                  // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
+              }
+          }, 150);
       }
 
       async function handleSearch()
@@ -218,8 +210,8 @@
         str = '<ul class=\"search-result-list\">';
         temp_keyword = this.value.trim();
         if (temp_keyword.length <= 0) {
-          CloseLocalSearch();
-          return;
+            CloseLocalSearch();
+            return;
         }
 
         keywords = temp_keyword.toLowerCase().split(/[\s\-]+/);
@@ -233,10 +225,10 @@
             // $('body').scrollTop(0);
           if (isMobile())
           {
-            last_page_x = window.scrollX;
-            last_page_y = window.scrollY;
+              last_page_x = window.scrollX;
+              last_page_y = window.scrollY;
+              scrollTo(0,0);
             // $('body').scrollTop(0);
-            scrollTo(0,0);
 
           }
           first_char_flag = 1;
@@ -278,7 +270,8 @@
       // }
 
       $(document).on('click', '#local-search-close', function() {
-        CloseLocalSearch();
+          temp_keyword = "";
+          CloseLocalSearch();
       });
 
       // 你的代码在 document 上监听 click 事件，并检查点击的目标是否在 content_id 指定的元素内部。如果点击的目标不在该元素内，则执行 CloseLocalSearch()。
@@ -287,6 +280,7 @@
               return;
           }
           if (!$(event.target).closest('#' + content_id).length) {
+              temp_keyword = "";
               CloseLocalSearch();
           }
       });
@@ -295,6 +289,7 @@
         switch(event.keyCode) {
           case 27:
             // alert("ESC");
+            temp_keyword = "";
             CloseLocalSearch();
         }
       });
@@ -304,6 +299,7 @@
         
       //   if (isMobile() == false)
       //   {
+      //        temp_keyword = ""
       //     CloseLocalSearch();
       //   }
       // });
@@ -338,7 +334,7 @@
             success: function (xmlResponse) {
                 setLocalSearchXMLData(xmlResponse);
                 // 如果输入框有文字, 等待下载 xml完毕之后再弹出结果
-                if (keywords.length > 0) {
+                if (temp_keyword.length > 0) {
                     handleSearch();
                     $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
                 }
