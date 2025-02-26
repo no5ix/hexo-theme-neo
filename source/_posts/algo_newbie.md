@@ -7,7 +7,7 @@ tags:
 - LeetCode
 categories:
 - Algo
-password: '0622'
+password: 'stt'
 ---
 
 

@@ -5,7 +5,7 @@ tags:
 - Pycharm
 categories:
 - Misc
-password: '0622'
+password: 'stt'
 ---
 
 

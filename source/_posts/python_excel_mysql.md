@@ -5,7 +5,7 @@ tags:
 - Python
 categories:
 - Script
-password: '0622'
+password: 'stt'
 ---
 
 

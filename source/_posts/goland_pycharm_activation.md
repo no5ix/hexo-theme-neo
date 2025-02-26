@@ -6,7 +6,7 @@ tags:
 - GoLand
 categories:
 - Misc
-password: '0622'
+password: 'stt'
 ---
 
 
