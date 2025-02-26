@@ -62,10 +62,27 @@
         
         if (isMobile())
         {
-          // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-              scrollTo(last_page_x, last_page_y);
+            // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
+            
+            // $('#' + content_id).hide();
+            
+            // window.scrollTo({
+            //     top: last_page_y,
+            //     left: last_page_x,
+            //     behavior: "smooth",
+            //     duration: 3500 // 滚动动画持续x毫秒
+            // });
 
-          $('#' + content_id).hide();
+            $('#' + content_id).velocity('stop').velocity( 'transition.slideUpOut', 600);
+            setTimeout(function() {
+                // scrollTo(last_page_x, last_page_y);
+                window.scrollTo({
+                    top: last_page_y,
+                    left: last_page_x,
+                    behavior: "smooth",
+                    duration: 300 // 滚动动画持续x毫秒
+                });
+            }, 150);
         }
         else
         {
@@ -264,7 +281,11 @@
         CloseLocalSearch();
       });
 
+      // 你的代码在 document 上监听 click 事件，并检查点击的目标是否在 content_id 指定的元素内部。如果点击的目标不在该元素内，则执行 CloseLocalSearch()。
       $(document).click(function(event) {
+          if (isMobile()) {
+              return;
+          }
           if (!$(event.target).closest('#' + content_id).length) {
               CloseLocalSearch();
           }
