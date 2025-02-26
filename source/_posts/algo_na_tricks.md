@@ -35,6 +35,73 @@ password: '0622'
 
 <https://github.com/no5ix/no5ix.github.io/blob/source/source/code/test_algo_na.java>
 
+# 常用小技巧
+
+## 如何求一个数字有多少位数
+
+```java
+public class DigitCount {
+    public static int countDigits(int number) {
+        // 处理数字为 0 的特殊情况
+        if (number == 0) {
+            return 1;
+        }
+        // 处理负数的情况，将其转换为正数
+        number = Math.abs(number);
+        int count = 0;
+        while (number != 0) {
+            number /= 10;
+            count++;
+        }
+        return count;
+    }
+    public static void main(String[] args) {
+        int num = 12345;
+        int digitCount = countDigits(num);
+        System.out.println("数字 " + num + " 的位数是: " + digitCount);
+    }
+}
+```
+
+## 从最高位数开始遍历一个数字
+
+```java
+    int number = 7893;
+    int divisor = 1;
+    while (number / divisor >= 10) {
+        divisor *= 10;
+    }
+    while (divisor > 0) {
+        int digit = number / divisor;  // 获取当前最高位的数字
+        System.out.println(digit);
+        number %= divisor;  // 去掉已经处理过的最高位
+        divisor /= 10;
+    }
+```
+
+## 从个位数开始遍历一个数字
+
+```java
+public class DigitTraversal {
+    public static void main(String[] args) {
+        int number = 12345;
+        traverseDigitsFromRight(number);
+    }
+
+    public static void traverseDigitsFromRight(int number) {
+        // 当数字不为 0 时，继续循环
+        while (number != 0) {
+            // 取当前数字的个位数
+            int digit = number % 10;
+            System.out.println(digit);
+            // 去掉当前数字的个位数
+            number /= 10;
+        }
+    }
+}
+```
+
+
 
 # Java常用接口和实现
 
