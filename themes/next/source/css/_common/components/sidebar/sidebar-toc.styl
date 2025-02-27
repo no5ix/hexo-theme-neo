@@ -40,6 +40,14 @@
   line-height: 1.8;
 }
 
+
+.post-toc .nav-item::before {
+  content: "• ";  /* 添加 ● 并带一个空格 */
+  color: inherit;  /* 继承文字颜色 */
+  font-size: 1em;  /* 确保大小和文字一致 */
+  margin-right: 5px; /* 调整与文字的间距 */
+}
+
 .post-toc .nav .nav-child { display: none; }
 
 .post-toc .nav .active > .nav-child { display: block; }
@@ -60,3 +68,4 @@
     color: $toc-link-active-current-border-color;
   }
 }
+

@@ -199,7 +199,7 @@
           str += "</ul>";
           if (str.indexOf('<li>') === -1) {
             return $resultContent.innerHTML = 
-              "<ul class='local-search-empty-ul'><span class='local-search-empty'>找不到, 换个搜索关键字试一哈.<span></ul>";
+              "<ul class='local-search-empty-ul'><span class='local-search-empty'>404.<span></ul>";
           }
           $resultContent.innerHTML = str;
         }
