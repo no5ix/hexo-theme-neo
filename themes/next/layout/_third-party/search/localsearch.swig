@@ -59,12 +59,20 @@
               $('#local-search-input').val('');
               $('#local-search-close').hide();
               // $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownOut', 200);
-              $('#' + content_id).attr("headroom_special_attr","true"); 
+              // $('#' + content_id).attr("headroom_special_attr","true"); 
               if (isMobile())
               {
                   // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
                   // $('#' + content_id).hide();
                   $('#' + content_id).velocity('stop').velocity( 'transition.slideUpOut', 600);
+
+                  const element = document.getElementById('local-search-result-mobile');
+                  let bottomY = element.offsetTop + element.offsetHeight;  // local search result底部相对于整个页面的 Y 坐标
+                  // console.log('底部相对于整个页面的 Y 坐标:', bottomY);
+                  if (window.scrollY > bottomY + 600) {  // 如果用户滚动到比 local search result的底部还要低, 那说明他不想回到他search之前的位置了
+                  } {
+                      return;
+                  }
                   setTimeout(function() {
                       // scrollTo(last_page_x, last_page_y);
                       window.scrollTo({
@@ -74,6 +82,7 @@
                           duration: 300 // 滚动动画持续x毫秒
                       });
                   }, 150);
+                  }
               }
               else
               {
@@ -232,7 +241,7 @@
 
           }
           first_char_flag = 1;
-          $('#' + content_id).removeAttr("headroom_special_attr");
+          // $('#' + content_id).removeAttr("headroom_special_attr");
 
           if (isMobile()) {
             $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
