@@ -238,7 +238,7 @@ $(document).ready(function () {
 
     $(document)
       .on('affixed.bs.affix', function () {
-        updateTOCHeight(document.body.clientHeight - 200);  // 为了防止toc sidebar底部有一些目录看不见
+        updateTOCHeight(document.body.clientHeight);
       });
   }
 
@@ -249,14 +249,14 @@ $(document).ready(function () {
       updateTOCHeightTimer && clearTimeout(updateTOCHeightTimer);
 
       updateTOCHeightTimer = setTimeout(function () {
-        var tocWrapperHeight = document.body.clientHeight - 200;
+        var tocWrapperHeight = document.body.clientHeight;
 
         updateTOCHeight(tocWrapperHeight);
       }, 0);
     });
 
     // Initialize TOC Height.
-    updateTOCHeight(document.body.clientHeight - 200);
+    updateTOCHeight(document.body.clientHeight);
 
     // Initialize TOC Width.
     var scrollbarWidth = NexT.utils.getScrollbarWidth();
@@ -264,7 +264,8 @@ $(document).ready(function () {
   }
 
   function updateTOCHeight (height) {
-    height = height || 'auto';
+    height = height - 128;  // 为了防止toc sidebar底部有一些目录看不见
+    // height = height || 'auto';
     $('.post-toc').css('max-height', height);
   }
 
