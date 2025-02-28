@@ -13,6 +13,7 @@
     var content_id = isMobile() ? "local-search-result-mobile" : "local-search-result-pc";
     var $input = document.getElementById('local-search-input');
     var $resultContent = document.getElementById(content_id);
+    const searchButton = document.getElementById('search-button');
 
     var str = "";
 
@@ -36,18 +37,22 @@
             // $('#' + content_id).attr("headroom_special_attr","true"); 
             if (isMobile())
             {
-                // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-                // $('#' + content_id).hide();
-                $('#' + content_id).velocity('stop').velocity( 'transition.slideUpOut', 600);
-                // $input.classList.remove('expanded');
+              // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
+              // $('#' + content_id).hide();
                 $input.blur();
+                document.querySelector("#local-search-close").classList.remove("move");
+                $input.classList.remove('expanded');
+
+                $('#' + content_id).velocity('stop').velocity( 'transition.slideUpOut', 300);
 
                 const element = document.getElementById('local-search-result-mobile');
                 let bottomY = element.offsetTop + element.offsetHeight;  // local search result底部相对于整个页面的 Y 坐标
-
+                if (bottomY == 0) {  // 说明 local search result底部 比当前页面还要长
+                    scrollTo(last_page_x, last_page_y);
+                    return;
+                }
                 // console.log("rrrrrrretrn " + bottomY);
                 // console.log("rrrrrrretrnyyy " + window.scrollY);
-                // console.log('底部相对于整个页面的 Y 坐标:', bottomY);
                 if (window.scrollY > bottomY) {  // 如果用户滚动到比 local search result的底部还要低, 那说明他不想回到他search之前的位置了
                     return;
                 }
@@ -238,25 +243,32 @@
     });
 
     // 如果你希望 一次点击就触发，无论是触摸板、鼠标还是 iPhone/安卓，推荐使用：
-    $(document).on('touchstart click', '#local-search-close', function(event) {
-        event.preventDefault(); // 防止 Safari 额外触发
+    $(document).on('click', '#local-search-close', function(event) {
         temp_keyword = "";
         CloseLocalSearch();
     });
 
-    // $input.addEventListener("blur", function() {
-    //     $input.classList.remove('expanded');
-    //     // console.log("输入框失去焦点");
-    // });
-    // 获取元素
-    const searchButton = document.getElementById('search-button');
+    $input.addEventListener("blur", function() {
+      if (isMobile()) {
+          $('#local-search-input').val('');
+          $input.classList.remove('expanded');
+          // console.log("输入框失去焦点");
+      }
+    });
 
     // 给按钮添加点击事件
     searchButton.addEventListener('click', function() {
-        if (isMobile) {
+        if (isMobile()) {
             // 使输入框渐变显示
-            $input.classList.add('expanded');
             $input.focus();
+            setTimeout(function() {
+                $input.classList.add('expanded');
+                setTimeout(function() {
+                    if (temp_keyword.length > 0) {
+                        $('#local-search-input').val(temp_keyword);
+                    }
+                }, 200);
+            }, 250);
         }
     });
 
