@@ -68,9 +68,11 @@
 
                   const element = document.getElementById('local-search-result-mobile');
                   let bottomY = element.offsetTop + element.offsetHeight;  // local search result底部相对于整个页面的 Y 坐标
+
+                  // console.log("rrrrrrretrn " + bottomY);
+                  // console.log("rrrrrrretrnyyy " + window.scrollY);
                   // console.log('底部相对于整个页面的 Y 坐标:', bottomY);
-                  if (window.scrollY > bottomY + 600) {  // 如果用户滚动到比 local search result的底部还要低, 那说明他不想回到他search之前的位置了
-                  } {
+                  if (window.scrollY > bottomY) {  // 如果用户滚动到比 local search result的底部还要低, 那说明他不想回到他search之前的位置了
                       return;
                   }
                   setTimeout(function() {
@@ -82,7 +84,6 @@
                           duration: 300 // 滚动动画持续x毫秒
                       });
                   }, 150);
-                  }
               }
               else
               {
