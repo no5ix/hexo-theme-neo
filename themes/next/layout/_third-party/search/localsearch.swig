@@ -1,319 +1,267 @@
 {% if theme.local_search.enable %}
   <script type="text/javascript">
 
+    let db; // 全局数据库变量
     var is_load_xml_finished = 0;
     var keywords = [];
     var curDate = new Date();
     var xml_resp_cache = null;
     var temp_keyword = "";
 
-    var searchFunc = function (path, search_id, content_id) {
-      // 0x00. environment initialization
-      'use strict';
+    'use strict';
 
-      var $input = document.getElementById(search_id);
-      var $resultContent = document.getElementById(content_id);
+    var content_id = isMobile() ? "local-search-result-mobile" : "local-search-result-pc";
+    var $input = document.getElementById('local-search-input');
+    var $resultContent = document.getElementById(content_id);
 
-      /* loading css1 : Dot Css Loader*/
-      var DotLoader = "<div class='loader'>Loading...</div>";
+    var str = "";
 
-      /* loading css2 : Pure Css Loader - Square */
-      var SquareLoader = 
-        "<div class='loader'>" +
-          "<div class='square' ></div>" +
-          "<div class='square'></div>" +
-          "<div class='square last'></div>" +
-          "<div class='square clear'></div>" +
-          "<div class='square'></div>" +
-          "<div class='square last'></div>" +
-          "<div class='square clear'></div>" +
-          "<div class='square '></div>" +
-          "<div class='square last'></div>" +
-        "</div>";
+    // 是否为第一个字母被键入的标志位
+    var first_char_flag = 0;
 
-      var ProgressBar = 
-          "<div class='progress-bar'>" +
-            "<div class='progress-bar-charge'></div>" +
-          "</div>";
+    // 因为在移动设备上, 点击搜索之后会 scroll 到页面顶部, 所以需要记录之前的页面x, y坐标值, 以便于搜索完点击 close 按钮之后 scroll 回原来的页面坐标值.
+    var last_page_x = 0;
+    var last_page_y = 0;
 
-      var str = "";
+    function CloseLocalSearch()
+    {
+        setTimeout(function() {  // 这个setTimeout的目的是为了解决当使用中文输入法输入英文的时候敲下enter键的那一瞬间发生从有文字到没文字又到有文字, 而下方window.scrollTo这个还没执行到, 会导致页面scroll乱滚; 加了这个timeout之后就可以检测是否属于这种情况
+            if (temp_keyword.length > 0) {
+                return;
+            }
+            first_char_flag = 0;
+            $('#local-search-input').val('');
+            $('#local-search-close').hide();
+            // $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownOut', 200);
+            // $('#' + content_id).attr("headroom_special_attr","true"); 
+            if (isMobile())
+            {
+                // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
+                // $('#' + content_id).hide();
+                $('#' + content_id).velocity('stop').velocity( 'transition.slideUpOut', 600);
 
-      // 是否为第一个字母被键入的标志位
-      var first_char_flag = 0;
+                const element = document.getElementById('local-search-result-mobile');
+                let bottomY = element.offsetTop + element.offsetHeight;  // local search result底部相对于整个页面的 Y 坐标
 
-      // 因为在移动设备上, 点击搜索之后会 scroll 到页面顶部, 所以需要记录之前的页面x, y坐标值, 以便于搜索完点击 close 按钮之后 scroll 回原来的页面坐标值.
-      var last_page_x = 0;
-      var last_page_y = 0;
+                // console.log("rrrrrrretrn " + bottomY);
+                // console.log("rrrrrrretrnyyy " + window.scrollY);
+                // console.log('底部相对于整个页面的 Y 坐标:', bottomY);
+                if (window.scrollY > bottomY) {  // 如果用户滚动到比 local search result的底部还要低, 那说明他不想回到他search之前的位置了
+                    return;
+                }
+                setTimeout(function() {
+                    // scrollTo(last_page_x, last_page_y);
+                    window.scrollTo({
+                        top: last_page_y,
+                        left: last_page_x,
+                        behavior: "smooth",
+                        duration: 300 // 滚动动画持续x毫秒
+                    });
+                }, 150);
+            }
+            else
+            {
+                $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 800);
+                // $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
+                // $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 1000);
+                // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
+                // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
+                // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
+                // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
+                // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
+                // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
+            }
+        }, 150);
+    }
 
-      var local_search_tips = 
-            "<span class='local-search-empty'>" + "第一次搜索可能较慢, 先思考一个经典算法问题, 跳台阶:" + "</span>" +
-            "<span class='local-search-empty'>" + "一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个6级的台阶总共有多少种跳法?n级呢?" + "</span>";
+    async function handleSearch()
+    {
+      if (keywords.length <= 0) {
+          return;
+      }
+      $resultContent.innerHTML = "";
+      $('#local-search-close').show();
 
-      function CloseLocalSearch()
+      // 0x04. perform local searching
+      if (is_load_xml_finished == 0)
       {
-          setTimeout(function() {  // 这个setTimeout的目的是为了解决当使用中文输入法输入英文的时候敲下enter键的那一瞬间发生从有文字到没文字又到有文字, 而下方window.scrollTo这个还没执行到, 会导致页面scroll乱滚; 加了这个timeout之后就可以检测是否属于这种情况
-              if (temp_keyword.length > 0) {
-                  return;
+          var local_search_tips = 
+              "<span class='local-search-empty'>" + "第一次搜索可能较慢, 先思考一个经典算法问题, 跳台阶:" + "</span>" +
+              "<span class='local-search-empty'>" + "一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个6级的台阶总共有多少种跳法?n级呢?" + "</span>";
+          var ProgressBar = 
+              "<div class='progress-bar'>" +
+                "<div class='progress-bar-charge'></div>" +
+              "</div>";
+          $resultContent.innerHTML = 
+              "<ul class='local-search-empty-ul'>" + 
+              local_search_tips +
+              ProgressBar;
+      }
+      else
+      {
+        // Retrieve the object from local storage
+        var xml_resp = await retrieve_search_xml()
+
+        xml_resp.forEach(function (data) {
+          var isMatch = true;
+          var content_index = [];
+          if (!data.title || data.title.trim() === '') {
+            data.title = "Untitled";
+          }
+          var is_encrypted = data.encrypted.trim() == '1'
+          var is_sensitive = CONFIG.local_search.sensitive_word && data_content.indexOf(CONFIG.local_search.sensitive_word) >= 0
+          var orig_data_title = data.title.trim();
+          var data_title = orig_data_title.toLowerCase();
+          var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+          var data_content = orig_data_content.toLowerCase();
+          var data_url = decodeURIComponent(data.url);
+          var index_title = -1;
+          var index_content = -1;
+          var first_occur = -1;
+          // only match artiles with not empty contents
+          if (data_content !== '') {
+            keywords.forEach(function (keyword, i) {
+              index_title = data_title.indexOf(keyword);
+              // index_content = (is_sensitive || is_encrypted) ? -1 : data_content.indexOf(keyword);  // 不能搜加密文章,
+              index_content = data_content.indexOf(keyword); //  这样可以搜加密了的文章, 但是搜索结果框不显示正文只显示标题
+
+              if (index_title < 0 && index_content < 0) {
+                isMatch = false;
+              } else {
+                if (index_content < 0) {
+                  index_content = 0;
+                }
+                if (i == 0) {
+                  first_occur = index_content;
+                }
+                // content_index.push({index_content:index_content, keyword_len:keyword_len});
               }
-              first_char_flag = 0;
-              $('#local-search-input').val('');
-              $('#local-search-close').hide();
-              // $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownOut', 200);
-              // $('#' + content_id).attr("headroom_special_attr","true"); 
-              if (isMobile())
+            });
+          } else {
+            isMatch = false;
+          }
+          // 0x05. show search results
+          if (isMatch) {
+            var content = orig_data_content;
+            if (first_occur >= 0) {
+              var match_content = "";
+              
+              const hostname = window.location.hostname;
+              if ((!is_sensitive && !is_encrypted) || (hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1" || hostname.startsWith("192")))
               {
-                  // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
-                  // $('#' + content_id).hide();
-                  $('#' + content_id).velocity('stop').velocity( 'transition.slideUpOut', 600);
-
-                  const element = document.getElementById('local-search-result-mobile');
-                  let bottomY = element.offsetTop + element.offsetHeight;  // local search result底部相对于整个页面的 Y 坐标
-
-                  // console.log("rrrrrrretrn " + bottomY);
-                  // console.log("rrrrrrretrnyyy " + window.scrollY);
-                  // console.log('底部相对于整个页面的 Y 坐标:', bottomY);
-                  if (window.scrollY > bottomY) {  // 如果用户滚动到比 local search result的底部还要低, 那说明他不想回到他search之前的位置了
-                      return;
-                  }
-                  setTimeout(function() {
-                      // scrollTo(last_page_x, last_page_y);
-                      window.scrollTo({
-                          top: last_page_y,
-                          left: last_page_x,
-                          behavior: "smooth",
-                          duration: 300 // 滚动动画持续x毫秒
-                      });
-                  }, 150);
+                // cut out 100 characters
+                var start = first_occur - 20;
+                var end = first_occur + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (start == 0) {
+                  end = 100;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                match_content = content.substr(start, end);
+              }
+              // highlight all keywords
+              var regS = "";
+              if (match_content != "")
+              {
+                keywords.forEach(function (keyword) {
+                  regS = new RegExp(keyword, "gi");
+                  match_content = match_content.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
+                  orig_data_title = orig_data_title.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
+                });
               }
               else
               {
-                  $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 800);
-                  // $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
-                  // $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 1000);
-                  // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
-                  // $('#' + content_id).velocity('stop').velocity( 'transition.whirlOut', 600);
-                  // $('#' + content_id).velocity('stop').velocity( 'transition.shrinkOut', 600);
-                  // $('#' + content_id).velocity('stop').velocity( 'transition.swoopOut', 1000);
-                  // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
-                  // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
+                keywords.forEach(function (keyword) {
+                  regS = new RegExp(keyword, "gi");
+                  orig_data_title = orig_data_title.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
+                });
               }
-          }, 150);
+              str += "<li><a href='" + data_url + "' class='search-result-title' target='_blank'>" + orig_data_title + "</a>";
+              str += "<p class=\"search-result\">" + match_content + "...</p>"
+            }
+            str += "</li>";
+          }
+        });
+
+        str += "</ul>";
+        if (str.indexOf('<li>') === -1) {
+          return $resultContent.innerHTML = 
+            "<ul class='local-search-empty-ul'><span class='local-search-empty'>404.<span></ul>";
+        }
+        $resultContent.innerHTML = str;
+      }
+    }
+
+    $input.addEventListener('input', function () {
+      // 0x03. parse query to keywords list
+      str = '<ul class=\"search-result-list\">';
+      temp_keyword = this.value.trim();
+      if (temp_keyword.length <= 0) {
+          CloseLocalSearch();
+          return;
       }
 
-      async function handleSearch()
+      keywords = temp_keyword.toLowerCase().split(/[\s\-]+/);
+      handleSearch();
+
+      // 当用户键入第一个字母的时候的动画处理逻辑 : 
+      // 当 first_char_flag 为 0 的时候, 
+      // 要播放一个动画
+      if (first_char_flag == 0)
       {
-        if (keywords.length <= 0) {
-            return;
-        }
-        $resultContent.innerHTML = "";
-        $('#local-search-close').show();
-
-        // 0x04. perform local searching
-        if (is_load_xml_finished == 0)
+          // $('body').scrollTop(0);
+        if (isMobile())
         {
-            $resultContent.innerHTML = 
-                "<ul class='local-search-empty-ul'>" + 
-                local_search_tips +
-                ProgressBar;
+            last_page_x = window.scrollX;
+            last_page_y = window.scrollY;
+            scrollTo(0,0);
+          // $('body').scrollTop(0);
+
         }
-        else
-        {
-          // Retrieve the object from local storage
-          var xml_resp = await retrieve_search_xml()
+        first_char_flag = 1;
+        // $('#' + content_id).removeAttr("headroom_special_attr");
 
-          xml_resp.forEach(function (data) {
-            var isMatch = true;
-            var content_index = [];
-            if (!data.title || data.title.trim() === '') {
-              data.title = "Untitled";
-            }
-            var is_encrypted = data.encrypted.trim() == '1'
-            var is_sensitive = CONFIG.local_search.sensitive_word && data_content.indexOf(CONFIG.local_search.sensitive_word) >= 0
-            var orig_data_title = data.title.trim();
-            var data_title = orig_data_title.toLowerCase();
-            var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
-            var data_content = orig_data_content.toLowerCase();
-            var data_url = decodeURIComponent(data.url);
-            var index_title = -1;
-            var index_content = -1;
-            var first_occur = -1;
-            // only match artiles with not empty contents
-            if (data_content !== '') {
-              keywords.forEach(function (keyword, i) {
-                index_title = data_title.indexOf(keyword);
-                // index_content = (is_sensitive || is_encrypted) ? -1 : data_content.indexOf(keyword);  // 不能搜加密文章,
-                index_content = data_content.indexOf(keyword); //  这样可以搜加密了的文章, 但是搜索结果框不显示正文只显示标题
-
-                if (index_title < 0 && index_content < 0) {
-                  isMatch = false;
-                } else {
-                  if (index_content < 0) {
-                    index_content = 0;
-                  }
-                  if (i == 0) {
-                    first_occur = index_content;
-                  }
-                  // content_index.push({index_content:index_content, keyword_len:keyword_len});
-                }
-              });
-            } else {
-              isMatch = false;
-            }
-            // 0x05. show search results
-            if (isMatch) {
-              var content = orig_data_content;
-              if (first_occur >= 0) {
-                var match_content = "";
-                
-                const hostname = window.location.hostname;
-                if ((!is_sensitive && !is_encrypted) || (hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1" || hostname.startsWith("192")))
-                {
-                  // cut out 100 characters
-                  var start = first_occur - 20;
-                  var end = first_occur + 80;
-                  if (start < 0) {
-                    start = 0;
-                  }
-                  if (start == 0) {
-                    end = 100;
-                  }
-                  if (end > content.length) {
-                    end = content.length;
-                  }
-                  match_content = content.substr(start, end);
-                }
-                // highlight all keywords
-                var regS = "";
-                if (match_content != "")
-                {
-                  keywords.forEach(function (keyword) {
-                    regS = new RegExp(keyword, "gi");
-                    match_content = match_content.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
-                    orig_data_title = orig_data_title.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
-                  });
-                }
-                else
-                {
-                  keywords.forEach(function (keyword) {
-                    regS = new RegExp(keyword, "gi");
-                    orig_data_title = orig_data_title.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
-                  });
-                }
-                str += "<li><a href='" + data_url + "' class='search-result-title' target='_blank'>" + orig_data_title + "</a>";
-                str += "<p class=\"search-result\">" + match_content + "...</p>"
-              }
-              str += "</li>";
-            }
-          });
-
-          str += "</ul>";
-          if (str.indexOf('<li>') === -1) {
-            return $resultContent.innerHTML = 
-              "<ul class='local-search-empty-ul'><span class='local-search-empty'>404.<span></ul>";
-          }
-          $resultContent.innerHTML = str;
+        if (isMobile()) {
+          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
+        } else {
+              $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
+            //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
         }
+        $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1000);
       }
+    });
 
-      $input.addEventListener('input', function () {
-        // 0x03. parse query to keywords list
-        str = '<ul class=\"search-result-list\">';
-        temp_keyword = this.value.trim();
-        if (temp_keyword.length <= 0) {
-            CloseLocalSearch();
-            return;
-        }
+    // 如果你希望 一次点击就触发，无论是触摸板、鼠标还是 iPhone/安卓，推荐使用：
+    $(document).on('touchstart click', '#local-search-close', function(event) {
+        event.preventDefault(); // 防止 Safari 额外触发
+        temp_keyword = "";
+        CloseLocalSearch();
+    });
 
-        keywords = temp_keyword.toLowerCase().split(/[\s\-]+/);
-        handleSearch();
+    // 你的代码在 document 上监听 click 事件，并检查点击的目标是否在 content_id 指定的元素内部。如果点击的目标不在该元素内，则执行 CloseLocalSearch()。
+    // $(document).click(function(event) {
+    //     if (isMobile()) {
+    //         return;
+    //     } else {
+    //         if (!$(event.target).closest('#' + content_id).length) {
+    //             temp_keyword = "";
+    //             CloseLocalSearch();
+    //         }
+    //     }
+    // });
 
-        // 当用户键入第一个字母的时候的动画处理逻辑 : 
-        // 当 first_char_flag 为 0 的时候, 
-        // 要播放一个动画
-        if (first_char_flag == 0)
-        {
-            // $('body').scrollTop(0);
-          if (isMobile())
-          {
-              last_page_x = window.scrollX;
-              last_page_y = window.scrollY;
-              scrollTo(0,0);
-            // $('body').scrollTop(0);
-
-          }
-          first_char_flag = 1;
-          // $('#' + content_id).removeAttr("headroom_special_attr");
-
-          if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
-          } else {
-                $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
-              //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
-          }
-          $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1000);
-        }
-      });
-
-      // 如果输入框有文字, 等待下载 xml完毕之后再弹出结果
-      // var local_search_xml_data = localStorage.getItem('local_search_xml_data');
-      // if (!local_search_xml_data) {
-      //   $.ajax({
-      //     // 0x01. load xml file
-      //     url: path,
-      //     dataType: "xml",
-      //     success: function (xmlResponse) {
-      //       store_search_xml(xmlResponse);
-
-      //       // setTimeout(function(){
-      //       //   is_load_xml_finished = 1;
-
-      //       //   handleSearch();
-      //       //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownIn', 800);
-      //       // }, 2000);
-            
-      //       // is_load_xml_finished = 1;
-
-      //       handleSearch();
-      //       $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
-      //     }
-      //   });
-      // }
-
-      $(document).on('click', '#local-search-close', function() {
+    $(document).keyup(function(event){
+      switch(event.keyCode) {
+        case 27:
+          // alert("ESC");
           temp_keyword = "";
           CloseLocalSearch();
-      });
-
-      // 你的代码在 document 上监听 click 事件，并检查点击的目标是否在 content_id 指定的元素内部。如果点击的目标不在该元素内，则执行 CloseLocalSearch()。
-      $(document).click(function(event) {
-          if (isMobile()) {
-              return;
-          }
-          if (!$(event.target).closest('#' + content_id).length) {
-              temp_keyword = "";
-              CloseLocalSearch();
-          }
-      });
-
-      $(document).keyup(function(event){
-        switch(event.keyCode) {
-          case 27:
-            // alert("ESC");
-            temp_keyword = "";
-            CloseLocalSearch();
-        }
-      });
-
-      // $(document).on('blur', '#local-search-input', function(e) {
-      //   // console.log(document.activeElement.getAttribute('class'));
-        
-      //   if (isMobile() == false)
-      //   {
-      //        temp_keyword = ""
-      //     CloseLocalSearch();
-      //   }
-      // });
-    }
+      }
+    });
 
     function isMobile() {
       // console.log(document.body.clientWidth);
@@ -365,15 +313,6 @@
         xml_resp_cache = await getLocalSearchXMLData();
         return xml_resp_cache;
     }
-
-    var getSearchFile = function(){
-        var path = "/search.xml";
-        var local_search_result_name = isMobile() ? "local-search-result-mobile" : "local-search-result-pc";
-        searchFunc(path, 'local-search-input', local_search_result_name);
-    }
-
-
-    let db; // 全局数据库变量
 
     function openDatabase() {
         return new Promise((resolve, reject) => {
