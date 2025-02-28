@@ -39,6 +39,8 @@
                 // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
                 // $('#' + content_id).hide();
                 $('#' + content_id).velocity('stop').velocity( 'transition.slideUpOut', 600);
+                // $input.classList.remove('expanded');
+                $input.blur();
 
                 const element = document.getElementById('local-search-result-mobile');
                 let bottomY = element.offsetTop + element.offsetHeight;  // local search result底部相对于整个页面的 Y 坐标
@@ -242,20 +244,19 @@
         CloseLocalSearch();
     });
 
+    // $input.addEventListener("blur", function() {
+    //     $input.classList.remove('expanded');
+    //     // console.log("输入框失去焦点");
+    // });
     // 获取元素
     const searchButton = document.getElementById('search-button');
-    const searchInput = document.getElementById('local-search-input');
 
     // 给按钮添加点击事件
     searchButton.addEventListener('click', function() {
         if (isMobile) {
             // 使输入框渐变显示
-            searchInput.classList.add('expanded');
-            
-            // setTimeout(function() {
-                // 自动聚焦输入框
-                searchInput.focus();
-            // }, 550);
+            $input.classList.add('expanded');
+            $input.focus();
         }
     });
 
