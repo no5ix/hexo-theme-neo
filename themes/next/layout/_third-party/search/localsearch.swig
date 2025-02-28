@@ -251,7 +251,14 @@
     $input.addEventListener("blur", function() {
       if (isMobile()) {
           $('#local-search-input').val('');
-          $input.classList.remove('expanded');
+          if (temp_keyword.length > 0) {
+              document.querySelector("#local-search-close").classList.add("move");
+              setTimeout(function() {
+                  $input.classList.remove('expanded');
+              }, 450);
+          } else {
+              $input.classList.remove('expanded');
+          }
           // console.log("输入框失去焦点");
       }
     });
@@ -261,14 +268,19 @@
         if (isMobile()) {
             // 使输入框渐变显示
             $input.focus();
-            setTimeout(function() {
-                $input.classList.add('expanded');
+            if (temp_keyword.length > 0) {
+                document.querySelector("#local-search-close").classList.remove("move");
                 setTimeout(function() {
-                    if (temp_keyword.length > 0) {
+                    $input.classList.add('expanded');
+                    setTimeout(function() {
                         $('#local-search-input').val(temp_keyword);
-                    }
-                }, 200);
-            }, 250);
+                    }, 200);
+                }, 450);
+            } else {
+                setTimeout(function() {
+                    $input.classList.add('expanded');
+                }, 250);
+            }
         }
     });
 

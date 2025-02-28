@@ -163,6 +163,9 @@ input[id$=local-search-input].expanded {
     right: -79px;
     top: 10px;
     font-size: 24px;
+    will-change: transform;
+    transform: translateX(0);
+    transition: transform 0.5s ease-in-out;
   }
 
   /* 只在支持悬停的设备上应用 :hover 效果, 不在手机/pad上触发 */
@@ -172,6 +175,12 @@ input[id$=local-search-input].expanded {
       color: #ddd0d0;
     }
   }
+}
+
+#local-search-close.move {
+  /* right: 66px; 目标位置, 不用这种方法, 会因为reflow而掉帧 */  
+  /* transform: translateX(-145px); 目标 right = 66px，移动 66 - (-79) = -145px */
+  transform: translate3d(-145px, 0, 0);
 }
 
 .local-search-result-cls {
