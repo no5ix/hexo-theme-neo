@@ -259,6 +259,9 @@
           } else {
               $input.classList.remove('expanded');
           }
+          setTimeout(()=> {
+              searchButton.disabled = false;
+          }, 600);
           // console.log("输入框失去焦点");
       }
     });
@@ -267,6 +270,7 @@
     searchButton.addEventListener('click', function() {
         if (isMobile()) {
             // 使输入框渐变显示
+            searchButton.disabled = true;  // 点击之后就禁用, 直到input失焦
             $input.focus();
             if (temp_keyword.length > 0) {
                 document.querySelector("#local-search-close").classList.remove("move");
@@ -279,7 +283,7 @@
             } else {
                 setTimeout(function() {
                     $input.classList.add('expanded');
-                }, 250);
+                }, 200);
             }
         }
     });
