@@ -242,13 +242,21 @@
         CloseLocalSearch();
     });
 
-    // Safari（尤其是 iOS 设备） 有时不会在 touchstart 事件中触发 focus()，你可以改用 setTimeout：
-    $(document).on('touchstart click', '#local-search-input', function(event) {
-        var input = $(this);
-        setTimeout(function() {
-            input.focus();
-        }, 0);
-        event.stopPropagation();
+    // 获取元素
+    const searchButton = document.getElementById('search-button');
+    const searchInput = document.getElementById('local-search-input');
+
+    // 给按钮添加点击事件
+    searchButton.addEventListener('click', function() {
+        if (isMobile) {
+            // 使输入框渐变显示
+            searchInput.classList.add('expanded');
+            
+            // setTimeout(function() {
+                // 自动聚焦输入框
+                searchInput.focus();
+            // }, 550);
+        }
     });
 
     // 你的代码在 document 上监听 click 事件，并检查点击的目标是否在 content_id 指定的元素内部。如果点击的目标不在该元素内，则执行 CloseLocalSearch()。
