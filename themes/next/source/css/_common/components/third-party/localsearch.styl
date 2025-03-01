@@ -170,6 +170,7 @@ input[id$=local-search-input].expanded {
 
   /* display: none; */
   pointer-events: none; /* 避免点击 */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease;
 
   +mobile() {
     right: -79px;
@@ -177,7 +178,6 @@ input[id$=local-search-input].expanded {
     font-size: 24px;
     will-change: transform;
     transform: translateX(0);
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease;
   }
 
   /* 用 media 只在支持悬停的设备上应用 :hover 效果, 不在手机/pad上触发 */
