@@ -14,6 +14,7 @@
     var $input = document.getElementById('local-search-input');
     var $resultContent = document.getElementById(content_id);
     const searchButton = document.getElementById('search-button');
+    const closeButton = document.getElementById('local-search-close');
 
     var str = "";
 
@@ -32,7 +33,9 @@
             }
             first_char_flag = 0;
             $('#local-search-input').val('');
-            $('#local-search-close').hide();
+            // $('#local-search-close').hide();
+            closeButton.classList.remove("show");
+
             // $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownOut', 200);
             // $('#' + content_id).attr("headroom_special_attr","true"); 
             if (isMobile())
@@ -44,7 +47,7 @@
 
                 if (!when_delete_all_on_mobile) {
                     $input.blur();
-                    document.querySelector("#local-search-close").classList.remove("move");
+                    closeButton.classList.remove("move");
                     $input.classList.remove('expanded');
                 } else {
                     return;
@@ -91,7 +94,9 @@
           return;
       }
       $resultContent.innerHTML = "";
-      $('#local-search-close').show();
+    //   $('#local-search-close').show();
+    
+        closeButton.classList.add("show");
 
       // 0x04. perform local searching
       if (is_load_xml_finished == 0)
@@ -256,7 +261,7 @@
         $input.addEventListener("blur", function() {
           $('#local-search-input').val('');
           if (temp_keyword.length > 0) {
-              document.querySelector("#local-search-close").classList.add("move");
+              closeButton.classList.add("move");
               setTimeout(function() {
                   $input.classList.remove('expanded');
               }, 450);
@@ -277,7 +282,7 @@
             searchButton.disabled = true;  // 点击之后就禁用, 直到input失焦
             $input.focus();
             if (temp_keyword.length > 0) {
-                document.querySelector("#local-search-close").classList.remove("move");
+                closeButton.classList.remove("move");
                 setTimeout(function() {
                     $input.classList.add('expanded');
                     setTimeout(function() {
@@ -285,9 +290,9 @@
                     }, 200);
                 }, 450);
             } else {
-                setTimeout(function() {
+                setTimeout(()=> {
                     $input.classList.add('expanded');
-                }, 200);
+                }, 80);
             }
         });
     }

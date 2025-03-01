@@ -26,8 +26,8 @@ Inspired by Alfred/Wox/Listary/Capslock+/utools, thank u.
 [<i class="fa fa-fw fa-github fa-2x"></i>sux](https://github.com/no5ix/sux) 
 
 
-- [知乎链接](https://www.zhihu.com/question/310110592/answer/1909948496)
-- [下载链接](https://github.com/no5ix/sux/releases)
+- [Zhihu link](https://www.zhihu.com/question/310110592/answer/1909948496)
+- [Download link](https://github.com/no5ix/sux/releases)
 
 `sux` is a powerful productivity tool with a size of only 2M+. It also has the following features:
 

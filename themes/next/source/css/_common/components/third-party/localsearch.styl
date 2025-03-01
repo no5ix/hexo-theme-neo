@@ -18,7 +18,7 @@
   background: transparent;
   border: none;
   font-size: 18px;
-  color: var(--link-color);;
+  color: var(--link-color);
   +mobile() {
     transform: translateY(-50%);  /* 垂直居中 */
     left: 13px;  /* 控制按钮距离输入框左侧的距离 */
@@ -26,6 +26,11 @@
     cursor: pointer;
     padding: 0;
   }
+  /* @media (hover: hover) {
+    &:hover {
+      color: var(--link-hover-color);
+    }
+  } */
 }
 
 
@@ -89,7 +94,7 @@ input[id$=local-search-input] {
     max-width: 0px;
     will-change: max-width, padding;  /* 提前优化动画 */
     width: 156px;
-    transition: max-width 0.4s ease, padding 0.4s ease; /* 平滑过渡 */
+    transition: max-width 0.3s ease-out, padding 0.2s ease-out; /* 平滑过渡 */
     overflow: visible;
   }
 
@@ -154,7 +159,7 @@ input[id$=local-search-input].expanded {
   position: absolute;
   right: -11px;
   top: 9px;
-  opacity: 1;
+  opacity: 0;
   background: transparent;
   width: 20px;
   height: 20px;
@@ -163,7 +168,8 @@ input[id$=local-search-input].expanded {
   /* transform: rotateZ(0); */
   /* transition: all 0.3s; */
 
-  display: none;
+  /* display: none; */
+  pointer-events: none; /* 避免点击 */
 
   +mobile() {
     right: -79px;
@@ -171,14 +177,14 @@ input[id$=local-search-input].expanded {
     font-size: 24px;
     will-change: transform;
     transform: translateX(0);
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease;
   }
 
   /* 用 media 只在支持悬停的设备上应用 :hover 效果, 不在手机/pad上触发 */
   /* @media (hover: hover) { */
     /* 选择器 */
     &:hover {
-      color: #ddd0d0;
+      color: #d9d9d9;
     }
   /* } */
 }
@@ -187,6 +193,11 @@ input[id$=local-search-input].expanded {
   /* right: 66px; 目标位置, 不用这种方法, 会因为reflow而掉帧 */  
   /* transform: translateX(-145px); 目标 right = 66px，移动 66 - (-79) = -145px */
   transform: translate3d(-145px, 0, 0);
+}
+
+#local-search-close.show {
+  opacity: 1; /* 透明度变为 0 */
+  pointer-events: auto;  /* 默认行为，元素可以响应鼠标点击、悬停等事件。 */
 }
 
 .local-search-result-cls {
