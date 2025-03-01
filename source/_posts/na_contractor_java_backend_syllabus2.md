@@ -430,14 +430,14 @@ db.courses.insertOne({
 
 # Session15
 
-- What is “Offline Transaction”?
-- How do we usually perform Transaction Management in JDBC?
-- What is Database Transaction?
-- What are entity states defined in Hibernate / JPA?
-- How can we transfer the entity between different states?
-- What are differences between save, persist?
-- What are differences between update, merge and saveOrUpdate?
-- How do you use elasticSearch in your java application
+1. What is “Offline Transaction”?
+2. How do we usually perform Transaction Management in JDBC?
+3. What is Database Transaction?
+4. What are entity states defined in Hibernate / JPA?
+5. How can we transfer the entity between different states?
+6. What are differences between save, persist?
+7. What are differences between update, merge and saveOrUpdate?
+8. How do you use elasticSearch in your java application
 
 ## 1. What is “Offline Transaction”?
 An offline transaction in the context of databases is a set of operations on data that occur without an immediate, real - time connection to the database server. The operations are carried out on a local copy of the data, and the changes are later synchronized with the main database.
@@ -741,9 +741,9 @@ public class ElasticsearchSearchExample {
 
 # Session17
 
-- Explain and name some methods that you used in JUnit.
-- Explain and name some annotations that you used in JUnit.
-- What is Mockito and the usage of it?
+1. Explain and name some methods that you used in JUnit.
+2. Explain and name some annotations that you used in JUnit.
+3. What is Mockito and the usage of it?
 
 ## 1. Commonly - Used Methods in JUnit
 
@@ -1010,15 +1010,15 @@ interface MyInterface {
 
 # Session19
 
-- In your own word, please describe some of the advantages and disadvantages of a
-- Monolithic Application.
-- In your own word, please describe some of the advantages and disadvantages of a
-- Microservice Application.
-- What is the purpose of using Netflix Eureka?
-- How can microservices communicate with each other?
-- What is the purpose of using Spring API Gateway?
-- Explain cascading failure in microservice and how to prevent it.
-- Explain CircuitBreaker and how it works in detail.
+1. In your own word, please describe some of the advantages and disadvantages of a
+2. Monolithic Application.
+3. In your own word, please describe some of the advantages and disadvantages of a
+4. Microservice Application.
+5. What is the purpose of using Netflix Eureka?
+6. How can microservices communicate with each other?
+7. What is the purpose of using Spring API Gateway?
+8. Explain cascading failure in microservice and how to prevent it.
+9. Explain CircuitBreaker and how it works in detail.
 
 The following is an explanation of each question along with relevant examples:
 
@@ -1069,14 +1069,14 @@ The following is an explanation of each question along with relevant examples:
 
 # Session23
 
-- Use your own words to explain Jenkins.
-- Can you talk about CI/CD?
-- Git command you used in the project
-- How do you release from the git repository
-- How do you combine several commits together
-- What is git cherry-pick
-- difference between git and svn
-- difference git merge and rebase
+1. Use your own words to explain Jenkins.
+2. Can you talk about CI/CD?
+3. Git command you used in the project
+4. How do you release from the git repository
+5. How do you combine several commits together
+6. What is git cherry-pick
+7. difference between git and svn
+8. difference git merge and rebase
 
  ## 1. Jenkins
 Jenkins is an open - source automation server widely used in software development. Its main purpose is to automate various stages of the software development lifecycle, such as building, testing, and deploying applications.
@@ -1154,17 +1154,17 @@ You can use the `git rebase -i` (interactive rebase) command to combine multiple
 
 # Session25
 
-- AWS difference between parameter store and secret manager
-- AWS where to store certificate file
-- extra:(those we are not sure which session to put in)
-- Use your own words to explain TDD and why use TDD.
-- Please do some research on Redis and use your own words to explain what Redis is.
-- Use your own words to explain what Swagger is.
-- Please do some research on ELK and use your own words to explain what they are.
-- Use your own words to explain Jira.
-- What is RabbitMQ and what can it help us to achieve in a web application?What are the component of RabbitMQ?
-- What are different types of Exchange that exist in RabbitMQ?
-- What is Scheduler and what can it help us to achieve in a web application?
+1. AWS difference between parameter store and secret manager
+2. AWS where to store certificate file
+3. extra:(those we are not sure which session to put in)
+4. Use your own words to explain TDD and why use TDD.
+5. Please do some research on Redis and use your own words to explain what Redis is.
+6. Use your own words to explain what Swagger is.
+7. Please do some research on ELK and use your own words to explain what they are.
+8. Use your own words to explain Jira.
+9. What is RabbitMQ and what can it help us to achieve in a web application?What are the component of RabbitMQ?
+10. What are different types of Exchange that exist in RabbitMQ?
+11. What is Scheduler and what can it help us to achieve in a web application?
 
 
 ## 1. AWS: Difference between Parameter Store and Secret Manager
