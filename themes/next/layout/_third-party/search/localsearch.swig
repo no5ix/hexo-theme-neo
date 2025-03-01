@@ -247,13 +247,13 @@
     });
 
     // 如果你希望 一次点击就触发，无论是触摸板、鼠标还是 iPhone/安卓，推荐使用：
-    $(document).on('click', '#local-search-close', function(event) {
+    $(document).on('pointerup', '#local-search-close', function(event) {
         temp_keyword = "";
         CloseLocalSearch();
     });
 
-    $input.addEventListener("blur", function() {
-      if (isMobile()) {
+    if (isMobile()) {
+        $input.addEventListener("blur", function() {
           $('#local-search-input').val('');
           if (temp_keyword.length > 0) {
               document.querySelector("#local-search-close").classList.add("move");
@@ -267,12 +267,12 @@
               searchButton.disabled = false;
           }, 600);
           // console.log("输入框失去焦点");
-      }
-    });
+        });
+    }
 
     // 给按钮添加点击事件
-    searchButton.addEventListener('click', function() {
-        if (isMobile()) {
+    if (isMobile()) {
+        searchButton.addEventListener('pointerup', function() {
             // 使输入框渐变显示
             searchButton.disabled = true;  // 点击之后就禁用, 直到input失焦
             $input.focus();
@@ -289,8 +289,8 @@
                     $input.classList.add('expanded');
                 }, 200);
             }
-        }
-    });
+        });
+    }
 
     // 你的代码在 document 上监听 click 事件，并检查点击的目标是否在 content_id 指定的元素内部。如果点击的目标不在该元素内，则执行 CloseLocalSearch()。
     // $(document).click(function(event) {
