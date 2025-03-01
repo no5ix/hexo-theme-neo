@@ -246,7 +246,7 @@
       }
     });
 
-    // 如果你希望 一次点击就触发，无论是触摸板、鼠标还是 iPhone/安卓，推荐使用：
+    // 这里要不要用 click 要用 pointerup, 不然 mac safari 触摸板 tap 得tap两次才能触发这里
     $(document).on('pointerup', '#local-search-close', function(event) {
         temp_keyword = "";
         CloseLocalSearch();
@@ -272,7 +272,7 @@
 
     // 给按钮添加点击事件
     if (isMobile()) {
-        searchButton.addEventListener('pointerup', function() {
+        searchButton.addEventListener('click', function() {  // 这里要用click不要用 pointerup, 不然ios可能弹不出键盘
             // 使输入框渐变显示
             searchButton.disabled = true;  // 点击之后就禁用, 直到input失焦
             $input.focus();

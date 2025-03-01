@@ -174,13 +174,13 @@ input[id$=local-search-input].expanded {
     transition: transform 0.5s ease-in-out;
   }
 
-  /* 只在支持悬停的设备上应用 :hover 效果, 不在手机/pad上触发 */
-  @media (hover: hover) {
+  /* 用 media 只在支持悬停的设备上应用 :hover 效果, 不在手机/pad上触发 */
+  /* @media (hover: hover) { */
     /* 选择器 */
     &:hover {
       color: #ddd0d0;
     }
-  }
+  /* } */
 }
 
 #local-search-close.move {
