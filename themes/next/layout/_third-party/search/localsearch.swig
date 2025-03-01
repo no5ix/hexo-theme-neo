@@ -24,7 +24,7 @@
     var last_page_x = 0;
     var last_page_y = 0;
 
-    function CloseLocalSearch()
+    function CloseLocalSearch(when_delete_all_on_mobile=false)
     {
         setTimeout(function() {  // 这个setTimeout的目的是为了解决当使用中文输入法输入英文的时候敲下enter键的那一瞬间发生从有文字到没文字又到有文字, 而下方window.scrollTo这个还没执行到, 会导致页面scroll乱滚; 加了这个timeout之后就可以检测是否属于这种情况
             if (temp_keyword.length > 0) {
@@ -39,12 +39,16 @@
             {
               // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
               // $('#' + content_id).hide();
-                $input.blur();
-                document.querySelector("#local-search-close").classList.remove("move");
-                $input.classList.remove('expanded');
 
                 $('#' + content_id).velocity('stop').velocity( 'transition.slideUpOut', 300);
 
+                if (!when_delete_all_on_mobile) {
+                    $input.blur();
+                    document.querySelector("#local-search-close").classList.remove("move");
+                    $input.classList.remove('expanded');
+                } else {
+                    return;
+                }
                 const element = document.getElementById('local-search-result-mobile');
                 let bottomY = element.offsetTop + element.offsetHeight;  // local search result底部相对于整个页面的 Y 坐标
                 if (bottomY == 0) {  // 说明 local search result底部 比当前页面还要长
@@ -208,7 +212,7 @@
       str = '<ul class=\"search-result-list\">';
       temp_keyword = this.value.trim();
       if (temp_keyword.length <= 0) {
-          CloseLocalSearch();
+          CloseLocalSearch(true);
           return;
       }
 
