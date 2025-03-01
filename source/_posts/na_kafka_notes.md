@@ -26,3 +26,4 @@ password: 'ees'
 |--|--|--|
 | 20 | `KAFKA` | 1. Kafka - concepts, how it works and how message is sent to partition<br>2. Consumer Group, assignment strategy<br>3. Message in Order |
 | 21 | `KAFKA2` | 1. Kafka Duplicate Message<br>2. Kafka Message Loss<br>3. Poison Failure, DLQ<br>4. Kafka Security (SASL, ACLs, Encrypt etc) |
+

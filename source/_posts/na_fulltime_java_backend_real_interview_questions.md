@@ -1,5 +1,5 @@
 ---
-title: NA fulltime notes
+title: NA fulltime interview notes
 date: 2025-02-19 02:45:08
 tags:
 - noodle

@@ -11,8 +11,8 @@
     'use strict';
 
     var content_id = isMobile() ? "local-search-result-mobile" : "local-search-result-pc";
-    var $input = document.getElementById('local-search-input');
-    var $resultContent = document.getElementById(content_id);
+    var input_box = document.getElementById('local-search-input');
+    var resultContent = document.getElementById(content_id);
     const searchButton = document.getElementById('search-button');
     const closeButton = document.getElementById('local-search-close');
 
@@ -37,7 +37,6 @@
             closeButton.classList.remove("show");
 
             // $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownOut', 200);
-            // $('#' + content_id).attr("headroom_special_attr","true"); 
             if (isMobile())
             {
               // $('body').scrollTop(last_page_y);  // scrollTop 有兼容性问题
@@ -46,9 +45,9 @@
                 $('#' + content_id).velocity('stop').velocity( 'transition.slideUpOut', 300);
 
                 if (!when_delete_all_on_mobile) {
-                    $input.blur();
+                    input_box.blur();
                     closeButton.classList.remove("move");
-                    $input.classList.remove('expanded');
+                    input_box.classList.remove('expanded');
                 } else {
                     return;
                 }
@@ -75,7 +74,11 @@
             }
             else
             {
-                $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 800);
+                $('#' + content_id).attr("headroom_special_attr","true");   //headroom_special_attr是用来, 当页面滚动的时候local search的结果页面也会跟着一起被收起, 当不写这行代码的时候, 空的result会在页面往上滚的时候出现 ...
+                resultContent.classList.remove("smooth-transition");  // 这个是为了"当页面滚动的时候local search的结果页面也会跟着一起被收起"的时候有一个平滑滚动的动画
+
+                $('#' + content_id).velocity('stop').velocity( 'transition.slideUpOut', 800);
+                // $('#' + content_id).velocity('stop').velocity( 'transition.bounceOut', 800);
                 // $('#' + content_id).velocity('stop').velocity( 'transition.slideUpBigOut', 1000);
                 // $('#' + content_id).velocity('stop').velocity( 'transition.bounceUpOut', 1000);
                 // $('#' + content_id).velocity('stop').velocity( 'transition.expandOut', 600);
@@ -93,7 +96,7 @@
       if (keywords.length <= 0) {
           return;
       }
-      $resultContent.innerHTML = "";
+      resultContent.innerHTML = "";
     //   $('#local-search-close').show();
     
         closeButton.classList.add("show");
@@ -108,7 +111,7 @@
               "<div class='progress-bar'>" +
                 "<div class='progress-bar-charge'></div>" +
               "</div>";
-          $resultContent.innerHTML = 
+          resultContent.innerHTML = 
               "<ul class='local-search-empty-ul'>" + 
               local_search_tips +
               ProgressBar;
@@ -205,50 +208,55 @@
 
         str += "</ul>";
         if (str.indexOf('<li>') === -1) {
-          return $resultContent.innerHTML = 
+          return resultContent.innerHTML = 
             "<ul class='local-search-empty-ul'><span class='local-search-empty'>404.<span></ul>";
         }
-        $resultContent.innerHTML = str;
+        resultContent.innerHTML = str;
       }
     }
 
-    $input.addEventListener('input', function () {
-      // 0x03. parse query to keywords list
-      str = '<ul class=\"search-result-list\">';
-      temp_keyword = this.value.trim();
-      if (temp_keyword.length <= 0) {
-          CloseLocalSearch(true);
-          return;
-      }
+    input_box.addEventListener('input', function () {
+        // 0x03. parse query to keywords list
+        str = '<ul class=\"search-result-list\">';
+        temp_keyword = this.value.trim();
+        if (temp_keyword.length <= 0) {
+            CloseLocalSearch(true);
+            return;
+        }
 
-      keywords = temp_keyword.toLowerCase().split(/[\s\-]+/);
-      handleSearch();
+        keywords = temp_keyword.toLowerCase().split(/[\s\-]+/);
+        handleSearch();
 
-      // 当用户键入第一个字母的时候的动画处理逻辑 : 
-      // 当 first_char_flag 为 0 的时候, 
-      // 要播放一个动画
-      if (first_char_flag == 0)
-      {
-          // $('body').scrollTop(0);
-        if (isMobile())
+        // 当用户键入第一个字母的时候的动画处理逻辑 : 
+        // 当 first_char_flag 为 0 的时候, 
+        // 要播放一个动画
+        if (first_char_flag == 0)
         {
-            last_page_x = window.scrollX;
-            last_page_y = window.scrollY;
-            scrollTo(0,0);
-          // $('body').scrollTop(0);
+            // $('body').scrollTop(0);
+            let duration = 600;
+            if (isMobile())
+            {
+                last_page_x = window.scrollX;
+                last_page_y = window.scrollY;
+                scrollTo(0,0);
+              // $('body').scrollTop(0);
+            } else {
+                $('#' + content_id).removeAttr("headroom_special_attr");  // headroom_special_attr是用来 当页面滚动的时候local search的结果页面也会跟着一起被收起, 当不写这行代码的时候, 空的result会在页面往上滚的时候出现 ...
+                  setTimeout(()=>{
+                      resultContent.classList.add("smooth-transition"); // 这个是为了"当页面滚动的时候local search的结果页面也会跟着一起被收起"的时候有一个平滑滚动的动画
+                  }, duration + 200); 
+            }
+            first_char_flag = 1;
 
+            if (isMobile()) {
+              $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', duration);
+            } else {
+                  $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', duration);
+                  // $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
+                //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
+            }
+          // $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1000);
         }
-        first_char_flag = 1;
-        // $('#' + content_id).removeAttr("headroom_special_attr");
-
-        if (isMobile()) {
-          $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
-        } else {
-              $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
-            //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
-        }
-        $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1000);
-      }
     });
 
     // 这里要不要用 click 要用 pointerup, 不然 mac safari 触摸板 tap 得tap两次才能触发这里
@@ -258,15 +266,15 @@
     });
 
     if (isMobile()) {
-        $input.addEventListener("blur", function() {
+        input_box.addEventListener("blur", function() {
           $('#local-search-input').val('');
           if (temp_keyword.length > 0) {
               closeButton.classList.add("move");
               setTimeout(function() {
-                  $input.classList.remove('expanded');
+                  input_box.classList.remove('expanded');
               }, 450);
           } else {
-              $input.classList.remove('expanded');
+              input_box.classList.remove('expanded');
           }
           setTimeout(()=> {
               searchButton.disabled = false;
@@ -280,18 +288,18 @@
         searchButton.addEventListener('click', function() {  // 这里要用click不要用 pointerup, 不然ios可能弹不出键盘
             // 使输入框渐变显示
             searchButton.disabled = true;  // 点击之后就禁用, 直到input失焦
-            $input.focus();
+            input_box.focus();
             if (temp_keyword.length > 0) {
                 closeButton.classList.remove("move");
                 setTimeout(function() {
-                    $input.classList.add('expanded');
+                    input_box.classList.add('expanded');
                     setTimeout(function() {
                         $('#local-search-input').val(temp_keyword);
                     }, 200);
                 }, 450);
             } else {
                 setTimeout(()=> {
-                    $input.classList.add('expanded');
+                    input_box.classList.add('expanded');
                 }, 80);
             }
         });
