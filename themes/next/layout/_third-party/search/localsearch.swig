@@ -46,7 +46,9 @@
 
                 if (!when_delete_all_on_mobile) {
                     input_box.blur();
-                    closeButton.classList.remove("move");
+                    // setTimeout(() => {
+                    //     closeButton.classList.remove("move");
+                    // }, 1000);
                     input_box.classList.remove('expanded');
                 } else {
                     return;
@@ -277,7 +279,7 @@
                         duration: 150 // 滚动动画持续x毫秒
                     });
                 }
-                closeButton.classList.add("move");
+                // closeButton.classList.add("move");
                 setTimeout(function() {
                     input_box.classList.remove('expanded');
                 }, 450);
@@ -304,17 +306,17 @@
             searchButton.disabled = true;  // 点击之后就禁用, 直到input失焦
             input_box.focus();
             if (temp_keyword.length > 0) {
-                closeButton.classList.remove("move");
-                setTimeout(function() {
+                // closeButton.classList.remove("move");
+                // setTimeout(function() {
                     input_box.classList.add('expanded');
                     setTimeout(function() {
                         $('#local-search-input').val(temp_keyword);
                     }, 200);
-                }, 450);
+                // }, 450);
             } else {
-                setTimeout(()=> {
+                // setTimeout(()=> {
                     input_box.classList.add('expanded');
-                }, 80);
+                // }, 80);
             }
         });
     }

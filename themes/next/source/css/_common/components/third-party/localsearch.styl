@@ -21,10 +21,13 @@
   color: var(--link-color);
   +mobile() {
     transform: translateY(-50%);  /* 垂直居中 */
-    left: 13px;  /* 控制按钮距离输入框左侧的距离 */
+    left: -24px;  /* 控制按钮距离输入框左侧的距离 */
     top: 50%;    /* 垂直居中 */
     cursor: pointer;
     padding: 0;
+    z-index: 1;
+    width: 88px;
+    height: 58px;
   }
   /* @media (hover: hover) {
     &:hover {
@@ -90,7 +93,7 @@ input[id$=local-search-input] {
     border-radius: 12px;
     background: var(--local-search-bg-color);
     /* box-shadow: inset 0.475em 0.375em 0.45em 0 #808080; */
-
+    
     max-width: 0px;
     will-change: max-width, padding;  /* 提前优化动画 */
     width: 156px;
@@ -189,7 +192,7 @@ input[id$=local-search-input].expanded {
 
 #local-search-close.move {
   /* right: 66px; 目标位置, 不用这种方法, 会因为reflow而掉帧 */  
-  /* transform: translateX(-145px); 目标 right = 66px，移动 66 - (-79) = -145px */
+  /* transform: translateX(-145px); 目标 right = 66px，移动 66 - (-75px) = -145px */
   transform: translate3d(-145px, 0, 0);
 }
 
