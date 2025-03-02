@@ -1,5 +1,5 @@
 ---
-title: NA contractor knowledge outline
+title: NA contractor knowledge syllabus
 date: 2025-02-21 04:18:08
 tags:
 - noodle
@@ -65,10 +65,25 @@ password: 'ees'
 
 
 # Spring Annotations
-- **Different spring annotations**
+
 Spring has numerous annotations. For example, `@Component` is used to mark ordinary POJO classes as components, allowing Spring to automatically scan and manage them. `@Service` is typically used to mark classes in the service layer, and `@Repository` is used for classes in the data access layer. Essentially, they are specialized forms of `@Component` with more specific semantics. `@Autowired` is used for automatic bean wiring, and `@RequestMapping` is used to handle request mappings and so on.
-- **@Controller vs @RestController**
+
+## @Controller vs @RestController
+
 `@Controller` is an annotation in Spring MVC used to mark controller classes. It usually works with view technologies such as JSP and is used to return views. `@RestController`, on the other hand, is a combination of `@Controller` and `@ResponseBody`. It means that the methods in this controller class will by default return the return value directly to the client as the response body. It is suitable for building RESTful APIs, and the returned data is usually in formats such as JSON or XML.
+
+- **Annotation Functionality**
+    - `Controller`: In Spring framework, the `Controller` annotation is used to mark a class as a controller. It is a general-purpose annotation for handling requests in a Spring MVC application. It typically works with view technologies like JSP, Thymeleaf, etc., and is used to return views or perform operations that involve interacting with the view layer.
+    - `RestController`: The `RestController` annotation is a combination of `@Controller` and `@ResponseBody`. It is specifically used for creating RESTful web services. It indicates that the class is a controller where all methods return data in a format like JSON or XML directly, rather than returning a view.
+- **Default Return Type**
+    - `Controller`: When using `Controller`, the default return value is usually a view name. The method processes the request and then forwards the request to a view template, which is then rendered and sent to the client.
+    - `RestController`: Methods in a `RestController` class by default return the data in the form of the object itself. For example, if a method returns a Java object, it will be automatically converted to JSON or XML (depending on the configuration) and sent back to the client as the response body.
+- **Use Case Scenarios**
+    - `Controller`: It is suitable for traditional web applications where there is a need to interact with views and perform operations like form submissions, page navigations, and presenting data in a UI-friendly way.
+    - `RestController`: It is mainly used in modern web applications that focus on providing RESTful APIs to be consumed by other applications, such as mobile apps or single-page applications (SPAs) that communicate with the server using AJAX or other HTTP-based communication methods.
+
+
+
 - **@Qualifier, @Primary**
 `@Qualifier` is used to specify the name or qualification conditions of the specific bean to be wired during autowiring. When there are multiple beans of the same type, `@Qualifier` can be used to clearly specify which one to use. `@Primary` is used to mark a bean as the preferred candidate for autowiring. When there are multiple beans of the same type, Spring will preferentially select the bean marked with `@Primary` for autowiring.
 - **Spring Cache and Retry**
