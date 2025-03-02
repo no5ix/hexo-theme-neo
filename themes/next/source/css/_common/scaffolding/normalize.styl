@@ -139,24 +139,76 @@ dfn {
   color: orange;
 }
 
+.post-body h1::before {
+  content: "●  ";  /* 添加 ● 并带一个空格 */
+  color: inherit;  /* 继承文字颜色 */
+  font-size: 1em;  /* 确保大小和文字一致 */
+  margin-right: 5px; /* 调整与文字的间距 */
+}
+
 .post-body h2 {
   color: #f90cf9;
+}
+
+.post-body h2::before {
+  content: "◆  ";  /* 添加 ■ 并带一个空格 */
+  color: inherit;  /* 继承文字颜色 */
+  font-size: 1em;  /* 确保大小和文字一致 */
+  margin-right: 5px; /* 调整与文字的间距 */
+
+  +mobile() {
+    font-size: 60%;
+  }
 }
 
 .post-body h3 {
   color: #19d619;
 }
 
+.post-body h3::before {
+  content: "▲  ";  /* 添加 ■ 并带一个空格 */
+  color: inherit;  /* 继承文字颜色 */
+  /* font-size: 1em;  确保大小和文字一致 */
+  margin-right: 5px; /* 调整与文字的间距 */
+  font-size: 60%;
+}
+
 .post-body h4 {
   color: red;
+}
+
+.post-body h4::before {
+  color: inherit;  /* 继承文字颜色 */
+  font-size: 1em;  /* 确保大小和文字一致 */
+  margin-right: 5px; /* 调整与文字的间距 */
+  content: "■  ";  /* 添加 ■ 并带一个空格 */
+  +mobile() {
+    font-size: 60%;
+  }
 }
 
 .post-body h5 {
   color: pink;
 }
 
+.post-body h5::before {
+  color: inherit;  /* 继承文字颜色 */
+  /* font-size: 1em;  确保大小和文字一致 */
+  margin-right: 5px; /* 调整与文字的间距 */
+  content: "⬟  ";  /* 添加 ■ 并带一个空格 */
+  font-size: 60%;
+}
+
 .post-body h6 {
   color: #5757e5;
+}
+
+.post-body h6::before {
+  color: inherit;  /* 继承文字颜色 */
+  /* font-size: 1em;  确保大小和文字一致 */
+  margin-right: 5px; /* 调整与文字的间距 */
+  content: "⬣  ";  /* 添加 ■ 并带一个空格 */
+  font-size: 90%;
 }
 
 /**

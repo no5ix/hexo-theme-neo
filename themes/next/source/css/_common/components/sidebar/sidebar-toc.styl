@@ -42,10 +42,43 @@
 
 
 .post-toc .nav-item::before {
-  content: "• ";  /* 添加 ● 并带一个空格 */
+  content: "●  ";  /* 添加 ● 并带一个空格 */
   color: inherit;  /* 继承文字颜色 */
   font-size: 1em;  /* 确保大小和文字一致 */
   margin-right: 5px; /* 调整与文字的间距 */
+}
+
+.post-toc .nav-level-1::before {
+  content: "●  ";  /* 添加 ■ 并带一个空格 */
+}
+
+.post-toc .nav-level-2::before {
+  content: "◆  ";  /* 添加 ■ 并带一个空格 */
+  +mobile() {
+    font-size: 60%;
+  }
+}
+
+.post-toc .nav-level-3::before {
+  content: "▲  ";  /* 添加 ■ 并带一个空格 */
+  font-size: 60%;
+}
+
+.post-toc .nav-level-4::before {
+  content: "■  ";  /* 添加 ■ 并带一个空格 */
+  +mobile() {
+    font-size: 60%;
+  }
+}
+
+.post-toc .nav-level-5::before {
+  content: "⬟  ";  /* 添加 ■ 并带一个空格 */
+  font-size: 60%;
+}
+
+.post-toc .nav-level-6::before {
+  content: "⬣  ";  /* 添加 ■ 并带一个空格 */
+  font-size: 90%;
 }
 
 .post-toc .nav .nav-child { display: none; }
