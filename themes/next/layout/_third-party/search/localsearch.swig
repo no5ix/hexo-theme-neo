@@ -68,7 +68,7 @@
                         top: last_page_y,
                         left: last_page_x,
                         behavior: "smooth",
-                        duration: 300 // 滚动动画持续x毫秒
+                        duration: 150 // 滚动动画持续x毫秒
                     });
                 }, 150);
             }
@@ -93,125 +93,125 @@
 
     async function handleSearch()
     {
-      if (keywords.length <= 0) {
-          return;
-      }
-      resultContent.innerHTML = "";
+        if (keywords.length <= 0) {
+            return;
+        }
+        resultContent.innerHTML = "";
     //   $('#local-search-close').show();
     
         closeButton.classList.add("show");
 
-      // 0x04. perform local searching
-      if (is_load_xml_finished == 0)
-      {
-          var local_search_tips = 
-              "<span class='local-search-empty'>" + "第一次搜索可能较慢, 先思考一个经典算法问题, 跳台阶:" + "</span>" +
-              "<span class='local-search-empty'>" + "一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个6级的台阶总共有多少种跳法?n级呢?" + "</span>";
-          var ProgressBar = 
-              "<div class='progress-bar'>" +
-                "<div class='progress-bar-charge'></div>" +
-              "</div>";
-          resultContent.innerHTML = 
-              "<ul class='local-search-empty-ul'>" + 
-              local_search_tips +
-              ProgressBar;
-      }
-      else
-      {
-        // Retrieve the object from local storage
-        var xml_resp = await retrieve_search_xml()
-
-        xml_resp.forEach(function (data) {
-          var isMatch = true;
-          var content_index = [];
-          if (!data.title || data.title.trim() === '') {
-            data.title = "Untitled";
-          }
-          var is_encrypted = data.encrypted.trim() == '1'
-          var is_sensitive = CONFIG.local_search.sensitive_word && data_content.indexOf(CONFIG.local_search.sensitive_word) >= 0
-          var orig_data_title = data.title.trim();
-          var data_title = orig_data_title.toLowerCase();
-          var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
-          var data_content = orig_data_content.toLowerCase();
-          var data_url = decodeURIComponent(data.url);
-          var index_title = -1;
-          var index_content = -1;
-          var first_occur = -1;
-          // only match artiles with not empty contents
-          if (data_content !== '') {
-            keywords.forEach(function (keyword, i) {
-              index_title = data_title.indexOf(keyword);
-              // index_content = (is_sensitive || is_encrypted) ? -1 : data_content.indexOf(keyword);  // 不能搜加密文章,
-              index_content = data_content.indexOf(keyword); //  这样可以搜加密了的文章, 但是搜索结果框不显示正文只显示标题
-
-              if (index_title < 0 && index_content < 0) {
-                isMatch = false;
-              } else {
-                if (index_content < 0) {
-                  index_content = 0;
-                }
-                if (i == 0) {
-                  first_occur = index_content;
-                }
-                // content_index.push({index_content:index_content, keyword_len:keyword_len});
-              }
-            });
-          } else {
-            isMatch = false;
-          }
-          // 0x05. show search results
-          if (isMatch) {
-            var content = orig_data_content;
-            if (first_occur >= 0) {
-              var match_content = "";
-              
-              const hostname = window.location.hostname;
-              if ((!is_sensitive && !is_encrypted) || (hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1" || hostname.startsWith("192")))
-              {
-                // cut out 100 characters
-                var start = first_occur - 20;
-                var end = first_occur + 80;
-                if (start < 0) {
-                  start = 0;
-                }
-                if (start == 0) {
-                  end = 100;
-                }
-                if (end > content.length) {
-                  end = content.length;
-                }
-                match_content = content.substr(start, end);
-              }
-              // highlight all keywords
-              var regS = "";
-              if (match_content != "")
-              {
-                keywords.forEach(function (keyword) {
-                  regS = new RegExp(keyword, "gi");
-                  match_content = match_content.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
-                  orig_data_title = orig_data_title.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
-                });
-              }
-              else
-              {
-                keywords.forEach(function (keyword) {
-                  regS = new RegExp(keyword, "gi");
-                  orig_data_title = orig_data_title.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
-                });
-              }
-              str += "<li><a href='" + data_url + "' class='search-result-title' target='_blank'>" + orig_data_title + "</a>";
-              str += "<p class=\"search-result\">" + match_content + "...</p>"
-            }
-            str += "</li>";
-          }
-        });
-
-        str += "</ul>";
-        if (str.indexOf('<li>') === -1) {
-          return resultContent.innerHTML = 
-            "<ul class='local-search-empty-ul'><span class='local-search-empty'>404.<span></ul>";
+        // 0x04. perform local searching
+        if (is_load_xml_finished == 0)
+        {
+            var local_search_tips = 
+                "<span class='local-search-empty'>" + "第一次搜索可能较慢, 先思考一个经典算法问题, 跳台阶:" + "</span>" +
+                "<span class='local-search-empty'>" + "一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个6级的台阶总共有多少种跳法?n级呢?" + "</span>";
+            var ProgressBar = 
+                "<div class='progress-bar'>" +
+                    "<div class='progress-bar-charge'></div>" +
+                "</div>";
+            resultContent.innerHTML = 
+                "<ul class='local-search-empty-ul'>" + 
+                local_search_tips +
+                ProgressBar;
         }
-        resultContent.innerHTML = str;
+        else
+        {
+            // Retrieve the object from local storage
+            var xml_resp = await retrieve_search_xml()
+
+            xml_resp.forEach(function (data) {
+            var isMatch = true;
+            var content_index = [];
+            if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+            }
+            var is_encrypted = data.encrypted.trim() == '1'
+            var is_sensitive = CONFIG.local_search.sensitive_word && data_content.indexOf(CONFIG.local_search.sensitive_word) >= 0
+            var orig_data_title = data.title.trim();
+            var data_title = orig_data_title.toLowerCase();
+            var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+            var data_content = orig_data_content.toLowerCase();
+            var data_url = decodeURIComponent(data.url);
+            var index_title = -1;
+            var index_content = -1;
+            var first_occur = -1;
+            // only match artiles with not empty contents
+            if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                index_title = data_title.indexOf(keyword);
+                // index_content = (is_sensitive || is_encrypted) ? -1 : data_content.indexOf(keyword);  // 不能搜加密文章,
+                index_content = data_content.indexOf(keyword); //  这样可以搜加密了的文章, 但是搜索结果框不显示正文只显示标题
+
+                if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                } else {
+                    if (index_content < 0) {
+                    index_content = 0;
+                    }
+                    if (i == 0) {
+                    first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                }
+                });
+            } else {
+                isMatch = false;
+            }
+            // 0x05. show search results
+            if (isMatch) {
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                var match_content = "";
+                
+                const hostname = window.location.hostname;
+                if ((!is_sensitive && !is_encrypted) || (hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1" || hostname.startsWith("192")))
+                {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if (start < 0) {
+                    start = 0;
+                    }
+                    if (start == 0) {
+                    end = 100;
+                    }
+                    if (end > content.length) {
+                    end = content.length;
+                    }
+                    match_content = content.substr(start, end);
+                }
+                // highlight all keywords
+                var regS = "";
+                if (match_content != "")
+                {
+                    keywords.forEach(function (keyword) {
+                    regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
+                    orig_data_title = orig_data_title.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
+                    });
+                }
+                else
+                {
+                    keywords.forEach(function (keyword) {
+                    regS = new RegExp(keyword, "gi");
+                    orig_data_title = orig_data_title.replace(regS, "<b class=\"search-keyword\">" + keyword + "</b>");
+                    });
+                }
+                str += "<li><a href='" + data_url + "' class='search-result-title' target='_blank'>" + orig_data_title + "</a>";
+                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+            }
+            });
+
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+            return resultContent.innerHTML = 
+                "<ul class='local-search-empty-ul'><span class='local-search-empty'>404.<span></ul>";
+            }
+            resultContent.innerHTML = str;
       }
     }
 
@@ -249,9 +249,9 @@
             first_char_flag = 1;
 
             if (isMobile()) {
-              $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', duration);
+                $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', duration);
             } else {
-                  $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', duration);
+                $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', duration);
                   // $('#' + content_id).velocity('stop').velocity('transition.bounceIn', 800);
                 //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
             }
@@ -266,20 +266,34 @@
     });
 
     if (isMobile()) {
-        input_box.addEventListener("blur", function() {
-          $('#local-search-input').val('');
-          if (temp_keyword.length > 0) {
-              closeButton.classList.add("move");
-              setTimeout(function() {
-                  input_box.classList.remove('expanded');
-              }, 450);
-          } else {
-              input_box.classList.remove('expanded');
-          }
-          setTimeout(()=> {
-              searchButton.disabled = false;
-          }, 600);
-          // console.log("输入框失去焦点");
+        input_box.addEventListener("blur", function() {  // when input lose the focus
+            $('#local-search-input').val('');
+            if (temp_keyword.length > 0) {
+                if (str.indexOf('<li>') === -1) {  // 说明local search 没搜到东西
+                    window.scrollTo({
+                        top: last_page_y,
+                        left: last_page_x,
+                        behavior: "smooth",
+                        duration: 150 // 滚动动画持续x毫秒
+                    });
+                }
+                closeButton.classList.add("move");
+                setTimeout(function() {
+                    input_box.classList.remove('expanded');
+                }, 450);
+            } else {
+                window.scrollTo({  // 当失焦的时候且输入框没文字的时候就滚回原来的位置
+                    top: last_page_y,
+                    left: last_page_x,
+                    behavior: "smooth",
+                    duration: 150 // 滚动动画持续x毫秒
+                });
+                input_box.classList.remove('expanded');
+            }
+            setTimeout(()=> {
+                searchButton.disabled = false;
+            }, 600);
+            // console.log("输入框失去焦点");
         });
     }
 
