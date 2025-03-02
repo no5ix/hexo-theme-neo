@@ -8,6 +8,8 @@
     font-size: 22px;
   }
 }
+
+
 .posts-expand .post-title-link {
   display: inline-block;
   position: relative;
@@ -16,9 +18,10 @@
   border-bottom: none;
   line-height: 1.2;
   vertical-align: top;
+  transition: color 0.3s ease-in-out; /* 平滑的颜色和变换过渡 */
 
   +mobile() {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   &:hover {
@@ -42,6 +45,23 @@
   } */
 
   .fa { font-size: 16px; }
+}
+
+.posts-expand .post-title-link::after {
+  /* content: " ↩"; 你可以使用其他符号 */
+
+  content: "\f112"; /* Font Awesome 回复符号的 Unicode */
+  font-family: "FontAwesome"; /* 指定 Font Awesome 字体 */
+
+  font-size: 0.6em; /* 调整符号大小 */
+  vertical-align: middle; /* 让符号垂直居中 */
+  margin-left: 8px; /* 增加箭头和标题之间的间距 */
+  color: #4b4ed8;
+  transition: color 0.3s ease-in-out; /* 平滑的颜色和变换过渡 */
+}
+
+.posts-expand .post-title-link:hover::after {
+  color: #267622;
 }
 
 .posts-expand .post-title, .posts-expand .post-meta {
