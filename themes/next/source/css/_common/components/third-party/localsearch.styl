@@ -146,47 +146,45 @@ input[id$=local-search-input].expanded {
 }
 
 #local-search-close {
-  width: 20px; 
-  height: 20px;
-  border-radius: 50%; /* 圆形按钮 */
-  border: none; /* 去掉边框 */
-  color: #888; 
-  font-size: 21px;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-
+  content: 'x';
   position: absolute;
   right: -11px;
   top: 9px;
   opacity: 0;
-  background: transparent;
+  background: #888;
+  color: #fff;
+  border-radius: 100%;
+  line-height: 19px;
+  text-align: center;
+  font-size: 16px;
+  font-family: consolas;
+  border-radius: 15px;
+  /* border: 1px solid #CCC; */
+  /* display: block; */
   width: 20px;
   height: 20px;
+  cursor: pointer;
   font-style: normal;
-  font-weight: normal;
-  /* transform: rotateZ(0); */
-  /* transition: all 0.3s; */
-
-  /* display: none; */
+  font-weight: 900;
+  transform: rotateZ(0);
   pointer-events: none; /* 避免点击 */
   transition: transform 0.5s ease-in-out, opacity 0.5s ease;
+  /* display: none; */
 
   +mobile() {
-    right: -79px;
-    top: 10px;
-    font-size: 24px;
+    right: -75px;
+    top: 11px;
     will-change: transform;
     transform: translateX(0);
   }
 
-  /* 用 media 只在支持悬停的设备上应用 :hover 效果, 不在手机/pad上触发 */
-  /* @media (hover: hover) { */
-    /* 选择器 */
-    &:hover {
-      color: #d9d9d9;
-    }
-  /* } */
+  &:hover {
+    background: #fff;
+    color: #888;
+    /* border-color: #666; */
+    transform: rotateZ(180deg);
+    transition: all 0.3s;
+  }
 }
 
 #local-search-close.move {
