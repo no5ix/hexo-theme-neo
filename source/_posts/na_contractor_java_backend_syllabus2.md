@@ -109,6 +109,7 @@ In the context of databases, "NF" usually stands for "Normal Form". Normal forms
 #### First Normal Form (1NF)
 **Original Table (Not in 1NF)**:
 Suppose we have a `Students` table that stores information about students and their hobbies.
+
 | Student ID | Student Name | Hobbies |
 | --- | --- | --- |
 | 1 | John | Reading, Painting |
@@ -119,12 +120,14 @@ The `Hobbies` column contains multiple values separated by commas, which violate
 **Converted to 1NF**:
 We create a new table structure.
 **Students Table**:
+
 | Student ID | Student Name |
 | --- | --- |
 | 1 | John |
 | 2 | Jane |
 
 **StudentHobbies Table**:
+
 | Student ID | Hobby |
 | --- | --- |
 | 1 | Reading |
@@ -136,6 +139,7 @@ We create a new table structure.
 #### Second Normal Form (2NF)
 **Original Table (Violating 2NF)**:
 Consider an `Orders` table with a composite primary key (`Order ID`, `Product ID`).
+
 | Order ID | Product ID | Product Name | Order Quantity |
 | --- | --- | --- | --- |
 | 1 | 101 | Laptop | 2 |
@@ -146,12 +150,14 @@ The `Product Name` depends only on the `Product ID` (part of the composite prima
 
 **Converted to 2NF**:
 **Products Table**:
+
 | Product ID | Product Name |
 | --- | --- |
 | 101 | Laptop |
 | 102 | Mouse |
 
 **OrderDetails Table**:
+
 | Order ID | Product ID | Order Quantity |
 | --- | --- | --- |
 | 1 | 101 | 2 |
@@ -162,6 +168,7 @@ The `Product Name` depends only on the `Product ID` (part of the composite prima
 #### Third Normal Form (3NF)
 **Original Table (Violating 3NF)**:
 Let's have an `Employees` table.
+
 | Employee ID | Department ID | Department Name | Employee Salary |
 | --- | --- | --- | --- |
 | 1 | 1 | IT | 5000 |
@@ -172,12 +179,14 @@ The `Department Name` is transitively dependent on the `Employee ID` through the
 
 **Converted to 3NF**:
 **Departments Table**:
+
 | Department ID | Department Name |
 | --- | --- |
 | 1 | IT |
 | 2 | HR |
 
 **Employees Table**:
+
 | Employee ID | Department ID | Employee Salary |
 | --- | --- | --- |
 | 1 | 1 | 5000 |

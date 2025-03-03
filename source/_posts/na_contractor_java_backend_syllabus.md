@@ -72,16 +72,76 @@ Spring has numerous annotations. For example, `@Component` is used to mark ordin
 
 `@Controller` is an annotation in Spring MVC used to mark controller classes. It usually works with view technologies such as JSP and is used to return views. `@RestController`, on the other hand, is a combination of `@Controller` and `@ResponseBody`. It means that the methods in this controller class will by default return the return value directly to the client as the response body. It is suitable for building RESTful APIs, and the returned data is usually in formats such as JSON or XML.
 
-- **Annotation Functionality**
-    - `Controller`: In Spring framework, the `Controller` annotation is used to mark a class as a controller. It is a general-purpose annotation for handling requests in a Spring MVC application. It typically works with view technologies like JSP, Thymeleaf, etc., and is used to return views or perform operations that involve interacting with the view layer.
-    - `RestController`: The `RestController` annotation is a combination of `@Controller` and `@ResponseBody`. It is specifically used for creating RESTful web services. It indicates that the class is a controller where all methods return data in a format like JSON or XML directly, rather than returning a view.
-- **Default Return Type**
-    - `Controller`: When using `Controller`, the default return value is usually a view name. The method processes the request and then forwards the request to a view template, which is then rendered and sent to the client.
-    - `RestController`: Methods in a `RestController` class by default return the data in the form of the object itself. For example, if a method returns a Java object, it will be automatically converted to JSON or XML (depending on the configuration) and sent back to the client as the response body.
-- **Use Case Scenarios**
-    - `Controller`: It is suitable for traditional web applications where there is a need to interact with views and perform operations like form submissions, page navigations, and presenting data in a UI-friendly way.
-    - `RestController`: It is mainly used in modern web applications that focus on providing RESTful APIs to be consumed by other applications, such as mobile apps or single-page applications (SPAs) that communicate with the server using AJAX or other HTTP-based communication methods.
+In Spring MVC, the difference between @Controller and @RestController mainly lies in how they handle responses:
+- •	@Controller is used to return views (HTML, JSP, etc.), making it suitable for traditional web applications.
+- •	@RestController is used to return JSON or XML data, making it ideal for RESTful APIs.
 
+### 1. @Controller Example (Returning a View)
+
+By default, @Controller returns a view name. To return JSON, you must use @ResponseBody.
+
+```java
+@Controller
+public class MyController {
+    
+    @GetMapping("/hello")
+    public String hello(Model model) {
+        model.addAttribute("message", "Hello, Spring!");
+        return "helloPage"; // Returns a view name, not JSON
+    }
+}
+```
+
+📌 Explanation
+- •	The return "helloPage"; statement does not return JSON. Instead, it looks for a helloPage.html or helloPage.jsp view.
+- •	To return JSON from @Controller, you must explicitly add @ResponseBody:
+- 
+```java
+@Controller
+public class MyController {
+    
+    @GetMapping("/json")
+    @ResponseBody  // Ensures the response is JSON instead of a view
+    public String jsonResponse() {
+        return "{\"message\": \"Hello, JSON!\"}";
+    }
+}
+```
+
+### 2. @RestController Example (Returning JSON)
+
+@RestController returns JSON by default, without requiring @ResponseBody.
+```java
+@RestController
+public class MyRestController {
+    
+    @GetMapping("/api/hello")
+    public Map<String, String> helloJson() {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Hello, JSON!");
+        return response;  // Automatically converted to JSON
+    }
+}
+```
+
+📌 Explanation
+- •	@RestController is a combination of @Controller and @ResponseBody, so there’s no need to add @ResponseBody manually.
+- •	Spring Boot automatically converts the Map<String, String> response into JSON:
+
+{
+  "message": "Hello, JSON!"
+}
+
+### 3. When to Use @Controller vs @RestController?
+
+✅ Use @Controller 👉 If your application needs to return HTML pages (traditional MVC web apps).
+✅ Use @RestController 👉 If you’re building a REST API that returns JSON data.
+
+In short:
+- •	If your app is frontend-backend separated (React, Vue, Angular consuming JSON), use @RestController.
+- •	If your app renders views on the server and serves HTML pages, use @Controller.
+
+🚀 If you’re unsure, prefer @RestController—it aligns with modern web development practices!
 
 
 - **@Qualifier, @Primary**
