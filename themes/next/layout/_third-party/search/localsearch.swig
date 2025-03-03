@@ -389,6 +389,11 @@
       return document.body.clientWidth < 768
     }
 
+    function getTimestampAsSecond() {
+      // console.log(document.body.clientWidth);
+      return Math.floor(Date.now() / 1000);
+    }
+
     {/* function store_search_xml(xmlResponse) {
         var entries = $("entry", xmlResponse).map(function () {
           return {
@@ -405,13 +410,13 @@
         console.log("[local search] - store search.xml finished.");
     } */}
 
-    function ajax_store_search_xml() {
+    function ajax_store_search_xml(xmlTimestamp) {
         console.log("[local search] - ajax downloading search.xml ...");
         $.ajax({
             url: "/search.xml",
             dataType: "xml",
             success: function (xmlResponse) {
-                setLocalSearchXMLData(xmlResponse);
+                setLocalSearchXMLData(xmlResponse, xmlTimestamp);
                 // 如果输入框有文字, 等待下载 xml完毕之后再弹出结果
                 if (temp_keyword.length > 0) {
                     handleSearch();
@@ -458,7 +463,7 @@
         });
     }
 
-    async function setLocalSearchXMLData(xmlResponse) {
+    async function setLocalSearchXMLData(xmlResponse, xmlTimestamp) {
         if (!db) {
             await openDatabase();  // 确保数据库已打开
         }
@@ -479,7 +484,8 @@
         var request = objectStore.put(data);  // 使用 put 可以插入或者更新数据
         request.onsuccess = function() {
             console.log("[local search] - Data successfully stored in indexedDB.");
-            localStorage.setItem('last_store_local_search_date', curDate.getDate());
+            // localStorage.setItem('last_store_local_search_date', curDate.getDate());
+            localStorage.setItem('last_publish_timestamp', xmlTimestamp);
             is_load_xml_finished = 1;
         };
         request.onerror = function(event) {
@@ -527,7 +533,44 @@
         } catch (error) {
             // console.error("Error: ", error);
             console.log("[local search] - load search.xml not found.");
-            ajax_store_search_xml();
+            ajax_get_new_search_xml_if_exist(true);
+        }
+    }
+
+    // 节省流量
+    function ajax_get_new_search_xml_if_exist(force=false) {
+        const hostname = window.location.hostname;
+        if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1" || hostname.startsWith("192"))) {
+            console.log("[local search] - ajax downloading publish_time.xml ...");
+            $.ajax({
+                url: "/publish_time.xml",
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    // 使用 jQuery 解析 XML 文档并获取时间戳
+                    const xmlTimestamp = $(response).find('publish_timestamp').text(); // 提取 <timestamp> 的文本
+                    // 从 localStorage 获取存储的时间戳
+                    const storedTimestamp = localStorage.getItem('last_publish_timestamp') || 0;
+                    if (force) {
+                        ajax_store_search_xml(xmlTimestamp);
+                    } else {
+                        console.log('[local search] - ajax_get_new_search_xml_if_exist, xmlTimestamp: ' + xmlTimestamp + ", storedTimestamp: " + storedTimestamp);
+                        if (xmlTimestamp > storedTimestamp) {
+                            // download search.xml
+                            ajax_store_search_xml(xmlTimestamp);
+                        }
+                        else {
+                            // 调用异步函数
+                            loadSearchData();
+                        }
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('[local search] - ajax_get_new_search_xml_if_exist 请求失败: ' + error);
+                    ajax_store_search_xml(getTimestampAsSecond());
+                }
+            });
+        } else {
+            ajax_store_search_xml(getTimestampAsSecond());
         }
     }
 
@@ -536,17 +579,18 @@
     //     is_load_xml_finished = 1;
     //     console.log("[local search] - load search.xml finished.");
     // }
-    var last_store_local_search_date = localStorage.getItem('last_store_local_search_date');
-    // 只有在 localStorage 没有 search.xml数据或者 距离上次使用local search已经超过一天了才去取search.xml
-    // 节省流量
-    if (last_store_local_search_date != curDate.getDate()) {
-        // download search.xml
-        ajax_store_search_xml();
-    } else {
-        // 调用异步函数
-        loadSearchData();
-    }
-    
+    // var last_store_local_search_date = localStorage.getItem('last_store_local_search_date');
+    // // 只有在 localStorage 没有 search.xml数据或者 距离上次使用local search已经超过一天了才去取search.xml
+    // // 节省流量
+    // if (last_store_local_search_date != curDate.getDate()) {
+    //     // download search.xml
+    //     ajax_store_search_xml();
+    // } else {
+    //     // 调用异步函数
+    //     loadSearchData();
+    // }
+
+    ajax_get_new_search_xml_if_exist();
 
   </script>
 {% endif %}

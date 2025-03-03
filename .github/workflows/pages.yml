@@ -143,11 +143,13 @@ jobs:
         run: |
           npm install -g hexo-cli
           npm install --force
-      - name: 5. 生成静态文件
+      - name: 5. 生成静态文件且新建一个publish时间的xml放到public文件夹方便LocalSearch使用
         run: |
           tar -zxvf my_node_modules.tar.gz
           hexo clean
           hexo generate
+          echo "<root><publish_date>$(date '+%Y-%m-%d %H:%M:%S')</publish_date><publish_timestamp>$(date +%s)</publish_timestamp></root>" > publish_time.xml
+          mv publish_time.xml ./public
       # - name: 7. 部署到 github page # Deploy：github.io仓库中日志只保留最新
       #   run: |
       #     cd ./public
