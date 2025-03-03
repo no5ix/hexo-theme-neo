@@ -547,7 +547,7 @@
                 dataType: "xml",
                 success: function (xmlResponse) {
                     // 使用 jQuery 解析 XML 文档并获取时间戳
-                    const xmlTimestamp = $(response).find('publish_timestamp').text(); // 提取 <timestamp> 的文本
+                    const xmlTimestamp = $(xmlResponse).find('publish_timestamp').text(); // 提取 <timestamp> 的文本
                     // 从 localStorage 获取存储的时间戳
                     const storedTimestamp = localStorage.getItem('last_publish_timestamp') || 0;
                     if (force) {
