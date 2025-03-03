@@ -1,6 +1,8 @@
 {% if theme.scheme %}
   <div class="site-search-div">
-    <button class="search-icon fa fa-search" id="search-button"></button>
+    <button class="search-icon" id="search-button">
+      <i class="fa fa-search"></i>
+    </button>
     <input type="text" id="local-search-input" class="st-search-input"></input>
     <i id='local-search-close'>×</i>
   </div>

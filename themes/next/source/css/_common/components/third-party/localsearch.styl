@@ -11,22 +11,42 @@
   position: relative;
 }
 
+.local-search-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.6s;
+  will-change: opacity;
+  z-index: $zindex-3;
+  background: #000;
+}
+
+.local-search-overlay.show {
+  opacity: 0.4;
+}
+
 .search-icon {
   position: absolute;
-  top: 9px;
   left: -20px;
+  /* top: 0px; */
   background: transparent;
   border: none;
   font-size: 18px;
   color: var(--link-color);
+  pointer-events: none; /* 避免点击 */
+
   +mobile() {
+    pointer-events: auto;
     transform: translateY(-50%);  /* 垂直居中 */
-    left: -24px;  /* 控制按钮距离输入框左侧的距离 */
+    left: 0px;  /* 控制按钮距离输入框左侧的距离 */
     top: 50%;    /* 垂直居中 */
     cursor: pointer;
     padding: 0;
     z-index: 1;
-    width: 88px;
+    width: var(--local-search-width);  /* 这个长度要和 input框的 相同 */
     height: 100%;
   }
   /* @media (hover: hover) {
@@ -34,6 +54,16 @@
       color: var(--link-hover-color);
     }
   } */
+}
+
+.search-icon i {
+  position: absolute;
+  top: 10px;
+
+  +mobile() {
+    left: 12px;
+    top: 12px;
+  }
 }
 
 
@@ -109,7 +139,7 @@ input[id$=local-search-input].expanded {
     /* width: 156px; */
     /* transform: scaleX(1); 展开至原始宽度 */
     padding: 0 41px 0 41px;
-    max-width: calc(50% - 41px);
+    max-width: calc(var(--local-search-width) - 41px);
     /* max-width: 156px; */
 }
 
@@ -180,7 +210,7 @@ input[id$=local-search-input].expanded {
 
   +mobile() {
     /* right: -75px; */
-    right: calc(50% - 30px);
+    right: calc(100% - var(--local-search-width) - 30px);
     top: 11px;
     transform: translateX(0);
   }
@@ -206,7 +236,7 @@ input[id$=local-search-input].expanded {
 }
 
 .local-search-result-cls {
-  position: absolute;
+  position: fixed;
   z-index: $zindex-4;
   width: 400px;
   top: 90px;
@@ -245,6 +275,8 @@ input[id$=local-search-input].expanded {
 
 
     overflow-y: auto;
+    /* 当滚动到这个div的底部之后页面也不能滚动 */
+    /* overscroll-behavior: contain; */
     border-radius: 15px;
     border: 0px solid #CCC;
     padding: 34px;
@@ -259,7 +291,7 @@ input[id$=local-search-input].expanded {
       left: 0;
       margin: 0;
       width: initial;
-      height: auto;
+      height: 66vh;
       /* box-shadow: 2.475em 2.375em 2.75em 0 #555;; */
     }
     +tablet() {
@@ -275,7 +307,7 @@ input[id$=local-search-input].expanded {
 
       &:last-child {
         //border-bottom: none;
-        margin-bottom: 0;
+        margin-bottom: 80px;
       }
       a {
         margin-top: 20px;
@@ -314,14 +346,14 @@ input[id$=local-search-input].expanded {
 
   +mobile() {
     border-right: 8px solid transparent !important;
-    border-left: 13px solid transparent !important;
+    /* border-left: 13px solid transparent !important; */
     right: initial;
-    top: -19px;
+    top: -30px;
   }
 }
 
 .local-search-result-cls .search-keyword {
-  border-bottom: 1px dashed rgb(219, 127, 13);
+  /* border-bottom: 1px dashed rgb(219, 127, 13); */
   font-weight: bold;
   color: var(--local-search-key-word-color);
   /* color: var(--selection-color); */
