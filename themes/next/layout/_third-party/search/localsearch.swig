@@ -55,24 +55,28 @@
                 }
                 const element = document.getElementById('local-search-result-mobile');
                 let bottomY = element.offsetTop + element.offsetHeight;  // local search result底部相对于整个页面的 Y 坐标
+                // console.log("bottttt= " + bottomY);
                 if (bottomY == 0) {  // 说明 local search result底部 比当前页面还要长
                     scrollTo(last_page_x, last_page_y);
-                    return;
+                } else {
+                    // console.log("rrrrrrretrn " + bottomY);
+                    // console.log("rrrrrrretrnyyy " + window.scrollY);
+                    if (window.scrollY > bottomY) {  // 如果用户滚动到比 local search result的底部还要低, 那说明他不想回到他search之前的位置了
+                        // console.log("4bottttt222= " + last_page_x);
+                    } else {
+                        // setTimeout(function() {
+                            // scrollTo(last_page_x, last_page_y);
+                            window.scrollTo({
+                                top: last_page_y,
+                                left: last_page_x,
+                                behavior: "smooth",
+                                duration: 150 // 滚动动画持续x毫秒
+                            });
+                        // }, 150);
+                    }
                 }
-                // console.log("rrrrrrretrn " + bottomY);
-                // console.log("rrrrrrretrnyyy " + window.scrollY);
-                if (window.scrollY > bottomY) {  // 如果用户滚动到比 local search result的底部还要低, 那说明他不想回到他search之前的位置了
-                    return;
-                }
-                setTimeout(function() {
-                    // scrollTo(last_page_x, last_page_y);
-                    window.scrollTo({
-                        top: last_page_y,
-                        left: last_page_x,
-                        behavior: "smooth",
-                        duration: 150 // 滚动动画持续x毫秒
-                    });
-                }, 150);
+                last_page_x = 0;
+                last_page_y = 0;
             }
             else
             {
@@ -238,9 +242,11 @@
             let duration = 600;
             if (isMobile())
             {
-                last_page_x = window.scrollX;
-                last_page_y = window.scrollY;
-                scrollTo(0,0);
+                if (window.scrollY != 0) {  // 加这个判断是为了防止 清空后再输入再点x没回原位
+                    last_page_x = window.scrollX;
+                    last_page_y = window.scrollY;
+                    scrollTo(0,0);
+                }
               // $('body').scrollTop(0);
             } else {
                 $('#' + content_id).removeAttr("headroom_special_attr");  // headroom_special_attr是用来 当页面滚动的时候local search的结果页面也会跟着一起被收起, 当不写这行代码的时候, 空的result会在页面往上滚的时候出现 ...
@@ -258,6 +264,22 @@
                 //   $('.local-search-result-cls ul li').velocity('stop').velocity('transition.bounceUpIn', 1200);
             }
           // $('.local-search-result-cls ul li').velocity('stop').velocity('transition.slideDownBigIn', 1000);
+        } else {
+            if (isMobile())
+            {
+                const element = document.getElementById('local-search-result-mobile');
+                let bottomY = element.offsetTop + element.offsetHeight;  // local search result底部相对于整个页面的 Y 坐标
+                if (window.scrollY > bottomY) {  // 如果用户滚动到比 local search result的底部还要低
+                    last_page_x = window.scrollX;
+                    last_page_y = window.scrollY;
+                    window.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: "smooth",
+                        duration: 150 // 滚动动画持续x毫秒
+                    });
+                }
+            }
         }
     });
 
@@ -269,7 +291,7 @@
 
     if (isMobile()) {
         input_box.addEventListener("blur", function() {  // when input lose the focus
-            $('#local-search-input').val('');
+            // $('#local-search-input').val('');
             if (temp_keyword.length > 0) {
                 if (str.indexOf('<li>') === -1) {  // 说明local search 没搜到东西
                     window.scrollTo({
@@ -280,9 +302,9 @@
                     });
                 }
                 // closeButton.classList.add("move");
-                setTimeout(function() {
-                    input_box.classList.remove('expanded');
-                }, 450);
+                // setTimeout(function() {
+                //     input_box.classList.remove('expanded');
+                // }, 450);
             } else {
                 window.scrollTo({  // 当失焦的时候且输入框没文字的时候就滚回原来的位置
                     top: last_page_y,
@@ -311,7 +333,7 @@
                     input_box.classList.add('expanded');
                     setTimeout(function() {
                         $('#local-search-input').val(temp_keyword);
-                    }, 200);
+                    }, 350);
                 // }, 450);
             } else {
                 // setTimeout(()=> {
