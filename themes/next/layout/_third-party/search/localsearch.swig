@@ -543,7 +543,7 @@
         if (!(hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1" || hostname.startsWith("192"))) {
             console.log("[local search] - ajax downloading publish_time.xml ...");
             $.ajax({
-                url: "/publish_time.xml",
+                url: "/publish_time.xml",  // 这个文件是github action里加上去的, 参见本项目 .github/workflows/pages.yml:151
                 dataType: "xml",
                 success: function (xmlResponse) {
                     // 使用 jQuery 解析 XML 文档并获取时间戳
