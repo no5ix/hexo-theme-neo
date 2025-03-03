@@ -22,10 +22,12 @@
   will-change: opacity;
   z-index: $zindex-3;
   background: #000;
+  pointer-events: none; /* 让点击穿透 */
 }
 
 .local-search-overlay.show {
   opacity: 0.4;
+  pointer-events: auto; /* 让点击穿透 */
 }
 
 .search-icon {
