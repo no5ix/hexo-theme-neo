@@ -27,7 +27,7 @@
     padding: 0;
     z-index: 1;
     width: 88px;
-    height: 58px;
+    height: 100%;
   }
   /* @media (hover: hover) {
     &:hover {
@@ -94,10 +94,12 @@ input[id$=local-search-input] {
     background: var(--local-search-bg-color);
     /* box-shadow: inset 0.475em 0.375em 0.45em 0 #808080; */
     
-    max-width: 0px;
+    max-width: 0%;
+    /* max-width: 0px; */
     will-change: max-width, padding;  /* 提前优化动画 */
-    width: 156px;
-    transition: max-width 0.3s ease-out, padding 0.2s ease-out; /* 平滑过渡 */
+    /* width: 156px; */
+    width: 100%;
+    transition: max-width 0.4s ease-out, padding 0.3s ease; /* 平滑过渡 */
     overflow: visible;
   }
 
@@ -107,7 +109,8 @@ input[id$=local-search-input].expanded {
     /* width: 156px; */
     /* transform: scaleX(1); 展开至原始宽度 */
     padding: 0 41px 0 41px;
-    max-width: 156px;
+    max-width: calc(50% - 41px);
+    /* max-width: 156px; */
 }
 
 /* input[id$=local-search-input]:hover { */
@@ -171,13 +174,14 @@ input[id$=local-search-input].expanded {
   font-weight: 900;
   transform: rotateZ(0);
   pointer-events: none; /* 避免点击 */
+  will-change: transform, opacity;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease;
   /* display: none; */
 
   +mobile() {
-    right: -75px;
+    /* right: -75px; */
+    right: calc(50% - 30px);
     top: 11px;
-    will-change: transform;
     transform: translateX(0);
   }
 
@@ -197,7 +201,7 @@ input[id$=local-search-input].expanded {
 }
 
 #local-search-close.show {
-  opacity: 1; /* 透明度变为 0 */
+  opacity: 1; /* 透明度变为 1 */
   pointer-events: auto;  /* 默认行为，元素可以响应鼠标点击、悬停等事件。 */
 }
 
