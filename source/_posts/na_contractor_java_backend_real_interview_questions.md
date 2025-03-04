@@ -16,7 +16,42 @@ password: 'ees'
 
 
 # Pilot Training Questions
-                     
+
+## Mock
+
+### BQ
+
+1.	Describe a major conflict within or outside your team and how you handled it, or how you dealt with a difficult team member.
+    - Story: “There was a situation in a previous project where one of the team members and I disagreed on how to approach a technical solution. They wanted to go with a more complex solution that would take more time, but I felt that a simpler approach would be more efficient. Instead of arguing, I suggested that we both present our ideas to the team and get feedback. This helped bring clarity and eventually, we went with a balanced approach that combined the best of both ideas.”
+2.	Describe a time when you had difficulty completing a task or making progress.
+    - Story: “I once had trouble with a backend optimization task that seemed straightforward at first. I was hitting performance bottlenecks and nothing seemed to fix it. I reached out to a senior engineer for advice, and we reviewed the code together. It turned out I was overlooking some key database indexing, which once fixed, improved performance significantly.”
+3.	If your manager asks you to change something that you think is already good enough, how would you handle it?
+    - Story: “If my manager asks me to change something I feel is fine, I first try to understand their reasoning. Maybe there’s something I missed or a bigger picture I wasn’t considering. If it’s not immediately clear, I’ll ask for more context, and then I’ll make the changes. Sometimes, feedback can lead to better solutions, even when things feel good already.”
+4.	Why do you want to join our team?
+    - Story: “I admire your company’s focus on innovation and the way your team handles challenges. The projects you’re working on align well with my background in building scalable backend services, and I’d love to be part of that. Plus, I’m really looking for a team where collaboration and growth are encouraged.”
+5.	Are you familiar with Agile processes and Waterfall methodology?
+    - Story: “Yes, I’ve worked in Agile teams, especially using Scrum. We’ve had sprints, stand-ups, and retrospectives to keep things moving. On the other hand, I’ve also worked in a Waterfall environment where things were more structured and followed a set timeline. I think Agile is great for flexibility and iterative development, but Waterfall can work well when requirements are clear upfront.”
+6.	What does a typical day look like for you?
+    - Story: “On a typical day, I start by checking my emails and any notifications about code reviews or issues in the backlog. Then, I focus on the tasks I’ve committed to for the sprint, which could involve writing code, fixing bugs, or collaborating with team members. I also make time to sync with the team through stand-ups or meetings.”
+7.	What do you think are the most important factors for a successful team?
+    - Story: “For me, open communication and trust are key. When everyone feels comfortable sharing ideas and challenges, the team can move faster and solve problems more effectively. Also, having a shared goal and a good work ethic helps keep everyone aligned.”
+8.	If you are working on a sprint and your manager suddenly assigns you a new task that needs to be finished as soon as possible, what would you do?
+    - Story: “First, I’d ask for clarity on the priority of the new task and its deadline. If it’s urgent, I’d immediately see if I can rearrange my tasks or seek help from others. Then, I’d focus on delivering that task with high quality and return to the sprint tasks afterward.”
+9.	Tell me something about yourself that is not on your resume.
+    - Story: “I’m really passionate about learning new things outside of work. I like picking up new hobbies, whether it’s learning a new language, cooking, or playing a musical instrument. It helps me stay balanced and creative.”
+10.	Tell me about a difficult project or challenge you faced and how you handled it.
+    - Story: “I worked on a project where we had to migrate a monolithic application to microservices, and the timelines were tight. It was challenging, especially when dealing with inter-service communication and database consistency. But by breaking the task into smaller parts and working closely with the team, we managed to migrate successfully within the deadline.”
+11.	Share a time when you made a mistake in a team setting, how you resolved it, and what you learned from the experience.
+    - Story: “I once miscommunicated a requirement during a project, which caused some unnecessary work. Once I realized the mistake, I immediately owned up to it, clarified the requirement, and helped the team get back on track. I learned the importance of clear communication and checking in with stakeholders regularly.”
+12.	Do you have on-call experience, and are you comfortable with overnight on-call duties?
+    - Story: “Yes, I’ve had on-call experience in my previous job. I’m comfortable with the responsibility, especially when it means ensuring our systems are running smoothly. We had a clear escalation path and communication strategy, which helped me handle it effectively.”
+13.	Do you know what pair programming is, and what are your thoughts on it?
+    - Story: “Yes, I’ve tried pair programming a few times, and I think it can be a great way to solve complex problems and share knowledge. I like how it encourages collaboration and immediate feedback, but I also think it’s important to balance it with solo work so everyone has time to focus deeply.”
+14.	If you are mentoring a junior colleague and they propose a new idea to the team, how would you handle it?
+    - Story: “I would listen to their idea carefully and, if it’s a good one, I’d encourage them to present it to the team. It’s important to empower junior team members to share their ideas because it can lead to fresh perspectives and innovative solutions.”
+15.	Describe your code review process. What do you focus on during a code review?
+    - Story: “During a code review, I focus on functionality first to make sure the code does what it’s supposed to do. I also look for readability, maintainability, and test coverage. I like to leave constructive feedback and offer suggestions for improvements rather than just pointing out issues.”
+
 ## Leetcode
 
 - Arrays
