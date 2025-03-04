@@ -140,8 +140,8 @@ links_layout: block
 # links_layout: inline
 links:
   # Title: http://example.com/
-  ksun的博客: http://119.23.17.57
-  你有图么我有故事: https://mp.weixin.qq.com/mp/homepage?__biz=MzU3MTUyNzg0NQ==&hid=1&sn=7a3ae61b7af714f75d68e7ae826a2d2c&scene=18#wechat_redirect
+  # ksun's blog: http://119.23.17.57
+  # 你有图么我有故事: https://mp.weixin.qq.com/mp/homepage?__biz=MzU3MTUyNzg0NQ==&hid=1&sn=7a3ae61b7af714f75d68e7ae826a2d2c&scene=18#wechat_redirect
   
 
 # Sidebar Avatar
@@ -177,8 +177,8 @@ sidebar:
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggle.
-  display: post
-  # display: always
+  # display: post
+  display: always
   #display: hide
   #display: remove
 
