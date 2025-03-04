@@ -2,32 +2,32 @@
 
  /* 
 code {
-	color: #ff7600;
-	background: #fbf7f8;
-	margin: 2px;
+    color: #ff7600;
+    background: #fbf7f8;
+    margin: 2px;
 }
 // 大代码块的自定义样式
 .highlight, pre {
-	margin: 5px 0;
-	padding: 5px;
-	border-radius: 3px;
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 3px;
 }
 .highlight, code, pre {
-	border: 1px solid #d6d6d6;
+    border: 1px solid #d6d6d6;
 }
 
 // 主页文章添加阴影效果
 .post {
-	margin-top: 60px;
-	margin-bottom: 60px;
-	padding: 25px;
-	-webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
-	-moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 25px;
+    -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+    -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
 } */
 
 /* 文章的TOC全部展开 */
 .post-toc .nav .nav-child { 
-	show() if not hexo-config('toc.collapse_all');
+    show() if not hexo-config('toc.collapse_all');
 }
 
 /*toc目录标题的箭头小图标*/
@@ -53,59 +53,59 @@ code {
 
 
 .wobbleTransparentBK {
-	background-color: rgba(0,0,0,0) !important;
+    background-color: rgba(0,0,0,0) !important;
 }
 
 .wobbleTransparentLine {
-	border-color: rgba(0,0,0,0) !important;
+    border-color: rgba(0,0,0,0) !important;
 }
 
 
 .headroom {
-	position:fixed;
-	z-index:2040;
-	right:0;
-	left:0;
-	top:0;
-	/* box-shadow: 0 1px 3px rgba(26,26,26,.1); */
-	/* box-shadow: 0em 0.625em 7.75em 0 #000; */
-	box-shadow: 0 -2px 8px rgba(0,0,0,0.65);
-	transition:transform .25s ease-in-out;
-	will-change:transform;
-	+mobile() {
-		/* box-shadow: 0em 0.625em 2.75em 0 #000; */
-		box-shadow: 0 0px 8px rgba(0,0,0,0.65);
-	}
+    position:fixed;
+    z-index:2040;
+    right:0;
+    left:0;
+    top:0;
+    /* box-shadow: 0 1px 3px rgba(26,26,26,.1); */
+    /* box-shadow: 0em 0.625em 7.75em 0 #000; */
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.65);
+    transition:transform .25s ease-in-out;
+    will-change:transform;
+    +mobile() {
+        /* box-shadow: 0em 0.625em 2.75em 0 #000; */
+        box-shadow: 0 0px 8px rgba(0,0,0,0.65);
+    }
 }
 
 .headroom--pinned {
-	transform:translateY(0)
+    transform:translateY(0)
 }
 
 .headroom--unpinned  {
-	transform:translateY(-120%);
+    transform:translateY(-120%);
 }
 
 .headroom-local-search {
-	position: absolute;
+    position: absolute;
     z-index: 1040;
     /* width: 400px; */
     top: 90px;
-	right: 0;
+    right: 0;
 }
 
 /* 用来动态的给local search result加上当header被收起的时候也跟着一起被收起 */
 .headroom-local-search.smooth-transition {
-	transition:transform 0.5s ease-in-out;
+    transition:transform 0.5s ease-in-out;
 }
 
 
 /* 文章```代码块顶部样式 */
 .highlight figcaption {
-	margin: 0em;
-	padding: 0.5em;
-	background: #6d5c5c;
-	/* border-bottom: 1px solid #e9e9e9; */
+    margin: 0em;
+    padding: 0.5em;
+    background: #6d5c5c;
+    /* border-bottom: 1px solid #e9e9e9; */
 }
 
 .highlight figcaption a {
@@ -115,45 +115,45 @@ code {
 
 /*代码块复制按钮*/
 .highlight-wrap{
-	position: relative;
+    position: relative;
 }
 .btn-copy {
-	display: inline-block;
-	cursor: pointer;
-	background-color: #b6aeae;
-	/* background-image: linear-gradient(#fcfcfc,#eee); */
-	border: none;
-	border-radius: 6px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	-webkit-appearance: none;
-	font-size: 13px;
-	font-weight: 700;
-	line-height: 20px;
-	outline: none;
-	color: #333;
-	-webkit-transition: opacity .5s ease-in-out;
-	-o-transition: opacity .5s ease-in-out;
-	transition: opacity .5s ease-in-out;
-	padding: 2px 6px;
-	position: absolute;
-	right: 7px;
-	top: 7px;
-	opacity: 0;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #b6aeae;
+    /* background-image: linear-gradient(#fcfcfc,#eee); */
+    border: none;
+    border-radius: 6px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-appearance: none;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    outline: none;
+    color: #333;
+    -webkit-transition: opacity .5s ease-in-out;
+    -o-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+    padding: 2px 6px;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    opacity: 0;
     width: 28px;
     height: 28px;
 }
 .btn-copy span {
-	margin-left: 5px;
+    margin-left: 5px;
 }
 .highlight-wrap:hover .btn-copy{
-	opacity: 1;
+    opacity: 1;
 }
 
 button.darkmode-toggle {
-	z-index: 9999;
+    z-index: 9999;
 }
 
 
@@ -161,20 +161,46 @@ button.darkmode-toggle {
 /* Hide the scroll bar globally, but show it when sliding. */
 /* 全局滚动条设置 */
 * {
-	scrollbar-width: thin; /* 适用于 Firefox */
-	scrollbar-color: transparent transparent;
+    scrollbar-width: thin; /* 适用于 Firefox */
+    scrollbar-color: transparent transparent;
 }
   
 *::-webkit-scrollbar {
-	width: 8px;
-	height: 8px;
+    width: 8px;
+    height: 8px;
 }
   
 *::-webkit-scrollbar-thumb {
-	background-color: transparent; /* 默认隐藏 */
-	transition: background-color 0.3s;
+    background-color: transparent; /* 默认隐藏 */
+    transition: background-color 0.3s;
 }
   
 *:hover::-webkit-scrollbar-thumb {
-	background-color: rgba(0, 0, 0, 0.4); /* 悬停或滚动时显示 */
+    background-color: rgba(0, 0, 0, 0.4); /* 悬停或滚动时显示 */
 }
+
+
+.password-input-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.password-overlay {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* opacity: 0.6; */
+    /* transition: opacity 0.6s; */
+    /* will-change: opacity; */
+    /* z-index: $zindex-3; */
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: auto; /* 不让点击穿透 */
+  }

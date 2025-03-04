@@ -4,7 +4,7 @@ date: 2023-02-14 22:53:26
 tags:
 - Humor
 categories:
-- Comedy
+- Misc
 ---
 
 

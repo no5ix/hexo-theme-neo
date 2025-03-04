@@ -9,31 +9,6 @@ categories:
 ---
 
 
-# the differences between China and the U.S.
-
-## double yellow solid lines
-
-![alt text](/img/na_az_driver_license_test_notes/image-13.png)
-
-Double solid yellow lines mean that passing is not allowed in either direction. **You may not cross the lines unless you are turning left**.(Excerpt from the AZ Driver’s Manual.)
-
-(国内双黄线是绝对禁止跨越或者压线的, 但在美国大部分州都可以双黄实线左转进driveway或者alley的。其中**亚利桑那**、伊州、**加州**、宾州很确定，有实际看到过交规这么写。 [引用](https://zhuanlan.zhihu.com/p/63289641#:~:text=另外补充一点，可能考试,视频中有讲到%E3%80%82))
-
-## 右转的时候需要尽可能靠右行驶
-
-[参考](https://zhuanlan.zhihu.com/p/63289641#:~:text=另外补充一点，可能考试,视频中有讲到%E3%80%82))
-
-- 在国内开车，如果需要右转并且旁边有自行车道，是绝对不能借自行车道右转的，借道了就是违规，记得2018年夏天江苏昆山龙哥事件，就是他开着宝马借自行车道右转才撞到了别人。
-- 不过在美国规则完全相反，经过我观察、看网上的视频和各种教程，发现在美国驾照考试时，右转的时候需要尽可能靠右行驶，据说这样可以不妨碍直行的车辆，如果右手边是自行车道，也可以在不妨碍骑车人的情况下临时占用自行车道，**总体原则是尽量靠右**（如果有stop sign或红灯的时候，停车时也尽量靠右并且车头向右）。我第一次在DMV路考的时候，就是因为在路口红灯右转的时候，不知道是应该紧贴道沿，还是等前面停的车，所以一直犹豫不敢动，还被考官指出错误。
-
-
-## 中央左转车道
-
-中国没有这种东西, 但美国有这玩意是专门用来左转的
-
-![alt text](/img/na_az_driver_license_test_notes/image-14.png)
-
-
 # system of measurement units
 
 - 1 feet = 0.3048 meter
@@ -50,8 +25,34 @@ Double solid yellow lines mean that passing is not allowed in either direction. 
     - 75mph = 120kmh
     - 90mph = 144kmh
 
-
 **. . .**<!-- more -->
+
+
+# the differences between China and the U.S.
+
+## double yellow solid lines
+
+![alt text](/img/na_az_driver_license_test_notes/image-13.png)
+
+Double solid yellow lines mean that passing is not allowed in either direction. **You may not cross the lines unless you are turning left**.(Excerpt from the AZ Driver’s Manual.)
+
+(国内双黄线是绝对禁止跨越或者压线的, 但在美国大部分州都可以双黄实线左转进driveway或者alley的, 但在美国不能跨越双黄线超车. 也就是说美国的实线是用来禁止超车的, 不是用来禁止左转的。其中**亚利桑那**、伊州、**加州**、宾州很确定，有实际看到过交规这么写。 [引用](https://zhuanlan.zhihu.com/p/63289641#:~:text=另外补充一点，可能考试,视频中有讲到%E3%80%82))
+
+## 右转的时候需要尽可能靠右行驶
+
+[参考](https://zhuanlan.zhihu.com/p/63289641#:~:text=另外补充一点，可能考试,视频中有讲到%E3%80%82))
+
+- 在国内开车，如果需要右转并且旁边有自行车道，是绝对不能借自行车道右转的，借道了就是违规，记得2018年夏天江苏昆山龙哥事件，就是他开着宝马借自行车道右转才撞到了别人。
+- 不过在美国规则完全相反，经过我观察、看网上的视频和各种教程，发现在美国驾照考试时，右转的时候需要尽可能靠右行驶，据说这样可以不妨碍直行的车辆，如果右手边是自行车道，也可以在不妨碍骑车人的情况下临时占用自行车道，**总体原则是尽量靠右**（如果有stop sign或红灯的时候，停车时也尽量靠右并且车头向右）。我第一次在DMV路考的时候，就是因为在路口红灯右转的时候，不知道是应该紧贴道沿，还是等前面停的车，所以一直犹豫不敢动，还被考官指出错误。
+
+
+## 中央左转车道
+
+中国没有这种东西, 但美国有这玩意是专门用来左转的
+
+![alt text](/img/na_az_driver_license_test_notes/image-14.png)
+
+
 
 
 # terms
