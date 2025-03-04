@@ -105,11 +105,11 @@ theme_color:
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
-  # GitHub: https://github.com/no5ix
+  GitHub: https://github.com/no5ix
   # E-Mail: no5ix@foxmail.com
   # 网易云音乐: http://music.163.com/#/user/home?id=47256866
+  Spotify: https://open.spotify.com/user/313duq77ekebrfyak3xijqewzss4?si=e7653b829a9747bf
   #LinkLabel: Link
-
 # Social Links Icons
 # Icon Mapping:
 #   Map a menu item to a specific FontAwesome icon name.
@@ -133,6 +133,7 @@ social_icons:
   StackOverflow: stack-overflow
   Weibo: weibo
   网易云音乐: music
+  Spotify: spotify
 
 # Blog rolls
 links_title: friendship links

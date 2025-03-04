@@ -35,6 +35,22 @@
   font-family: $font-family-logo;
 }
 
+@media (hover: hover) { /* 只在 PC 端生效 */
+  .site-title::after {
+    content: "💨";
+    position: absolute;
+    left: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform: translateX(-10px);
+  }
+
+  .site-title:hover::after {
+    opacity: 1;
+    transform: translateX(5px);
+  }
+}
+
 .site-subtitle {
   margin-top: 10px;
   font-size: $subtitle-font-size;
