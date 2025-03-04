@@ -264,7 +264,12 @@ $(document).ready(function () {
   }
 
   function updateTOCHeight (height) {
-    height = height - 128;  // 为了防止toc sidebar底部有一些目录看不见
+    // 为了防止toc sidebar底部有一些目录看不见 被 挡住
+    if (document.body.clientWidth < 768) {
+      height = height - 128;
+    } else {
+      height = height - 200;
+    }
     // height = height || 'auto';
     $('.post-toc').css('max-height', height);
   }
