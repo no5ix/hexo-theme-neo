@@ -239,14 +239,25 @@ $(document).ready(function () {
           integrator.next();
         }
 
-        var $logoTransition = CONFIG.motion.transition.logo;
-        $('.site-title ').velocity('transition.' + $logoTransition, {
-          display: null,
-          duration: CONFIG.motion.duration,
-          complete: function () {
-            integrator.next();
-          }
-        });
+        // 和 site-title 相关css代码配合使用来实现小车尾气向前开的效果
+        $('.site-title').addClass("loaded");
+        $('.site-title::after').addClass("loaded");
+        setTimeout(() => {
+          // 通过 jQuery 动态创建或修改样式, 把 .site-title.loaded::after 恢复到 0px
+          $('<style>')
+          .prop('type', 'text/css')
+          .html('.site-title.loaded::after { transform: translateX(-3px); }')
+          .appendTo('head');
+        }, document.body.clientWidth < 768 ? 2000 : 1000);
+
+      // var $logoTransition = CONFIG.motion.transition.logo;
+      // $('.site-title ').velocity('transition.' + $logoTransition, {
+      //   display: null,
+      //   duration: CONFIG.motion.duration,
+      //   complete: function () {
+          integrator.next();
+      //   }
+      // });
 
         /**
          * Check if $elements exist.
