@@ -48,7 +48,7 @@
     cursor: pointer;
     padding: 0;
     z-index: 1;
-    width: var(--local-search-width);  /* 这个长度要和 input框的 相同 */
+    width: calc(var(--local-search-width) + 82px);  /* search-icon要覆盖整个input框, 因为input框在手机上经常点不动, 所以search-icon的长度要和 input框的宽度+其左右padding(41px 乘以2=82px) 相同 */
     height: 100%;
   }
   /* @media (hover: hover) {
@@ -134,7 +134,7 @@ input[id$=local-search-input] {
     will-change: opacity;  /* 提前优化动画 */
     /* width: 156px; */
     /* width: 100%; */
-    width: calc(var(--local-search-width) - 41px);
+    width: calc(var(--local-search-width));
     /* transition: max-width 0.4s ease-out, padding 0.4s ease; 平滑过渡 */
     transition: opacity 0.4s ease-out; /* 平滑过渡 */
     overflow: visible;
@@ -146,7 +146,7 @@ input[id$=local-search-input].expanded {
     /* width: 156px; */
     /* transform: scaleX(1); 展开至原始宽度 */
     /* padding: 0 41px 0 41px; */
-    /* max-width: calc(var(--local-search-width) - 41px); */
+    /* max-width: calc(var(--local-search-width)); */
     /* max-width: 156px; */
     opacity: 1;
 }
@@ -218,7 +218,7 @@ input[id$=local-search-input].expanded {
 
   +mobile() {
     /* right: -75px; */
-    right: calc(100% - var(--local-search-width) - 30px);
+    right: calc(100% - var(--local-search-width) - 41px - 30px);  /* 这个41px是input框的左padding, 30px是close该有的offset */ 
     top: 11px;
     transform: translateX(0);
   }
