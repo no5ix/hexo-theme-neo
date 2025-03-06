@@ -296,6 +296,7 @@
 
     input_box.addEventListener("focus", function() {  // when input get the focus
         if (isMobile()) {
+            input_box.classList.add('expanded');
             document.body.style.overflow = "hidden"; // 禁止body滚动
             overlay.classList.add("show");
         }
@@ -358,8 +359,6 @@
             //         input_box.classList.add('expanded');
             //     // }, 80);
             // }
-
-            input_box.classList.add('expanded');
         }
     });
 
