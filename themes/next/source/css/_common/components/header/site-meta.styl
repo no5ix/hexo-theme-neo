@@ -28,8 +28,8 @@
 
 .site-title {
   display: inline-block;
-  vertical-align: top;
-  line-height: 36px;
+  vertical-align: middle;  /* 默认值，适用于大多数浏览器 */
+  /* line-height: 36px; */
   font-size: $logo-font-size;
   font-weight: normal;
   font-family: $font-family-logo;
@@ -44,6 +44,11 @@
   }
 }
 
+@supports (vertical-align: -webkit-baseline-middle) {
+  .site-title {
+    vertical-align: -webkit-baseline-middle; /* 使用CSS 变量、@supports 规则或浏览器前缀来实现 WebKit 浏览器使用 -webkit-baseline-middle，而其他浏览器使用 middle。 */
+  }
+}
 .site-title.loaded {
   opacity: 1;
   transform: translateX(0);
