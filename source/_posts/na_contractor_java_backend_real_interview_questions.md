@@ -26,10 +26,24 @@ password: 'ees'
 - Self-Introduction:
     - Prepare a fluent self-introduction and a detailed summary of work/project experience.
     - Familiarize yourself thoroughly with your resume.Be ready to elaborate on your roles, achievements, and technologies/tools you used.
+    - 
 - Work/Project Summary:
     - Prepare 1-2 examples of past projects or jobs where you made a significant impact. Use the STAR method (Situation, Task, Action, Result) to structure your responses. DO NOT READ, we can tell!
 
 ##### Self - Introduction
+
+Hi, my name is Mike Hu. I've got over 10 years of experience as a principal engineer in software development. I have a lot of experience in distributed systems, and I'm good at performance analysis and optimization.
+My last project was a massively multiplayer online role - playing game. I was the lead backend engineer. I was mainly responsible for management, setting up the work pipeline, optimizing each module, and building the distributed system.
+
+My main skills are in Java, python，redis, Linux,  etc. I have been working in Both frontend and backend.
+1. For frontend end, i used [Angular, React, Jquery, Bootstrap, Html, ES6, CSS] etc
+2. For backend, I used Spring boot, Rest API, GraphQL, Spring Dependency Injection, JPA, Scheduler etc
+3. For security, I am familiar with Oauth2, Basic Authentication, JWT Token, Asymmetric Key pairs etc
+4. For database, I have worked with both SQL and NoSQL, like ,mySQL Server, MongoDB, Cassandra etc
+5. For cloud, I have used AWS cloud, like EC2, RDS, S3, EBS, lambda, ECS container etc
+6. I also have experience in distributed systems, like MicroServices, Kafka Message queue, Redis distributed cache, Load Balancer, Circuit Breaker, API Gateway etc.
+
+**bak**: 
 
 Hey there! I’m Michael Hu.
 
