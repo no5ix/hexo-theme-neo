@@ -606,7 +606,7 @@ tabs:
 motion:
   enable: true
   async: false
-  duration: 222
+  duration: 188
   transition:
     # Transition variants:
     # fadeIn | fadeOut | flipXIn | flipXOut | flipYIn | flipYOut | flipBounceXIn | flipBounceXOut | flipBounceYIn | flipBounceYOut
@@ -615,14 +615,14 @@ motion:
     # slideUpIn | slideUpOut | slideDownIn | slideDownOut | slideLeftIn | slideLeftOut | slideRightIn | slideRightOut
     # slideUpBigIn | slideUpBigOut | slideDownBigIn | slideDownBigOut | slideLeftBigIn | slideLeftBigOut | slideRightBigIn | slideRightBigOut
     # perspectiveUpIn | perspectiveUpOut | perspectiveDownIn | perspectiveDownOut | perspectiveLeftIn | perspectiveLeftOut | perspectiveRightIn | perspectiveRightOut
-    header: slideDownIn
-    menu: slideDownIn
-    logo: slideDownIn
-    post_block_else: slideDownIn
+    header: fadeIn
+    menu: fadeIn
+    logo: fadeIn
+    post_block_else: fadeIn
     post_header: fadeIn
     post_body: fadeIn
-    coll_header: slideDownIn
-    footer: slideDownIn
+    coll_header: fadeIn
+    footer: fadeIn
 
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox/

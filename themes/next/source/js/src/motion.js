@@ -209,13 +209,14 @@ $(document).ready(function () {
         duration: CONFIG.motion.duration,
         complete: function () {
           integrator.next();
-          
+
           // 此处动画是为了防止有锚点的页面加载时候被 headroom 挡住的问题, 所以播了一个网上滚动170px的动画
           if(window.location.hash) {
-            $('html,body').animate({
-              scrollTop: window.pageYOffset - 170
-            },
-            400);
+            window.scrollTo({ top: window.pageYOffset - 170 });
+          //   $('html,body').animate({
+          //     scrollTop: window.pageYOffset - 170
+          //   },
+          //   400);
           }
         }
       });
@@ -243,13 +244,30 @@ $(document).ready(function () {
         integrator.next();
       }
 
+      // 和 site-title 相关css代码配合使用来实现小车尾气向前开的效果
+      $('.site-title').addClass("loaded");
+      $('.site-title::after').addClass("loaded");
+      setTimeout(() => {
+        
+        integrator.next();
+        setTimeout(() => {
+
+          // 通过 jQuery 动态创建或修改样式, 把 .site-title.loaded::after 恢复到 0px
+          $('<style>')
+          .prop('type', 'text/css')
+          .html('.site-title.loaded::after { transform: translateX(-3px); }')
+          .appendTo('head');
+        }, document.body.clientWidth < 768 ? 1200 : 200);  // 这个1200 + 800 和 200 + 800 得大于 .site-title 相关transition 的时间
+
+      }, 800);
+      
       // $('.site-title').attr('data-after', 'active');
       // var $logoTransition = CONFIG.motion.transition.logo;
       // $('.site-title ').velocity('transition.' + $logoTransition, {
       //   display: null,
       //   duration: CONFIG.motion.duration,
       //   complete: function () {
-          integrator.next();
+          // integrator.next();
       //   }
       // });
 
@@ -314,18 +332,6 @@ $(document).ready(function () {
             $sidebarAffix.css({ 'transform': 'initial' });
           }
           integrator.next();
-
-          // 和 site-title 相关css代码配合使用来实现小车尾气向前开的效果
-          $('.site-title').addClass("loaded");
-          $('.site-title::after').addClass("loaded");
-          setTimeout(() => {
-            // 通过 jQuery 动态创建或修改样式, 把 .site-title.loaded::after 恢复到 0px
-            $('<style>')
-            .prop('type', 'text/css')
-            .html('.site-title.loaded::after { transform: translateX(-3px); }')
-            .appendTo('head');
-          }, document.body.clientWidth < 768 ? 2000 : 1000);
-          
         };
 
         //$post.velocity('transition.slideDownIn', postMotionOptions);
