@@ -257,9 +257,9 @@ $(document).ready(function () {
           .prop('type', 'text/css')
           .html('.site-title.loaded::after { transform: translateX(-3px); }')
           .appendTo('head');
-        }, document.body.clientWidth < 768 ? 1200 : 200);  // 这个1200 + 800 和 200 + 800 得大于 .site-title 相关transition 的时间
+        }, document.body.clientWidth < 768 ? 2000 : 1000);  // 这个1200 + 800 和 200 + 800 得大于 .site-title 相关transition 的时间
 
-      }, 800);
+      }, 60);  // 这个 60 主要是为了将后面的动画与 小汽车动画不要放到同一帧, 免得卡顿
       
       // $('.site-title').attr('data-after', 'active');
       // var $logoTransition = CONFIG.motion.transition.logo;
