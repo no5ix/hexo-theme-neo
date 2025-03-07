@@ -308,6 +308,7 @@ public class Main {
         list.add(377);
         list.size();
         list.remove(0);  // 0 is index
+        list.removeLast();
         list.get(0);
         list.isEmpty();
         for (int i : list) {
@@ -1854,7 +1855,12 @@ void backtrack(参数) {
 ## 组合
 
 - https://leetcode.com/problems/combinations/
-- https://programmercarl.com/0077.组合.html#算法公开课
+- 参考1: https://programmercarl.com/0077.组合.html#算法公开课
+- 参考2: https://github.com/no5ix/leetcode-master/blob/master/problems/0077.组合.md
+
+给定两个整数 n 和 k，返回 `1 ... n` 中所有可能的 k 个数的组合。
+
+示例: 输入: n = 4, k = 2 输出: `[ [2,4], [3,4], [2,3], [1,2], [1,3], [1,4], ]`
 
 ### 没有剪枝的版本
 
@@ -1892,11 +1898,9 @@ class Solution {
 
 ![](/img/algo_na/20210130194335207-20230310134409532.png)
 
-图中每一个节点（图中为矩形），就代表本层的一个for循环，那么每一层的for循环从第二个数开始遍历的话，都没有意义，都是无效遍历。
+图中每一个节点（图中为矩形），就代表本层的一个for循环，那么每一层的for循环从第二个数开始遍历的话，都没有意义，都是无效遍历。(因为如果for循环选择的起始位置之后的元素个数 已经不足 我们需要的元素个数了，那么就没有必要搜索了。)
 
 所以，可以剪枝的地方就在递归中每一层的for循环所选择的起始位置。
-
-如果for循环选择的起始位置之后的元素个数 已经不足 我们需要的元素个数了，那么就没有必要搜索了。
 
 注意代码中i，就是for循环里选择的起始位置。
 
@@ -1940,6 +1944,123 @@ class Solution {
             path.add(i);
             backTracking(n, k, i+1);
             path.removeLast();
+        }
+    }
+}
+```
+
+
+## 子集
+
+- [力扣题目链接](https://leetcode.cn/problems/subsets/)
+- 参考: https://github.com/no5ix/leetcode-master/blob/master/problems/0078.子集.md
+
+给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
+
+说明：解集不能包含重复的子集。
+
+示例:
+输入: `nums = [1,2,3]`
+输出:
+```
+[
+  [3],
+  [1],
+  [2],
+  [1,2,3],
+  [1,3],
+  [2,3],
+  [1,2],
+  []
+]
+```
+
+![alt text](/img/algo_na_tricks/image-11.png)
+
+求取子集问题，不需要任何剪枝！因为子集就是要遍历整棵树。
+
+```java
+class Solution {
+    List<List<Integer>> result = new ArrayList<>();// 存放符合条件结果的集合
+    LinkedList<Integer> path = new LinkedList<>();// 用来存放符合条件结果
+    public List<List<Integer>> subsets(int[] nums) {
+        subsetsHelper(nums, 0);
+        return result;
+    }
+
+    private void subsetsHelper(int[] nums, int startIndex){
+        result.add(new ArrayList<>(path));//「遍历这个树的时候，把所有节点都记录下来，就是要求的子集集合」。
+        if (startIndex >= nums.length){ //终止条件可不加
+            return;
+        }
+        for (int i = startIndex; i < nums.length; i++){
+            path.add(nums[i]);
+            subsetsHelper(nums, i + 1);
+            path.removeLast();
+        }
+    }
+}
+```
+
+
+## 全排列
+
+- [力扣题目链接](https://leetcode.cn/problems/permutations/)
+- 参考: https://github.com/no5ix/leetcode-master/blob/master/problems/0046.全排列.md
+
+给定一个 没有重复 数字的序列，返回其所有可能的全排列。
+
+示例:
+* 输入: `[1,2,3]`
+* 输出:
+```
+[
+  [1,2,3],
+  [1,3,2],
+  [2,1,3],
+  [2,3,1],
+  [3,1,2],
+  [3,2,1]
+]
+```
+
+![alt text](/img/algo_na_tricks/image-9.png)
+
+首先排列是有序的，也就是说 `[1,2]` 和 `[2,1]` 是两个集合，这和之前分析的子集以及组合所不同的地方。
+
+可以看出元素1在 `[1,2] `中已经使用过了，但是在 `[2,1]` 中还要在使用一次1，所以处理排列问题就不用使用 `startIndex` 了。
+
+但排列问题需要一个 `used` 数组，标记已经选择的元素，如 `used: [0, 1, 0]` 表示第2个元素已经别用过了, 如图橘黄色部分所示
+
+```java
+class Solution {
+
+    List<List<Integer>> result = new ArrayList<>();// 存放符合条件结果的集合
+    LinkedList<Integer> path = new LinkedList<>();// 用来存放符合条件结果
+    boolean[] used;
+    public List<List<Integer>> permute(int[] nums) {
+        if (nums.length == 0){
+            return result;
+        }
+        used = new boolean[nums.length];
+        permuteHelper(nums);
+        return result;
+    }
+
+    private void permuteHelper(int[] nums){
+        if (path.size() == nums.length){
+            result.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = 0; i < nums.length; i++){
+            if (used[i]){
+                continue;
+            }
+            used[i] = true;
+            path.add(nums[i]);
+            permuteHelper(nums);
+            path.removeLast();
+            used[i] = false;
         }
     }
 }
