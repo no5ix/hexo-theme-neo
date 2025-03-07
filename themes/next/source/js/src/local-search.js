@@ -2,9 +2,13 @@
 let db; // 全局数据库变量
 var is_load_xml_finished = 0;
 var keywords = [];
-var curDate = new Date();
 var xml_resp_cache = null;
 var temp_keyword = "";
+
+var search_result_str = "";
+
+// 是否为第一个字母被键入的标志位
+var first_char_flag = 0;
 
 'use strict';
 
@@ -14,18 +18,10 @@ var resultContent = document.getElementById(content_id);
 const searchButton = document.getElementById('search-button');
 const closeButton = document.getElementById('local-search-close');
 
-var str = "";
-
-// 是否为第一个字母被键入的标志位
-var first_char_flag = 0;
-
-// 因为在移动设备上, 点击搜索之后会 scroll 到页面顶部, 所以需要记录之前的页面x, y坐标值, 以便于搜索完点击 close 按钮之后 scroll 回原来的页面坐标值.
-var last_page_x = 0;
-var last_page_y = 0;
-
 var overlay = document.createElement("div");
 overlay.classList.add("local-search-overlay");
 document.body.appendChild(overlay);
+
 
 async function handleSearch() {
     if (keywords.length <= 0) {
@@ -55,7 +51,7 @@ async function handleSearch() {
     } else {
         // Retrieve the object from indexedDB
         var xml_resp = await retrieve_search_xml();
-        str = '<ul class=\"search-result-list\">';
+        search_result_str = '<ul class=\"search-result-list\">';
         xml_resp.forEach(function (data) {
             var isMatch = true;
             // var content_index = [];
@@ -149,24 +145,24 @@ async function handleSearch() {
                     });
                 }
 
-                str +=
+                search_result_str +=
                     "<li><a href='" +
                     decodeURIComponent(data.url) +
                     "' class='search-result-title' target='_blank'>" +
                     orig_data_title +
                     "</a>";
-                str +=
+                search_result_str +=
                     '<p class="search-result">' + match_content + "...</p>";
-                str += "</li>";
+                search_result_str += "</li>";
             }
         });
 
-        str += "</ul>";
-        if (str.indexOf("<li>") === -1) {
+        search_result_str += "</ul>";
+        if (search_result_str.indexOf("<li>") === -1) {
             return (resultContent.innerHTML =
                 "<ul class='local-search-empty-ul'><span class='local-search-empty'>404.<span></ul>");
         }
-        resultContent.innerHTML = str;
+        resultContent.innerHTML = search_result_str;
     }
 }
 
@@ -380,7 +376,6 @@ async function setLocalSearchXMLData(xmlResponse, xmlTimestamp) {
     var request = objectStore.put(data);  // 使用 put 可以插入或者更新数据
     request.onsuccess = function() {
         console.log("[local search] - Data successfully stored in indexedDB.");
-        // localStorage.setItem('last_store_local_search_date', curDate.getDate());
         localStorage.setItem('last_publish_timestamp', xmlTimestamp);
         is_load_xml_finished = 1;
         // 如果输入框有文字, 等待下载 xml完毕之后再弹出结果

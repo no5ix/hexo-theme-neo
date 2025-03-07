@@ -247,7 +247,8 @@ $(document).ready(function () {
       // 和 site-title 相关css代码配合使用来实现小车尾气向前开的效果
       $('.site-title').addClass("loaded");
       $('.site-title::after').addClass("loaded");
-      setTimeout(() => {
+      
+      setTimeout(() => { // 这个 timeout 主要是为了将后面的动画与 小汽车动画不要放到同一帧, 免得卡顿
         
         integrator.next();
         setTimeout(() => {
@@ -257,9 +258,9 @@ $(document).ready(function () {
           .prop('type', 'text/css')
           .html('.site-title.loaded::after { transform: translateX(-3px); }')
           .appendTo('head');
-        }, document.body.clientWidth < 768 ? 2000 : 1000);  // 这个1200 + 800 和 200 + 800 得大于 .site-title 相关transition 的时间
+        }, document.body.clientWidth < 768 ? 1000 : 200);  // 这个1200 + 800 和 200 + 800 得大于 .site-title 相关transition 的时间
 
-      }, 60);  // 这个 60 主要是为了将后面的动画与 小汽车动画不要放到同一帧, 免得卡顿
+      }, 800); 
       
       // $('.site-title').attr('data-after', 'active');
       // var $logoTransition = CONFIG.motion.transition.logo;
