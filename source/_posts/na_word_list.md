@@ -112,6 +112,7 @@ password: 'ees'
 14. Docker-Compose `/ˈdɑːkər kəmˈpoʊz/` 容器编排工具, Compose v. 组成，构成；作曲；撰写（信、诗或演讲稿）；使镇静，使平静；为（照片、图像）构图；排版，排稿
 15. RDS `/ˌɑːr ˌdiː ˈɛs/` 关系型数据库服务 Relation Data System
 16. theorem `/ ˈθiːərəm /` n. [数] 定理；原理
+17. orchestrate `/ ˈɔːrkɪstreɪt /` v. 编排; 把……编成管弦乐曲；精心安排，密谋；把……协调地结合起来
 
 
 # Third Party Service
@@ -128,6 +129,7 @@ password: 'ees'
 10. Kibana `/kɪˈbɑːnə/` 数据可视化工具
 11. Grafana `/ɡrəˈfɑːnə/` 监控与可视化平台
 12. ELK `/ˌiː ˌɛl ˈkeɪ/` 日志分析工具套件
+13. Apache `/ əˈpætʃi /`
 
 
 # All

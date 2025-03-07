@@ -233,12 +233,6 @@ input[id$=local-search-input].expanded {
   }
 }
 
-#local-search-close.move {
-  /* right: 66px; 目标位置, 不用这种方法, 会因为reflow而掉帧 */  
-  /* transform: translateX(-145px); 目标 right = 66px，移动 66 - (-75px) = -145px */
-  transform: translate3d(-145px, 0, 0);
-}
-
 #local-search-close.show {
   opacity: 1; /* 透明度变为 1 */
   pointer-events: auto;  /* 默认行为，元素可以响应鼠标点击、悬停等事件。 */
@@ -288,7 +282,7 @@ input[id$=local-search-input].expanded {
 
 
   ul {
-    width: 500px;
+    width: 450px;
     height: 600px;
     max-height: 650px;
     min-height: 0;
@@ -299,7 +293,7 @@ input[id$=local-search-input].expanded {
     /* overscroll-behavior: contain; */
     border-radius: 15px;
     border: 0px solid #CCC;
-    padding: 34px;
+    padding: 50px;
     background: var(--local-search-bg-color);
     /* box-shadow: 0.625em 0.625em 0.75em 0 #ccc; */
     /* box-shadow: 2.475em 2.375em 9.75em 0 #555;; */
@@ -307,7 +301,6 @@ input[id$=local-search-input].expanded {
 
     +mobile() {
       max-height: none;
-      padding: 34px;
       left: 0;
       margin: 0;
       width: initial;
@@ -360,8 +353,8 @@ input[id$=local-search-input].expanded {
   border-top: 0 solid transparent !important;
   border-right: 30px solid transparent !important;
   border-left: 30px solid transparent !important;
-  right: 92px;
-  top: -8px;
+  right: 90px;
+  top: -11px;
 
 
   +mobile() {

@@ -32,31 +32,28 @@ password: 'ees'
 
 ##### Self - Introduction
 
-Hi, my name is Mike Hu. I’ve been working as a Java backend developer for over eight years now, I have a lot of experience in distributed systems, and I'm good at performance analysis and optimization.
-
-
-My main skills are in Java, python，redis, Linux,  . I have been working in Both frontend and backend.
-1. For backend, I used Spring boot, Rest API, GraphQL, Spring Dependency Injection, JPA, Scheduler 
-2. For security, I am familiar with Oauth2, Basic Authentication, JWT Token, Asymmetric Key pairs 
-3. For database, I have worked with both SQL and NoSQL, like ,mySQL Server, MongoDB, Cassandra 
-4. For cloud, I have used AWS cloud, like EC2, RDS, S3, EBS, lambda, ECS container 
-5. I also have experience in distributed systems, like MicroServices, Kafka Message queue, Redis distributed cache, Load Balancer, Circuit Breaker, API Gateway .
-
-**bak**: 
-
 Hey there! I’m Michael Hu.
 
-I’ve been working as a Java backend developer for over eight years now, and I absolutely love building scalable, high-performance systems that solve real business problems.
+I’ve been working as a Java backend developer for over ten years now, and I have experience building scalable, high-performance systems to solve real business problems.
 
-I specialize in Java and Spring Boot, using them to design and maintain solid backend systems. I’ve built a bunch of RESTful APIs—well-documented, secure, and fine-tuned for performance—so different services can communicate smoothly in a distributed environment.
+I'm good at Java and Spring Boot. I used them to design and run backend systems stably. And I used them to create many RESTful APIs. These APIs have detailed documentation, and I used these APIs, Kubernetes,  to make many different micro services communicate with each other in a distributed environment.  
 
-When it comes to databases, I’ve got plenty of experience with Hibernate and JPA for data persistence. I design complex schemas, optimize queries, and make sure data integrity stays rock solid—whether it’s MySQL, PostgreSQL, or even MongoDB for NoSQL needs.
+- For database, I use MySQL and MongoDB and redis, I’ve got plenty of experience with Hibernate and JPA for data persistence. I design complex schemas, optimize queries, and ensure data integrity
+- For data processing, I also work with Apache Kafka for real-time data processing, to build event-driven architectures that handle high-throughput data streams and scalable messaging systems.
+- For Security, I use Spring Security, OAuth2, JWT to implement authentication and authorization, to make sure everything is secure.
+- For cloud platforms, I worked with various AWS services. I use EC2 to deploy and manage virtual servers, RDS to handle relational databases, S3 for scalable storage, Lambda for serverless computing, and ECS to orchestrate containerized applications.
+    1. EC2 (Elastic Compute Cloud) → Deploy and manage virtual servers
+        - I use EC2 to launch, configure, and manage scalable virtual machines for running applications. It allows me to choose different instance types based on computing needs and ensures high availability.
+    2. RDS (Relational Database Service) → Manage relational databases
+        - I use RDS to host and manage relational databases like MySQL, PostgreSQL, and SQL Server, handling automated backups, scaling, and maintenance without manual server management.
+    3. S3 (Simple Storage Service) → Store and retrieve any amount of data
+        - I use S3 for storing and retrieving large amounts of data, such as logs, backups, images, and static website assets. It provides high durability and scalability.
+    4. CloudWatch: monitoring
+        - I use CloudWatch to track performance, monitor logs, metrics, and system health.
 
-I also work with Apache Kafka for real-time data processing, helping build event-driven architectures that handle high-throughput data streams and scalable messaging systems.
-
-Security is a big deal for me. I use Spring Security and OAuth2 to implement authentication and authorization, making sure everything is locked down and meets industry standards.
-
-I’ve been part of projects across different industries, and I’d love to share more about what I’ve worked on!
+参考:  
+- ECS(Elastic Container Service): 运行 & 管理 Docker 容器(支持 Fargate 无服务器模式)
+- EKS(Elastic Kubernetes Service): 托管 Kubernetes 集群，简化容器编排。
 
 
 ##### Work/Project Summary

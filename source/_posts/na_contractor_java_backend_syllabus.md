@@ -1,5 +1,5 @@
 ---
-title: NA contractor knowledge syllabus
+title: NA contractor knowledge syllabus 1
 date: 2025-02-21 04:18:08
 tags:
 - noodle
@@ -14,6 +14,7 @@ password: 'ees'
 
 **. . .**<!-- more -->
 
+{% post_link na_contractor_java_backend_syllabus2 %}
 
 # Syllabus
 

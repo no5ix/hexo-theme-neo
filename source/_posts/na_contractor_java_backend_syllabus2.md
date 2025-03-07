@@ -15,8 +15,10 @@ password: 'ees'
 **. . .**<!-- more -->
 
 
+{% post_link na_contractor_java_backend_syllabus %}
 
-# Session7
+
+# Session7-SQL
 
 - What is data modeling? Why do we need it? When would you need it?
 - What is primary key? How is it different from unique key?
@@ -437,7 +439,7 @@ db.courses.insertOne({
 });
 ```
 
-# Session15
+# Session15-TRANSACTION JPA
 
 1. What is “Offline Transaction”?
 2. How do we usually perform Transaction Management in JDBC?
@@ -748,7 +750,7 @@ public class ElasticsearchSearchExample {
 }
 ```
 
-# Session17
+# Session17-UNIT TEST
 
 1. Explain and name some methods that you used in JUnit.
 2. Explain and name some annotations that you used in JUnit.
@@ -1017,7 +1019,7 @@ interface MyInterface {
 }
 ```
 
-# Session19
+# Session19-MICROSERVICE
 
 1. In your own word, please describe some of the advantages and disadvantages of a
 2. Monolithic Application.
@@ -1076,7 +1078,7 @@ The following is an explanation of each question along with relevant examples:
     - **Half-Open State**: After a certain period in the open state, the circuit breaker enters the half-open state. It allows a small number of requests to be sent to the service to check if it has recovered. If the requests succeed, the circuit breaker closes and normal operation resumes. If the requests fail, the circuit breaker returns to the open state.
 
 
-# Session23
+# Session23-DEVOPS
 
 1. Use your own words to explain Jenkins.
 2. Can you talk about CI/CD?
@@ -1161,7 +1163,7 @@ You can use the `git rebase -i` (interactive rebase) command to combine multiple
     - The commit history after a rebase is linear, which can make it easier to understand and follow. However, it can also be more complex to resolve conflicts during a rebase compared to a merge. 
 
 
-# Session25
+# Session25-CLOUD
 
 1. AWS difference between parameter store and secret manager
 2. AWS where to store certificate file
