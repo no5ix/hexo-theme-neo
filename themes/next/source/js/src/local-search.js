@@ -38,10 +38,10 @@ async function handleSearch() {
     // 0x04. perform local searching
     if (is_load_xml_finished == 0) {
         var local_search_tips =
-            "<span class='local-search-empty'>" +
+            "<span class='local-search-loading'>" +
                 "The first search may be slow. First, think about a classic algorithm problem, climbing stairs." +
             "</span>" +
-            "<span class='local-search-empty'>" +
+            "<span class='local-search-loading'>" +
                 "A frog can jump up 1 step at a time, or it can jump up 2 steps. Find out how many ways there are for the frog to jump up a 6-step staircase? And what about an n-step staircase?" +
             "</span>";
         var ProgressBar =
@@ -172,13 +172,13 @@ async function handleSearch() {
 
 // 这个force_close是为了解决: 中文键盘打拼音还没选中文就点击close图标因为此时temp_keyword会有值导致无法关闭search的bug
 function CloseLocalSearch(force_close=false, when_delete_all=false) {
-    setTimeout(function() {  // 这个setTimeout的目的是为了解决当使用中文输入法输入英文的时候敲下enter键的那一瞬间发生从有文字到没文字又到有文字, 而下方window.scrollTo这个还没执行到, 会导致页面scroll乱滚以及velocity动画重复播放; 加了这个timeout之后就可以检测是否属于这种情况
+    let closeLocalSearchImpl = function() {
         if (!force_close && temp_keyword.length > 0) {
             return;
         }
+        $('#local-search-input').val('');
         temp_keyword = "";
         first_char_flag = 0;
-        $('#local-search-input').val('');
         // $('#local-search-close').hide();
         closeButton.classList.remove("show");
 
@@ -215,7 +215,15 @@ function CloseLocalSearch(force_close=false, when_delete_all=false) {
             // $('#' + content_id).velocity('stop').velocity( 'transition.flipBounceXOut', 600);
             // $('#' + content_id).velocity('stop').velocity( 'transition.fadeOut', 600);
         }
-    }, 150);
+    }
+
+    if (force_close) {
+        closeLocalSearchImpl();
+    } else {
+        setTimeout(function() {  // 这个setTimeout的目的是为了解决当使用中文输入法输入英文的时候敲下enter键的那一瞬间发生从有文字到没文字又到有文字, 而下方window.scrollTo这个还没执行到, 会导致页面scroll乱滚以及velocity动画重复播放; 加了这个timeout之后就可以检测是否属于这种情况
+            closeLocalSearchImpl();
+        }, 150);
+    }
 }
 
 input_box.addEventListener('input', function () {
