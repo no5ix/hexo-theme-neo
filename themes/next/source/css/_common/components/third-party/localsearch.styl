@@ -48,7 +48,7 @@
     cursor: pointer;
     padding: 0;
     z-index: 1;
-    width: calc(var(--local-search-width) + 41px);  /* search-icon要覆盖整个input框, 因为input框在手机上经常点不动, 所以search-icon的长度要 等于 input框的宽度+其左padding(41px) 的 和 */
+    width: calc(var(--local-search-width) + 82px);  /* search-icon要覆盖整个input框, 因为input框在手机上经常点不动, 所以search-icon的长度要 等于 input框的宽度+其左右padding(41px + 41px = 82px) 的 和 */
     height: 100%;
   }
   /* @media (hover: hover) {
@@ -220,7 +220,7 @@ input[id$=local-search-input].expanded {
     /* right: -75px; */
     right: calc(100% - var(--local-search-width) - 41px - 30px);  /* 这个41px是input框的左padding, 30px是close该有的offset */ 
     top: 11px;
-    /* z-index: 1; */
+    z-index: 2;
     transform: translateX(0);
   }
 
@@ -304,7 +304,7 @@ input[id$=local-search-input].expanded {
       left: 0;
       margin: 0;
       width: initial;
-      height: 66vh;
+      height: 56vh;
       /* box-shadow: 2.475em 2.375em 2.75em 0 #555;; */
     }
     +tablet() {

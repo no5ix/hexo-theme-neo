@@ -189,8 +189,9 @@ function CloseLocalSearch(force_close=false, when_delete_all=false) {
                 //     closeButton.classList.remove("move");
                 // }, 1000);
                 input_box.classList.remove('expanded');
-                document.body.style.overflow = ""; // 恢复body滚动
+                enableScroll();  // 调用 `enableScroll()` 解除禁止页面滚动
                 overlay.classList.remove("show");
+                console.log("overlay show remove!!!")
             } else {
                 return;
             }
@@ -220,6 +221,24 @@ function CloseLocalSearch(force_close=false, when_delete_all=false) {
             closeLocalSearchImpl();
         }, 150);
     }
+}
+// 定义一个函数用于阻止滚动
+function preventScroll(event) {
+    if (!event.target.closest(".local-search-result-cls")) {  // 允许 result 的触摸滚动(如果 event.target 没有在 .local-search-result-cls 内部，说明用户触摸的是 body 其他地方，需要阻止滚动)
+      event.preventDefault(); // 阻止 默认 的滚动行为, 来阻止body滚动
+    }
+  }
+  
+// 禁止滚动
+function disableScroll() {
+    document.body.style.overflow = "hidden";
+    document.addEventListener("touchmove", preventScroll, { passive: false });
+}
+  
+// 允许滚动
+function enableScroll() {
+    document.body.style.overflow = "auto";
+    document.removeEventListener("touchmove", preventScroll);
 }
 
 input_box.addEventListener('input', function () {
@@ -263,13 +282,15 @@ $(document).on('pointerup', '#local-search-close', function(event) {
     CloseLocalSearch(true, false);
 });
 
-input_box.addEventListener("focus", function() {  // when input get the focus
-    if (isMobile()) {
-        input_box.classList.add('expanded');
-        document.body.style.overflow = "hidden"; // 禁止body滚动
-        overlay.classList.add("show");
-    }
-});
+// input_box.addEventListener("focus", function() {  // when input get the focus
+//     if (isMobile()) {
+//         input_box.classList.add('expanded');
+//         document.body.style.overflow = "hidden"; // 禁止body滚动
+//         overlay.classList.add("show");
+
+//         console.log("overlay show remove 2!!!")
+//     }
+// });
 
 input_box.addEventListener("blur", function() {  // when input lose the focus
     if (isMobile()) {
@@ -279,7 +300,7 @@ input_box.addEventListener("blur", function() {  // when input lose the focus
 
         // console.log("输入框失去焦点2: " + temp_keyword.length);
         if (temp_keyword.length <= 0) {
-            document.body.style.overflow = ""; // 恢复body滚动
+            enableScroll();  // 调用 `enableScroll()` 解除禁止页面滚动
             overlay.classList.remove("show");
             input_box.classList.remove('expanded');
         }
@@ -290,7 +311,10 @@ searchButton.addEventListener('click', function() {  // 这里要用click不要�
     if (isMobile()) {
         // 使输入框渐变显示
         searchButton.disabled = true;  // 点击之后就禁用, 直到input失焦
+        input_box.classList.add('expanded');
         input_box.focus();
+        disableScroll();          // 调用 `disableScroll()` 禁止页面滚动
+        overlay.classList.add("show");
     }
 });
 
