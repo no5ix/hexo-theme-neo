@@ -3,20 +3,26 @@ table {
   width: $table-width;
   border-collapse: collapse;
   border-spacing: 0;
-  border: 1px solid var(--table-border-color);
+  /* border: 1px solid var(--table-border-color); */
   font-size: $table-font-size;
   table-layout: fixed;
   word-wrap: break-all;
+  border-radius: 12px;
+  border-style: hidden;
+  box-shadow: 0 0 0 1px var(--table-border-color);
 }
+
+/*
 table>tbody>tr {
   &:nth-of-type(odd) {
     background: var(--table-row-odd-bg-color);
   }
 
-  /* &:hover {
-    background: var(--table-row-hover-bg-color);
-  } */
+  &:hover {
+    background: var(--table-th-background-color);
+  } 
 }
+*/
 
 caption, th, td {
   padding: $table-cell-padding;
@@ -26,13 +32,24 @@ caption, th, td {
 }
 
 th, td {
-  /* border-bottom: 1px solid var(--table-border-color); */
+  border-bottom: 1px solid var(--table-border-color);
   border-right: 1px solid var(--table-border-color);
 }
 
 th {
   padding-bottom: 10px;
   font-weight: $table-th-font-weight;
+  background-color: var(--table-th-background-color);
+  padding: 20px;
+}
+
+/* 让表头的顶部圆角生效, 这个radius要等于table的 */
+th:first-child {
+  border-top-left-radius: 12px;
+}
+
+th:last-child {
+  border-top-right-radius: 12px;
 }
 
 td { border-bottom-width: 1px; }
