@@ -325,6 +325,9 @@ input[id$=local-search-input].expanded {
       a {
         margin-top: 20px;
         font-size: 16px;
+        &:focus {
+          border-bottom-color: transparent; /* 当一个<a>被tab选中希望他的border-bottom变透明 */
+        }
       }
       p {
         margin-top: 10px;
