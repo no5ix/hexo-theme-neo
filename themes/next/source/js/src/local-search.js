@@ -211,7 +211,7 @@ function CloseLocalSearch(force_close=false, when_delete_all=false) {
                 input_box.classList.remove('expanded');
                 enableScroll();  // 调用 `enableScroll()` 解除禁止页面滚动
                 overlay.classList.remove("show");
-                console.log("overlay show remove!!!")
+                // console.log("overlay show remove!!!")
             } else {
                 return;
             }
