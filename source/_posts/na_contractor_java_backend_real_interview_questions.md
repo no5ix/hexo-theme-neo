@@ -36,19 +36,19 @@ Hey there! I’m Michael Hu.
 
 I’ve been working as a Java backend developer for over ten years now, and I have experience building scalable, high-performance systems to solve real business problems.
 
-I'm good at Java and Spring Boot. I used them to design and run backend systems stably. And I used them to create many RESTful APIs. These APIs have detailed documentation, and I used these APIs, Kubernetes,  to make many different micro services communicate with each other in a distributed environment.  
+I'm good at Java and Spring Boot. I used them to design and run backend systems stably. And I used them to create many RESTful APIs. These APIs have detailed documentation, and I used these APIs, to make many different micro services communicate with each other in a distributed environment.  
 
-- For database, I use MySQL and MongoDB and redis, I’ve got plenty of experience with Hibernate and JPA for data persistence. I design complex schemas, optimize queries, and ensure data integrity
-- For data processing, I also work with Apache Kafka for real-time data processing, to build event-driven architectures that handle high-throughput data streams and scalable messaging systems.
-- For Security, I use Spring Security, OAuth2, JWT to implement authentication and authorization, to make sure everything is secure.
-- For cloud platforms, I worked with various AWS services. I use EC2 to deploy and manage virtual servers, RDS to handle relational databases, S3 for scalable storage, Lambda for serverless computing, and ECS to orchestrate containerized applications.
-    1. EC2 (Elastic Compute Cloud) → Deploy and manage virtual servers
+- For **database**, I use MySQL and MongoDB and redis, I’ve got plenty of experience with Hibernate and JPA for data persistence. I design complex schemas, optimize queries, and ensure data integrity
+- For **data processing**, I also work with Apache `/ əˈpætʃi /` Kafka for real-time data processing, to build event-driven architectures that handle high-throughput data streams and scalable messaging systems.
+- For **security**, I use Spring Security, OAuth2, JWT to implement authentication and authorization, to make sure everything is secure.
+- For **cloud platforms**, I worked with many AWS services. I use EC2 to deploy and manage virtual servers, RDS to handle relational databases, S3 to handle scalable storage, ECS to orchestrate `/ ˈɔːrkɪstreɪt /` Microservices in containers, I use CloudWatch to track performance, monitor logs, metrics, and system health.
+    1. **EC2** (Elastic Compute Cloud) → Deploy and manage virtual servers
         - I use EC2 to launch, configure, and manage scalable virtual machines for running applications. It allows me to choose different instance types based on computing needs and ensures high availability.
-    2. RDS (Relational Database Service) → Manage relational databases
-        - I use RDS to host and manage relational databases like MySQL, PostgreSQL, and SQL Server, handling automated backups, scaling, and maintenance without manual server management.
-    3. S3 (Simple Storage Service) → Store and retrieve any amount of data
-        - I use S3 for storing and retrieving large amounts of data, such as logs, backups, images, and static website assets. It provides high durability and scalability.
-    4. CloudWatch: monitoring
+    2. **RDS** (Relational Database Service) → Manage relational databases
+        - I use RDS to host and manage relational databases like MySQL, PostgreSQL, and SQL Server, handling automated backups, scaling, and maintenance `/ ˈmeɪntənəns /` without manual server management.
+    3. **S3** (Simple Storage Service) → Store and retrieve any amount of data
+        - I use S3 for storing and retrieving large amounts of data, such as logs, backups, images `/ ˈɪmɪdʒ /` , and static website assets. It provides high durability and scalability.
+    4. **CloudWatch**: monitoring
         - I use CloudWatch to track performance, monitor logs, metrics, and system health.
 
 参考:  

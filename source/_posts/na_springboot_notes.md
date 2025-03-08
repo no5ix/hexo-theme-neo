@@ -1,5 +1,5 @@
 ---
-title: NA Sprint Boot Notes
+title: NA Spring Boot Notes
 date: 2025-01-18 21:54:08
 tags:
 - noodle
