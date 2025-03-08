@@ -43,7 +43,10 @@ async function handleSearch() {
     if (is_load_xml_finished == 0) {
         var local_search_tips =
             "<span class='local-search-loading'>" +
-                "The first search may be slow. First, think about a classic algorithm problem, climbing stairs." +
+                "The first search may take a few seconds to load ..." +
+            "</span>" +
+            "<span class='local-search-loading'>" +
+                "First, think about a classic algorithm problem, climbing stairs." +
             "</span>" +
             "<span class='local-search-loading'>" +
                 "A frog can jump up 1 step at a time, or it can jump up 2 steps. Find out how many ways there are for the frog to jump up a 6-step staircase? And what about an n-step staircase?" +
@@ -271,7 +274,7 @@ input_box.addEventListener('input', function () {
     }
 
     keywords = temp_keyword.toLowerCase().split(/[\s\-]+/);  // 根据 空格 或者 "-" 来分割, keywords 是用户搜索的单词数组, 如用户搜索"spring boot", 则会变为[spring, boot]
-    if (keywords.filter(word => word.length === 1).length > 2) { // keywords数组里的字符串是否为单个字母的字符串超过 2 个, 这种情况一般都是手机中文打字, 但是极其耗性能, 因为单字母都能匹配, 出来都是不想要的结果
+    if (keywords.filter(word => word.length === 1).length > 1) { // keywords数组里的字符串是否为单个字母的字符串超过 1 个, 这种情况一般都是手机中文打字, 但是极其耗性能, 因为单字母都能匹配, 但出来都是不想要的结果
         return;
     }
     
@@ -285,15 +288,12 @@ input_box.addEventListener('input', function () {
         first_char_flag = 1;
         let duration = 600;
 
-        if (isMobile()) {
-            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', duration);
-        } else {
+        $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', duration);
+        if (!isMobile()) {
             $('#' + content_id).removeAttr("headroom_special_attr");  // headroom_special_attr是用来 当页面滚动的时候local search的结果页面也会跟着一起被收起, 当不写这行代码的时候, 空的result会在页面往上滚的时候出现 ...
             setTimeout(()=>{
                 resultContent.classList.add("smooth-transition"); // 这个是为了"当页面滚动的时候local search的结果页面也会跟着一起被收起"的时候有一个平滑滚动的动画, 这个不能直接写在css里, 不然会影响 velocity
             }, duration + 200); 
-
-            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', duration);
         }
     }
 });
@@ -426,7 +426,7 @@ async function setLocalSearchXMLData(xmlResponse, xmlTimestamp) {
         // 如果输入框有文字, 等待下载 xml完毕之后再弹出结果
         if (temp_keyword.length > 0) {
             handleSearch();
-            $('.local-search-result-cls ul li').velocity('stop').velocity('transition.swoopIn', 1200);
+            $('#' + content_id).velocity('stop').velocity('transition.slideDownIn', 600);
         }
     };
     request.onerror = function(event) {
