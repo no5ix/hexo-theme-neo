@@ -13,8 +13,8 @@ var keywords = [];
 var xml_resp_cache = null;
 var temp_keyword = "";
 
-let content_result_li_arr = [];
-let title_result_li_arr = [];
+let content_result_li_map = new Map();
+let title_result_li_map = new Map();
 
 // 是否为第一个字母被键入的标志位
 var first_char_flag = 0;
@@ -75,6 +75,8 @@ async function handleSearch() {
             var data_content = orig_data_content.toLowerCase();
             var first_occur = -1;
             var index_title = -1;  // 匹配的标题的字符串位置
+            let match_title_cnt = 0;  // keywords 搜索关键字 匹配到 标题的次数, 用来让匹配次数越多的标题放在result列表前面 
+            let match_content_cnt = 0;  // keywords 搜索关键字 匹配到 正文的次数, 用来让匹配次数越多的放在result列表前面 
 
             // only match artiles with not empty contents
             if (data_content !== "") {
@@ -88,8 +90,13 @@ async function handleSearch() {
                         isMatch = false;
                         break;  // 只要 keywords 里有 任何一个元素 在 内容和标题 都搜不到, 就算不match
                     } else {
+                        if (index_title >= 0) {
+                            match_title_cnt += 1
+                        }
                         if (index_content < 0) {
                             index_content = 0;
+                        } else {
+                            match_content_cnt += 1;
                         }
                         if (i == 0) {  // keywords 里的第一个元素搜到了, 记录一下位置
                             first_occur = index_content;
@@ -155,13 +162,7 @@ async function handleSearch() {
                         );
                     });
                 }
-
-                let temp_arr = null;
-                if (index_title >= 0) {  // 标题匹配到的话, 优先排在搜索列表结果前面
-                    temp_arr = title_result_li_arr;
-                } else {
-                    temp_arr = content_result_li_arr;
-                }
+                let temp_arr = [];
                 temp_arr.push(
                     "<li><a href='",
                             decodeURIComponent(data.url),
@@ -172,16 +173,30 @@ async function handleSearch() {
                             match_content,
                         "...</p>",
                     "</li>"
-                )
+                );
+                if (index_title >= 0) {  // 标题匹配到的话, 优先排在搜索列表结果前面
+                    title_result_li_map.set(temp_arr.join(""), match_title_cnt);
+                } else {
+                    content_result_li_map.set(temp_arr.join(""), match_content_cnt);
+                }
                 is_find_any = true;
             }
         });
 
         if (is_find_any) {
+            const sorted_title_result_li_str = [...title_result_li_map.entries()]
+                .sort((a, b) => b[1] - a[1]) // 降序排序
+                .map(entry => entry[0])       // 取出 key（字符串）
+                .join("");                    // 连接成字符串
+            const sorted_content_result_li_str = [...content_result_li_map.entries()]
+                .sort((a, b) => b[1] - a[1]) // 降序排序
+                .map(entry => entry[0])       // 取出 key（字符串）
+                .join("");                    // 连接成字符串
             // 标题匹配到的话, 优先排在搜索列表结果前面
-            resultContent.innerHTML = '<ul class=\"search-result-list\">' + title_result_li_arr.join("") + content_result_li_arr.join("") + "</ul>";
-            title_result_li_arr.length = 0;  // 全局清空数组，不需要保留旧的引用
-            content_result_li_arr.length = 0;
+            resultContent.innerHTML = '<ul class=\"search-result-list\">' + sorted_title_result_li_str + sorted_content_result_li_str + "</ul>";
+
+            title_result_li_map.clear();
+            content_result_li_map.clear();
         } else {
             resultContent.innerHTML =
                 "<ul class='local-search-empty-ul'><span class='local-search-empty'>404.<span></ul>";
@@ -274,7 +289,9 @@ input_box.addEventListener('input', function () {
     }
 
     keywords = temp_keyword.toLowerCase().split(/[\s\-]+/);  // 根据 空格 或者 "-" 来分割, keywords 是用户搜索的单词数组, 如用户搜索"spring boot", 则会变为[spring, boot]
-    if (keywords.filter(word => word.length === 1).length > 1) { // keywords数组里的字符串是否为单个字母的字符串超过 1 个, 这种情况一般都是手机中文打字, 但是极其耗性能, 因为单字母都能匹配, 但出来都是不想要的结果
+    let lastElement = keywords[keywords.length - 1];
+    if (keywords.length > 1 && lastElement.length === 1) {
+        // keywords数组里的最后一个字符串为单个字母, 这种情况一般都是手机中文打字, 但是极其耗性能, 因为单字母都能匹配还会导致出来的结果乱码, 但出来都是不想要的结果
         return;
     }
     
