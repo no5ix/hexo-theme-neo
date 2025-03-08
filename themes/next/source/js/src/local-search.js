@@ -1,3 +1,11 @@
+// ✅ 严格模式的好处
+    // ✔ 提高代码安全性（防止未声明变量、全局污染）
+    // ✔ 提高代码可读性（禁止重复参数、with 语句等）
+    // ✔ 更好的性能优化（某些优化仅在严格模式下启用）
+// ❌ 何时不推荐使用？
+    // 	•	旧代码可能不兼容（如果代码依赖于非严格模式特性）。
+    // 	•	某些第三方库可能没有适配严格模式。
+'use strict';  // 严格模式
 
 let db; // 全局数据库变量
 var is_load_xml_finished = 0;
@@ -5,12 +13,12 @@ var keywords = [];
 var xml_resp_cache = null;
 var temp_keyword = "";
 
-var search_result_str = "";
+let content_result_li_arr = [];
+let title_result_li_arr = [];
 
 // 是否为第一个字母被键入的标志位
 var first_char_flag = 0;
 
-'use strict';
 
 var content_id = isMobile() ? "local-search-result-mobile" : "local-search-result-pc";
 var input_box = document.getElementById('local-search-input');
@@ -51,7 +59,7 @@ async function handleSearch() {
     } else {
         // Retrieve the object from indexedDB
         var xml_resp = await retrieve_search_xml();
-        search_result_str = '<ul class=\"search-result-list\">';
+        let is_find_any = false;
         xml_resp.forEach(function (data) {
             var isMatch = true;
             // var content_index = [];
@@ -63,10 +71,10 @@ async function handleSearch() {
             var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");  // 比如，当一个字符串中包含<p>mmp</p>时，经过这段代码处理后，将变为 mmp
             var data_content = orig_data_content.toLowerCase();
             var first_occur = -1;
+            var index_title = -1;  // 匹配的标题的字符串位置
 
             // only match artiles with not empty contents
             if (data_content !== "") {
-                var index_title = -1;
                 var index_content = -1;
                 for (let i = 0; i < keywords.length; i++) {
                     let keyword = keywords[i];
@@ -145,24 +153,36 @@ async function handleSearch() {
                     });
                 }
 
-                search_result_str +=
-                    "<li><a href='" +
-                    decodeURIComponent(data.url) +
-                    "' class='search-result-title' target='_blank'>" +
-                    orig_data_title +
-                    "</a>";
-                search_result_str +=
-                    '<p class="search-result">' + match_content + "...</p>";
-                search_result_str += "</li>";
+                let temp_arr = null;
+                if (index_title >= 0) {  // 标题匹配到的话, 优先排在搜索列表结果前面
+                    temp_arr = title_result_li_arr;
+                } else {
+                    temp_arr = content_result_li_arr;
+                }
+                temp_arr.push(
+                    "<li><a href='",
+                            decodeURIComponent(data.url),
+                            "' class='search-result-title' target='_blank'>",
+                            orig_data_title,
+                        "</a>",
+                        '<p class="search-result">',
+                            match_content,
+                        "...</p>",
+                    "</li>"
+                )
+                is_find_any = true;
             }
         });
 
-        search_result_str += "</ul>";
-        if (search_result_str.indexOf("<li>") === -1) {
-            return (resultContent.innerHTML =
-                "<ul class='local-search-empty-ul'><span class='local-search-empty'>404.<span></ul>");
+        if (is_find_any) {
+            // 标题匹配到的话, 优先排在搜索列表结果前面
+            resultContent.innerHTML = '<ul class=\"search-result-list\">' + title_result_li_arr.join("") + content_result_li_arr.join("") + "</ul>";
+            title_result_li_arr.length = 0;  // 全局清空数组，不需要保留旧的引用
+            content_result_li_arr.length = 0;
+        } else {
+            resultContent.innerHTML =
+                "<ul class='local-search-empty-ul'><span class='local-search-empty'>404.<span></ul>";
         }
-        resultContent.innerHTML = search_result_str;
     }
 }
 
@@ -222,19 +242,20 @@ function CloseLocalSearch(force_close=false, when_delete_all=false) {
         }, 150);
     }
 }
+
 // 定义一个函数用于阻止滚动
 function preventScroll(event) {
     if (!event.target.closest(".local-search-result-cls")) {  // 允许 result 的触摸滚动(如果 event.target 没有在 .local-search-result-cls 内部，说明用户触摸的是 body 其他地方，需要阻止滚动)
       event.preventDefault(); // 阻止 默认 的滚动行为, 来阻止body滚动
     }
-  }
-  
+}
+
 // 禁止滚动
 function disableScroll() {
     document.body.style.overflow = "hidden";
     document.addEventListener("touchmove", preventScroll, { passive: false });
 }
-  
+
 // 允许滚动
 function enableScroll() {
     document.body.style.overflow = "auto";
