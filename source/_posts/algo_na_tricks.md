@@ -6,6 +6,7 @@ tags:
 - Algo
 - LeetCode
 - NA
+- Java
 categories:
 - Algo
 ---
@@ -1806,6 +1807,125 @@ class Solution {
 ```
 
 我们通过使用辅助函数，增加函数参数列表，在参数中携带额外信息，将这种约束传递给子树的所有节点，这也是二叉树算法的一个小技巧吧。
+
+
+## 构造二叉树
+
+前序和中序可以唯一确定一棵二叉树。后序和中序可以唯一确定一棵二叉树。那么前序和后序可不可以唯一确定一棵二叉树呢？
+
+前序和后序不能唯一确定一棵二叉树！，因为没有中序遍历无法确定左右部分，也就是无法分割。
+
+举一个例子：
+![alt text](/img/algo_na_tricks/image-13.png)
+
+106.从中序与后序遍历序列构造二叉树2
+
+tree1 的前序遍历是`[1 2 3]`， 后序遍历是`[3 2 1]`。
+
+tree2 的前序遍历是`[1 2 3]`， 后序遍历是`[3 2 1]`。
+
+那么tree1 和 tree2 的前序和后序完全相同，这是一棵树么，很明显是两棵树！
+
+所以前序和后序不能唯一确定一棵二叉树！
+
+
+### 根据前中序构造二叉树
+
+[105. Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/?envType=problem-list-v2&envId=rab78cw1)
+
+Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
+
+- 代码, 参考: https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solutions/255811/cong-qian-xu-yu-zhong-xu-bian-li-xu-lie-gou-zao-9/
+- 图, 参考: https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solutions/2361558/105-cong-qian-xu-yu-zhong-xu-bian-li-xu-4lvkz/
+
+![alt text](/img/algo_na_tricks/image-12.png)
+
+```java
+class Solution {
+    private Map<Integer, Integer> indexMap;
+
+    public TreeNode myBuildTree(int[] preorder, int[] inorder, int preorder_left, int preorder_right, int inorder_left, int inorder_right) {
+        if (preorder_left > preorder_right) {
+            return null;
+        }
+
+        // 前序遍历中的第一个节点就是根节点
+        int preorder_root = preorder_left;
+        // 在中序遍历中定位根节点
+        int inorder_root = indexMap.get(preorder[preorder_root]);
+        
+        // 先把根节点建立出来
+        TreeNode root = new TreeNode(preorder[preorder_root]);
+        // 得到左子树中的节点数目
+        int size_left_subtree = inorder_root - inorder_left;
+        // 递归地构造左子树，并连接到根节点
+        // 先序遍历中「从 左边界+1 开始的 size_left_subtree」个元素就对应了中序遍历中「从 左边界 开始到 根节点定位-1」的元素
+        root.left = myBuildTree(preorder, inorder, preorder_left + 1, preorder_left + size_left_subtree, inorder_left, inorder_root - 1);
+        // 递归地构造右子树，并连接到根节点
+        // 先序遍历中「从 左边界+1+左子树节点数目 开始到 右边界」的元素就对应了中序遍历中「从 根节点定位+1 到 右边界」的元素
+        root.right = myBuildTree(preorder, inorder, preorder_left + size_left_subtree + 1, preorder_right, inorder_root + 1, inorder_right);
+        return root;
+    }
+
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        int n = preorder.length;
+        // 构造哈希映射，帮助我们快速定位根节点
+        indexMap = new HashMap<Integer, Integer>();
+        for (int i = 0; i < n; i++) {
+            indexMap.put(inorder[i], i);
+        }
+        return myBuildTree(preorder, inorder, 0, n - 1, 0, n - 1);
+    }
+}
+```
+
+
+### 根据中后序构造二叉树
+
+https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description/
+
+![alt text](/img/algo_na_tricks/image-15.png)
+
+```java
+// 代码, 参考: https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solutions/255811/cong-qian-xu-yu-zhong-xu-bian-li-xu-lie-gou-zao-9/
+// 图, 参考: https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0106.从中序与后序遍历序列构造二叉树.md#java
+class Solution {
+    private Map<Integer, Integer> indexMap;
+
+    public TreeNode myBuildTree(int[] postorder, int[] inorder, int postorder_left, int postorder_right, int inorder_left, int inorder_right) {
+        if (postorder_left > postorder_right) {
+            return null;
+        }
+
+        // 后序遍历中的最后一个节点就是根节点
+        int postorder_root = postorder_right;
+        // 在中序遍历中定位根节点
+        int inorder_root = indexMap.get(postorder[postorder_root]);
+        
+        // 先把根节点建立出来
+        TreeNode root = new TreeNode(postorder[postorder_root]);
+        // 得到左子树中的节点数目
+        int size_left_subtree = inorder_root - inorder_left;
+        // 递归地构造左子树，并连接到根节点
+        // 后序遍历中「从 左边界 开始的 size_left_subtree - 1」个元素就对应了中序遍历中「从 左边界 开始到 根节点定位-1」的元素
+        root.left = myBuildTree(postorder, inorder, postorder_left, postorder_left + size_left_subtree - 1, inorder_left, inorder_root - 1);
+        // 递归地构造右子树，并连接到根节点
+        // 先序遍历中「从 左边界+左子树节点数目 开始到 右边界 - 1」的元素就对应了中序遍历中「从 根节点定位+1 到 右边界」的元素
+        root.right = myBuildTree(postorder, inorder, postorder_left + size_left_subtree, postorder_right - 1, inorder_root + 1, inorder_right);
+        return root;
+    }
+
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+        int n = postorder.length;
+        // 构造哈希映射，帮助我们快速定位根节点
+        indexMap = new HashMap<Integer, Integer>();
+        for (int i = 0; i < n; i++) {
+            indexMap.put(inorder[i], i);
+        }
+        return myBuildTree(postorder, inorder, 0, n - 1, 0, n - 1);
+    }
+}
+```
 
 
 # 回溯

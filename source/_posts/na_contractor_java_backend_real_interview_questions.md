@@ -21,16 +21,10 @@ password: 'ees'
 
 ### BQ
 
-#### intro
+#### Self - Introduction
 
-- Self-Introduction:
-    - Prepare a fluent self-introduction and a detailed summary of work/project experience.
-    - Familiarize yourself thoroughly with your resume.Be ready to elaborate on your roles, achievements, and technologies/tools you used.
-    - 
-- Work/Project Summary:
-    - Prepare 1-2 examples of past projects or jobs where you made a significant impact. Use the STAR method (Situation, Task, Action, Result) to structure your responses. DO NOT READ, we can tell!
-
-##### Self - Introduction
+- Prepare a fluent self-introduction and a detailed summary of work/project experience.
+- Familiarize yourself thoroughly with your resume.Be ready to elaborate on your roles, achievements, and technologies/tools you used.
 
 Hey there! I’m Michael Hu.
 
@@ -38,7 +32,7 @@ I’ve been working as a Java backend developer for over ten years now, and I ha
 
 I'm good at Java and Spring Boot. I used them to design and run backend systems stably. And I used them to create many RESTful APIs. These APIs have detailed documentation, and I used these APIs, to make many different micro services communicate with each other in a distributed environment.  
 
-- For **database**, I use MySQL and MongoDB and redis, I’ve got plenty of experience with Hibernate and JPA for data persistence. I design complex schemas, optimize queries, and ensure data integrity
+- For **database**, I mainly use MySQL and MongoDB and redis, I’ve got plenty of experience with Hibernate and JPA for data persistence. I design complex schemas, optimize queries, and ensure data integrity
 - For **data processing**, I also work with Apache `/ əˈpætʃi /` Kafka for real-time data processing, to build event-driven architectures that handle high-throughput data streams and scalable messaging systems.
 - For **security**, I use Spring Security, OAuth2, JWT to implement authentication and authorization, to make sure everything is secure.
 - For **cloud platforms**, I worked with many AWS services. I use EC2 to deploy and manage virtual servers, RDS to handle relational databases, S3 to handle scalable storage, ECS to orchestrate `/ ˈɔːrkɪstreɪt /` Microservices in containers, I use CloudWatch to track performance, monitor logs, metrics, and system health.
@@ -56,7 +50,9 @@ I'm good at Java and Spring Boot. I used them to design and run backend systems 
 - EKS(Elastic Kubernetes Service): 托管 Kubernetes 集群，简化容器编排。
 
 
-##### Work/Project Summary
+#### Work/Project Summary
+
+Prepare 1-2 examples of past projects or jobs where you made a significant impact. Use the STAR method (Situation, Task, Action, Result) to structure your responses. DO NOT READ, we can tell!
 
 - **Project 1**: Russell Investments - Backend Developer (Nov 2022 - Present, Seattle, WA)
     - **Situation**: Russell Investments, a fintech company, needed to level up its backend systems to keep up with a growing number of financial transactions. As data volume and user requests increased, the system started struggling with performance and security issues.
@@ -70,7 +66,7 @@ I'm good at Java and Spring Boot. I used them to design and run backend systems 
     - **Result**: The new microservices setup made the system way more flexible and easier to maintain. Thanks to the integrated analytics tools, marketing campaigns became a lot more data-driven. Performance improved significantly—we could handle 50% more concurrent users, which led to a 25% boost in user engagement and a noticeable increase in revenue from marketing campaigns.
 
 
-#### 15Q
+#### 15 behavioral questions
 
 1. Describe a major conflict within or outside your team and how you handled it, or how you dealt with a difficult team member.
     - **general approach**: First, I try to understand the root cause of the conflict or the behavior of the difficult team member. I set up a one - on - one meeting in a calm environment to have an open - and - honest conversation. I listen actively to their concerns and explain my perspective. If it's a conflict about work, we analyze the requirements and goals together to find a common ground. For example, if it's about a different approach to implementing a feature, we evaluate the pros and cons of each method based on the project's needs like performance, maintainability, and time constraints.

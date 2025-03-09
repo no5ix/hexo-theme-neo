@@ -5,6 +5,7 @@ tags:
 - noodle
 - Java
 - NA
+- Syllabus
 categories:
 - Noodle
 password: 'ees'
@@ -16,6 +17,7 @@ password: 'ees'
 
 
 {% post_link na_contractor_java_backend_syllabus %}
+{% post_link na_contractor_java_backend_syllabus3 %}
 
 
 # Session7-SQL
