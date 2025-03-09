@@ -23,10 +23,11 @@ password: 'ees'
 
 #### Self - Introduction
 
+**requirements**:  
 - Prepare a fluent self-introduction and a detailed summary of work/project experience.
 - Familiarize yourself thoroughly with your resume.Be ready to elaborate on your roles, achievements, and technologies/tools you used.
 
-Hey there! I’m Michael Hu.
+> Hey there! I’m Michael Hu.
 
 I’ve been working as a Java backend developer for over ten years now, and I have experience building scalable, high-performance systems to solve real business problems.
 
@@ -52,18 +53,18 @@ I'm good at Java and Spring Boot. I used them to design and run backend systems 
 
 #### Work/Project Summary
 
-Prepare 1-2 examples of past projects or jobs where you made a significant impact. Use the STAR method (Situation, Task, Action, Result) to structure your responses. DO NOT READ, we can tell!
+**requirements**: Prepare 1-2 examples of past projects or jobs where you made a significant impact. Use the STAR method (Situation, Task, Action, Result) to structure your responses. DO NOT READ, we can tell!
 
 - **Project 1**: Russell Investments - Backend Developer (Nov 2022 - Present, Seattle, WA)
-    - **Situation**: Russell Investments, a fintech company, needed to level up its backend systems to keep up with a growing number of financial transactions. As data volume and user requests increased, the system started struggling with performance and security issues.
-    - **Task**: My job was to boost backend performance, tighten security, and integrate new financial services into the system. A big part of this was improving API response times and making sure all financial data stayed safe.
-    - **Action**: First, I brought in Redis for caching frequently accessed data, which cut down on database queries and made responses much faster. For security, I implemented Spring Security and OAuth2 to beef up authentication and authorization. I also optimized database queries by analyzing execution plans and tweaking the schema where needed. On top of that, I integrated AWS services like RDS for better data storage and management.
-    - **Result**: These changes made a huge impact—API response times improved by 30%, security got a major upgrade with zero security breaches, and the system could now handle 20% more transactions per day. Plus, the new financial services were successfully integrated, making the platform more powerful and scalable.
+    - **Situation**: Russell Investments, it's a fintech company, because the number of financial transactions was growing very fast, so we needed a stronger backend system.
+    - **Task**: My job was to speed up backend performance, improve security, and integrate new financial services into the system.
+    - **Action**: First, I introduced Redis caching to reduce database load and speed up responses. To strengthen security, I used Spring Security and OAuth2 for authentication and authorization. I also optimized database queries by adding indexes, removing redundant joins. For storage, I integrated AWS RDS to enhance data management.
+    - **Result**: as the result, API response times improved by 30%.  The system handled 20% more daily transactions. Plus, we successfully integrated new financial services, making the platform more scalable and efficient.
 - **Project 2**: Prodege `/proʊdeɪˈʒeɪ/` - Backend Developer (Aug 2019 - Nov 2022, El Segundo, CA)
-    - **Situation**: Prodege, a company specializing in online marketing and consumer polling, was growing fast. But their old backend system couldn’t keep up with the new features and the increasing number of users taking part in polls and marketing campaigns.
-    - **Task**: My job was to build a brand-new microservices-based backend that could scale with the company’s growth. This meant designing and implementing RESTful APIs, integrating third-party analytics tools, and making sure the system was both high-performance and reliable.
-    - **Action**: I built a modular microservices architecture using Spring Boot, where each microservice handled a specific function—like user management, poll management, and data analytics integration. To handle real-time user interactions, I used Kafka, which allowed us to process and analyze data efficiently. I also integrated third-party analytics tools to gain deeper insights. For deployment, I went with Docker and Kubernetes to make sure everything was highly available and scalable.
-    - **Result**: The new microservices setup made the system way more flexible and easier to maintain. Thanks to the integrated analytics tools, marketing campaigns became a lot more data-driven. Performance improved significantly—we could handle 50% more concurrent users, which led to a 25% boost in user engagement and a noticeable increase in revenue from marketing campaigns.
+    - **Situation**: As for the second company, Prodege, it is an online marketing company, it was growing fast, but their old backend couldn’t keep up with new features and increasing user activity.
+    - **Task**: I was responsible for building a scalable microservices-based backend. This included designing RESTful APIs, integrating third-party analytics tools, and ensuring high performance and reliability.
+    - **Action**: So I developed a modular microservices architecture using Spring Boot. Each service handled a specific function, like user management, poll management, and data analytics. For real-time data processing, I used Kafka to make data analysis much faster. I also used Docker and Kubernetes to handle deployment.
+    - **Result**: The new microservices setup made the system more flexible and easier to maintain. And our marketing campaigns got more effective, the performance improved significantly, and user engagement went up by 25%
 
 
 #### 15 behavioral questions
