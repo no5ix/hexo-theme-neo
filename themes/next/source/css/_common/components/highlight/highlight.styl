@@ -42,6 +42,10 @@ pre {
   }
 }
 
+pre, .highlight {
+  background: #6d5c5c;
+}
+
 .highlight {
   @extend $code-block;
 
@@ -62,6 +66,9 @@ pre {
     margin: 0;
     width: auto;
     border: none;
+    border-radius: 0;
+    border-style: none;
+    box-shadow: none;
   }
 
   td {
@@ -69,16 +76,20 @@ pre {
     padding: 0;
   }
 
+  /* 文章```代码块顶部样式 */
   figcaption {
     clearfix();
     font-size: 1em;
     color: $highlight-foreground;
     line-height: 1em;
     margin-bottom: 1em;
+    margin: 0em;
+    padding: 0.5em;
 
     a {
       float: right;
-      color: $highlight-foreground;
+      /* color: $highlight-foreground; */
+      color: rgb(80, 115, 184);
 
       &:hover { border-bottom-color: $highlight-foreground; }
     }
@@ -101,7 +112,6 @@ pre {
 
   .line { height: 20px; }
 }
-
 
 .gutter {
   -webkit-user-select: none;
