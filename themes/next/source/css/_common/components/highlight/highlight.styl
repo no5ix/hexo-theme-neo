@@ -42,10 +42,6 @@ pre {
   }
 }
 
-pre, .highlight {
-  background: #6d5c5c;
-}
-
 .highlight {
   @extend $code-block;
 
@@ -85,6 +81,10 @@ pre, .highlight {
     margin-bottom: 1em;
     margin: 0em;
     padding: 0.5em;
+    background: #6d5c5c;
+    position: sticky;
+    top: 0;
+    left: 0;
 
     a {
       float: right;
