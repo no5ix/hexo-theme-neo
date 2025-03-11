@@ -141,25 +141,21 @@ async function handleSearch() {
                 var regS = "";
                 if (match_content != "") {
                     // highlight content and title
-                    keywords.forEach(function (keyword) {
-                        regS = new RegExp(keyword, "gi");
-                        match_content = match_content.replace(
-                            regS,
-                            '<b class="search-keyword">' + keyword + "</b>"
-                        );
-                        orig_data_title = orig_data_title.replace(
-                            regS,
-                            '<b class="search-keyword">' + keyword + "</b>"
-                        );
+                    // 如果 HTML 结构中已经包含 <b>，你可以用 replace() 时 跳过 <b> 标签内部的内容，避免重复匹配：
+                    let regS = new RegExp(`(?!<b[^>]*?>)(${keywords.join("|")})(?!<\/b>)`, "gi");
+                    match_content = match_content.replace(regS, function (match) {
+                        return '<b class="search-keyword">' + match + "</b>";
+                    });
+                    orig_data_title = orig_data_title.replace(regS, function (match) {
+                        return '<b class="search-keyword">' + match + "</b>";
                     });
                 } else {
                     // highlight title
-                    keywords.forEach(function (keyword) {
-                        regS = new RegExp(keyword, "gi");
-                        orig_data_title = orig_data_title.replace(
-                            regS,
-                            '<b class="search-keyword">' + keyword + "</b>"
-                        );
+                    // 如果 HTML 结构中已经包含 <b>，你可以用 replace() 时 跳过 <b> 标签内部的内容，避免重复匹配：
+                    let regS = new RegExp(`(?!<b[^>]*?>)(${keywords.join("|")})(?!<\/b>)`, "gi");
+
+                    orig_data_title = orig_data_title.replace(regS, function (match) {
+                        return '<b class="search-keyword">' + match + "</b>";
                     });
                 }
                 let temp_arr = [];
@@ -171,7 +167,7 @@ async function handleSearch() {
                         "</a>",
                         '<p class="search-result">',
                             match_content,
-                        "...</p>",
+                        " . . .</p>",
                     "</li>"
                 );
                 if (index_title >= 0) {  // 标题匹配到的话, 优先排在搜索列表结果前面
