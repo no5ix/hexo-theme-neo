@@ -8,7 +8,7 @@
         if('{{ page.password }}'){
 
             function checkPassword(password) {
-              password = password.trim();
+              password = password == null ? null : password.trim();
               if (password !== '{{ page.password }}'){
                 if (password != null) // 如果用户点击了确认而且密码错误的时候, 因为当password == null的时候说明用户点了取消
                 {
