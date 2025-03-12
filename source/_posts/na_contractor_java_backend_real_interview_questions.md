@@ -57,7 +57,7 @@ I'm good at Java and Spring Boot. I used them to design and run backend systems 
 
 - **Project 1**: Russell Investments - Backend Developer (Nov 2022 - Present, Seattle, WA)
     - **Situation**: First, let me talk about the company I’m currently working for. Russell Investments, it's a fintech company, because the number of financial transactions was growing very fast, so we needed a stronger backend system.
-    - **Task**: so my task was to (My job was to) speed up backend performance, improve security, and integrate new financial services into the system.
+    - **Task**: So my job is to optimize the database-related parts and enhance security.
     - **Action**: So I had to take some actions to finish my task. so First, I introduced Redis caching to reduce database load and speed up responses. To strengthen security, I used Spring Security and OAuth2 for authentication and authorization. I also optimized database queries by adding indexes, removing redundant joins. For storage, I integrated AWS RDS to enhance data management.
     - **Result**: as the result, API response times improved by 30%.  The system handled 20% more daily transactions. Plus, we successfully integrated new financial services, making the platform more scalable and efficient.
 - **Project 2**: Prodege `/proʊdeɪˈʒeɪ/` - Backend Developer (Aug 2019 - Nov 2022, El Segundo, CA)
@@ -84,7 +84,7 @@ I'm good at Java and Spring Boot. I used them to design and run backend systems 
     - **Personal experience**: for example, At my previous company, REI, I had trouble dealing with slow database queries for our inventory system.  After breaking them down, I found unoptimized joins. I researched MySQL optimizations and worked with a senior colleague. I added some indexes and reduced query time by 50%.
 3. If your manager asks you to change something that you think is already good enough, how would you handle it?
     - **General approach**: Usually, I listen to my manager’s reasons and then I share my view and show some data to support it. If needed, I think we could come up with a compromise ...
-    - **Personal experience**: for example, At Russell Investments, I implemented Redis caching, which improved performance. However, my manager wanted to switch technologies, Memcached, We ran tests on a new solution to monitor performance and compare it with Redis. Finally, we found that redis was better, so we still used redis.
+    - **Personal experience**: for example, At Russell Investments, I implemented Memcached caching, which improved performance. However, my manager wanted to switch technologies, Redis, We ran tests on a new solution to monitor performance and compare it with Redis. Finally, we found that redis was better, so we decided to use redis.
 4. Why do you want to join our team?
     <!-- - **General approach**: Usually, I research the company and explain how my skills align with its goals and values. -->
     - **Personal experience**: After researching your company and learning about your work, I realized that the stuff I know, like Java, Springboot, MySQL, Redis, and Kafka from my old job, could really help your project succeed.
