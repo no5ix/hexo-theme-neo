@@ -48,8 +48,11 @@
     cursor: pointer;
     padding: 0;
     z-index: 1;
-    width: calc(var(--local-search-width) + 82px);  /* search-icon要覆盖整个input框, 因为input框在手机上经常点不动, 所以search-icon的长度要 等于 input框的宽度+其左右padding(41px + 41px = 82px) 的 和 */
+    /* search-icon要覆盖整个input框, 因为input框在手机上经常点不动, 所以search-icon的长度要 等于 input框的宽度+其左右padding(41px + 41px = 82px) 的 和 */
+    /* width: calc(var(--local-search-width) + 82px); */
     height: 100%;
+    /* 取消双击点击时的黑色高亮, 防止在触摸屏设备上双击时出现黑框。 */
+    -webkit-tap-highlight-color: transparent; 
   }
   /* @media (hover: hover) {
     &:hover {
@@ -76,7 +79,12 @@ input[id$=local-search-input] {
   border-radius: 0;
   width: 98px;
   /* background: inherit;  */
+
   outline: none;
+  box-shadow: none;
+  /* 取消双击点击时的黑色高亮, 防止在触摸屏设备上双击时出现黑框。 */
+  -webkit-tap-highlight-color: transparent; 
+
   /* border-bottom: 1px solid $grey-dark; */
   /* z-index: 9999; */
 
@@ -118,6 +126,7 @@ input[id$=local-search-input] {
   +mobile() {
     text-indent: 0px;
     -webkit-appearance: none;
+    appearance: none;
     height: 43px;
     font-size: 12px;
     border-bottom: none;
