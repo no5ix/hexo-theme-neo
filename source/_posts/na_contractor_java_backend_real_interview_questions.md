@@ -56,12 +56,18 @@ I'm good at Java and Spring Boot. I used them to design and run backend systems 
 **requirements**: Prepare 1-2 examples of past projects or jobs where you made a significant impact. Use the STAR method (Situation, Task, Action, Result) to structure your responses. DO NOT READ, we can tell!
 
 - **Project 1**: Russell Investments - Backend Developer (Nov 2022 - Present, Seattle, WA)
-    - **Situation**: First, let me talk about the company I’m currently working for. Russell Investments, it's a fintech company, because the number of financial transactions was growing very fast, so we needed a stronger backend system.
-    - **Task**: So my job is to optimize the database-related parts and enhance security.
-    - **Action**: So I had to take some actions to finish my task. so First, I introduced Redis caching to reduce database load and speed up responses. To strengthen security, I used Spring Security and OAuth2 for authentication and authorization. I also optimized database queries by adding indexes, removing redundant joins. For storage, I integrated AWS RDS to enhance data management.
-    - **Result**: as the result, API response times improved by 30%.  The system handled 20% more daily transactions. Plus, we successfully integrated new financial services, making the platform more scalable and efficient.
+    - **Situation**: First, let me talk about the company I’m currently working for. Russell Investments, I’m a senior backend java developer there. it's a fintech company, because the number of financial transactions was growing very fast, but their old backend couldn’t keep up with new features and increasing user activity, so we needed a stronger backend system.
+    - **Task**: So my job is to build a scalable microservices-based backend, and optimize the database-related parts and enhance security.
+    - **Action**: So I had to take some actions to finish my task. so First,
+        - **to handle scalability**, I used springboot to developed a modular microservices architecture and designed plenty of RESTful APIs. Each service handled a specific function, like user management, poll management, and data analytics `/ ˌænəˈlɪtɪks /`. 
+        - **to optimize database-related parts**, I used Redis caching to reduce database load and speed up responses. I also optimized database queries by adding indexes, removing redundant joins.
+        - **to process data**, I used Kafka to make data analysis much faster.
+        - **to handle deployment**, I used Docker and Kubernetes to handle it.
+        - **to strengthen security**, I used Spring Security and OAuth2 for authentication and authorization.
+        - **to handle storage**, I integrated AWS RDS to enhance data management. , integrating third-party analytics `/ ˌænəˈlɪtɪks /` tools.
+    - **Result**: as the result, The system handled **20%** more daily transactions, API response times improved by **30%**. and user engagement went up by **25%** . and the platform became more scalable and efficient. The new microservices setup made the system more flexible and easier to maintain.
 - **Project 2**: Prodege `/proʊdeɪˈʒeɪ/` - Backend Developer (Aug 2019 - Nov 2022, El Segundo, CA)
-    - **Situation**: As for the second company, Prodege, it is an online marketing company, it was growing fast, but their old backend couldn’t keep up with new features and increasing user activity.
+    - **Situation**: As for the second company, Prodege, it is an online marketing company, I’m a senior backend java developer there. it was growing fast, but their old backend couldn’t keep up with new features and increasing user activity.
     - **Task**: so my task was to (I was responsible for building) build a scalable microservices-based backend. This included designing RESTful APIs, integrating third-party analytics `/ ˌænəˈlɪtɪks /` tools, and ensuring high performance and reliability.
     - **Action**: So I had to take some actions to finish my task. so I developed a modular microservices architecture using Spring Boot. Each service handled a specific function, like user management, poll management, and data analytics `/ ˌænəˈlɪtɪks /`. For real-time data processing, I used Kafka to make data analysis much faster. I also used Docker and Kubernetes to handle deployment.
     - **Result**:  as the result, The new microservices setup made the system more flexible and easier to maintain. And our marketing campaigns got more effective, the performance improved significantly, and user engagement went up by 25%
