@@ -77,16 +77,9 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-- type: git
-  # repo: git@github.com:no5ix/no5ix.github.io.git,master
-  # 下方的gh_token会被.travis.yml中sed命令替换
-  repo: https://gh_token@github.com/no5ix/no5ix.github.io.git
-  branch: master
-# - type: git
-  # repo: git@git.coding.net:no5ix/blog.git,master
-  # repo: git@e.coding.net:no5ix/blog.git,master
-# - type: git
-  # repo: git@hulinhong.com:blog.git,master
+- type:
+  repo:
+  branch:
 
 search:
   path: search.xml
@@ -97,13 +90,6 @@ search:
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 # plugins: hexo-generate-feed
-
-# algolia:
-#   applicationID: 'FHGT24ISPZ'
-#   apiKey: '69dedbec45eb6249c0d884dff2185b31'
-#   adminApiKey: 'b0be72c8676b07390c2d9569bdf4a82f'
-#   indexName: 'nosix_NAME'
-#   chunkSize: 5000
 
 # # 自动生成sitemap
 # sitemap: 

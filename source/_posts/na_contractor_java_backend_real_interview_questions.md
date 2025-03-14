@@ -56,20 +56,20 @@ I'm good at Java and Spring Boot. I used them to design and run backend systems 
 **requirements**: Prepare 1-2 examples of past projects or jobs where you made a significant impact. Use the STAR method (Situation, Task, Action, Result) to structure your responses. DO NOT READ, we can tell!
 
 - **Project 1**: Russell Investments - Backend Developer (Nov 2022 - Present, Seattle, WA)
-    - **Situation**: First, let me talk about the company I’m currently working for. Russell Investments, I’m a senior backend java developer there. it's a fintech company, because the number of financial transactions was growing very fast, but their old backend couldn’t keep up with new features and increasing user activity, so we needed a stronger backend system.
+    - **Situation**: First, let me talk about the company I’m currently working for. its name is Russell Investments,  it's a fintech company, and our company provides some services like: asset management, investment consulting, and financial advices. I’m a senior backend java developer there. Because the number of financial transactions was growing very fast, but their old backend couldn’t keep up with new features and increasing user activity, so we needed a stronger backend system.
     - **Task**: So my job is to build a scalable microservices-based backend, and optimize the database-related parts and enhance security.
-    - **Action**: So I had to take some actions to finish my task. so First,
-        - **to handle scalability**, I used springboot to developed a modular microservices architecture and designed plenty of RESTful APIs. Each service handled a specific function, like user management, poll management, and data analytics `/ ˌænəˈlɪtɪks /`. 
-        - **to handle database**, I used Redis caching to reduce database load and speed up responses. I also optimized database queries by adding indexes, removing redundant joins.
+    - **Action**: So I had to take some actions to finish my task. so First,(根据从处理数据一点点到部署的顺序记忆)
+        - **to handle scalability**, I used springboot to developed a modular microservices architecture and designed plenty of RESTful APIs. Each service handled a specific function, like user management, poll management, and data analysis. 
         - **to handle security**, I used Spring Security and OAuth2 for authentication and authorization.
         - **to handle data processing**, I used Kafka to make data analysis much faster.
-        - **to handle storage**, I integrated AWS RDS to enhance data management. , integrating third-party analytics `/ ˌænəˈlɪtɪks /` tools.
+        - **to handle database**, I used Redis caching to reduce database load and speed up responses. I also optimized database queries by adding indexes, removing redundant joins.
+        - **to handle storage**, I integrated AWS RDS to enhance data management. , integrating third-party analysis tools.
         - **to handle deployment**, I used Docker and Kubernetes to handle it.
-    - **Result**: as the result, The new microservices architecture made the system more flexible and easier to maintain. and the platform also became more scalable and efficient, like: The system handled **20%** more daily transactions, API response times improved by **30%**. and user engagement went up by **25%** .  
+    - **Result**: as the result, The new microservices architecture made the system more flexible and easier to maintain. and the platform also became more scalable and efficient, like: because our API response times improved by **30%**, so now our system handled **20%** more daily transactions, and user engagement went up by **25%** .
 - **Project 2**: Prodege `/proʊdeɪˈʒeɪ/` - Backend Developer (Aug 2019 - Nov 2022, El Segundo, CA)
     - **Situation**: As for the second company, Prodege, it is an online marketing company, I’m a senior backend java developer there. it was growing fast, but their old backend couldn’t keep up with new features and increasing user activity.
-    - **Task**: so my task was to (I was responsible for building) build a scalable microservices-based backend. This included designing RESTful APIs, integrating third-party analytics `/ ˌænəˈlɪtɪks /` tools, and ensuring high performance and reliability.
-    - **Action**: So I had to take some actions to finish my task. so I developed a modular microservices architecture using Spring Boot. Each service handled a specific function, like user management, poll management, and data analytics `/ ˌænəˈlɪtɪks /`. For real-time data processing, I used Kafka to make data analysis much faster. I also used Docker and Kubernetes to handle deployment.
+    - **Task**: so my task was to (I was responsible for building) build a scalable microservices-based backend. This included designing RESTful APIs, integrating third-party analysis tools, and ensuring high performance and reliability.
+    - **Action**: So I had to take some actions to finish my task. so I developed a modular microservices architecture using Spring Boot. Each service handled a specific function, like user management, poll management, and data analysis. For real-time data processing, I used Kafka to make data analysis much faster. I also used Docker and Kubernetes to handle deployment.
     - **Result**:  as the result, The new microservices setup made the system more flexible and easier to maintain. And our marketing campaigns got more effective, the performance improved significantly, and user engagement went up by 25%
 
 
@@ -77,69 +77,75 @@ I'm good at Java and Spring Boot. I used them to design and run backend systems 
 
 - **Example Question**: If you are working on a sprint and your manager suddenly assigns you a new task that needs to be finished as soon as possible, what would you do?
 - **Example Answer**: 
-    - **General approach**: Usually, This is really normal for me. First I will connect with manager to get an idea on the priority of the task, and reorg my priorities. ( in the middle say something like gotta be a reason manager made the chioce)   
+    - **General approach**: Usually, This is really normal for me. First I will connect with manager to get an idea on the priority of the task, and reorg my priorities. ( in the middle say something like gotta be a reason manager made the choice)   
     - **Personal experience**: for example, I remember once I was working on a ticket to do xxxx, suddenly manager assigned a new ticket for me, it’s hey related to the production issue and the manager thinks I  have the ability to do that.  the production issue is about xxxx (briefly talking). In the final, manager is really happy about how quickly I solved the issue
 
 **15 real** mock questions below:  
 
-1. Describe a major conflict within or outside your team and how you handled it, or how you dealt with a difficult team member.
+1. Why did you leave your last job?
+    - **Personal experience**: 
+        - Because I wanted something more challenging and a job that fit my career plans better. I wanted to find a place where I can use my skills to really make a difference.
+        - That's why I'm really excited about this job at your company. I researched your company and your project, Your company's job description is a total match for my work experience. I can really get things done. And there's also new stuff to learn.
+        - For example, I really like Kafka, but I've never done a whole lot of development with it. This new job seems super suitable for me, and I'm really excited about it.
+        - and I really think I can use the stuff from my old company to help your project succeed.
+2. Describe a major conflict within or outside your team and how you handled it, or how you dealt with a difficult team member.
     - **General approach**: Usually, I first figure out what’s causing the issue, then have a one-on-one chat to talk with the team member. We consider the goals and find a way to reach a compromise, especially when deciding on different approaches.
-    - **Personal experience**: for example, At my previous company, Prodege,, I disagreed with a frontend developer on the API design. He wanted something simple, but I knew we needed something more scalable. After discussing the issue and considering the advantages and disadvantages, we found a compromise that worked, and the project turned out great.
-2. Describe a time when you had difficulty completing a task or making progress.
+    - **Personal experience**: for example, At my previous company, I remember once I disagreed with a frontend developer on the API design. He wanted something simple, but I knew we needed something more scalable. After discussing the issue and considering the advantages and disadvantages, we found a compromise that worked, and the project turned out great.
+3. Describe a time when you had difficulty completing a task or making progress.
     - **General approach**: Usually, I break down the task into smaller parts and figure out what’s causing the issue. I then research solutions and ask for advice from colleagues or online communities if necessary.
     - **Personal experience**: for example, At my previous company, REI, I had trouble dealing with slow database queries for our inventory system.  After breaking them down, I found unoptimized joins. I researched MySQL optimizations and worked with a senior colleague. I added some indexes and reduced query time by 50%.
-3. If your manager asks you to change something that you think is already good enough, how would you handle it?
+4. If your manager asks you to change something that you think is already good enough, how would you handle it?
     - **General approach**: Usually, I listen to my manager’s reasons and then I share my view and show some data to support it. If needed, I think we could come up with a compromise ...
     - **Personal experience**: for example, I remember once I used Memcached to do the caching. but my manager wanted to switch technologies, he wanted to use Redis. So we ran some tests to compare their performance and we found that redis was better, and we found that Redis is also better than Memcached in many other ways. like:
         - for data processing, redis can handle different kinds of data, like lists, sets, and hashes. but Memcached can only deal with key - value pairs.
         - for data persistence, redis can store data on the disk, but memcache can not.
     - so finally, we decided to use redis, because redis is way better than Memcached.
-4. Why do you want to join our team?
+5. Why do you want to join our team?
     <!-- - **General approach**: Usually, I research the company and explain how my skills align with its goals and values. -->
     - **Personal experience**: After researching your company and learning about your work, I realized that the stuff I know, like Java, Springboot, MySQL, Redis, and Kafka from my old job, could really help your project succeed.
-5. Are you familiar with Agile `/ ˈædʒ(ə)l /` processes and Waterfall methodology `/ ˌmeθəˈdɑːlədʒi /`?
+6. Are you familiar with Agile `/ ˈædʒ(ə)l /` processes and Waterfall methodology `/ ˌmeθəˈdɑːlədʒi /`?
     - **General approach**: Agile works in an iterative `/ ˈɪtəreɪtɪv/` way. It breaks work into small cycles. This way, you can get feedback all the time and make changes as you go. Waterfall is different. It's sequential. That means you have to follow the steps one by one.
-    - **Personal experience**: In my experience, Agile is really good for projects that are fast - paced and need to be flexible. for example, At my previous company, IMVU, we used Scrum. We had two - week sprints and daily stand - up meetings. This helped us change things fast based on what users said. But for smaller projects where everything is clearly defined, like a school project, I use Waterfall, When you have a clear plan from the beginning to the end, it's easier to get the work done. ( Both methods are useful in their own ways, but I like Agile better because it can adapt to different situations. )
-6. What does a typical day look like for you?
+    - **Personal experience**: In my experience, Agile is really good for projects that are fast - paced and need to be flexible. for example, At my previous company, we used Scrum. We had two - week sprints and daily stand - up meetings. This helped us change things fast based on what users said. But for smaller projects where everything is clearly defined, like a school project, I use Waterfall, When you have a clear plan from the beginning to the end, it's easier to get the work done. ( Both methods are useful in their own ways, but I like Agile better because it can adapt to different situations. )
+7. What does a typical day look like for you?
     <!-- - **General approach**: Usually, I start by reviewing emails and my to-do list, then spend most of the day coding, with meetings for progress updates or issue - solving. I end the day by updating my progress and planning the next day. -->
     - **Personal experience**: Usually, I start with a stand-up meeting, and then I will reviewing emails and my to-do list, and do some coding, debugging, and attending a code review. At the end of the day, I update my progress and plan for the next day.
-7. What do you think are the most important factors for a successful team?
+8. What do you think are the most important factors for a successful team?
     - **General approach**: Good communication, clear goals, trust, and a positive learning attitude are key for a team to succeed.
     - **Personal experience**: for example, at my previous company, REI, we finished the project earlier and met the new security requirements, because we had clear communication and a very clear goal, and we trust each other and everyone worked as a team.
-8. If you are working on a sprint and your manager suddenly assigns you a new task that needs to be finished as soon as     possible, what would you do?
+9.  If you are working on a sprint and your manager suddenly assigns you a new task that needs to be finished as soon as possible, what would you do?
     - ChatGPT:
         - **General approach**: Usually, I assess the new task, communicate its impact on my current work, and re - prioritize tasks if necessary.
         - **Personal experience**: for example, At Russell Investments, I paused a query optimization task to fix a security vulnerability. With help from a colleague, I completed the fix within a day and returned to my original task.
     - Zihan: 
-        - **General approach**: This is really normal for me. First I will connect with manager to get an idea on the priority `/ praɪˈɔːrəti /` of the task, and reorganize my priorities. ( in the middle say something like gotta be a reason manager made the chioce)   
+        - **General approach**: This is really normal for me. First I will connect with manager to get an idea on the priority `/ praɪˈɔːrəti /` of the task, and reorganize my priorities. ( in the middle say something like gotta be a reason manager made the choice)   
         - **Personal experience**: for example, I remember once I was working on a ticket to implement a new API endpoint, suddenly manager assigned a new ticket for me, it’s related to the production issue, which was about the delays in order processing, and the manager thought I have the ability to do that. Finally, manager is really happy about how quickly I solved the issue. 
-9. Tell me something about yourself that is not on your resume.
+10. Tell me something about yourself that is not on your resume.
     <!-- - **General approach**: Usually, I share hobbies or experiences that have helped develop useful skills. -->
     - **Personal experience**:  I like to develop some productivity tools, like shell tool, I once developed a zshell plugin that can search everything very quickly with the key tab, and I once developed a chrome plugins, which can show the table of content for the web pages, so we can navigate to the chapter whatever we want very quickly, it's very helpful to read the long technical articles, and I introduced these tools to my team members, which helped them complete their work more efficiently and also enhanced my coding skills.
-10. Tell me about a difficult project or challenge you faced and how you handled it.
+11. Tell me about a difficult project or challenge you faced and how you handled it.
     <!-- - **General approach**: Usually, I use the STAR method (Situation, Task, Action, Result) to explain how I overcame challenges. -->
     - **Personal experience**: 
-        - **Situation**: At IMVU, we had to integrate a new payment system into our platform. But this system had really complicated security requirements.
+        - **Situation**: I remember once we had to integrate a new payment system into our platform. But this system had really complicated security requirements.
         - **Task**: My job was to make sure the payment system  was integrated seamlessly , and it should  meet all security standards.
         - **Action**: I did a lot of research. I talked to the support team for the payment system and worked with security experts to figure out the best way to integrate it. I dealt with all the tough parts of authentication and encryption to keep everything safe.
         - **Result**: Finally, I made it work, And because of it, virtual goods purchases increased by 30% as a result. 
-11. Share a time when you made a mistake in a team setting, how you resolved it, and what you learned from the experience.
+12. Share a time when you made a mistake in a team setting, how you resolved it, and what you learned from the experience.
     <!-- - **General approach**: Usually, I admit mistakes early, analyze the cause, fix it, and share lessons learned with the team. -->
     - **Personal experience**: 
-        - **Situation**: At Prodege, I made a mistake and let some sensitive user data show up in an API. It was a security issue.
+        - **Situation**: I remember once I made a mistake and let some sensitive user data show up in an API. It was a security issue.
         - **Task**: I needed to quickly solve the problem to protect user data and make sure this kind of thing didn't happen again in the future.
         - **Action**: I took some actions to fix the security problem. I added checks and controls to limit data access to those who could access the data. Then I held a meeting and made a presentation about this problem. and we discussed how to prevent this kind of problem from happening again in the future.
         - **Result**: After that, our code review process became better and we added stricter security checks and more reviews. 
-12. Do you have on-call experience, and are you comfortable with overnight on-call duties?
+13. Do you have on-call experience, and are you comfortable with overnight on-call duties?
     <!-- - **General approach**: Usually, I discuss my on - call experience or my willingness to handle stress and emergencies if I don’t have experience. -->
     - **Personal experience**: this is very normal for me, I'm totally comfortable with overnight on-call duties. I remember when I was at my REI,  I was on call during busy times. and there was a problem with the database, I fixed it quickly and got the service running again.
-13. Do you know what pair programming is, and what are your thoughts on it?
+14. Do you know what pair programming is, and what are your thoughts on it?
     - **General approach**: yeah, I know pair programming is, it is like two programmers work together, and then we can get some benefits like better code quality and knowledge sharing.
-    - **Personal experience**: when I was at IMVU, we did pair programming. I got to learn a ton from my partner who was really good at it. but our working speeds were different and it was a bit of a challenge, so we set clear goals and swapped roles. TThat made our teamwork better and the code was better too. 
-14. If you are mentoring a junior colleague and they propose a new idea to the team, how would you handle it?
+    - **Personal experience**: when I was at my previous company, we did pair programming. I got to learn a ton from my partner who was really good at it. but our working speeds were different and it was a bit of a challenge, so we set clear goals and swapped roles. TThat made our teamwork better and the code was better too. 
+15. If you are mentoring a junior colleague and they propose a new idea to the team, how would you handle it?
     - **General approach**: Usually, I listen to the idea, I think about it if it's a good solution, and I help them show it to the team.
     - **Personal experience**: for example, At my current company, Russell Investments, a junior colleague proposed a new tool for API testing, API tester. I checked how it would work with our project, and and it's much easier to integrate into our CI/CD workflow. I encouraged them to show it to the team, and the team agreed to use the idea.
-15. Describe your code review process. What do you focus on during a code review?
+16. Describe your code review process. What do you focus on during a code review?
     - **General approach**: Usually, I focus on making code easy to read, and check if it has security risk and some performance problems, and make sure it follows our coding standards.
     - **Personal experience**: For example, when I was doing a code review, I found variable names that were not clear, or a security problem like some colleagues didn't check the access permissions in their APIs, or some performance issues like redundant for loops to search something. We fixed those things, and the code became better and more secure. 
 
