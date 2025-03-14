@@ -23,12 +23,12 @@
   a {
     the-transition();
     transition-property: all;
-    color: $toc-link-color;
+    color: var(--toc-link-color);
     border-bottom-color: $toc-link-border-color;
 
     &:hover {
-      color: $toc-link-hover-color;
-      border-bottom-color: $toc-link-hover-border-color;
+      color: var(--toc-link-hover-color);
+      border-bottom-color: var(--toc-link-hover-border-color);
     }
   }
 }
@@ -91,14 +91,14 @@
 }
 
 .post-toc .nav .active > a {
-  color: $toc-link-active-color;
-  border-bottom-color: $toc-link-active-border-color;
+  color: var(--toc-link-active-color);
+  border-bottom-color: var(--toc-link-active-border-color);
 }
 
 .post-toc .nav .active-current > a {
-  color: $toc-link-active-current-color;
+  color: var(--toc-link-active-current-color);
   &:hover {
-    color: $toc-link-active-current-border-color;
+    color: var(--toc-link-active-current-border-color);
   }
 }
 

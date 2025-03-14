@@ -9,13 +9,13 @@
   z-index: $zindex-5;
   box-shadow: 2px 0px 8px rgba(0,0,0,0.65);
 
-  background: $black-deep;
+  background: var(--sidebar-background-color);
   -webkit-transform: translateZ(0); // http://stackoverflow.com/questions/17079857/position-fixed-broken-in-chrome-with-flash-behind
 
   a {
-    color: $grey-dark;
+    color: var(--link-color);
     border-bottom-color: $black-light;
-    &:hover { color: $gainsboro; }
+    &:hover { color: var(--link-hover-color); }
   }
 
   +tablet() {

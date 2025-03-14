@@ -11,7 +11,7 @@
   font-size: 13px;
   color: $sidebar-nav-color;
 
-  &:hover { color: $sidebar-nav-hover-color; }
+  &:hover { color: var(--sidebar-highlight) }
 }
 
 .page-post-detail .sidebar-nav-toc { padding: 0 5px; }
@@ -19,10 +19,10 @@
 .page-post-detail .sidebar-nav-overview { margin-left: 10px; }
 
 .sidebar-nav .sidebar-nav-active {
-  color: $sidebar-highlight;
-  border-bottom-color: $sidebar-highlight;
+  color: var(--sidebar-highlight);
+  border-bottom-color: var(--sidebar-highlight);
 
-  &:hover { color: $sidebar-highlight; }
+  &:hover { color: var(--sidebar-highlight); }
 }
 
 .sidebar-panel { display: none; }
