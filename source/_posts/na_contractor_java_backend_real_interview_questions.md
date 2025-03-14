@@ -60,12 +60,12 @@ I'm good at Java and Spring Boot. I used them to design and run backend systems 
     - **Task**: So my job is to build a scalable microservices-based backend, and optimize the database-related parts and enhance security.
     - **Action**: So I had to take some actions to finish my task. so First,
         - **to handle scalability**, I used springboot to developed a modular microservices architecture and designed plenty of RESTful APIs. Each service handled a specific function, like user management, poll management, and data analytics `/ ˌænəˈlɪtɪks /`. 
-        - **to optimize database-related parts**, I used Redis caching to reduce database load and speed up responses. I also optimized database queries by adding indexes, removing redundant joins.
-        - **to process data**, I used Kafka to make data analysis much faster.
-        - **to handle deployment**, I used Docker and Kubernetes to handle it.
-        - **to strengthen security**, I used Spring Security and OAuth2 for authentication and authorization.
+        - **to handle database**, I used Redis caching to reduce database load and speed up responses. I also optimized database queries by adding indexes, removing redundant joins.
+        - **to handle security**, I used Spring Security and OAuth2 for authentication and authorization.
+        - **to handle data processing**, I used Kafka to make data analysis much faster.
         - **to handle storage**, I integrated AWS RDS to enhance data management. , integrating third-party analytics `/ ˌænəˈlɪtɪks /` tools.
-    - **Result**: as the result, The system handled **20%** more daily transactions, API response times improved by **30%**. and user engagement went up by **25%** . and the platform became more scalable and efficient. The new microservices setup made the system more flexible and easier to maintain.
+        - **to handle deployment**, I used Docker and Kubernetes to handle it.
+    - **Result**: as the result, The new microservices architecture made the system more flexible and easier to maintain. and the platform also became more scalable and efficient, like: The system handled **20%** more daily transactions, API response times improved by **30%**. and user engagement went up by **25%** .  
 - **Project 2**: Prodege `/proʊdeɪˈʒeɪ/` - Backend Developer (Aug 2019 - Nov 2022, El Segundo, CA)
     - **Situation**: As for the second company, Prodege, it is an online marketing company, I’m a senior backend java developer there. it was growing fast, but their old backend couldn’t keep up with new features and increasing user activity.
     - **Task**: so my task was to (I was responsible for building) build a scalable microservices-based backend. This included designing RESTful APIs, integrating third-party analytics `/ ˌænəˈlɪtɪks /` tools, and ensuring high performance and reliability.
@@ -90,7 +90,10 @@ I'm good at Java and Spring Boot. I used them to design and run backend systems 
     - **Personal experience**: for example, At my previous company, REI, I had trouble dealing with slow database queries for our inventory system.  After breaking them down, I found unoptimized joins. I researched MySQL optimizations and worked with a senior colleague. I added some indexes and reduced query time by 50%.
 3. If your manager asks you to change something that you think is already good enough, how would you handle it?
     - **General approach**: Usually, I listen to my manager’s reasons and then I share my view and show some data to support it. If needed, I think we could come up with a compromise ...
-    - **Personal experience**: for example, At Russell Investments, I implemented Memcached caching, which improved performance. However, my manager wanted to switch technologies, Redis, We ran tests on a new solution to monitor performance and compare it with Redis. Finally, we found that redis was better, so we decided to use redis.
+    - **Personal experience**: for example, I remember once I used Memcached to do the caching. but my manager wanted to switch technologies, he wanted to use Redis. So we ran some tests to compare their performance and we found that redis was better, and we found that Redis is also better than Memcached in many other ways. like:
+        - for data processing, redis can handle different kinds of data, like lists, sets, and hashes. but Memcached can only deal with key - value pairs.
+        - for data persistence, redis can store data on the disk, but memcache can not.
+    - so finally, we decided to use redis, because redis is way better than Memcached.
 4. Why do you want to join our team?
     <!-- - **General approach**: Usually, I research the company and explain how my skills align with its goals and values. -->
     - **Personal experience**: After researching your company and learning about your work, I realized that the stuff I know, like Java, Springboot, MySQL, Redis, and Kafka from my old job, could really help your project succeed.
