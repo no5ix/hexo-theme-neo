@@ -117,7 +117,7 @@ on:
   push:
     branches:
       - source  # default branch
-
+  workflow_dispatch:  # 允许手动触发, blog-post-source那边的github actions workflow 会触发这里来部署
 jobs:
   pages:
     runs-on: ubuntu-latest
