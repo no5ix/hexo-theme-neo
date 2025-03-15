@@ -128,6 +128,15 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
           submodules: recursive
+      - name: 1.5. fetch blog_post_source
+        uses: actions/checkout@v4
+        with:
+          repository: no5ix/blog-post-source
+          token: ${{ secrets.FETCH_BLOG_POST_SOURCE_TOKEN }}  # GitHub Token
+          path: blog-post-source_repo  # 把 B 仓库的内容放到 blog-post-source_repo 目录
+      - name: 1.8. Move blog-post-source's source directory to hexo-theme-neo repository root  # 移动 B 仓库的 source 目录到 A 仓库根目录
+        run: |
+          mv blog-post-source_repo/source ./
       - name: 2. 安装 Node.js # Setup Node, 这个node版本很关键, 不要乱改
         uses: actions/setup-node@v4
         with:
