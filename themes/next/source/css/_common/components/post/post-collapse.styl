@@ -105,7 +105,11 @@
 
     a {
       color: var(--link-color);
-      border-bottom: none;
+      border-bottom-color: var(--toc-link-border-color);
+
+      &:hover {
+        color: var(--link-hover-color);
+      }
     }
   }
 }
