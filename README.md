@@ -1,6 +1,9 @@
-# A optimized hexo-theme-next
 
-I've optimized the [original NexT theme](https://github.com/iissnan/hexo-theme-next) through numerous code modifications, including:
+# A optimized Hexo & Next
+
+**This blog is powered by this project**
+
+I've optimized the [original NexT theme](https://github.com/iissnan/hexo-theme-next) and many [hexo](https://hexo.io) plugins through numerous code modifications, including:
 
 - Implemented headroom.js for auto-hiding header: hides on downward scroll, reappears on upward scroll
 - The optimization of the animation. Now, even an extremely long blog article with tens of thousands of words won't freeze.
