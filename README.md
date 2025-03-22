@@ -13,7 +13,7 @@ I've optimized the [original NexT theme](https://github.com/iissnan/hexo-theme-n
     - Unified sidebar behavior between mobile/desktop
     - Scrollable table of contents on mobile
 - Added article encryption support
-- Replaced Fancybox with mediumzoom for superior image zoom experience
+- Replaced **Fancybox** with **mediumzoom** for superior image zoom experience
 - Redesigned local search engine:
     - Fixed keyboard pop-up issues on mobile
     - Excludes encrypted articles from search results
