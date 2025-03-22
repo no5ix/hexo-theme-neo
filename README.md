@@ -33,7 +33,7 @@ I've optimized the [original NexT theme](https://github.com/iissnan/hexo-theme-n
     - 移动端的文章目录列表现在可以滑动了
 - 添加了文章加密的支持
 <!-- - 升级到了fancybox3并完成适配, 3更流畅且拥有更多效果 -->
-- 舍弃了fancybox, 用mediumzoom拥有更好的图片zoom的效果
+- 舍弃了 **fancybox**, 用 **mediumzoom** 拥有更好的图片zoom的效果
 - 重做了本地搜索引擎
     - 现在移动端不会经常无故弹不出键盘了
     - 也不会列出加密文章的内容了
